@@ -1,0 +1,85 @@
+* {
+	font-size: 12px;
+	font-family: monospace;
+}
+
+#waybar {
+  background: #292b2e;
+	color: #fdf6e3;
+}
+
+#custom-right-arrow-dark,
+#custom-left-arrow-dark {
+	color: #1a1a1a;
+}
+#custom-right-arrow-light,
+#custom-left-arrow-light {
+	color: #292b2e;
+	background: #1a1a1a;
+}
+
+#workspaces,
+#clock.1,
+#clock.2,
+#clock.3,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#disk,
+#tray,
+#temperature,
+#gamemode {
+	background: #1a1a1a;
+}
+
+#window {
+  padding: 0 5px;
+}
+#workspaces button {
+	padding: 0 1px;
+	color: #fdf6e3;
+}
+#workspaces button.focused {
+  color: #1a1a1a;
+}
+#workspaces button:hover {
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+#workspaces button:hover {
+	background: #292b2e;
+	border: #292b2e;
+	padding: 0 1px;
+}
+
+#pulseaudio {
+	color: #fdf6e3;
+}
+#memory {
+	color: #2aa198;
+}
+#cpu {
+	color: #6c71c4;
+}
+#battery {
+	color: #859900;
+}
+#disk {
+	color: #b58900;
+}
+#temperature {
+  color: #f4bc67;
+}
+
+#clock,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#disk,
+#tray,
+#temperature,
+#gamemode {
+	padding: 0 5px;
+}
