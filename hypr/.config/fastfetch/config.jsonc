@@ -55,7 +55,7 @@
       {
           "type": "host",
           "format": "{5} {1} | MODEL {2}",
-          "key": "PC   ",
+          "key": "SPECS",
           "keyColor": "31"
       },
       {
