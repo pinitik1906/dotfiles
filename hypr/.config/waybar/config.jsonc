@@ -1,18 +1,16 @@
-// -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 22, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
-    // Choose the order of the modules
+    
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
     ],
+    
     "modules-center": [
         "clock"
     ],
+    
     "modules-right": [
         "gamemode",
         "temperature",
@@ -20,11 +18,13 @@
         "pulseaudio",
         "tray"
     ],
+    
     // Modules configuration
-  	"gamemode": {
-  	"format": "running",
-  	"format-alt": "running {count}"
+    "gamemode": {
+        "format": "running",
+        "format-alt": "running {count}"
     },
+
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -35,21 +35,20 @@
     "tray": {
         "spacing": 4
     },
+    
     "clock": {
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%b %d %A}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%a %b %d, %Y %H:%M:%S}",
       	"interval": 1
     },
+    
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
         "tooltip": false,
       	"format": "{temperatureC}°C {icon}",
         "format-icons": [" ", "", " "]
     },
+    
     "battery": {
         "states": {
         "warning": 30,
@@ -61,9 +60,11 @@
         "format-plugged": "{capacity}% ",
         "format-icons": [" ", " ", " ", " ", " "]
     },
+    
     "battery#bat2": {
         "bat": "BAT2"
     },
+    
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
@@ -82,5 +83,5 @@
             "default": ["", " ", " "]
         },
         "on-click": "pavucontrol"
-    },
+    }
 }
