@@ -1,4 +1,4 @@
-window {
+#window {
 margin: 0px;
 background-color: #1a1a1a;
 }
@@ -34,5 +34,5 @@ color: #f8f8f2;
 }
 
 #entry:selected {
-background-color: #4374ae;
+background-color: #292b2e;
 }
