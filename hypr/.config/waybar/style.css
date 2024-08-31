@@ -37,20 +37,11 @@
   padding: 0 5px;
 }
 #workspaces button {
-	padding: 0 1px;
+	padding: 0 0px;
 	color: #fdf6e3;
 }
 #workspaces button.focused {
   color: #1a1a1a;
-}
-#workspaces button:hover {
-	box-shadow: inherit;
-	text-shadow: inherit;
-}
-#workspaces button:hover {
-	background: #292b2e;
-	border: #292b2e;
-	padding: 0 1px;
 }
 
 #pulseaudio {
