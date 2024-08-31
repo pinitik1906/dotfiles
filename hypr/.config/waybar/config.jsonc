@@ -25,13 +25,6 @@
         "format-alt": "running {count}"
     },
 
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
     "tray": {
         "spacing": 4
     },
