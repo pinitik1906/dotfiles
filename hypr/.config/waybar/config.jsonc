@@ -26,12 +26,12 @@
     },
 
     "tray": {
-        "spacing": 4
+        "spacing": 0
     },
     
     "clock": {
-        "tooltip-format": "<big>{:%b %d %A}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%a %b %d, %Y %H:%M:%S}",
+        "tooltip-format": "<big>{:%A}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%b %d, %Y %H:%M:%S}",
       	"interval": 1
     },
     
