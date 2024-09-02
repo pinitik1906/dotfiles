@@ -1,7 +1,5 @@
-font=hack
 font-size=16
 color=000000
 inside-color=282828
 image=~/.wallpapers/small.png
 ignore-empty-password
-daemonize
