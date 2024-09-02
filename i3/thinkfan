@@ -1,3 +1,0 @@
-#!/bin/bash
-
-sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi && sudo systemctl start thinkfan
