@@ -11,3 +11,4 @@ PS1='\[\e[1;31m\][\[\e[1;33m\]\u\[\e[1;32m\]@\[\e[1;34m\]\h \[\e[1;35m\]\w\[\e[1
 
 fastfetch --logo small --logo-color-1 33 --logo-color-2 31 --logo-padding-left 4 --logo-padding-top 5
 alias lf="ranger"
+alias thinkfan="sudo ~/.scripts/thinkfan"
