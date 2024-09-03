@@ -29,12 +29,15 @@
 #disk,
 #tray,
 #temperature,
-#gamemode {
+#gamemode,
+#network,
+#bluetooth,
+#privacy {
 	background: #1a1a1a;
 }
 
 #window {
-  padding: 0 5px;
+  padding: 0 3px;
 }
 #workspaces button {
 	padding: 0 0px;
@@ -71,6 +74,9 @@
 #disk,
 #tray,
 #temperature,
-#gamemode {
-	padding: 0 5px;
+#gamemode,
+#network,
+#bluetooth,
+#privacy {
+	padding: 0 3px;
 }

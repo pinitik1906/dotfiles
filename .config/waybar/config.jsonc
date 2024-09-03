@@ -12,7 +12,10 @@
     ],
     
     "modules-right": [
+        "privacy",
         "gamemode",
+        "network",
+        "bluetooth",
         "temperature",
         "battery",
         "pulseaudio",
@@ -20,8 +23,53 @@
     ],
     
     // Modules configuration
+    "privacy": {
+        "icon-spacing": 6,
+        "icon-size": 10, // must be the same size as the font size in style.css
+        "transition-duration": 0,
+        "modules": [
+    {
+            "type": "screenshare",
+            "tooltip": true,
+            "tooltip-icon-size": 24
+    },
+    {
+            "type": "audio-out",
+            "tooltip": true,
+            "tooltip-icon-size": 24
+    },
+    {
+            "type": "audio-in",
+            "tooltip": true,
+            "tooltip-icon-size": 24
+    }
+    ]
+    },
+
+    "bluetooth": {
+        "format": " {status} |",
+        "format-connected": " {device_alias} |",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}% |",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected |",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate} |",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address} |",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}% |"
+    },
+    
+    "network": {
+        "format": "{ifname} |",
+        "format-wifi": " {essid} ({signalStrength}%) |",
+        "format-ethernet": "󰊗 {ipaddr}/{cidr} |",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "󰊗 {ifname} via {gwaddr}",
+        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": " {ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+
     "gamemode": {
-        "format": "running",
+        "format": "running |",
         "format-alt": "running {count}"
     },
 
@@ -38,8 +86,8 @@
     "temperature": {
         "critical-threshold": 80,
         "tooltip": false,
-      	"format": "{temperatureC}°C {icon}",
-        "format-icons": [" ", "", " "]
+      	"format": "{temperatureC}°C {icon} |",
+        "format-icons": ["", "", ""]
     },
     
     "battery": {
@@ -47,11 +95,11 @@
         "warning": 30,
         "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-icons": [" ", " ", " ", " ", " "]
+        "format": "{capacity}% {icon} |",
+        "format-full": "{capacity}% {icon} |",
+        "format-charging": "{capacity}%  |",
+        "format-plugged": "{capacity}%  |",
+        "format-icons": ["", "", "", "", ""]
     },
     
     "battery#bat2": {
@@ -60,20 +108,20 @@
     
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format": "{volume}% {icon} {format_source} |",
+        "format-bluetooth": "{volume}% {icon} {format_source} |",
+        "format-bluetooth-muted": "{icon} {format_source} |",
+        "format-muted": "{format_source}",
         "format-source": "{volume}% ",
-        "format-source-muted": " ",
+        "format-source-muted": "",
         "format-icons": {
-            "headphone": " ",
-            "hands-free": " ",
-            "headset": " ",
-            "phone": " ",
-            "portable": " ",
-            "car": " ",
-            "default": ["", " ", " "]
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
     }
