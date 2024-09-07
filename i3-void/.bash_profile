@@ -1,7 +1,7 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export BROWSER="firefox"
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
