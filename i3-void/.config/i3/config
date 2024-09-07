@@ -32,7 +32,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 
 # exec_always xrandr --output eDP-1 --mode 1024x768
-exec --no-startup-id pipewire &
 exec --no-startup-id dunst &
 # exec --no-startup-id dbus-update-activation-environment DISPLAY
 exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
@@ -49,6 +48,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 bindsym Print exec flameshot gui -c -p /home/dompitik/pic/screenshots
 bindsym Control+Print exec flameshot full -c -p /home/dompitik/pic/screenshots
+bindsym $mod+Mod1+c exec ffplay -fast /dev/video0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
