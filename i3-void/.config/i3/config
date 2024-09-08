@@ -49,6 +49,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 bindsym Print exec flameshot gui -c -p /home/dompitik/pic/screenshots
 bindsym Control+Print exec flameshot full -c -p /home/dompitik/pic/screenshots
 bindsym $mod+Mod1+c exec ffplay -fast /dev/video0
+bindsym $mod+w exec firefox
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -58,7 +59,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+t exec alacritty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -90,8 +91,8 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+# bindsym $mod+s layout stacking
+# bindsym $mod+t layout tabbed
 bindsym $mod+o layout toggle split
 
 # toggle tiling / floating
