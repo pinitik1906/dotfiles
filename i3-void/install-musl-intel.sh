@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo xbps-install -Su elogind seatd polkit dbus xorg-minimal xss-lock i3 i3lock polybar noto-fonts-ttf noto-fonts-emoji fastfetch xorg-fonts ueberzug alacritty neovim mpv pipewire bluez bluez-utils libspa-bluetooth udisks2 ranger ufw pavucontrol dunst dmenu linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel brightnessctl feh zig gcc clang ffmpeg ffmpegthumbnailer
+sudo xbps-install -Su elogind seatd polkit dbus xorg-minimal xss-lock i3 i3lock polybar noto-fonts-ttf noto-fonts-emoji fastfetch xorg-fonts ueberzug alacritty neovim mpv pipewire bluez bluez-utils libspa-bluetooth udisks2 ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji xclip xdotools xtools linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel brightnessctl feh zig gcc clang ffmpeg ffmpegthumbnailer
 
 sudo ln -s /etc/sv/elogind /var/service/ && sudo ln -s /etc/sv/seatd /var/service && sudo ln -s /etc/sv/polkitd/ /var/service && sudo ln -s /etc/sv/dbus /var/service && sudo ln -s /etc/sv/ufw /var/service
 
