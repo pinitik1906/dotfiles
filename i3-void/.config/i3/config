@@ -46,10 +46,12 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 10%+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
-bindsym Print exec flameshot gui -c -p /home/dompitik/pic/screenshots
-bindsym Control+Print exec flameshot full -c -p /home/dompitik/pic/screenshots
+# bindsym Print exec flameshot gui -c -p /home/dompitik/pic/screenshots
+# bindsym Control+Print exec flameshot full -c -p /home/dompitik/pic/screenshots
 bindsym $mod+Mod1+c exec ffplay -fast /dev/video0
 bindsym $mod+w exec firefox
+bindsym Print --release exec scrot ~/pic/screenshots/%Y-%m-%d-%T-screenshot.png --select --line mode=edge
+bindsym Control+Print exec scrot ~/pic/screenshots/%Y-%m-%d-%T-screenshot.png -f
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
