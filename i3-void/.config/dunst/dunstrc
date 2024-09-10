@@ -1,10 +1,10 @@
 [global]
 monitor = 0
 follow = mouse
-width = 300
+width = 250
 height = 300
-origin = bottom-right
-offset = 7x7
+origin = top-center
+offset = 23x23
 scale = 0
 notification_limit = 20
 progress_bar = true
