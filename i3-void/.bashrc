@@ -17,7 +17,6 @@ alias xif="xbps-query -f"
 alias yt-dlp="yt-dlp -S res:1080"
 alias reboot="doas reboot"
 alias poweroff="doas poweroff"
-alias rm="rm -rfv"
 alias bctl="bluetoothctl"
 
-fastfetch --logo-color-2 37 --logo-padding-left 3 --logo-padding-top 1
+fastfetch --logo-color-2 37 --logo-padding-left 3 --logo-padding-top 2
