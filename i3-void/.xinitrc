@@ -1,5 +1,6 @@
-dunst &
-feh --bg-fill ~/wal/113.png &
+pgrep -x sxhkd > /dev/null || sxhkd &
+exec xrdb ~/.Xresources &
 exec pipewire &
+exec dunst &
 
-exec i3
+exec bspwm
