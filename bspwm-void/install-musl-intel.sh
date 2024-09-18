@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo xbps-install -Suv elogind seatd polkit dbus xorg-minimal xss-lock bspwm sxhkd i3lock polybar noto-fonts-ttf noto-fonts-emoji fastfetch xorg-fonts ueberzug rxvt-unicode neovim mpv pipewire bluez bluez-utils libspa-bluetooth udisks2 ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji xclip xtools linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel brightnessctl feh zig gcc clang ffmpeg ffmpegthumbnailer opendoas scrot xrdb xcolor
+sudo xbps-install -Suv elogind seatd polkit dbus xorg-minimal xss-lock bspwm sxhkd i3lock polybar noto-fonts-ttf noto-fonts-emoji fastfetch xorg-fonts ueberzug rxvt-unicode neovim mpv pipewire bluez bluez-utils libspa-bluetooth udisks2 ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji xclip xdotool xtools linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel brightnessctl feh zig gcc clang ffmpeg ffmpegthumbnailer opendoas scrot xrdb xcolor acpi
 
 xcheckrestart
 

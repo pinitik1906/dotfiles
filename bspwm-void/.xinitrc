@@ -1,6 +1,6 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
-exec xrdb ~/.Xresources &
-exec pipewire &
-exec dunst &
+xrdb ~/.Xresources &
+pipewire &
+dunst &
 
 exec bspwm
