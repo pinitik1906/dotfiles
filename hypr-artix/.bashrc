@@ -14,6 +14,8 @@ alias pr="yay -Rnsudd"
 alias pi="yay -Syu --needed"
 alias pq="yay"
 alias pf="yay -Ql"
+alias reboot="sudo reboot"
+alias poweroff="sudo poweroff"
 alias yt-dlp="yt-dlp -S res:1080"
 alias bctl="bluetoothctl"
 
