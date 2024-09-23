@@ -6,7 +6,7 @@
 # these are not from the free repos
 # sudo -Suv intel-ucode mesa-dri-32bit
 
-sudo xbps-install -Suv elogind seatd polkit dbus xorg-minimal xorg-fonts xrdb xcolor xf86-video-intel linux-firmware-intel linux-headers mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel pipewire bluez bluez-utils libspa-bluetooth base-devel xss-lock bspwm sxhkd i3lock noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk fastfetch ueberzug rxvt-unicode neovim mpv udisks2 ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji xsel xclip xdotool xtools brightnessctl nsxiv zig gcc clang ffmpeg ffmpegthumbnailer opendoas scrot acpi
+sudo xbps-install -Suv elogind seatd polkit dbus xorg-minimal xinit xorg-fonts xrdb xcolor xf86-video-intel linux-firmware-intel linux-headers mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel pipewire bluez bluez-utils libspa-bluetooth base-devel xss-lock bspwm sxhkd i3lock noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk fastfetch ueberzug rxvt-unicode neovim mpv udisks2 ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji xsel xclip xdotool xtools brightnessctl nsxiv zig gcc clang ffmpeg ffmpegthumbnailer opendoas scrot acpi
 
 sudo ln -s /etc/sv/elogind /var/service/ && sudo ln -s /etc/sv/seatd /var/service && sudo ln -s /etc/sv/polkitd/ /var/service && sudo ln -s /etc/sv/dbus /var/service && sudo ln -s /etc/sv/ufw /var/service
 
