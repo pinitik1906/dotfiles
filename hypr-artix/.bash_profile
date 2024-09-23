@@ -6,6 +6,7 @@ export VISUAL="nvim"
 export TERMINAL="foot"
 export BROWSER="firefox"
 export MAIL="thunderbird"
+export LIBVA_DRIVER_NAME="i965"
 
 /usr/bin/pipewire &
 /usr/bin/pipewire-pulse &
