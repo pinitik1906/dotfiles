@@ -18,5 +18,6 @@ alias yt-dlp="yt-dlp -S res:1080"
 alias reboot="doas reboot"
 alias poweroff="doas poweroff"
 alias bctl="bluetoothctl"
+alias sudo="doas"
 
-fastfetch --logo-color-2 37 --logo-padding-left 3 --logo-padding-top 2
+fastfetch --logo-color-2 37 --logo-padding-left 3 --logo-padding-top 1

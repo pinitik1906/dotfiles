@@ -7,11 +7,10 @@ alt + shift + semicolon
 
 # xcolor
 alt + p
-  xcolor -f HEX -s clipboard
+	xcolor -f HEX -s clipboard
 
 alt + shift + p
-  xcolor -f rgb -s clipboard
-
+	xcolor -f rgb -s clipboard
 
 # printscreen
 @Print
@@ -22,7 +21,7 @@ control + @Print
 
 # camera
 control + alt + c
-  ffplay -fast /dev/video0
+	ffplay -fast /dev/video0
 
 # brightness keys
 XF86MonBrightnessUp
@@ -87,7 +86,7 @@ alt + q
 
 # state/flags
 alt + f
-	bspc node focused.tiled -t fullscreen
+	bspc node -t fullscreen
 
 alt + t
 	bspc node focused.fullscreen -t tiled
