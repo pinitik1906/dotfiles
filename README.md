@@ -1,4 +1,9 @@
 # faq
+## why-tier-1-mirror?
+taken from the [void-handbook](https://xmirror.voidlinux.org) 
+
+"The **tier 1 mirrors** sync directly from the build servers and will always have the latest packages available. While **tier 2 mirrors** are not managed by Void and do not have any guarantees of freshness or completeness of packages, nor are they required to sync every available architecture or sub-repository."
+
 ## customizing-gtk-themes
 use `lxappearance` (X11) or `nwg-look` (Wayland)
 
