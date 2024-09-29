@@ -15,28 +15,37 @@ sudo xbps-install -Suvy
 # installing the latest kernel (you need to reboot and boot it to latest kernel, then do `sudo vkpurge rm all` and `sudo xbps-remove -ROoFfvy linux linux-headers`)
 # sudo xbps-install -Suvy linux-mainline linux-mainline-headers
 
+# enabling void-src
+# git clone --depth 1 https://github.com/void-linux/void-packages.git ~/git/void-packages && cd ~/git/void-packages && ./xbps-src binary-bootstrap && echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
+
+# installing msttcorefonts (NEEDS VOID-SRC OPTION ENABLED)
+# cd ~/git/void-packages && ./xbps-src -f pkg msttcorefonts && sudo xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
+
+# installing and enabling zramen
+# sudo xbps-install -Suvy zramen && sudo ln -s /etc/sv/zramen/ /var/service/
+
 # enable backlight for saving previous brightness you've set after rebooting your pc
 # git clone --depth 1 https://github.com/madand/runit-services.git ~/git/runit-services && sudo cp -r ~/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service/
 
-# install psd (profile-sync-daemon) (optional but recommended as it reduces HDD/SSD calls, thus speeding up the browser)
+# installing and enabling psd (profile-sync-daemon) (optional but recommended as it reduces HDD/SSD calls, thus speeding up the browser)
 # sudo xbps-install -Suvy coreutils findutils kmod rsync && sudo ln -s /etc/sv/rsyncd/ /var/service/ && git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git ~/git/profile-sync-daemon && cd ~/git/profile-sync-daemon && make && sudo make install && sudo rm -rf /usr/lib/systemd/ && git clone --depth 1 https://github.com/madand/runit-services ~/git/runit-services && sudo cp -r ~/git/runit-services/psd /etc/sv/ && sudo ln -s /etc/sv/psd/ /var/service/
 
-# install thinkfan (thinkpads only)
+# installing and enabling thinkfan (thinkpads only)
 # git clone --depth 1 https://github.com/madand/runit-services.git ~/git/runit-services && sudo cp -r ~/git/runit-services/thinkfan /etc/sv/ && sudo xbps-install -Suvy thinkfan && sudo ln -s /etc/sv/thinkfan/ /var/service/
 
-# install thermald (also supports tlp)
+# installing and enabling thermald (also supports tlp)
 # sudo xbps-install -Suvy thermald && sudo ln -s /etc/sv/thermald/ /var/service/
 
 # installing tlp
 # sudo xbps-install -Suvy tlp && sudo ln -s /etc/sv/tlp/ /var/service/
 
-# enable bluetooth with pipewire and alsa
+# enabling bluetooth with pipewire and alsa
 # sudo xbps-install -Suvy bluez bluez-alsa libspa-bluetooth && sudo ln -s /etc/sv/bluetoothd/ /var/service
 
 # installing alsa-pipewire
 # sudo xbps-install -Suvy alsa-pipewire && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 
-# replace wpa_supplicant with NetworkManager
+# installing NetworkManager as a wpa_supplicant frontend
 # sudo xbps-install -Suvy NetworkManager && sudo ln -s /etc/sv/NetworkManager/ /var/service/ && sudo rm -rf /var/service/wpa_supplicant
 
 ###### OPTIONAL SECTIONS ######
@@ -48,7 +57,10 @@ sudo xbps-install -Suvy
 # sudo xbps-install -Suvy bspwm sxhkd rxvt-unicode i3lock xinit xrdb xcolor xss-lock xsel xclip xdotool ueberzug ffmpegthumbnailer redshift scrot
 
 # install hyprland (glibc_Wayland)
-# sudo rm -rf /etc/xbps.d/00-hyprland-void.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker xdg-desktop-portal-hyprland foot swaylock wlsunset wl-clipboard wtype
+# sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker xdg-desktop-portal-hyprland foot swaylock wlsunset wl-clipboard wtype && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/git/hyprshot && ln -s ~/git/hyprshot ~/.local/bin/ && chmod +x ~/git/hyprshot/hyprshot
+
+# install hyprland (musl_Wayland)
+# sudo rm -rf /etc/xbps.d/00-hyprland-void-musl.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-musl" | sudo tee -a /etc/xbps.d/00-hyprland-void-musl.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker xdg-desktop-portal-hyprland foot swaylock wlsunset wl-clipboard wtype && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/git/hyprshot && ln -s ~/git/hyprshot ~/.local/bin/ && chmod +x ~/git/hyprshot/hyprshot
 
 ###### WINDOW MANAGERS ######
 
