@@ -3,7 +3,7 @@ alt + semicolon
 	rofi -show emoji
 
 alt + shift + semicolon
-	rofi -show calc
+	rofi -show calc -modi calc -no-show-match -no-sort
 
 # xcolor
 alt + p
@@ -17,7 +17,7 @@ alt + shift + p
 	scrot ~/stuffs/pic/screenshots/%Y-%m-%d-%T-screenshot.png -s --line mode=edge && notify-send -t 1250 "screenshot taken"
 
 control + @Print
-	scrot ~/stuffs/pic/screenshots/%Y-%m-%d-%T-screenshot.png -f | notify-send -t 1250 "screenshot taken"
+	scrot ~/stuffs/pic/screenshots/%Y-%m-%d-%T-screenshot.png -f && notify-send -t 1250 "screenshot taken"
 
 # camera
 control + alt + c
@@ -63,7 +63,7 @@ alt + comma
 
 # program launcher
 alt + d
-	rofi -terminal $TERMINAL -show drun -icon-theme "AdwaitaLegacy" -show-icons
+	rofi -terminal $TERMINAL -show drun -icon-theme "Adwaita" -show-icons
 
 
 # Reload sxhkd
