@@ -22,22 +22,22 @@ sudo xbps-install -Suvy
 # cd ~/git/void-packages && ./xbps-src -f pkg msttcorefonts && sudo xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
 # installing and enabling zramen
-# sudo xbps-install -Suvy zramen && sudo ln -s /etc/sv/zramen/ /var/service/
+# sudo xbps-install -Suvy zramen && sudo ln -s /etc/sv/zramen/ /var/service
 
 # enable backlight for saving previous brightness you've set after rebooting your pc
-# git clone --depth 1 https://github.com/madand/runit-services.git ~/git/runit-services && sudo cp -r ~/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service/
+# git clone --depth 1 https://github.com/madand/runit-services.git ~/git/runit-services && sudo cp -r ~/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service
 
 # installing and enabling psd (profile-sync-daemon) (optional but recommended as it reduces HDD/SSD calls, thus speeding up the browser)
-# sudo xbps-install -Suvy coreutils findutils kmod rsync && sudo ln -s /etc/sv/rsyncd/ /var/service/ && git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git ~/git/profile-sync-daemon && cd ~/git/profile-sync-daemon && make && sudo make install && sudo rm -rf /usr/lib/systemd/ && git clone --depth 1 https://github.com/madand/runit-services ~/git/runit-services && sudo cp -r ~/git/runit-services/psd /etc/sv/ && sudo ln -s /etc/sv/psd/ /var/service/
+# sudo xbps-install -Suvy coreutils findutils kmod rsync && sudo ln -s /etc/sv/rsyncd/ /var/service && git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git ~/git/profile-sync-daemon && cd ~/git/profile-sync-daemon && make && sudo make install && sudo rm -rf /usr/lib/systemd && git clone --depth 1 https://github.com/madand/runit-services ~/git/runit-services && sudo cp -r ~/git/runit-services/psd /etc/sv/ && sudo ln -s /etc/sv/psd/ /var/service
 
 # installing and enabling thinkfan (thinkpads only)
-# git clone --depth 1 https://github.com/madand/runit-services.git ~/git/runit-services && sudo cp -r ~/git/runit-services/thinkfan /etc/sv/ && sudo xbps-install -Suvy thinkfan && sudo ln -s /etc/sv/thinkfan/ /var/service/
+# git clone --depth 1 https://github.com/madand/runit-services.git ~/git/runit-services && sudo cp -r ~/git/runit-services/thinkfan /etc/sv/ && sudo xbps-install -Suvy thinkfan && sudo ln -s /etc/sv/thinkfan/ /var/service
 
 # installing and enabling thermald (also supports tlp)
-# sudo xbps-install -Suvy thermald && sudo ln -s /etc/sv/thermald/ /var/service/
+# sudo xbps-install -Suvy thermald && sudo ln -s /etc/sv/thermald/ /var/service
 
 # installing tlp
-# sudo xbps-install -Suvy tlp && sudo ln -s /etc/sv/tlp/ /var/service/
+# sudo xbps-install -Suvy tlp && sudo ln -s /etc/sv/tlp/ /var/service
 
 # enabling bluetooth with pipewire and alsa
 # sudo xbps-install -Suvy bluez bluez-alsa libspa-bluetooth && sudo ln -s /etc/sv/bluetoothd/ /var/service
@@ -46,7 +46,7 @@ sudo xbps-install -Suvy
 # sudo xbps-install -Suvy alsa-pipewire && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 
 # installing NetworkManager as a wpa_supplicant frontend
-# sudo xbps-install -Suvy NetworkManager && sudo ln -s /etc/sv/NetworkManager/ /var/service/ && sudo rm -rf /var/service/wpa_supplicant
+# sudo xbps-install -Suvy NetworkManager && sudo ln -s /etc/sv/NetworkManager/ /var/service && sudo rm -rf /var/service/wpa_supplicant && sudo rm -rf /var/service/dhcpcd
 
 ###### OPTIONAL SECTIONS ######
 
@@ -68,8 +68,14 @@ sudo xbps-install -Suvy
 # installing dependencies & programs
 sudo xbps-install -Suvy elogind seatd polkit dbus xorg-minimal xorg-fonts xf86-video-intel linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk fastfetch neovim zathura zathura-pdf-poppler mpv udisks2 ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji xtools brightnessctl nsxiv zig gcc clang ffmpeg opendoas acpi polkit-gnome
 
+# disbaling acpid service as it conflicts elogind
+sudo rm -rf /var/service/acpid
+
 # enabling important services
-sudo ln -s /etc/sv/elogind/ /var/service/ && sudo ln -s /etc/sv/seatd/ /var/service && sudo ln -s /etc/sv/polkitd/ /var/service && sudo ln -s /etc/sv/dbus/ /var/service && sudo ln -s /etc/sv/ufw/ /var/service
+sudo ln -s /etc/sv/seatd/ /var/service && sudo ln -s /etc/sv/polkitd/ /var/service && sudo ln -s /etc/sv/dbus/ /var/service && sudo ln -s /etc/sv/ufw/ /var/service
+
+# add seatd to usergroups
+sudo usermod -aG _seatd $(whoami)
 
 # making pipewire usable
 sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
