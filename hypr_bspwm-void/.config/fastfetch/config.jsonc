@@ -3,7 +3,7 @@
     "display": {
         "separator": "->   ",
         "color": {
-            "separator": "yellow"
+            "separator": "green"
         }
     },
     "modules": [
