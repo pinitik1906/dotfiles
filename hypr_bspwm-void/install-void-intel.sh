@@ -45,7 +45,7 @@ sudo xbps-install -Suvy
 # installing alsa-pipewire
 # sudo xbps-install -Suvy alsa-pipewire && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 
-# installing NetworkManager as a wpa_supplicant frontend
+# replace wpa_supplicant with NetworkManager
 # sudo xbps-install -Suvy NetworkManager && sudo ln -s /etc/sv/NetworkManager/ /var/service && sudo rm -rf /var/service/wpa_supplicant && sudo rm -rf /var/service/dhcpcd
 
 ###### OPTIONAL SECTIONS ######
@@ -68,7 +68,7 @@ sudo xbps-install -Suvy
 # installing dependencies & programs
 sudo xbps-install -Suvy elogind seatd polkit dbus xorg-minimal xorg-fonts xf86-video-intel linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk fastfetch neovim zathura zathura-pdf-poppler mpv udisks2 ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji xtools brightnessctl nsxiv zig gcc clang ffmpeg opendoas acpi polkit-gnome
 
-# disbaling acpid service as it conflicts elogind
+# disabling acpid service as it conflicts elogind
 sudo rm -rf /var/service/acpid
 
 # enabling important services
