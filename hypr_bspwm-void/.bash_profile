@@ -11,5 +11,5 @@ export LIBVA_DRIVER_NAME="i965"
 pipewire &
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-	exec Hyprland &>/dev/null
+	    Hyprland &>/dev/null
 fi
