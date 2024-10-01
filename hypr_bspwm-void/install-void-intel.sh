@@ -9,7 +9,7 @@ sudo xbps-install -Suvy
 # enabling nonfree and multilib repos (only for glibc systems)
 # sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/multilib" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/multilib/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
 
-# installing intel microcode (needs nonfree repo)
+# installing intel microcode (NEEDS ENABLING NONFREE REPO)
 # sudo xbps-install -Suvy intel-ucode && sudo xbps-reconfigure -f $(xbps-query -l | grep linux)
 
 # installing the latest kernel (you need to reboot and boot it to latest kernel, then do `sudo vkpurge rm all` and `sudo xbps-remove -ROoFfvy linux linux-headers`)
@@ -57,10 +57,10 @@ sudo xbps-install -Suvy
 # sudo xbps-install -Suvy bspwm sxhkd rxvt-unicode i3lock xinit xrdb xcolor xss-lock xsel xclip xdotool ueberzug ffmpegthumbnailer redshift scrot
 
 # install hyprland (glibc_Wayland)
-# sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker xdg-desktop-portal-hyprland foot swaylock wlsunset wl-clipboard wtype && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/git/hyprshot && ln -s ~/git/hyprshot ~/.local/bin/ && chmod +x ~/git/hyprshot/hyprshot
+# sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock xdg-desktop-portal-hyprland foot wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/git/hyprshot && ln -s ~/git/hyprshot ~/.local/bin/ && chmod +x ~/git/hyprshot/hyprshot
 
 # install hyprland (musl_Wayland)
-# sudo rm -rf /etc/xbps.d/00-hyprland-void-musl.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-musl" | sudo tee -a /etc/xbps.d/00-hyprland-void-musl.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker xdg-desktop-portal-hyprland foot swaylock wlsunset wl-clipboard wtype && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/git/hyprshot && ln -s ~/git/hyprshot ~/.local/bin/ && chmod +x ~/git/hyprshot/hyprshot
+# sudo rm -rf /etc/xbps.d/00-hyprland-void-musl.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-musl" | sudo tee -a /etc/xbps.d/00-hyprland-void-musl.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock xdg-desktop-portal-hyprland foot wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/git/hyprshot && ln -s ~/git/hyprshot ~/.local/bin/ && chmod +x ~/git/hyprshot/hyprshot
 
 ###### WINDOW MANAGERS ######
 
