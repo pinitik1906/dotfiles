@@ -1,0 +1,111 @@
+{
+    "height": 22,
+    "spacing": 0,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    
+    "modules-center": [
+        "clock"
+    ],
+    
+    "modules-right": [
+        "privacy",
+        "gamemode",
+        "network",
+        "bluetooth",
+        "temperature",
+        "battery",
+        "pulseaudio",
+        "tray"
+    ],
+    
+    "privacy": {
+        "icon-spacing": 6,
+        "icon-size": 10, // must be the same size as the font size in style.css
+        "transition-duration": 0,
+        "modules": [
+    {
+            "type": "screenshare",
+            "tooltip": true,
+            "tooltip-icon-size": 24
+    },
+    {
+            "type": "audio-out",
+            "tooltip": true,
+            "tooltip-icon-size": 24
+    },
+    {
+            "type": "audio-in",
+            "tooltip": true,
+            "tooltip-icon-size": 24
+    }
+    ]
+    },
+
+    "bluetooth": {
+        "format": "bluetooth {status}",
+        "format-connected": "bluetooth {device_alias}",
+        "format-connected-battery": "bluetooth {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
+    
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "wifi {essid} ({signalStrength}%)",
+        "format-ethernet": "eth {ipaddr}/{cidr}",
+        "format-disconnected": "",
+        "max-length": 50
+    },
+
+    "gamemode": {
+        "format": "running",
+        "format-alt": "running {count}"
+    },
+
+    "tray": {
+        "spacing": 0
+    },
+    
+    "clock": {
+        "tooltip-format": "<big>{:%A}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%b %d, %Y %H:%M:%S}",
+      	"interval": 1
+    },
+    
+    "temperature": {
+        "critical-threshold": 80,
+        "tooltip": false,
+      	"format": "cpu-temp {temperatureC}°C"
+    },
+    
+    "battery": {
+        "states": {
+        "warning": 30,
+        "critical": 15
+        },
+        "format": "bat {capacity}%",
+        "format-full": "bat-full {capacity}%",
+        "format-charging": "bat-chr {capacity}%",
+        "format-plugged": "bat-plug {capacity}%"
+    },
+    
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    
+    "pulseaudio": {
+        "format": "vol {volume}% {format_source}",
+        "format-bluetooth": "bluetooth {volume}% {format_source}",
+        "format-bluetooth-muted": "bluetooth-mute {volume}% {format_source}",
+        "format-muted": "vol-mute {format_source}",
+        "format-source": "mic {volume}%",
+        "format-source-muted": "mic-mute",
+        "on-click": "pavucontrol"
+    }
+}
