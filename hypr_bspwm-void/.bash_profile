@@ -6,10 +6,9 @@ export VISUAL="nvim"
 export TERMINAL="urxvt"
 export BROWSER="firefox"
 export MAIL="thunderbird"
-export LIBVA_DRIVER_NAME="i965"
 
 pipewire &
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-	    Hyprland &>/dev/null
+	    startx &>/dev/null
 fi

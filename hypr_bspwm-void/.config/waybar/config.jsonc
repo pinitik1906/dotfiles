@@ -57,8 +57,8 @@
     
     "network": {
         "format": "{ifname}",
-        "format-wifi": "wifi {essid} ({signalStrength}%)",
-        "format-ethernet": "eth {ipaddr}/{cidr}",
+        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-ethernet": "{ipaddr}/{cidr}",
         "format-disconnected": "",
         "max-length": 50
     },
@@ -81,7 +81,7 @@
     "temperature": {
         "critical-threshold": 80,
         "tooltip": false,
-      	"format": "cpu-temp {temperatureC}°C"
+      	"format": "{temperatureC}°C"
     },
     
     "battery": {
@@ -90,9 +90,9 @@
         "critical": 15
         },
         "format": "bat {capacity}%",
-        "format-full": "bat-full {capacity}%",
-        "format-charging": "bat-chr {capacity}%",
-        "format-plugged": "bat-plug {capacity}%"
+        "format-full": "full {capacity}%",
+        "format-charging": "chr {capacity}%",
+        "format-plugged": "plug {capacity}%"
     },
     
     "battery#bat2": {

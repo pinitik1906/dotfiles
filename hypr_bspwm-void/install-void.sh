@@ -15,8 +15,8 @@ sudo xbps-install -Suvy
 # install old_amd neccesary packages
 # sudo xbps-install -Suvy xf86-video-ati linux-firmware-amd mesa-dri vulkan-loader mesa-vulkan-radeon amdvlk mesa-vaapi mesa-vdpau
 
-# install modern_nvidia's proprietary neccesary packages (NEEDS TO ENABLE NONFREE AND MULTILIB REPOS AT OPTIONAL SECTIONS, GLIBC ONLY)
-# sudo xbps-install -Suvy nvidia dkms
+# install modern_nvidia's proprietary neccesary packages (NEEDS TO ENABLE NONFREE AND MULTILIB REPOS AT OPTIONAL SECTIONS)
+# sudo xbps-install -Suvy nvidia nvidia-dkms
 
 # install bumblebee (ONLY FOR PROPRIETARY NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT)
 # sudo xbps-install -Suvy bumblebee bbswitch && sudo ln -s /etc/sv/bumblebeed
@@ -28,10 +28,10 @@ sudo xbps-install -Suvy
 
 ###### VOID-SRC ######
 
-# enabling void-src with multilib (glibc)
+# enabling void-src with nonfree and multilib (glibc)
 # git clone --depth 1 https://github.com/void-linux/void-packages.git ~/git/void-packages && cd ~/git/void-packages && ./xbps-src binary-bootstrap && echo XBPS_ALLOW_RESTRICTED=yes >> ~/git/void-packages/etc/conf && rm -rf ~/git/void-packages/etc/xbps.d/repos-remote.conf && rm -rf ~/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib.conf && echo "repository=https://repo-fastly.voidlinux.org/current" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/bootstrap" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/nonfree" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/debug" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib/bootstrap" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib/nonfree" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null
 
-# enabling void-src (musl)
+# enabling void-src with nonfree (musl)
 # git clone --depth 1 https://github.com/void-linux/void-packages.git ~/git/void-packages && cd ~/git/void-packages && ./xbps-src binary-bootstrap && echo XBPS_ALLOW_RESTRICTED=yes >> ~/git/void-packages/etc/conf &&  rm -rf ~/git/void-packages/etc/xbps.d/repos-remote-musl.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/bootstrap" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/debug" | sudo tee -a ~/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null
 
 ###### VOID-SRC ######
@@ -39,9 +39,11 @@ sudo xbps-install -Suvy
 
 ###### OPTIONAL SECTIONS ######
 
-# enabling nonfree and multilib repos (only for glibc systems)
+# enabling nonfree and multilib repos (glibc)
 # sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/multilib" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/multilib/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
 
+# enabling nonfree repo (musl)
+# sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
 # installing intel microcode (NEEDS ENABLING NONFREE REPO)
 # sudo xbps-install -Suvy intel-ucode && sudo xbps-reconfigure -f $(xbps-query -l | grep linux)
 
@@ -96,7 +98,7 @@ sudo xbps-install -Suvy
 
 
 # installing dependencies & programs
-sudo xbps-install -Suvy elogind seatd polkit dbus xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk fastfetch neovim zathura zathura-pdf-poppler mpv udisks2 ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji xtools brightnessctl nsxiv zig gcc clang ffmpeg opendoas acpi polkit-gnome
+sudo xbps-install -Suvy elogind seatd polkit dbus xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk fastfetch neovim zathura zathura-pdf-poppler mpv udisks2 ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji xtools brightnessctl nsxiv zig gcc clang ffmpeg opendoas acpi lxsession
 
 # disabling acpid service as it conflicts elogind
 sudo rm -rf /var/service/acpid
@@ -122,7 +124,7 @@ sudo ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 # restarting services after updating the whole packages 
 xcheckrestart
 
-# some packages might not configure properly, consider fix this with xbps-reconfigure to all packages.
+# some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
 sudo xbps-reconfigure -fa
 
 # removing sudo
