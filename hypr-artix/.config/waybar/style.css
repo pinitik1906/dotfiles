@@ -2,13 +2,13 @@
   border: none;
   border-radius: 0px;
   font-size: 10px;
-  font-family: monospace;
+  font-family: Noto Sans;
   min-height: 0;
 }
 
 #waybar {
   background: #292b2e;
-  color: #fdf6e3;
+  color: #d4be98;
 }
 
 #custom-right-arrow-dark,
@@ -39,18 +39,18 @@
 }
 
 #window {
-  padding: 0 3px;
+  padding: 0 5px;
 }
 #workspaces button {
   padding: 0 0px;
-  color: #fdf6e3;
+  color: #d4be98;
 }
 #workspaces button.focused {
   color: #1a1a1a;
 }
 
 #pulseaudio {
-  color: #fdf6e3;
+  color: #d4be98;
 }
 #memory {
   color: #2aa198;
@@ -65,7 +65,7 @@
   color: #b58900;
 }
 #temperature {
-  color: #f4bc67;
+  color: #d8a657;
 }
 
 #clock,
@@ -80,5 +80,5 @@
 #network,
 #bluetooth,
 #privacy {
-  padding: 0 3px;
+  padding: 0 5px;
 }

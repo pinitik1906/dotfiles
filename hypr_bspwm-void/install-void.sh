@@ -4,18 +4,18 @@
 sudo xbps-install -Suvy
 
 
-###### GRAPHICS OPTIONS ######
+###### DRIVERS OPTIONS ######
 
-# install intel's neccesary packages
+# install intel drivers
 # sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel
 
-# install modern_amd neccesary packages
-# sudo xbps-install -Suvy xf86-video-amdgpu linux-firmware-amd mesa-dri vulkan-loader mesa-vulkan-radeon amdvlk mesa-vaapi mesa-vdpau
+# install modern_amd drivers
+# sudo xbps-install -Suvy xf86-video-amdgpu linux-firmware-amd mesa-dri vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau
 
-# install old_amd neccesary packages
-# sudo xbps-install -Suvy xf86-video-ati linux-firmware-amd mesa-dri vulkan-loader mesa-vulkan-radeon amdvlk mesa-vaapi mesa-vdpau
+# install old_amd drivers
+# sudo xbps-install -Suvy xf86-video-ati linux-firmware-amd mesa-dri vulkan-loader amdvlk mesa-vaapi mesa-vdpau
 
-# install modern_nvidia's proprietary neccesary packages (NEEDS TO ENABLE NONFREE AND MULTILIB REPOS AT OPTIONAL SECTIONS)
+# install modern_nvidia drivers (NEEDS TO ENABLE NONFREE REPO AT OPTIONAL SECTIONS)
 # sudo xbps-install -Suvy nvidia nvidia-dkms
 
 # install bumblebee (ONLY FOR PROPRIETARY NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT)
@@ -44,6 +44,7 @@ sudo xbps-install -Suvy
 
 # enabling nonfree repo (musl)
 # sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
+
 # installing intel microcode (NEEDS ENABLING NONFREE REPO)
 # sudo xbps-install -Suvy intel-ucode && sudo xbps-reconfigure -f $(xbps-query -l | grep linux)
 
@@ -68,7 +69,10 @@ sudo xbps-install -Suvy
 # installing and enabling thermald (also supports tlp)
 # sudo xbps-install -Suvy thermald && sudo ln -s /etc/sv/thermald/ /var/service
 
-# installing tlp
+# replace wpa_supplicant with NetworkManager
+# sudo xbps-install -Suvy NetworkManager && sudo ln -s /etc/sv/NetworkManager/ /var/service && sudo rm -rf /var/service/wpa_supplicant && sudo rm -rf /var/service/dhcpcd
+
+# installing tlp (install tlp-rdw if you enabled NetworkManager)
 # sudo xbps-install -Suvy tlp && sudo ln -s /etc/sv/tlp/ /var/service
 
 # enabling bluetooth with pipewire and alsa
@@ -77,16 +81,13 @@ sudo xbps-install -Suvy
 # installing alsa-pipewire
 # sudo xbps-install -Suvy alsa-pipewire && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 
-# replace wpa_supplicant with NetworkManager
-# sudo xbps-install -Suvy NetworkManager && sudo ln -s /etc/sv/NetworkManager/ /var/service && sudo rm -rf /var/service/wpa_supplicant && sudo rm -rf /var/service/dhcpcd
-
 ###### OPTIONAL SECTIONS ######
 
 
 ###### WINDOW MANAGERS ######
 
 # install bspwm (X11)
-# sudo xbps-install -Suvy bspwm sxhkd polybar rxvt-unicode i3lock xinit xrdb xcolor xss-lock xsel xclip xdotool ueberzug ffmpegthumbnailer redshift scrot
+# sudo xbps-install -Suvy bspwm sxhkd polybar rxvt-unicode i3lock xinit xrdb xcolor xss-lock xsel xclip xdotool xrandr ueberzug ffmpegthumbnailer redshift scrot
 
 # install hyprland (glibc_Wayland)
 # sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland foot wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/git/hyprshot && ln -s ~/git/hyprshot ~/.local/bin/ && chmod +x ~/git/hyprshot/hyprshot

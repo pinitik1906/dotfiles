@@ -24,7 +24,7 @@ Xcursor.size:  0
 URxvt.depth: 32
 URxvt*cursorBlink:                    true
 
-URxvt*urgentOnBell:                   true
+URxvt*urgentOnBell:                   false
 URxvt*visualBell:                     false
 URxvt*mapAlert:                       false
 
@@ -33,11 +33,11 @@ URxvt*mapAlert:                       false
 ! Scroll when output come but not when you go back in to the buffer.
 ! Scroll back to the end on key press
 ! (on program stop running and prompt is back it go back to the end too).
-URxvt*scrollTtyOutput:                false
+URxvt*scrollTtyOutput:                true
 URxvt*scrollWithBuffer:               true
 URxvt*scrollTtyKeypress:              true
 
-URxvt*saveLines:                      50000
+URxvt*saveLines:                      2000
 URxvt*mouseWheelScrollPage:           false
 
 URxvt*scrollBar:                      true
@@ -46,8 +46,8 @@ URxvt*scrollBar_right:                true
 URxvt*scrollColor:                    #7DAEA3
 
 ! Keybindings for 1-line scrolling
-URxvt.keysym.Shift-Up: command:\033]720;1\007
-URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Shift-K: command:\033]720;1\007
+URxvt.keysym.Shift-J: command:\033]721;1\007
 
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard

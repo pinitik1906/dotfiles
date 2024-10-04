@@ -1,5 +1,5 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
-/usr/bin/lxpolkit &
+lxpolkit &
 redshift -P -x -r -O 2300 &
 xrdb ~/.Xresources &
 dunst &

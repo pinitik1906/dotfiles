@@ -19,4 +19,4 @@ alias poweroff="sudo poweroff"
 alias yt-dlp="yt-dlp -S res:1080"
 alias bctl="bluetoothctl"
 
-fastfetch --logo-padding-left 3 --logo-padding-top 2
+fastfetch --logo artix_small --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 2

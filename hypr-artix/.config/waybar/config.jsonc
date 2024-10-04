@@ -46,9 +46,9 @@
     },
 
     "bluetooth": {
-        "format": " {status} |",
-        "format-connected": " {device_alias} |",
-        "format-connected-battery": " {device_alias} {device_battery_percentage}% |",
+        "format": "bluetooth {status}",
+        "format-connected": "bluetooth {device_alias}",
+        "format-connected-battery": "bluetooth {device_alias} {device_battery_percentage}%",
         "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -56,19 +56,15 @@
     },
     
     "network": {
-        "format": "{ifname} |",
-        "format-wifi": " {essid} ({signalStrength}%) |",
-        "format-ethernet": "󰊗 {ipaddr}/{cidr} |",
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-ethernet": "{ipaddr}/{cidr}",
         "format-disconnected": "",
-        "tooltip-format": "󰊗 {ifname} via {gwaddr}",
-        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
-        "tooltip-format-ethernet": " {ifname}",
-        "tooltip-format-disconnected": "Disconnected",
         "max-length": 50
     },
 
     "gamemode": {
-        "format": "running |",
+        "format": "running",
         "format-alt": "running {count}"
     },
 
@@ -85,8 +81,7 @@
     "temperature": {
         "critical-threshold": 80,
         "tooltip": false,
-      	"format": "{temperatureC}°C {icon} |",
-        "format-icons": ["", "", ""]
+      	"format": "{temperatureC}°C"
     },
     
     "battery": {
@@ -94,11 +89,10 @@
         "warning": 30,
         "critical": 15
         },
-        "format": "{capacity}% {icon} |",
-        "format-full": "{capacity}% {icon} |",
-        "format-charging": "{capacity}%  |",
-        "format-plugged": "{capacity}%  |",
-        "format-icons": ["", "", "", "", ""]
+        "format": "bat {capacity}%",
+        "format-full": "full {capacity}%",
+        "format-charging": "chr {capacity}%",
+        "format-plugged": "plug {capacity}%"
     },
     
     "battery#bat2": {
@@ -106,21 +100,12 @@
     },
     
     "pulseaudio": {
-        "format": "{volume}% {icon} {format_source} |",
-        "format-bluetooth": "{volume}% {icon} {format_source} |",
-        "format-bluetooth-muted": "{icon} {format_source} |",
-        "format-muted": "{format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
+        "format": "vol {volume}% {format_source}",
+        "format-bluetooth": "bluetooth {volume}% {format_source}",
+        "format-bluetooth-muted": "bluetooth-mute {volume}% {format_source}",
+        "format-muted": "vol-mute {format_source}",
+        "format-source": "mic {volume}%",
+        "format-source-muted": "mic-mute",
         "on-click": "pavucontrol"
     }
 }
