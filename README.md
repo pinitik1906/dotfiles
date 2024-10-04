@@ -12,7 +12,11 @@ to update my dotfiles (either check it weekly or monthly), type
 cd ~/git/dotfiles && git fetch && git pull
 ```
 
-## faq
+## faq-artix
+### enabling-repos
+a [guide](https://wiki.artixlinux.org/Main/Repositories) by the artix linux team (NEEDED FROM MY ARTIX INSTALL SCRIPT)
+
+## faq-void
 ### why-tier-1-mirror?
 taken from the [void-handbook](https://xmirror.voidlinux.org) 
 
@@ -22,11 +26,11 @@ taken from the [void-handbook](https://xmirror.voidlinux.org)
 use `lxappearance` (X11) or `nwg-look` (Wayland)
 
 ## quick-links (huge thanks <3)
-- https://gist.github.com/themagicalmammal/e443d3c5440d566f8206e5b957ab1493
-- https://docs.voidlinux.org/config/network/networkmanager.html#starting-networkmanager
-- https://docs.voidlinux.org/config/kernel.html#switching-to-another-kernel-series
-- https://docs.voidlinux.org/config/graphical-session/fonts.html
-- https://osowoso.github.io/Void-Wallpapers/
-- https://github.com/void-linux/void-packages
-- https://github.com/madand/runit-services
-- https://github.com/Makrennel/hyprland-void
+- [madand's runit-services](https://github.com/madand/runit-services)
+- [voidhandbook-networkmanager](https://docs.voidlinux.org/config/network/networkmanager.html#starting-networkmanager)
+- [voidhandbook-kernel](https://docs.voidlinux.org/config/kernel.html#switching-to-another-kernel-series)
+- [voidhandbook-fonts](https://docs.voidlinux.org/config/graphical-session/fonts.html)
+- [voidhyprland-repo](https://github.com/Makrennel/hyprland-void)
+- [void-optimizations](https://gist.github.com/themagicalmammal/e443d3c5440d566f8206e5b957ab1493)
+- [void-src](https://github.com/void-linux/void-packages)
+- [void-wallpapers](https://osowoso.github.io/Void-Wallpapers/)
