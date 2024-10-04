@@ -99,16 +99,13 @@ sudo xbps-install -Suvy
 
 
 # installing dependencies & programs
-sudo xbps-install -Suvy elogind seatd polkit dbus xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk fastfetch neovim zathura zathura-pdf-poppler mpv udisks2 ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji xtools brightnessctl nsxiv zig gcc clang ffmpeg opendoas acpi lxsession
+sudo xbps-install -Suvy elogind polkit dbus xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk fastfetch neovim zathura zathura-pdf-poppler mpv udisks2 ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji xtools brightnessctl nsxiv zig gcc clang ffmpeg opendoas acpi lxsession
 
 # disabling acpid service as it conflicts elogind
-sudo rm -rf /var/service/acpid
+sudo xbps-remove -ROoFfvy && sudo rm -rf /var/service/acpid
 
 # enabling important services
-sudo ln -s /etc/sv/seatd/ /var/service && sudo ln -s /etc/sv/polkitd/ /var/service && sudo ln -s /etc/sv/dbus/ /var/service && sudo ln -s /etc/sv/ufw/ /var/service
-
-# add seatd to usergroups
-sudo usermod -aG _seatd $(whoami)
+sudo ln -s /etc/sv/dbus/ /var/service && sudo ln -s /etc/sv/ufw/ /var/service
 
 # making pipewire usable
 sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
