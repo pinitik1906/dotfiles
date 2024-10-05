@@ -53,7 +53,7 @@ XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 XF86AudioMicMute
-  pactl set-source-mute @DEFAULT_SOURCE@ toggle
+  	pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 
 # lockscreen
@@ -158,27 +158,27 @@ alt + r
 	$TERMINAL -e ranger
 
 
-# using notification without bars
+# using notification either with or without bars
 
 
 # date
 alt + b
-  notify-send -t 2000 "`date +%A` `date +%m/%d/%Y`" "`date +%H:%M:%S`"
+  	notify-send -t 2000 "`date +%A` `date +%m/%d/%Y`" "`date +%H:%M:%S`"
 
 # battery
 alt + shift + b
-  notify-send -t 2000 "`acpi -b`"
+  	notify-send -t 2000 "`acpi -b`"
 
 # temperature
 control + alt + b
-  notify-send -t 2000 "`acpi -t`"
+  	notify-send -t 2000 "`acpi -t`"
 
 
 # notifications
 
 # history
 alt + space
-  dunstctl history-pop
+  	dunstctl history-pop
 
 Menu
 	xte 'mouseclick 3'

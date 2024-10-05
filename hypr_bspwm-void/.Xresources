@@ -46,8 +46,8 @@ URxvt*scrollBar_right:                true
 URxvt*scrollColor:                    #7DAEA3
 
 ! Keybindings for 1-line scrolling
-URxvt.keysym.Shift-K: command:\033]720;1\007
-URxvt.keysym.Shift-J: command:\033]721;1\007
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
 
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
