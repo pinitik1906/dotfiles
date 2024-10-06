@@ -16,7 +16,7 @@
 sudo xbps-install -Suvy
 
 # installing important dependencies
-sudo xbps-install -Suvy elogind polkit dbus make
+sudo xbps-install -Suvy elogind polkit dbus make xdg-desktop-portal-gtk
 
 # removing acpid and its service as it conflicts elogind
 sudo xbps-remove -ROoFfvy acpid && sudo rm -rf /var/service/acpid
@@ -24,11 +24,16 @@ sudo xbps-remove -ROoFfvy acpid && sudo rm -rf /var/service/acpid
 # enabling dbus for elogind and others
 sudo ln -s /etc/sv/dbus/ /var/service
 
+# clone madand's runit-services (you have an option to enable this for the optional sections)
+# git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
 
 ###### DRIVERS OPTIONS ######
 
 # install intel drivers
 # sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel
+
+# install intel microcode (NEEDS ENABLING NONFREE REPO)
+# sudo xbps-install -Suvy intel-ucode
 
 # install modern_amd drivers
 # sudo xbps-install -Suvy xf86-video-amdgpu linux-firmware-amd mesa-dri vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau
@@ -47,6 +52,7 @@ sudo ln -s /etc/sv/dbus/ /var/service
 
 ###### DRIVERS OPTIONS ######
 
+
 ###### VOID-SRC ######
 
 # enabling void-src with nonfree and multilib (glibc)
@@ -60,23 +66,14 @@ sudo ln -s /etc/sv/dbus/ /var/service
 
 ###### OPTIONAL SECTIONS ######
 
-# install intel microcode (NEEDS ENABLING NONFREE REPO)
-# sudo xbps-install -Suvy intel-ucode && sudo xbps-reconfigure -f $(xbps-query -l | grep linux)
-
 # install msttcorefonts (NEEDS VOID-SRC OPTION ENABLED)
 # cd ~/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && sudo xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
-# install and enable zramen
-# sudo xbps-install -Suvy zramen && sudo ln -s /etc/sv/zramen/ /var/service
-
 # enable backlight for saving previous brightness you've set after rebooting your pc
-# git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services && sudo cp -r ~/stuffs/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service
-
-# install and enable psd (profile-sync-daemon) (optional but recommended as it reduces HDD/SSD calls, thus speeding up the browser)
-# sudo xbps-install -Suvy coreutils findutils kmod rsync && sudo ln -s /etc/sv/rsyncd/ /var/service && git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git ~/stuffs/git/profile-sync-daemon && cd ~/stuffs/git/profile-sync-daemon && make && sudo make clean install && sudo rm -rf /usr/lib/systemd && git clone --depth 1 https://github.com/madand/runit-services ~/stuffs/git/runit-services && sudo cp -r ~/stuffs/git/runit-services/psd /etc/sv/ && sudo ln -s /etc/sv/psd/ /var/service
+# sudo cp -r ~/stuffs/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service
 
 # install and enable thinkfan (thinkpads only)
-# git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services && sudo cp -r ~/stuffs/git/runit-services/thinkfan /etc/sv/ && sudo xbps-install -Suvy thinkfan && sudo ln -s /etc/sv/thinkfan/ /var/service
+# sudo cp -r ~/stuffs/git/runit-services/thinkfan /etc/sv/ && sudo xbps-install -Suvy thinkfan && sudo ln -s /etc/sv/thinkfan/ /var/service
 
 # install and enable thermald (also supports tlp)
 # sudo xbps-install -Suvy thermald && sudo ln -s /etc/sv/thermald/ /var/service
@@ -99,22 +96,19 @@ sudo ln -s /etc/sv/dbus/ /var/service
 # sudo xbps-install -Suvy bspwm sxhkd polybar rxvt-unicode i3lock xinit xrdb xcolor xss-lock xsel xclip xdotool xrandr ueberzug ffmpegthumbnailer redshift scrot
 
 # install hyprland (glibc_Wayland)
-# sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland foot wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
+# sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland foot wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
 
 # install hyprland (musl_Wayland)
-# sudo rm -rf /etc/xbps.d/00-hyprland-void-musl.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-musl" | sudo tee -a /etc/xbps.d/00-hyprland-void-musl.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland foot wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
+# sudo rm -rf /etc/xbps.d/00-hyprland-void-musl.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-musl" | sudo tee -a /etc/xbps.d/00-hyprland-void-musl.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland foot wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-sudo xbps-install -Suvy xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk fastfetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg opendoas acpi lxsession
+sudo xbps-install -Suvy xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg opendoas acpi lxsession
 
-# enable ufw
-sudo ln -s /etc/sv/ufw/ /var/service
-
-# ufw recommended settings by chris_titus
-sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable
+# enable ufw with recommended settings by chris_titus
+sudo ln -s /etc/sv/ufw/ /var/service && sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable
 
 # make pipewire usable
 sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
@@ -123,7 +117,7 @@ sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/wi
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null
 
 # fix bad font rendering
-sudo ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/ && sudo xbps-reconfigure -f fontconfig
+sudo ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
 sudo xbps-reconfigure -fa
