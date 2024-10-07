@@ -37,6 +37,8 @@
             "key": "disk      ",
             "type": "disk"
         },
-        "break"
+        "break",
+	"colors",
+	"break"
     ]
 }

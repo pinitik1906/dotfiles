@@ -1,5 +1,5 @@
 {
-    "height": 18,
+    "height": 15,
     "spacing": 0,
 
     "modules-left": [
@@ -21,29 +21,6 @@
         "tray"
     ],
     
-    "privacy": {
-        "icon-spacing": 6,
-        "icon-size": 10, // must be the same size as the font size in style.css
-        "transition-duration": 0,
-        "modules": [
-    {
-            "type": "screenshare",
-            "tooltip": true,
-            "tooltip-icon-size": 24
-    },
-    {
-            "type": "audio-out",
-            "tooltip": true,
-            "tooltip-icon-size": 24
-    },
-    {
-            "type": "audio-in",
-            "tooltip": true,
-            "tooltip-icon-size": 24
-    }
-    ]
-    },
-
     "bluetooth": {
         "format": "blue {status}",
         "format-connected": "blue {device_alias}",
@@ -79,7 +56,6 @@
     
     "temperature": {
         "critical-threshold": 80,
-        "tooltip": false,
       	"format": "{temperatureC}°C"
     },
     
