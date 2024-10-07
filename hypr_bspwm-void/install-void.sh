@@ -119,6 +119,9 @@ sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doa
 # fix bad font rendering
 sudo ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
 
+# install NetworkManager (optional. if you uncomment it, please use `nmtui` to connect)
+# sudo xbps-install -Suvy NetworkManager && sudo rm -rf /var/service/wpa_supplicant && sudo rm -rf /var/service/dhcpcd && sudo ln -s /etc/sv/NetworkManager/ /var/service && sudo usermod -aG network $(whoami)
+
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
 sudo xbps-reconfigure -fa
 

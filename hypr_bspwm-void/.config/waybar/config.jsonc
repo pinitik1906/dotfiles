@@ -1,5 +1,5 @@
 {
-    "height": 15,
+    "height": 18,
     "spacing": 0,
 
     "modules-left": [
@@ -50,7 +50,7 @@
     
     "clock": {
         "tooltip-format": "<big>{:%A}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%b %d, %Y %H:%M:%S}",
+        "format": "{:%a %b %d, %Y %H:%M:%S}",
       	"interval": 1
     },
     
@@ -64,7 +64,7 @@
         "warning": 30,
         "critical": 15
         },
-        "format": "bat {capacity}%",
+        "format": "dchr {capacity}%",
         "format-full": "full {capacity}%",
         "format-charging": "chr {capacity}%",
         "format-plugged": "chr {capacity}%"

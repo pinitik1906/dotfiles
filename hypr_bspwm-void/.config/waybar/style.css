@@ -1,28 +1,17 @@
 * {
   border: none;
   border-radius: 0px;
-  font-size: 9px;
+  font-size: 10px;
   font-family: Noto Sans;
   min-height: 0;
 }
 
 #waybar {
-  background: #282828;
+  background: #1a1a1a;
   color: #ebdbb2;
 }
 
 #workspaces {
-  background: #3c3836;
-}
-
-#clock,
-#pulseaudio,
-#battery,
-#tray,
-#temperature,
-#gamemode,
-#network,
-#bluetooth {
   background: #282828;
 }
 
