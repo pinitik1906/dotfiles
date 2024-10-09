@@ -1,84 +1,45 @@
 * {
   border: none;
   border-radius: 0px;
-  font-size: 10px;
+  font-size: 11px;
   font-family: Noto Sans;
   min-height: 0;
 }
 
 #waybar {
-  background: #292b2e;
-  color: #d4be98;
-}
-
-#custom-right-arrow-dark,
-#custom-left-arrow-dark {
-  color: #1a1a1a;
-}
-#custom-right-arrow-light,
-#custom-left-arrow-light {
-  color: #292b2e;
   background: #1a1a1a;
+  color: #ebdbb2;
 }
 
-#workspaces,
-#clock.1,
-#clock.2,
-#clock.3,
+#workspaces {
+  background: #282828;
+}
+
+#window {
+  padding: 0 3px;
+}
+#workspaces button {
+  padding: 0 0px;
+  color: #ebdbb2;
+}
+#workspaces button.focused {
+  color: #3c3836;
+}
+
+#battery {
+  color: #458588;
+}
+#temperature {
+  color: #d79921;
+}
+
+#clock,
 #pulseaudio,
-#memory,
-#cpu,
 #battery,
-#disk,
 #tray,
 #temperature,
 #gamemode,
 #network,
 #bluetooth {
-  background: #1a1a1a;
-}
-
-#window {
-  padding: 0 5px;
-}
-#workspaces button {
-  padding: 0 0px;
-  color: #d4be98;
-}
-#workspaces button.focused {
-  color: #1a1a1a;
-}
-
-#pulseaudio {
-  color: #d4be98;
-}
-#memory {
-  color: #2aa198;
-}
-#cpu {
-  color: #6c71c4;
-}
-#battery {
-  color: #859900;
-}
-#disk {
-  color: #b58900;
-}
-#temperature {
-  color: #d8a657;
-}
-
-#clock,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk,
-#tray,
-#temperature,
-#gamemode,
-#network,
-#bluetooth,
-#privacy {
-  padding: 0 5px;
+  padding: 0 3px;
 }

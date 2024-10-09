@@ -41,13 +41,13 @@ sudo ln -s /etc/sv/dbus/ /var/service
 # install old_amd drivers
 # sudo xbps-install -Suvy xf86-video-ati linux-firmware-amd mesa-dri vulkan-loader amdvlk mesa-vaapi mesa-vdpau
 
-# install modern_nvidia drivers (NEEDS TO ENABLE NONFREE REPO AT OPTIONAL SECTIONS)
+# install modern_nvidia proprietary drivers (NEEDS TO ENABLE NONFREE REPO AT OPTIONAL SECTIONS)
 # sudo xbps-install -Suvy nvidia nvidia-dkms
 
-# install bumblebee (ONLY FOR PROPRIETARY NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT)
-# sudo xbps-install -Suvy bumblebee bbswitch && sudo ln -s /etc/sv/bumblebeed
+# install bumblebee (ONLY FOR MODERN NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT)
+# sudo xbps-install -Suvy bumblebee bbswitch && sudo groupadd bumblebee && sudo gpasswd -a $(whoami) bumblebee && sudo ln -s /etc/sv/bumblebeed /var/service
 
-# install old_nvidia's nouveau neccesary packages
+# install old_nvidia nouveau neccesary packages
 # sudo xbps-install -Suvy xf86-video-nouveau mesa-dri  
 
 ###### DRIVERS OPTIONS ######
@@ -72,16 +72,16 @@ sudo ln -s /etc/sv/dbus/ /var/service
 # enable backlight for saving previous brightness you've set after rebooting your pc
 # sudo cp -r ~/stuffs/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service
 
-# install and enable thinkfan (thinkpads only)
+# install and enable thinkfan (THINKPADS ONLY)
 # sudo cp -r ~/stuffs/git/runit-services/thinkfan /etc/sv/ && sudo xbps-install -Suvy thinkfan && sudo ln -s /etc/sv/thinkfan/ /var/service
 
 # install and enable thermald (also supports tlp)
 # sudo xbps-install -Suvy thermald && sudo ln -s /etc/sv/thermald/ /var/service
 
-# install tlp
+# install and enable tlp
 # sudo xbps-install -Suvy tlp && sudo ln -s /etc/sv/tlp/ /var/service
 
-# enable bluetooth with pipewire and alsa
+# install and enable bluetooth with pipewire and alsa
 # sudo xbps-install -Suvy bluez bluez-alsa libspa-bluetooth && sudo ln -s /etc/sv/bluetoothd/ /var/service
 
 # install alsa-pipewire
