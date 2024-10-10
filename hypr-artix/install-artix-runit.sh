@@ -7,19 +7,19 @@ sudo usermod -aG video $(whoami) && sudo usermod -aG audio $(whoami) && sudo use
 sudo pacman -Syu --needed --noconfirm
 
 # installing yay as a default AUR HELPER
-sudo pacman -Syu --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si
+sudo pacman -Syu --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/yay-bin.git ~/stuffs/git/yay-bin && cd ~/stuffs/git/yay-bin && makepkg -si
 
 # installing important dependencies
-yay -Syu --needed --noconfirm elogind elogind-runit polkit dbus xdg-desktop-portal-gtk
+yay -Syu --needed --noconfirm elogind-runit polkit dbus xdg-desktop-portal-gtk
 
 # removing acpid and its service as it conflicts elogind
 yay -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
 
-# clone madand's runit-services (you have an option to enable this for the optional sections)
+# clone madand's runit-services (you have an option to enable this for the optimization and optional sections)
 # git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
 
 
-###### DRIVERS OPTION ######
+###### DRIVERS ######
 
 # install intel drivers
 # yay -Syu --needed --noconfirm xf86-video-intel mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver libva-intel-driver
@@ -43,35 +43,52 @@ yay -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
 # yay -Syu --needed --noconfirm nvidia nvidia-dkms nvidia-utils lib32-nvidia-utils
 
 # install bumblebee (ONLY FOR MODERN NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT)
-# yay -Syu --needed --noconfirm bumblebee bumblebee-runit bbswitch && sudo groupadd bumblebee && sudo gpasswd -a $(whoami) bumblebee && sudo ln -s /etc/runit/sv/bumblebeed /run/runit/service
+# yay -Syu --needed --noconfirm bumblebee-runit bbswitch && sudo groupadd bumblebee && sudo gpasswd -a $(whoami) bumblebee && sudo ln -s /etc/runit/sv/bumblebeed /run/runit/service
 
 # install old_nvidia nouveau drivers
 # yay -Syu --needed --noconfirm xf86-video-nouveau mesa lib32-mesa vulkan-nouveau lib32-vulkan-nouveau
 
-###### DRIVERS OPTION ######
+###### DRIVERS ######
 
 
-###### OPTIONAL SECTIONS ######
+###### OPTIMIZATION ######
+
+# install profile-sync-daemon (recommended)
+# yay -Syu --needed --noconfirm profile-sync-daemon && sudo cp -r ~/stuffs/git/runit-services/psd /etc/runit/sv/ && sudo ln -s /etc/runit/sv/psd/ /run/runit/service
+
+# install ananicy-cpp
+# yay -Syu --needed --noconfirm ananicy-cpp-runit && sudo ln -s /etc/runit/sv/ananicy-cpp/ /run/runit/service
+
+# install zram
+# yay -Syu --needed --noconfirm zramen-runit && sudo ln -s /etc/runit/sv/zramen/ /run/runit/service
+
+# install preload (HDDs ONLY)
+# yay -Syu --needed --noconfirm preload && echo "preload" | sudo tee -a /etc/rc.local > /dev/null
+
+###### OPTIMIZATION ######
+
+
+###### OPTIONAL ######
 
 # install ttf-ms-fonts (LEGACY)
 # yay -Syu --needed --noconfirm ttf-ms-fonts
 
 # enable backlight for saving previous brightness you've set after rebooting your pc
-# sudo cp -r ~/stuffs/git/runit-services/backlight /etc/runit/sv/ && sudo ln -s /etc/runit/sv/backlight/ /run/runit/service
+# yay -Syu --needed --noconfirm backlight-runit && sudo ln -s /etc/runit/sv/backlight/ /run/runit/service
 
 # install and enable thinkfan (THINKPADS ONLY)
 # sudo cp -r ~/stuffs/git/runit-services/thinkfan /etc/runit/sv/ && yay -Syu --needed --noconfirm thinkfan && sudo ln -s /etc/runit/sv/thinkfan/ /run/runit/service
 
 # install and enable thermald (also supports tlp)
-# yay -Syu --needed --noconfirm thermald thermald-runit 
+# yay -Syu --needed --noconfirm thermald-runit 
 
 # install and enable tlp
-# yay -Syu --needed --noconfirm tlp tlp-runit && sudo ln -s /etc/runit/sv/tlp/ /run/runit/service
+# yay -Syu --needed --noconfirm tlp-runit && sudo ln -s /etc/runit/sv/tlp/ /run/runit/service
 
 # install and enable bluetooth
-# yay -Syu --needed --noconfirm bluez bluez-runit bluez-utils && sudo ln -s /etc/runit/sv/bluetoothd/ /run/runit/service
+# yay -Syu --needed --noconfirm bluez-runit bluez-utils && sudo ln -s /etc/runit/sv/bluetoothd/ /run/runit/service
 
-###### OPTIONAL SECTIONS ######
+###### OPTIONAL ######
 
 
 # install hyprland

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-###### TIER 1 MIRRORS ######
+###### REPO ######
 
 # enabling nonfree and multilib repos (glibc)
 # sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/multilib" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/multilib/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
@@ -9,7 +9,7 @@
 # enabling nonfree repo (musl)
 # sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
 
-###### TIER 1 MIRRORS ######
+###### REPO ######
 
 
 # checking updates
@@ -27,7 +27,7 @@ sudo ln -s /etc/sv/dbus/ /var/service
 # clone madand's runit-services (you have an option to enable this for the optional sections)
 # git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
 
-###### DRIVERS OPTIONS ######
+###### DRIVERS ######
 
 # install intel drivers
 # sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel
@@ -50,7 +50,7 @@ sudo ln -s /etc/sv/dbus/ /var/service
 # install old_nvidia nouveau neccesary packages
 # sudo xbps-install -Suvy xf86-video-nouveau mesa-dri  
 
-###### DRIVERS OPTIONS ######
+###### DRIVERS ######
 
 
 ###### VOID-SRC ######
@@ -64,7 +64,7 @@ sudo ln -s /etc/sv/dbus/ /var/service
 ###### VOID-SRC ######
 
 
-###### OPTIONAL SECTIONS ######
+###### OPTIONAL ######
 
 # install msttcorefonts (NEEDS VOID-SRC OPTION ENABLED)
 # cd ~/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && sudo xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
@@ -87,7 +87,7 @@ sudo ln -s /etc/sv/dbus/ /var/service
 # install alsa-pipewire
 # sudo xbps-install -Suvy alsa-pipewire && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 
-###### OPTIONAL SECTIONS ######
+###### OPTIONAL ######
 
 
 ###### WINDOW MANAGERS ######
