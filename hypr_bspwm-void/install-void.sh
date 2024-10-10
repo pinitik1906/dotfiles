@@ -11,6 +11,8 @@
 
 ###### REPO ######
 
+# remove irqbalance as it reduces performance
+sudo xbps-remove -ROoFfvy irqbalance
 
 # checking updates
 sudo xbps-install -Suvy
@@ -69,6 +71,9 @@ sudo ln -s /etc/sv/dbus/ /var/service
 # install msttcorefonts (NEEDS VOID-SRC OPTION ENABLED)
 # cd ~/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && sudo xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
+# install earlyoom (RECOMMENDED)
+sudo xbps-install -Suvy earlyoom && sudo ln -s /etc/sv/earlyoom /var/service
+
 # enable backlight for saving previous brightness you've set after rebooting your pc
 # sudo cp -r ~/stuffs/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service
 
@@ -122,8 +127,11 @@ sudo ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 # install NetworkManager (optional. if you uncomment it, please use `nmtui` to connect)
 # sudo xbps-install -Suvy NetworkManager && sudo rm -rf /var/service/wpa_supplicant && sudo rm -rf /var/service/dhcpcd && sudo ln -s /etc/sv/NetworkManager/ /var/service && sudo usermod -aG network $(whoami)
 
-# some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
-sudo xbps-reconfigure -fa
+# remove any orphaned packages
+sudo xbps-remove -ROoFfvy
 
 # removing sudo
 sudo xbps-remove -ROoFfvy sudo
+
+# some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
+doas xbps-reconfigure -fa
