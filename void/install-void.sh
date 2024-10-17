@@ -98,7 +98,7 @@ sudo xbps-install -Suvy earlyoom && sudo ln -s /etc/sv/earlyoom /var/service
 ###### WINDOW MANAGERS ######
 
 # install bspwm (X11)
-# sudo xbps-install -Suvy bspwm sxhkd polybar alacritty i3lock xinit xrdb xcolor xss-lock xsel xclip xdotool xrandr ueberzug ffmpegthumbnailer redshift scrot
+# sudo xbps-install -Suvy bspwm sxhkd polybar alacritty i3lock xinit xcolor xss-lock xsel xclip xdotool xrandr ueberzug ffmpegthumbnailer redshift scrot
 
 # install hyprland (glibc_Wayland)
 # sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland alacritty wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
