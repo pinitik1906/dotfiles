@@ -12,20 +12,38 @@ to update my dotfiles (either check it weekly or monthly), type
 cd ~/git/dotfiles && git fetch && git pull
 ```
 
-## faq-artix
-### enabling-repos
+## my personal-kernel-parameters for *intel*
+for `grub` in /etc/default/grub
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 console=tty12 udev.log_level=0 nmi_watchdog=0 intel_iommu=off clocksource=tsc tsc=reliable preempt=full msr.allow_writes=on i915.enable_fbc=1 i915.enable_guc=3 i915.fastboot=1 i915.enable_dc=4 i915.enable_psr=2"
+```
+then do,
+```
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+for `refind` in /boot/refind_linux.conf
+```
+"Boot with standard options"  "root=UUID=d13a76e9-3ed4-41d9-8ddd-1e31c40b91b4 rw quiet loglevel=0 console=tty12 udev.log_level=0 nmi_watchdog=0 intel_iommu=off clocksource=tsc tsc=reliable preempt=full msr.allow_writes=on i915.enable_fbc=1 i915.enable_guc=3 i915.fastboot=1 i915.enable_dc=4 i915.enable_psr=2"
+```
+
+## faq
+
+#### enabling-repos for artix
 a [guide](https://wiki.artixlinux.org/Main/Repositories) by the artix linux team (NEEDED FROM MY ARTIX INSTALL SCRIPT)
 
-## faq-void
-### why-tier-1-mirror?
+#### why-tier-1-mirror for void?
 taken from the [void-handbook](https://xmirror.voidlinux.org) 
 
 "The **tier 1 mirrors** sync directly from the build servers and will always have the latest packages available. While **tier 2 mirrors** are not managed by Void and do not have any guarantees of freshness or completeness of packages, nor are they required to sync every available architecture or sub-repository."
 
-### customizing-gtk-themes
+#### customizing-gtk-themes and dark-mode
 use `lxappearance` (X11) or `nwg-look` (Wayland)
 
+to use dark mode for Wayland, open `nwg-look` and change "Color Scheme" to "Prefer dark". for X11, install `arc-gtk-theme` for **artix** or `greybird-themes` for **void**, then you change themes in `lxappearance`
+
 ## quick-links (huge thanks <3)
+- [Laptop Optimizations for Linux](https://gist.github.com/LarryIsBetter/218fda4358565c431ba0e831665af3d1)
 - [madand's runit-services](https://github.com/madand/runit-services)
 - [voidhandbook-networkmanager](https://docs.voidlinux.org/config/network/networkmanager.html#starting-networkmanager)
 - [voidhandbook-kernel](https://docs.voidlinux.org/config/kernel.html#switching-to-another-kernel-series)
