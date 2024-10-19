@@ -109,7 +109,7 @@ paru -Syu --needed --noconfirm earlyoom-runit && sudo ln -s /etc/runit/sv/earlyo
 
 
 # install your programs here
-paru -Syu --needed --noconfirm xorg linux-firmware opendoas noto-fonts noto-fonts-cjk noto-fonts-emoji dunst libnotify rofi rofi-calc rofi-emoji brightnessctl mpv nsxiv ranger zathura zathura-pdf-poppler pipewire pipewire-alsa pipewire-pulse pipewire-jack pavucontrol ufw acpi lxsession
+paru -Syu --needed --noconfirm xorg linux-firmware opendoas noto-fonts noto-fonts-cjk noto-fonts-emoji dunst libnotify rofi rofi-calc rofi-emoji brightnessctl mpv nsxiv ranger zathura zathura-pdf-poppler pipewire pipewire-alsa pipewire-pulse pipewire-jack pavucontrol ufw acpi mate-polkit
 
 # enable ufw with recommended settings by chris_titus
 sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable

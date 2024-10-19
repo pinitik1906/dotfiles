@@ -1,5 +1,5 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
-lxpolkit &
+/usr/libexec/polkit-mate-authentication-agent-1 &
 redshift -P -x -r -O 2300 &
 xrdb ~/.Xresources &
 dunst &

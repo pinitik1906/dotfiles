@@ -71,7 +71,7 @@ sudo ln -s /etc/sv/dbus/ /var/service
 # install msttcorefonts (NEEDS VOID-SRC OPTION ENABLED)
 # cd ~/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && sudo xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
-# install earlyoom (RECOMMENDED)
+# install earlyoom [RECOMMENDED]
 sudo xbps-install -Suvy earlyoom && sudo ln -s /etc/sv/earlyoom /var/service
 
 # enable backlight for saving previous brightness you've set after rebooting your pc
@@ -80,7 +80,7 @@ sudo xbps-install -Suvy earlyoom && sudo ln -s /etc/sv/earlyoom /var/service
 # install and enable thinkfan (THINKPADS ONLY)
 # sudo cp -r ~/stuffs/git/runit-services/thinkfan /etc/sv/ && sudo xbps-install -Suvy thinkfan && sudo ln -s /etc/sv/thinkfan/ /var/service
 
-# install and enable thermald (also supports tlp)
+# install and enable thermald (supports tlp) [INTEL ONLY]
 # sudo xbps-install -Suvy thermald && sudo ln -s /etc/sv/thermald/ /var/service
 
 # install and enable tlp
@@ -110,7 +110,7 @@ sudo xbps-install -Suvy earlyoom && sudo ln -s /etc/sv/earlyoom /var/service
 
 
 # install your programs here
-sudo xbps-install -Suvy xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg opendoas acpi lxsession
+sudo xbps-install -Suvy xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg opendoas acpi mate-polkit
 
 # enable ufw with recommended settings by chris_titus
 sudo ln -s /etc/sv/ufw/ /var/service && sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable

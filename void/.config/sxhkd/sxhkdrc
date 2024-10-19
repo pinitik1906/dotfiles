@@ -1,15 +1,15 @@
 # rofi-things
-alt + semicolon
+super + semicolon
 	rofi -show emoji
 
-alt + shift + semicolon
+super + shift + semicolon
 	rofi -show calc -modi calc -no-show-match -no-sort
 
 # xcolor
-alt + p
+super + p
 	xcolor -f HEX -s clipboard
 
-alt + shift + p
+super + shift + p
 	xcolor -f rgb -s clipboard
 
 # printscreen
@@ -20,7 +20,7 @@ control + @Print
 	scrot ~/stuffs/pic/screenshots/%Y-%m-%d-%T-screenshot.png -f && notify-send -t 1250 "screenshot taken"
 
 # camera
-control + alt + c
+control + super + c
 	ffplay -fast /dev/video0
 
 # brightness keys
@@ -57,17 +57,17 @@ XF86AudioMicMute
 
 
 # lockscreen
-alt + comma
+super + comma
 	i3lock --nofork
 
 
 # program launcher
-alt + d
+super + d
 	rofi -terminal $TERMINAL -show drun -icon-theme "Adwaita" -show-icons
 
 
 # Reload sxhkd
-alt + shift + Escape
+super + shift + Escape
 	pkill -USR1 -x sxhkd
 
 
@@ -75,26 +75,26 @@ alt + shift + Escape
 
 
 # quit/restart bspwm
-alt + shift + {q,r}
+super + shift + {q,r}
 	bspc {quit,wm -r}
 
 
 # close and kill
-alt + q
+super + q
 	bspc node -{c,k}
 
 
 # state/flags
-alt + f
+super + f
 	bspc node -t fullscreen
 
-alt + t
+super + t
 	bspc node focused.fullscreen -t tiled
 
-alt + shift + f
+super + shift + f
 	bspc node focused.tiled -t floating
 
-alt + shift + t
+super + shift + t
 	bspc node focused.floating -t tiled
 
 
@@ -102,22 +102,22 @@ alt + shift + t
 
 
 # focus the node in the given direction
-alt + {h,j,k,l}
+super + {h,j,k,l}
 	bspc node -f {west,south,north,east}
 
 
 # focus the next/previous desktop in the current monitor
-alt + bracket{left,right}
+super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 
 # focus the last node/desktop
-alt + {grave,Tab}
+super + {grave,Tab}
 	bspc {node,desktop} -f last
 
 
 # focus or send to the given desktop
-alt + {_,shift + }{1-9,0}
+super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 
@@ -125,12 +125,12 @@ alt + {_,shift + }{1-9,0}
 
 
 # expand a window by moving one of its side outward
-alt + shift + {h,j,k,l}
+super + shift + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 
 # contract a window by moving one of its side inward
-control + alt + {h,j,k,l}
+control + super + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 
@@ -143,18 +143,18 @@ control + shift + {h,j,k,l}
 
 
 # browser
-alt + w
+super + w
 	$BROWSER
 
 # mail
-alt + e
+super + e
   $MAIL
 
 # terminal
-alt + Return
+super + Return
 	$TERMINAL
 
-alt + r
+super + r
 	$TERMINAL -e ranger
 
 
@@ -162,22 +162,22 @@ alt + r
 
 
 # date
-alt + b
+super + b
   	notify-send -t 2000 "`date +%A` `date +%m/%d/%Y`" "`date +%H:%M:%S`"
 
 # battery
-alt + shift + b
+super + shift + b
   	notify-send -t 2000 "`acpi -b`"
 
 # temperature
-control + alt + b
+control + super + b
   	notify-send -t 2000 "`acpi -t`"
 
 
 # notifications
 
 # history
-alt + space
+super + space
   	dunstctl history-pop
 
 Menu
