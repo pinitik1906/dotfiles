@@ -6,13 +6,15 @@ export VISUAL="nvim"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
 export MAIL="thunderbird"
-export LIBVA_DRIVER_NAME=i965
-export VDPAU_DRIVER=va_gl
+
+# intel optimization
+# export LIBVA_DRIVER_NAME=i965
+# export VDPAU_DRIVER=va_gl
 
 pipewire &
 pipewire-pulse &
 wireplumber &
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-        Hyprland &>/dev/null
+        startx &>/dev/null
 fi
