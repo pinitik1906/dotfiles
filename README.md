@@ -36,13 +36,23 @@ for `refind` in /boot/refind_linux.conf (ignore the root=*)
 #### enabling-repos for artix
 a [guide](https://wiki.artixlinux.org/Main/Repositories) by the artix linux team (NEEDED FROM MY ARTIX INSTALL SCRIPT)
 
+#### autostart-hyprland-without-display-manager
+edit in `.bash_profile` from your home directory
+
+find a line below and replace it from `startx` to `hyprland`
+```
+if [[ "$(tty)" = "/dev/tty1" ]]; then
+        startx &>/dev/null
+fi
+```
+
 #### why-tier-1-mirror for void?
 taken from the [void-handbook](https://xmirror.voidlinux.org) 
 
 "The **tier 1 mirrors** sync directly from the build servers and will always have the latest packages available. While **tier 2 mirrors** are not managed by Void and do not have any guarantees of freshness or completeness of packages, nor are they required to sync every available architecture or sub-repository."
 
 #### customizing-gtk-themes and dark-mode
-to use dark mode for X11 and Wayland, install and open `nwg-look` to change themes
+to use custom themes for X11 and Wayland, install and open `nwg-look` to change themes
 
 to make it dark mode, change "Color Scheme" to "Prefer dark"
 
