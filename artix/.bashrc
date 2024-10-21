@@ -16,11 +16,11 @@ alias pq="paru"
 alias pf="paru -Ql"
 alias pc="paru -Sc"
 alias pcc="paru -Scc"
-alias yt-dlp="yt-dlp -S res:1080"
+alias yt-dlp="yt-dlp -S res:1080 -S vcodec:h264"
 alias reboot="loginctl reboot"
 alias poweroff="loginctl poweroff"
 alias bctl="bluetoothctl"
 alias sudo="doas"
-alias update-rules="cd /etc/ananicy.d && sudo git fetch && sudo git pull && cd"
+alias update-rules="cd /etc/ananicy.d && sudo git pull && cd"
 
 fastfetch --logo ~/.config/fastfetch/artix2_small-fix.txt --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1

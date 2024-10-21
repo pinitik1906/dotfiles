@@ -7,7 +7,7 @@ export TERMINAL="alacritty"
 export BROWSER="firefox"
 export MAIL="thunderbird"
 
-# intel optimization
+# vaapi and vdpau enviromental variables
 # export LIBVA_DRIVER_NAME=i965
 # export VDPAU_DRIVER=va_gl
 
