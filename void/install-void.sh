@@ -31,26 +31,26 @@ sudo ln -s /etc/sv/dbus/ /var/service
 
 ###### DRIVERS ######
 
-# install intel drivers
-# sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel
+# install intel drivers [NEEDS NONFREE AND MULTILIB REPO ENABLED]
+# sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri mesa-dri-32bit vulkan-loader vulkan-loader-32bit mesa-vulkan-intel mesa-vulkan-intel-32bit intel-video-accel libva-intel-driver-32bit libvdpau libvdpau-32bit libvdpau-va-gl libvdpau-va-gl-32bit
 
-# install intel microcode (NEEDS ENABLING NONFREE REPO)
+# install intel microcode (NEEDS NONFREE REPO ENABLED) [IMPORTANT]
 # sudo xbps-install -Suvy intel-ucode
 
-# install modern_amd drivers
-# sudo xbps-install -Suvy xf86-video-amdgpu linux-firmware-amd mesa-dri vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau
+# install modern_amd drivers [NEEDS NONFREE AND MULTILIB REPO ENABLED]
+# sudo xbps-install -Suvy xf86-video-amdgpu linux-firmware-amd mesa-dri mesa-dri-32bit vulkan-loader vulkan-loader-32bit mesa-vulkan-radeon mesa-vulkan-radeon-32bit mesa-vaapi mesa-vaapi-32bit mesa-vdpau-32bit
 
-# install old_amd drivers
-# sudo xbps-install -Suvy xf86-video-ati linux-firmware-amd mesa-dri vulkan-loader amdvlk mesa-vaapi mesa-vdpau
+# install old_amd drivers [NEEDS NONFREE AND MULTILIB REPO ENABLED]
+# sudo xbps-install -Suvy xf86-video-ati linux-firmware-amd mesa-dri mesa-dri-32bit vulkan-loader vulkan-loader-32bit amdvlk amdvlk-32bit mesa-vaapi mesa-vaapi-32bit mesa-vdpau mesa-vdpau-32bit
 
-# install modern_nvidia proprietary drivers (NEEDS TO ENABLE NONFREE REPO AT OPTIONAL SECTIONS)
-# sudo xbps-install -Suvy nvidia nvidia-dkms
+# install modern_nvidia proprietary drivers (NEEDS NONFREE AND MULTILIB REPO ENABLED)
+# sudo xbps-install -Suvy nvidia nvidia-dkms nvidia-vaapi-driver mesa-vdpau mesa-vdpau-32bit mesa-dri mesa-dri-32bit
 
-# install bumblebee (ONLY FOR MODERN NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT)
+# install bumblebee [ONLY FOR MODERN NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT]
 # sudo xbps-install -Suvy bumblebee bbswitch && sudo groupadd bumblebee && sudo gpasswd -a $(whoami) bumblebee && sudo ln -s /etc/sv/bumblebeed /var/service
 
-# install old_nvidia nouveau neccesary packages
-# sudo xbps-install -Suvy xf86-video-nouveau mesa-dri  
+# install old_nvidia nouveau neccesary packages [NEEDS NONFREE AND MULTILIB REPO ENABLED]
+# sudo xbps-install -Suvy xf86-video-nouveau mesa-dri nvidia-vaapi-driver mesa-vdpau mesa-vdpau-32bit mesa-dri mesa-dri-32bit
 
 ###### DRIVERS ######
 
@@ -68,7 +68,7 @@ sudo ln -s /etc/sv/dbus/ /var/service
 
 ###### OPTIONAL ######
 
-# install msttcorefonts (NEEDS VOID-SRC OPTION ENABLED)
+# install msttcorefonts [NEEDS VOID-SRC ENABLED]
 # cd ~/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && sudo xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
 # install earlyoom [RECOMMENDED]
@@ -77,7 +77,7 @@ sudo xbps-install -Suvy earlyoom && sudo ln -s /etc/sv/earlyoom /var/service
 # enable backlight for saving previous brightness you've set after rebooting your pc
 # sudo cp -r ~/stuffs/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service
 
-# install and enable thinkfan (THINKPADS ONLY)
+# install and enable thinkfan [THINKPADS ONLY]
 # sudo cp -r ~/stuffs/git/runit-services/thinkfan /etc/sv/ && sudo xbps-install -Suvy thinkfan && sudo ln -s /etc/sv/thinkfan/ /var/service
 
 # install and enable thermald (supports tlp) [INTEL ONLY]
