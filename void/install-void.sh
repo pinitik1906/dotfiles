@@ -31,26 +31,41 @@ sudo ln -s /etc/sv/dbus/ /var/service
 
 ###### DRIVERS ######
 
-# install intel drivers [NEEDS NONFREE AND MULTILIB REPO ENABLED]
-# sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri mesa-dri-32bit vulkan-loader vulkan-loader-32bit mesa-vulkan-intel mesa-vulkan-intel-32bit intel-video-accel libva-intel-driver-32bit libvdpau libvdpau-32bit libvdpau-va-gl libvdpau-va-gl-32bit
+# install intel drivers [NEEDS NONFREE REPO ENABLED]
+# sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel libvdpau libvdpau-va-gl
+
+# 32-bit intel drivers [NEEDS MULTILIB REPO ENABLED]
+# sudo xbps-install -Suvy mesa-dri-32bit vulkan-loader-32bit mesa-vulkan-intel-32bit libva-intel-driver-32bit libvdpau-32bit libvdpau-va-gl-32bit
 
 # install intel microcode (NEEDS NONFREE REPO ENABLED) [IMPORTANT]
 # sudo xbps-install -Suvy intel-ucode
 
-# install modern_amd drivers [NEEDS NONFREE AND MULTILIB REPO ENABLED]
-# sudo xbps-install -Suvy xf86-video-amdgpu linux-firmware-amd mesa-dri mesa-dri-32bit vulkan-loader vulkan-loader-32bit mesa-vulkan-radeon mesa-vulkan-radeon-32bit mesa-vaapi mesa-vaapi-32bit mesa-vdpau-32bit
+# install modern_amd drivers [NEEDS NONFREE REPO ENABLED]
+# sudo xbps-install -Suvy xf86-video-amdgpu linux-firmware-amd mesa-dri vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau
 
-# install old_amd drivers [NEEDS NONFREE AND MULTILIB REPO ENABLED]
-# sudo xbps-install -Suvy xf86-video-ati linux-firmware-amd mesa-dri mesa-dri-32bit vulkan-loader vulkan-loader-32bit amdvlk amdvlk-32bit mesa-vaapi mesa-vaapi-32bit mesa-vdpau mesa-vdpau-32bit
+# 32-bit modern_amd drivers [NEEDS MULTILIB REPO ENABLED]
+# sudo xbps-install -Suvy mesa-dri-32bit vulkan-loader-32bit mesa-vulkan-radeon-32bit mesa-vaapi-32bit mesa-vdpau-32bit
 
-# install modern_nvidia proprietary drivers (NEEDS NONFREE AND MULTILIB REPO ENABLED)
-# sudo xbps-install -Suvy nvidia nvidia-dkms nvidia-vaapi-driver mesa-vdpau mesa-vdpau-32bit mesa-dri mesa-dri-32bit
+# install old_amd drivers [NEEDS NONFREE REPO ENABLED]
+# sudo xbps-install -Suvy xf86-video-ati linux-firmware-amd mesa-dri vulkan-loader amdvlk mesa-vaapi mesa-vdpau
+
+# 32-bit old_amd drivers [NEEDS MULTILIB REPO ENABLED]
+# sudo xbps-install -Suvy mesa-dri-32bit vulkan-loader-32bit amdvlk-32bit mesa-vaapi-32bit mesa-vdpau-32bit
+
+# install modern_nvidia proprietary drivers [NEEDS NONFREE REPO ENABLED]
+# sudo xbps-install -Suvy nvidia nvidia-dkms linux-firmware-nvidia nvidia-firmware nvidia-vaapi-driver mesa-vdpau mesa-dri nvidia-libs
+
+# 32-bit modern_nvidia proprietary drivers [NEEDS MULTILIB REPO ENABLED]
+# sudo xbps-install -Suvy mesa-vdpau-32bit mesa-dri-32bit nvidia-libs-32bit
 
 # install bumblebee [ONLY FOR MODERN NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT]
 # sudo xbps-install -Suvy bumblebee bbswitch && sudo groupadd bumblebee && sudo gpasswd -a $(whoami) bumblebee && sudo ln -s /etc/sv/bumblebeed /var/service
 
-# install old_nvidia nouveau neccesary packages [NEEDS NONFREE AND MULTILIB REPO ENABLED]
-# sudo xbps-install -Suvy xf86-video-nouveau mesa-dri nvidia-vaapi-driver mesa-vdpau mesa-vdpau-32bit mesa-dri mesa-dri-32bit
+# install old_nvidia nouveau drivers [NEEDS NONFREE REPO ENABLED]
+# sudo xbps-install -Suvy xf86-video-nouveau mesa-dri mesa-vdpau
+
+# 32-bit old_nvidia nouveau drivers [NEEDS MULTILIB REPO ENABLED]
+# sudo xbps-install -Suvy mesa-dri-32bit mesa-vdpau-32bit
 
 ###### DRIVERS ######
 
@@ -98,10 +113,10 @@ sudo xbps-install -Suvy earlyoom && sudo ln -s /etc/sv/earlyoom /var/service
 ###### WINDOW MANAGERS ######
 
 # install bspwm (X11)
-# sudo xbps-install -Suvy bspwm sxhkd polybar alacritty i3lock xinit xcolor xss-lock xsel xclip xdotool xrandr ueberzug ffmpegthumbnailer redshift scrot
+# sudo xbps-install -Suvy bspwm sxhkd polybar i3lock xinit xcolor xss-lock xsel xclip xdotool xrandr ueberzug ffmpegthumbnailer redshift scrot
 
 # install hyprland (glibc_Wayland)
-# sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland alacritty wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
+# sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
 
 # install hyprland (musl_Wayland)
 # sudo rm -rf /etc/xbps.d/00-hyprland-void-musl.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-musl" | sudo tee -a /etc/xbps.d/00-hyprland-void-musl.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland foot wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
@@ -110,7 +125,7 @@ sudo xbps-install -Suvy earlyoom && sudo ln -s /etc/sv/earlyoom /var/service
 
 
 # install your programs here
-sudo xbps-install -Suvy xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg opendoas acpi mate-polkit
+sudo xbps-install -Suvy xorg-minimal xorg-fonts linux-firmware alacritty pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg opendoas acpi mate-polkit
 
 # enable ufw with recommended settings by chris_titus
 sudo ln -s /etc/sv/ufw/ /var/service && sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable

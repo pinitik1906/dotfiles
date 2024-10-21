@@ -24,32 +24,50 @@ paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
 
 ###### DRIVERS ######
 
-# install intel drivers (NEEDS MULTILIB AND ARCH REPO ENABLED)
-# paru -Syu --needed --noconfirm xf86-video-intel mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver libva-intel-driver lib32-libva-intel-driver libvdpau lib32-libvdpau libvdpau-va-gl lib32-libvdpau-va-gl intel-media-sdk
+# install intel drivers [NEEDS ARCH REPO ENABLED]
+# paru -Syu --needed --noconfirm xf86-video-intel mesa vulkan-intel intel-media-driver libva-intel-driver libvdpau libvdpau-va-gl intel-media-sdk
+
+# 32-bit intel drivers [NEEDS MULTILIB REPO ENABLED]
+# paru -Syu --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libva-intel-driver lib32-libvdpau lib32-libvdpau-va-gl
 
 # install intel microcode [IMPORTANT]
 # paru -Syu --needed --noconfirm intel-ucode
 
-# install modern_amd drivers (NEEDS MULTILIB REPO ENABLED)
-# paru -Syu --needed --noconfirm xf86-video-amdgpu mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
+# install modern_amd drivers
+# paru -Syu --needed --noconfirm xf86-video-amdgpu mesa vulkan-radeon libva-mesa-driver mesa-vdpau
 
-# install old_amd drivers (NEEDS MULTILIB REPO ENABLED)
-# paru -Syu --needed --noconfirm xf86-video-ati mesa lib32-mesa amdvlk lib32-amdvlk libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
+# 32-bit modern_amd drivers [NEEDS MULTILIB  ENABLED]
+# paru -Syu --needed --noconfirm lib32-mesa lib32-vulkan-radeon lib32-libva-mesa-driver lib32-mesa-vdpau
+
+# install old_amd drivers
+# paru -Syu --needed --noconfirm xf86-video-ati mesa amdvlk libva-mesa-driver mesa-vdpau
+
+# 32-bit old_amd drivers [NEEDS MULTILIB REPO ENABLED]
+# paru -Syu --needed --noconfirm lib32-mesa lib32-amdvlk lib32-libva-mesa-driver lib32-mesa-vdpau
 
 # install amd microcode [IMPORTANT]
 # paru -Syu --needed --noconfirm amd-ucode
 
-# install modern_nvidia open-source drivers (NEEDS MULTILIB REPO ENABLED)
-# paru -Syu --needed --noconfirm nvidia-open nvidia-open-dkms nvidia-utils lib32-nvidia-utils
+# install modern_nvidia open-source drivers
+# paru -Syu --needed --noconfirm nvidia-open nvidia-open-dkms nvidia-utils
 
-# install modern_nvidia proprietary drivers (NEEDS MULTILIB REPO ENABLED)
-# paru -Syu --needed --noconfirm nvidia nvidia-dkms nvidia-utils lib32-nvidia-utils
+# 32-bit modern_nvidia open-source drivers [NEEDS MULTILIB REPO ENABLED]
+# paru -Syu --needed --noconfirm lib32-nvidia-utils
+
+# install modern_nvidia proprietary drivers
+# paru -Syu --needed --noconfirm nvidia nvidia-dkms nvidia-utils
+
+# 32-bit modern_nvidia proprietary drivers [NEEDS MULTILIB REPO ENABLED]
+# paru -Syu --needed --noconfirm lib32-nvidia-utils
 
 # install bumblebee (ONLY FOR MODERN NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT)
 # paru -Syu --needed --noconfirm bumblebee-runit bbswitch && sudo groupadd bumblebee && sudo gpasswd -a $(whoami) bumblebee && sudo ln -s /etc/runit/sv/bumblebeed /run/runit/service
 
-# install old_nvidia nouveau drivers (NEEDS MULTILIB REPO ENABLED)
-# paru -Syu --needed --noconfirm xf86-video-nouveau mesa lib32-mesa vulkan-nouveau lib32-vulkan-nouveau
+# install old_nvidia nouveau drivers
+# paru -Syu --needed --noconfirm xf86-video-nouveau mesa vulkan-nouveau
+
+# 32-bit old_nvidia nouveau drivers [NEEDS MULTILIB REPO ENABLED]
+# paru -Syu --needed --nouveau lib32-mesa lib32-vulkan-nouveau
 
 ###### DRIVERS ######
 
@@ -100,16 +118,16 @@ paru -Syu --needed --noconfirm earlyoom-runit && sudo ln -s /etc/runit/sv/earlyo
 ###### WINDOW MANAGERS ######
 
 # install bspwm (X11)
-# paru -Syu --needed --noconfirm bspwm sxhkd polybar alacritty i3lock xorg-xinit xcolor xss-lock xsel xclip xdotool redshift scrot
+# paru -Syu --needed --noconfirm bspwm sxhkd polybar i3lock xorg-xinit xcolor xss-lock xsel xclip xdotool redshift scrot
 
 # install hyprland (Wayland)
-# paru -Syu --needed --noconfirm hyprland waybar hyprpicker hyprshot hyprlock xdg-desktop-portal-hyprland wl-clipboard wlsunset alacritty ueberzugpp ffmpegthumbnailer
+# paru -Syu --needed --noconfirm hyprland waybar hyprpicker hyprshot hyprlock xdg-desktop-portal-hyprland wl-clipboard wlsunset
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-paru -Syu --needed --noconfirm xorg linux-firmware opendoas noto-fonts noto-fonts-cjk noto-fonts-emoji dunst libnotify rofi rofi-calc rofi-emoji brightnessctl mpv nsxiv ranger zathura zathura-pdf-poppler pipewire pipewire-alsa pipewire-pulse pipewire-jack pavucontrol ufw acpi mate-polkit
+paru -Syu --needed --noconfirm xorg linux-firmware opendoas alacritty noto-fonts noto-fonts-cjk noto-fonts-emoji dunst libnotify rofi rofi-calc rofi-emoji brightnessctl mpv nsxiv ranger zathura zathura-pdf-poppler pipewire pipewire-alsa pipewire-pulse pipewire-jack pavucontrol ufw acpi ueberzugpp ffmpegthumbnailer mate-polkit
 
 # enable ufw with recommended settings by chris_titus
 sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable
