@@ -48,14 +48,14 @@ paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
 # install amd microcode [IMPORTANT]
 # paru -Syu --needed --noconfirm amd-ucode
 
-# install modern_nvidia open-source drivers
-# paru -Syu --needed --noconfirm nvidia-open nvidia-open-dkms nvidia-utils
+# install modern_nvidia open-source drivers [NEEDS ARCH REPO ENABLED]
+# paru -Syu --needed --noconfirm nvidia-open nvidia-open-dkms nvidia-utils libva-nvidia-driver
 
 # 32-bit modern_nvidia open-source drivers [NEEDS MULTILIB REPO ENABLED]
 # paru -Syu --needed --noconfirm lib32-nvidia-utils
 
-# install modern_nvidia proprietary drivers
-# paru -Syu --needed --noconfirm nvidia nvidia-dkms nvidia-utils
+# install modern_nvidia proprietary drivers [NEEDS ARCH REPO ENABLED]
+# paru -Syu --needed --noconfirm nvidia nvidia-dkms nvidia-utils libva-nvidia-driver
 
 # 32-bit modern_nvidia proprietary drivers [NEEDS MULTILIB REPO ENABLED]
 # paru -Syu --needed --noconfirm lib32-nvidia-utils
@@ -64,10 +64,10 @@ paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
 # paru -Syu --needed --noconfirm bumblebee-runit bbswitch && sudo groupadd bumblebee && sudo gpasswd -a $(whoami) bumblebee && sudo ln -s /etc/runit/sv/bumblebeed /run/runit/service
 
 # install old_nvidia nouveau drivers
-# paru -Syu --needed --noconfirm xf86-video-nouveau mesa vulkan-nouveau
+# paru -Syu --needed --noconfirm xf86-video-nouveau mesa mesa-vdpau libva-mesa-driver vulkan-nouveau
 
 # 32-bit old_nvidia nouveau drivers [NEEDS MULTILIB REPO ENABLED]
-# paru -Syu --needed --nouveau lib32-mesa lib32-vulkan-nouveau
+# paru -Syu --needed --nouveau lib32-mesa lib32-mesa-vdpau lib32-libva-mesa-driver lib32-vulkan-nouveau
 
 ###### DRIVERS ######
 

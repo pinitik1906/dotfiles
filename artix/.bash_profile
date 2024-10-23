@@ -11,6 +11,10 @@ export MAIL="thunderbird"
 # export LIBVA_DRIVER_NAME=i965
 # export VDPAU_DRIVER=va_gl
 
+# nvidia-vaapi-driver enviromental variables
+# export NVD_LOG=0
+# export NVD_BACKEND=direct
+
 pipewire &
 pipewire-pulse &
 wireplumber &

@@ -34,7 +34,7 @@ sudo ln -s /etc/sv/dbus/ /var/service
 # install intel drivers [NEEDS NONFREE REPO ENABLED]
 # sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel libvdpau libvdpau-va-gl
 
-# 32-bit intel drivers [NEEDS MULTILIB REPO ENABLED]
+# 32-bit intel drivers [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 # sudo xbps-install -Suvy mesa-dri-32bit vulkan-loader-32bit mesa-vulkan-intel-32bit libva-intel-driver-32bit libvdpau-32bit libvdpau-va-gl-32bit
 
 # install intel microcode (NEEDS NONFREE REPO ENABLED) [IMPORTANT]
@@ -43,19 +43,19 @@ sudo ln -s /etc/sv/dbus/ /var/service
 # install modern_amd drivers [NEEDS NONFREE REPO ENABLED]
 # sudo xbps-install -Suvy xf86-video-amdgpu linux-firmware-amd mesa-dri vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau
 
-# 32-bit modern_amd drivers [NEEDS MULTILIB REPO ENABLED]
+# 32-bit modern_amd drivers [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 # sudo xbps-install -Suvy mesa-dri-32bit vulkan-loader-32bit mesa-vulkan-radeon-32bit mesa-vaapi-32bit mesa-vdpau-32bit
 
 # install old_amd drivers [NEEDS NONFREE REPO ENABLED]
 # sudo xbps-install -Suvy xf86-video-ati linux-firmware-amd mesa-dri vulkan-loader amdvlk mesa-vaapi mesa-vdpau
 
-# 32-bit old_amd drivers [NEEDS MULTILIB REPO ENABLED]
+# 32-bit old_amd drivers [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 # sudo xbps-install -Suvy mesa-dri-32bit vulkan-loader-32bit amdvlk-32bit mesa-vaapi-32bit mesa-vdpau-32bit
 
 # install modern_nvidia proprietary drivers [NEEDS NONFREE REPO ENABLED]
 # sudo xbps-install -Suvy nvidia nvidia-dkms linux-firmware-nvidia nvidia-firmware nvidia-vaapi-driver mesa-vdpau mesa-dri nvidia-libs
 
-# 32-bit modern_nvidia proprietary drivers [NEEDS MULTILIB REPO ENABLED]
+# 32-bit modern_nvidia proprietary drivers [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 # sudo xbps-install -Suvy mesa-vdpau-32bit mesa-dri-32bit nvidia-libs-32bit
 
 # install bumblebee [ONLY FOR MODERN NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT]
@@ -64,7 +64,7 @@ sudo ln -s /etc/sv/dbus/ /var/service
 # install old_nvidia nouveau drivers [NEEDS NONFREE REPO ENABLED]
 # sudo xbps-install -Suvy xf86-video-nouveau mesa-dri mesa-vdpau
 
-# 32-bit old_nvidia nouveau drivers [NEEDS MULTILIB REPO ENABLED]
+# 32-bit old_nvidia nouveau drivers [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 # sudo xbps-install -Suvy mesa-dri-32bit mesa-vdpau-32bit
 
 ###### DRIVERS ######
