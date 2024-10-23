@@ -20,6 +20,12 @@ sudo xbps-install -Suvy
 # installing important dependencies
 sudo xbps-install -Suvy elogind polkit dbus make xdg-desktop-portal-gtk
 
+# installing codecs
+sudo xbps-install -Suvy openh264 x264 x265
+
+# 32bit codecs [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
+# sudo xbps-install -Suvy openh264-32bit x264-32bit x265-32bit
+
 # removing acpid and its service as it conflicts elogind
 sudo xbps-remove -ROoFfvy acpid && sudo rm -rf /var/service/acpid
 
