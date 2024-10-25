@@ -79,9 +79,9 @@ super + shift + {q,r}
 	bspc {quit,wm -r}
 
 
-# close and kill
+# close only one window
 super + q
-	bspc node -{c,k}
+	bspc node -c
 
 
 # state/flags

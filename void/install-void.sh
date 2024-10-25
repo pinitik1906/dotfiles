@@ -18,10 +18,7 @@ sudo xbps-remove -ROoFfvy irqbalance
 sudo xbps-install -Suvy
 
 # installing important dependencies
-sudo xbps-install -Suvy elogind polkit dbus make xdg-desktop-portal-gtk
-
-# installing codecs
-sudo xbps-install -Suvy openh264 x264 x265
+sudo xbps-install -Suvy base-devel elogind polkit dbus make xdg-desktop-portal-gtk
 
 # 32bit codecs [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 # sudo xbps-install -Suvy openh264-32bit x264-32bit x265-32bit
@@ -32,31 +29,37 @@ sudo xbps-remove -ROoFfvy acpid && sudo rm -rf /var/service/acpid
 # enabling dbus for elogind and others
 sudo ln -s /etc/sv/dbus/ /var/service
 
+# installing additional vulkan dependencies
+sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
+
+# 32-bit vulkan dependencies [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
+# sudo xbps-install -Suvy vulkan-loader-32bit mesa-vulkan-lavapipe-32bit
+
 # clone madand's runit-services (you have an option to enable this for the optional sections)
 # git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
 
 ###### DRIVERS ######
 
 # install intel drivers [NEEDS NONFREE REPO ENABLED]
-# sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri vulkan-loader mesa-vulkan-intel intel-video-accel libvdpau libvdpau-va-gl
+# sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri mesa-vulkan-intel intel-video-accel libvdpau libvdpau-va-gl
 
 # 32-bit intel drivers [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
-# sudo xbps-install -Suvy mesa-dri-32bit vulkan-loader-32bit mesa-vulkan-intel-32bit libva-intel-driver-32bit libvdpau-32bit libvdpau-va-gl-32bit
+# sudo xbps-install -Suvy mesa-dri-32bit mesa-vulkan-intel-32bit libva-intel-driver-32bit libvdpau-32bit libvdpau-va-gl-32bit
 
 # install intel microcode (NEEDS NONFREE REPO ENABLED) [IMPORTANT]
 # sudo xbps-install -Suvy intel-ucode
 
 # install modern_amd drivers [NEEDS NONFREE REPO ENABLED]
-# sudo xbps-install -Suvy xf86-video-amdgpu linux-firmware-amd mesa-dri vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau
+# sudo xbps-install -Suvy xf86-video-amdgpu linux-firmware-amd mesa-dri mesa-vulkan-radeon mesa-vaapi mesa-vdpau
 
 # 32-bit modern_amd drivers [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
-# sudo xbps-install -Suvy mesa-dri-32bit vulkan-loader-32bit mesa-vulkan-radeon-32bit mesa-vaapi-32bit mesa-vdpau-32bit
+# sudo xbps-install -Suvy mesa-dri-32bit mesa-vulkan-radeon-32bit mesa-vaapi-32bit mesa-vdpau-32bit
 
 # install old_amd drivers [NEEDS NONFREE REPO ENABLED]
-# sudo xbps-install -Suvy xf86-video-ati linux-firmware-amd mesa-dri vulkan-loader amdvlk mesa-vaapi mesa-vdpau
+# sudo xbps-install -Suvy xf86-video-ati linux-firmware-amd mesa-dri amdvlk mesa-vaapi mesa-vdpau
 
 # 32-bit old_amd drivers [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
-# sudo xbps-install -Suvy mesa-dri-32bit vulkan-loader-32bit amdvlk-32bit mesa-vaapi-32bit mesa-vdpau-32bit
+# sudo xbps-install -Suvy mesa-dri-32bit amdvlk-32bit mesa-vaapi-32bit mesa-vdpau-32bit
 
 # install modern_nvidia proprietary drivers [NEEDS NONFREE REPO ENABLED]
 # sudo xbps-install -Suvy nvidia nvidia-dkms linux-firmware-nvidia nvidia-firmware nvidia-vaapi-driver mesa-vdpau mesa-dri nvidia-libs

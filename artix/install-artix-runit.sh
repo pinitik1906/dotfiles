@@ -15,11 +15,14 @@ sudo pacman -Syu --needed --noconfirm base-devel git && git clone --depth 1 http
 # installing important dependencies
 paru -Syu --needed --noconfirm elogind-runit polkit dbus xdg-desktop-portal-gtk
 
-# installing codecs
-paru -Syu --needed --noconfirm openh264 x264 x265
-
 # removing acpid and its service as it conflicts elogind
 paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
+
+# installing additional vulkan dependencies
+paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
+
+# 32bit vulkan dependencies [NEEDS MULTILIB REPO ENABLED]
+# paru -Syu --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
 
 # clone madand's runit-services (you have an option to enable this for the optimization and optional sections)
 # git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
