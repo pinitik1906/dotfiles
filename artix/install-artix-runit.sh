@@ -13,7 +13,7 @@ sudo pacman -Syu --needed --noconfirm
 sudo pacman -Syu --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git ~/stuffs/git/paru-bin && cd ~/stuffs/git/paru-bin && makepkg -si && echo "[bin]" | sudo tee -a ~/.config/paru/paru.conf > /dev/null
 
 # installing important dependencies
-paru -Syu --needed --noconfirm elogind-runit polkit dbus xdg-desktop-portal-gtk
+paru -Syu --needed --noconfirm elogind-runit polkit dbus
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
@@ -66,9 +66,6 @@ paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layer
 # 32-bit modern_nvidia proprietary drivers [NEEDS MULTILIB REPO ENABLED]
 # paru -Syu --needed --noconfirm lib32-nvidia-utils
 
-# install bumblebee (ONLY FOR MODERN NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT)
-# paru -Syu --needed --noconfirm bumblebee-runit bbswitch && sudo groupadd bumblebee && sudo gpasswd -a $(whoami) bumblebee && sudo ln -s /etc/runit/sv/bumblebeed /run/runit/service
-
 # install old_nvidia nouveau drivers
 # paru -Syu --needed --noconfirm xf86-video-nouveau mesa mesa-vdpau libva-mesa-driver vulkan-nouveau
 
@@ -78,30 +75,10 @@ paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layer
 ###### DRIVERS ######
 
 
-###### OPTIMIZATION ######
-
-# install profile-sync-daemon [RECOMMENDED]
-paru -Syu --needed --noconfirm profile-sync-daemon && sudo cp -r ~/stuffs/git/runit-services/psd /etc/runit/sv/ && sudo ln -s /etc/runit/sv/psd/ /run/runit/service
-
-# install ananicy-cpp [RECOMMENDED]
-paru -Syu --needed --noconfirm ananicy-cpp-runit && sudo ln -s /etc/runit/sv/ananicy-cpp/ /run/runit/service && sudo rm -rf /etc/ananicy.d/ && sudo git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git /etc/ananicy.d && echo "[safe]" | tee -a ~/.gitconfig > /dev/null && echo "  directory = /etc/ananicy.d/" | tee -a ~/.gitconfig > /dev/null
-
-# install zram
-# paru -Syu --needed --noconfirm zramen-runit && sudo ln -s /etc/runit/sv/zramen/ /run/runit/service
-
-# install preload [HDDs ONLY]
-# paru -Syu --needed --noconfirm preload && echo "preload" | sudo tee -a /etc/rc.local > /dev/null
-
-###### OPTIMIZATION ######
-
-
 ###### OPTIONAL ######
 
 # install ttf-ms-fonts [LEGACY]
 # paru -Syu --needed --noconfirm ttf-ms-fonts
-
-# install earlyoom [RECOMMENDED]
-paru -Syu --needed --noconfirm earlyoom-runit && sudo ln -s /etc/runit/sv/earlyoom/ /run/runit/service
 
 # enable backlight for saving previous brightness you've set after rebooting your pc
 # paru -Syu --needed --noconfirm backlight-runit && sudo ln -s /etc/runit/sv/backlight/ /run/runit/service
@@ -124,10 +101,10 @@ paru -Syu --needed --noconfirm earlyoom-runit && sudo ln -s /etc/runit/sv/earlyo
 ###### WINDOW MANAGERS ######
 
 # install bspwm (X11)
-# paru -Syu --needed --noconfirm bspwm sxhkd polybar i3lock xorg-xinit xcolor xss-lock xsel xclip xdotool redshift scrot
+# paru -Syu --needed --noconfirm bspwm sxhkd polybar i3lock xorg-xinit xcolor xss-lock xsel xclip xdotool scrot
 
 # install hyprland (Wayland)
-# paru -Syu --needed --noconfirm hyprland waybar hyprpicker hyprshot hyprlock xdg-desktop-portal-hyprland wl-clipboard wlsunset
+# paru -Syu --needed --noconfirm hyprland waybar hyprpicker hyprshot hyprlock xdg-desktop-portal-hyprland xdg-desktop-portal-gtk wl-clipboard
 
 ###### WINDOW MANAGERS ######
 

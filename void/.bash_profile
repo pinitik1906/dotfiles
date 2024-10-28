@@ -3,7 +3,7 @@
 export PATH=$PATH:$HOME/stuffs/.scripts:$HOME/.local/bin
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="urxvt"
 export BROWSER="firefox"
 export MAIL="thunderbird"
 

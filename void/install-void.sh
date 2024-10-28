@@ -18,7 +18,7 @@ sudo xbps-remove -ROoFfvy irqbalance
 sudo xbps-install -Suvy
 
 # installing important dependencies
-sudo xbps-install -Suvy base-devel elogind polkit dbus make xdg-desktop-portal-gtk
+sudo xbps-install -Suvy base-devel elogind polkit dbus make
 
 # 32bit codecs [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 # sudo xbps-install -Suvy openh264-32bit x264-32bit x265-32bit
@@ -67,9 +67,6 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 # 32-bit modern_nvidia proprietary drivers [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 # sudo xbps-install -Suvy mesa-vdpau-32bit mesa-dri-32bit nvidia-libs-32bit
 
-# install bumblebee [ONLY FOR MODERN NVIDIA DRIVERS AND NVIDIA OPTIMUS SUPPORT]
-# sudo xbps-install -Suvy bumblebee bbswitch && sudo groupadd bumblebee && sudo gpasswd -a $(whoami) bumblebee && sudo ln -s /etc/sv/bumblebeed /var/service
-
 # install old_nvidia nouveau drivers [NEEDS NONFREE REPO ENABLED]
 # sudo xbps-install -Suvy xf86-video-nouveau mesa-dri mesa-vdpau
 
@@ -95,9 +92,6 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 # install msttcorefonts [NEEDS VOID-SRC ENABLED]
 # cd ~/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && sudo xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
-# install earlyoom [RECOMMENDED]
-sudo xbps-install -Suvy earlyoom && sudo ln -s /etc/sv/earlyoom /var/service
-
 # enable backlight for saving previous brightness you've set after rebooting your pc
 # sudo cp -r ~/stuffs/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service
 
@@ -122,19 +116,19 @@ sudo xbps-install -Suvy earlyoom && sudo ln -s /etc/sv/earlyoom /var/service
 ###### WINDOW MANAGERS ######
 
 # install bspwm (X11)
-# sudo xbps-install -Suvy bspwm sxhkd polybar i3lock xinit xcolor xss-lock xsel xclip xdotool xrandr ueberzug ffmpegthumbnailer redshift scrot
+# sudo xbps-install -Suvy bspwm sxhkd polybar i3lock xinit xrdb xcolor xss-lock xsel xclip xdotool xrandr ueberzug ffmpegthumbnailer scrot rxvt-unicode
 
 # install hyprland (glibc_Wayland)
-# sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
+# sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland xdg-desktop-portal-gtk foot wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
 
 # install hyprland (musl_Wayland)
-# sudo rm -rf /etc/xbps.d/00-hyprland-void-musl.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-musl" | sudo tee -a /etc/xbps.d/00-hyprland-void-musl.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland foot wlsunset wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
+# sudo rm -rf /etc/xbps.d/00-hyprland-void-musl.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-musl" | sudo tee -a /etc/xbps.d/00-hyprland-void-musl.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland xdg-desktop-portal-gtk foot wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-sudo xbps-install -Suvy xorg-minimal xorg-fonts linux-firmware alacritty pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg opendoas acpi mate-polkit
+sudo xbps-install -Suvy xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg opendoas acpi mate-polkit
 
 # enable ufw with recommended settings by chris_titus
 sudo ln -s /etc/sv/ufw/ /var/service && sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable
