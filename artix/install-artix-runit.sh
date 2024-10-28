@@ -101,16 +101,16 @@ paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layer
 ###### WINDOW MANAGERS ######
 
 # install bspwm (X11)
-# paru -Syu --needed --noconfirm bspwm sxhkd polybar i3lock xorg-xinit xcolor xss-lock xsel xclip xdotool scrot
+# paru -Syu --needed --noconfirm bspwm sxhkd polybar i3lock xorg-xinit xcolor xss-lock xsel xclip xdotool scrot rxvt-unicode
 
 # install hyprland (Wayland)
-# paru -Syu --needed --noconfirm hyprland waybar hyprpicker hyprshot hyprlock xdg-desktop-portal-hyprland xdg-desktop-portal-gtk wl-clipboard
+# paru -Syu --needed --noconfirm hyprland waybar hyprpicker hyprshot hyprlock xdg-desktop-portal-hyprland xdg-desktop-portal-gtk wl-clipboard foot
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-paru -Syu --needed --noconfirm xorg linux-firmware opendoas alacritty noto-fonts noto-fonts-cjk noto-fonts-emoji dunst libnotify rofi rofi-calc rofi-emoji brightnessctl mpv nsxiv ranger zathura zathura-pdf-poppler pipewire pipewire-alsa pipewire-pulse pipewire-jack pavucontrol ufw acpi ueberzugpp ffmpegthumbnailer mate-polkit
+paru -Syu --needed --noconfirm xorg linux-firmware opendoas noto-fonts noto-fonts-cjk noto-fonts-emoji dunst libnotify rofi rofi-calc rofi-emoji brightnessctl mpv nsxiv ranger zathura zathura-pdf-poppler pipewire pipewire-alsa pipewire-pulse pipewire-jack pavucontrol ufw acpi ueberzugpp ffmpegthumbnailer mate-polkit
 
 # enable ufw with recommended settings by chris_titus
 sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable
