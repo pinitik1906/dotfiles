@@ -128,7 +128,7 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 
 
 # install your programs here
-sudo xbps-install -Suvy xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg opendoas acpi mate-polkit
+sudo xbps-install -Suvy xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop ufetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg opendoas acpi mate-polkit
 
 # enable ufw with recommended settings by chris_titus
 sudo ln -s /etc/sv/ufw/ /var/service && sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable

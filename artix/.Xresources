@@ -1,49 +1,20 @@
-! Font
+! General
 
 URxvt.font: xft:monospace:size=8:style=Regular
 URxvt.boldFont: xft:monospace:size=8:style=Bold
 URxvt.italicFont: xft:monospace:size=8:style=Italic
 URxvt.boldItalicFont: xft:monospace:size=8:style=Bold Italic
 
+URxvt.intensityStyles: false
+
 URxvt.iso14755:	false
-URxvt.geometry: 174x47
-
-Xft.autohint: true
-Xft.hintstyle: hintfull
-
-! Xft.dpi: 96
-
-! Opts
-
-Xcursor.theme: Adwaita
-Xcursor.size:  0
-
-URxvt.secondaryScroll: false
-URxvt.secondaryWheel: true
+URxvt.geometry: 400x400
 
 URxvt*cursorBlink:                    true
 
-URxvt*urgentOnBell:                   false
-URxvt*visualBell:                     false
-URxvt*mapAlert:                       false
+URxvt*scrollBar:                      false
 
-! Scroll
-
-URxvt*scrollTtyOutput:                false
-URxvt*scrollWithBuffer:               true
-URxvt*scrollTtyKeypress:              true
-
-URxvt*saveLines:                      10000
-URxvt*mouseWheelScrollPage:           false
-
-URxvt*scrollBar:                      true
-URxvt*scrollstyle:                    plain
-URxvt*scrollBar_right:                true
-URxvt*scrollColor:                    #7DAEA3
-
-! Keybindings for 1-line scrolling
-URxvt.keysym.Shift-Up: command:\033]720;1\007
-URxvt.keysym.Shift-Down: command:\033]721;1\007
+! Keybinds
 
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
@@ -53,7 +24,6 @@ URxvt.keysym.Control-Meta-v: builtin-string:
 
 ! Color Scheme
 
-! DEFAULTS.
 *.background:   #282828
 *.foreground:   #ebdbb2
 
