@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # add important groups
 sudo usermod -aG video $(whoami) && sudo usermod -aG audio $(whoami) && sudo usermod -aG wheel $(whoami)

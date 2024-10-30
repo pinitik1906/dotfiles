@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
 ###### REPO ######
@@ -19,9 +19,6 @@ sudo xbps-install -Suvy
 
 # installing important dependencies
 sudo xbps-install -Suvy base-devel elogind polkit dbus make
-
-# 32bit codecs [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
-# sudo xbps-install -Suvy openh264-32bit x264-32bit x265-32bit
 
 # removing acpid and its service as it conflicts elogind
 sudo xbps-remove -ROoFfvy acpid && sudo rm -rf /var/service/acpid
