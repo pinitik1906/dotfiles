@@ -1,15 +1,13 @@
 #!/bin/sh
 
-# autostart polybar
+# start polybar
 $HOME/.config/polybar/launch.sh &
 
-# lockscreen with lid closed
 xss-lock --transfer-sleep-lock -- i3lock --nofork &
 
-# set resolution to 1024x768 (4:3)
-# xrandr --output eDP1 --mode 1024x768
+#xrandr --output eDP1 --mode 1024x768
 
-# bspwm settings
+# general
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10 &
 bspc config window_gap 5
 bspc config border_width 2

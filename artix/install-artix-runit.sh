@@ -22,89 +22,86 @@ paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
 paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 
 # 32bit vulkan dependencies [NEEDS MULTILIB REPO ENABLED]
-# paru -Syu --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
+#paru -Syu --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
 
 # clone madand's runit-services (you have an option to enable this for the optimization and optional sections)
-# git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
+#git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
 
 
 ###### DRIVERS ######
 
-# install intel drivers [NEEDS ARCH REPO ENABLED]
-# paru -Syu --needed --noconfirm xf86-video-intel mesa vulkan-intel intel-media-driver libva-intel-driver libvdpau libvdpau-va-gl intel-media-sdk
+# intel [NEEDS ARCH REPO ENABLED]
+#paru -Syu --needed --noconfirm xf86-video-intel mesa vulkan-intel intel-media-driver libva-intel-driver libvdpau libvdpau-va-gl intel-media-sdk
 
-# 32-bit intel drivers [NEEDS MULTILIB REPO ENABLED]
-# paru -Syu --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libva-intel-driver lib32-libvdpau lib32-libvdpau-va-gl
+# 32-bit intel [NEEDS MULTILIB REPO ENABLED]
+#paru -Syu --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libva-intel-driver lib32-libvdpau lib32-libvdpau-va-gl
 
-# install intel microcode [IMPORTANT]
-# paru -Syu --needed --noconfirm intel-ucode
+# intel microcode [IMPORTANT]
+#paru -Syu --needed --noconfirm intel-ucode
 
-# install modern_amd drivers
-# paru -Syu --needed --noconfirm xf86-video-amdgpu mesa vulkan-radeon libva-mesa-driver mesa-vdpau
+# modern_amd
+#paru -Syu --needed --noconfirm xf86-video-amdgpu mesa vulkan-radeon libva-mesa-driver mesa-vdpau
 
-# 32-bit modern_amd drivers [NEEDS MULTILIB  ENABLED]
-# paru -Syu --needed --noconfirm lib32-mesa lib32-vulkan-radeon lib32-libva-mesa-driver lib32-mesa-vdpau
+# 32-bit modern_amd [NEEDS MULTILIB  ENABLED]
+#paru -Syu --needed --noconfirm lib32-mesa lib32-vulkan-radeon lib32-libva-mesa-driver lib32-mesa-vdpau
 
-# install old_amd drivers
-# paru -Syu --needed --noconfirm xf86-video-ati mesa amdvlk libva-mesa-driver mesa-vdpau
+# old_amd
+#paru -Syu --needed --noconfirm xf86-video-ati mesa amdvlk libva-mesa-driver mesa-vdpau
 
-# 32-bit old_amd drivers [NEEDS MULTILIB REPO ENABLED]
-# paru -Syu --needed --noconfirm lib32-mesa lib32-amdvlk lib32-libva-mesa-driver lib32-mesa-vdpau
+# 32-bit old_amd [NEEDS MULTILIB REPO ENABLED]
+#paru -Syu --needed --noconfirm lib32-mesa lib32-amdvlk lib32-libva-mesa-driver lib32-mesa-vdpau
 
-# install amd microcode [IMPORTANT]
-# paru -Syu --needed --noconfirm amd-ucode
+# amd microcode [IMPORTANT]
+#paru -Syu --needed --noconfirm amd-ucode
 
-# install modern_nvidia open-source drivers [NEEDS ARCH REPO ENABLED]
-# paru -Syu --needed --noconfirm nvidia-open nvidia-open-dkms nvidia-utils libva-nvidia-driver
+# 32-bit modern_nvidia open-source [NEEDS MULTILIB REPO ENABLED]
+#paru -Syu --needed --noconfirm lib32-nvidia-utils
 
-# 32-bit modern_nvidia open-source drivers [NEEDS MULTILIB REPO ENABLED]
-# paru -Syu --needed --noconfirm lib32-nvidia-utils
+# modern_nvidia proprietary [NEEDS ARCH REPO ENABLED]
+#paru -Syu --needed --noconfirm nvidia nvidia-dkms nvidia-utils libva-nvidia-driver
 
-# install modern_nvidia proprietary drivers [NEEDS ARCH REPO ENABLED]
-# paru -Syu --needed --noconfirm nvidia nvidia-dkms nvidia-utils libva-nvidia-driver
+# 32-bit modern_nvidia proprietary [NEEDS MULTILIB REPO ENABLED]
+#paru -Syu --needed --noconfirm lib32-nvidia-utils
 
-# 32-bit modern_nvidia proprietary drivers [NEEDS MULTILIB REPO ENABLED]
-# paru -Syu --needed --noconfirm lib32-nvidia-utils
+# old_nvidia nouveau
+#paru -Syu --needed --noconfirm xf86-video-nouveau mesa mesa-vdpau libva-mesa-driver vulkan-nouveau
 
-# install old_nvidia nouveau drivers
-# paru -Syu --needed --noconfirm xf86-video-nouveau mesa mesa-vdpau libva-mesa-driver vulkan-nouveau
-
-# 32-bit old_nvidia nouveau drivers [NEEDS MULTILIB REPO ENABLED]
-# paru -Syu --needed --nouveau lib32-mesa lib32-mesa-vdpau lib32-libva-mesa-driver lib32-vulkan-nouveau
+# 32-bit old_nvidia nouveau [NEEDS MULTILIB REPO ENABLED]
+#paru -Syu --needed --nouveau lib32-mesa lib32-mesa-vdpau lib32-libva-mesa-driver lib32-vulkan-nouveau
 
 ###### DRIVERS ######
 
 
 ###### OPTIONAL ######
 
-# install ttf-ms-fonts [LEGACY]
-# paru -Syu --needed --noconfirm ttf-ms-fonts
+# ttf-ms-fonts [LEGACY]
+#paru -Syu --needed --noconfirm ttf-ms-fonts
 
-# enable backlight for saving previous brightness you've set after rebooting your pc
-# paru -Syu --needed --noconfirm backlight-runit && sudo ln -s /etc/runit/sv/backlight/ /run/runit/service
+# enable backlight service for saving previous brightness you've set after rebooting your pc
+#paru -Syu --needed --noconfirm backlight-runit && sudo ln -s /etc/runit/sv/backlight/ /run/runit/service
 
-# install and enable thinkfan [THINKPADS ONLY]
-# sudo cp -r ~/stuffs/git/runit-services/thinkfan /etc/runit/sv/ && paru -Syu --needed --noconfirm thinkfan && sudo ln -s /etc/runit/sv/thinkfan/ /run/runit/service
+# thinkfan [THINKPADS ONLY]
+#sudo cp -r ~/stuffs/git/runit-services/thinkfan /etc/runit/sv/ && paru -Syu --needed --noconfirm thinkfan && sudo ln -s /etc/runit/sv/thinkfan/ /run/runit/service
 
-# install and enable thermald (supports tlp) [INTEL ONLY]
-# paru -Syu --needed --noconfirm thermald-runit 
+# thermald (supports tlp) [INTEL ONLY]
+#paru -Syu --needed --noconfirm thermald-runit 
 
-# install and enable tlp
-# paru -Syu --needed --noconfirm tlp-runit && sudo ln -s /etc/runit/sv/tlp/ /run/runit/service
+# tlp
+#paru -Syu --needed --noconfirm tlp-runit && sudo ln -s /etc/runit/sv/tlp/ /run/runit/service
 
-# install and enable bluetooth
-# paru -Syu --needed --noconfirm bluez-runit bluez-utils && sudo ln -s /etc/runit/sv/bluetoothd/ /run/runit/service
+# bluetooth
+#paru -Syu --needed --noconfirm bluez-runit bluez-utils && sudo ln -s /etc/runit/sv/bluetoothd/ /run/runit/service
 
 ###### OPTIONAL ######
 
 
 ###### WINDOW MANAGERS ######
 
-# install bspwm (X11)
-# paru -Syu --needed --noconfirm bspwm sxhkd polybar i3lock xorg-xinit xcolor xss-lock xsel xclip xdotool scrot rxvt-unicode
+# bspwm (X11)
+#paru -Syu --needed --noconfirm bspwm sxhkd polybar i3lock xorg-xinit xcolor xss-lock xsel xclip xdotool scrot rxvt-unicode
 
-# install hyprland (Wayland)
-# paru -Syu --needed --noconfirm hyprland waybar hyprpicker hyprshot hyprlock xdg-desktop-portal-hyprland xdg-desktop-portal-gtk wl-clipboard foot
+# hyprland (Wayland)
+#paru -Syu --needed --noconfirm hyprland waybar hyprpicker hyprshot hyprlock xdg-desktop-portal-hyprland xdg-desktop-portal-gtk wl-clipboard foot
 
 ###### WINDOW MANAGERS ######
 
@@ -115,7 +112,7 @@ paru -Syu --needed --noconfirm xorg linux-firmware opendoas noto-fonts noto-font
 # enable ufw with recommended settings by chris_titus
 sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable
 
-# sudo alternative (opendoas/doas), simple yet secure and minimal (recommended)
+# sudo alternative (doas) [RECOMMENDED]
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null
 
 # remove any orphaned packages
