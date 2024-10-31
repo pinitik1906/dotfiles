@@ -13,7 +13,7 @@ sudo pacman -Syu --needed --noconfirm
 sudo pacman -Syu --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git ~/stuffs/git/paru-bin && cd ~/stuffs/git/paru-bin && makepkg -si && echo "[bin]" | sudo tee -a ~/.config/paru/paru.conf > /dev/null
 
 # installing important dependencies
-paru -Syu --needed --noconfirm elogind-runit polkit dbus
+paru -Syu --needed --noconfirm elogind-runit polkit dbus opendoas xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
@@ -107,7 +107,7 @@ paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layer
 
 
 # install your programs here
-paru -Syu --needed --noconfirm xorg linux-firmware opendoas noto-fonts noto-fonts-cjk noto-fonts-emoji dunst libnotify rofi rofi-calc rofi-emoji brightnessctl mpv nsxiv ranger zathura zathura-pdf-poppler pipewire pipewire-alsa pipewire-pulse pipewire-jack pavucontrol ufw acpi ueberzugpp ffmpegthumbnailer mate-polkit
+paru -Syu --needed --noconfirm nwg-look noto-fonts noto-fonts-cjk noto-fonts-emoji dunst libnotify rofi rofi-calc rofi-emoji brightnessctl mpv nsxiv ranger zathura zathura-pdf-poppler  pavucontrol ufw acpi ueberzugpp ffmpegthumbnailer mate-polkit
 
 # enable ufw with recommended settings by chris_titus
 sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable

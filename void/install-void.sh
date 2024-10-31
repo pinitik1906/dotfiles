@@ -18,7 +18,8 @@ sudo xbps-remove -ROoFfvy irqbalance
 sudo xbps-install -Suvy
 
 # installing important dependencies
-sudo xbps-install -Suvy base-devel elogind polkit dbus make
+sudo xbps-install -Suvy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire
+sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 
 # removing acpid and its service as it conflicts elogind
 sudo xbps-remove -ROoFfvy acpid && sudo rm -rf /var/service/acpid
@@ -104,9 +105,6 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 # bluetooth with pipewire and alsa
 #sudo xbps-install -Suvy bluez bluez-alsa libspa-bluetooth && sudo ln -s /etc/sv/bluetoothd/ /var/service
 
-# alsa-pipewire
-#sudo xbps-install -Suvy alsa-pipewire && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
-
 ###### OPTIONAL ######
 
 
@@ -125,7 +123,7 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 
 
 # install your programs here
-sudo xbps-install -Suvy xorg-minimal xorg-fonts linux-firmware pipewire noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop ufetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg opendoas acpi mate-polkit
+sudo xbps-install -Suvy nwg-look noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop ufetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg acpi mate-polkit
 
 # enable ufw with recommended settings by chris_titus
 sudo ln -s /etc/sv/ufw/ /var/service && sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable
