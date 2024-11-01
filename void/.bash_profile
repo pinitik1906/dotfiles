@@ -16,5 +16,5 @@ export MAIL="thunderbird"
 pipewire &
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-river &>/dev/null
+startx &>/dev/null
 fi
