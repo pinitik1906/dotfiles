@@ -1,21 +1,27 @@
 #!/bin/sh
 
 # autostart
-pkill -9 waybar && pkill -9 dunst && pkill -9 wlsunset && pkill -9 polkit-mate-authentication-agent-1
+pkill -9 swayidle && pkill -9 waybar && pkill -9 dunst && pkill -9 wlsunset && pkill -9 polkit-mate-authentication-agent-1
 waybar &
 dunst &
 wlsunset -t 2300 -S 0:00 &
 /usr/libexec/polkit-mate-authentication-agent-1 &
 
 #wlr-randr --output eDP-1 --custom-mode 1024x768 @60Hz
-wlr-randr --output DP-1 --preferred
+#wlr-randr --output DP-1 --preferred
+
+swayidle -w \
+  timeout 600 'swaylock -felc 000000' \
+  timeout 900 'wlopm --off \*;swaylock -elc 000000' resume 'wlopm --on \*' \
+  before-sleep 'swaylock -felc 000000' &
+
 
 # apps binds
 riverctl map normal Super Return spawn "foot"
 riverctl map normal Super R spawn "foot -e ranger"
 riverctl map normal Super D spawn "tofi-drun -c ~/.config/tofi/config"
 riverctl map normal Super E spawn "thunderbird"
-riverctl map normal Super W spawn "librewolf"
+riverctl map normal Super W spawn "firefox"
 
 # swaylock with lid close
 riverctl map-switch normal lid open spawn "swaylock -elc 000000"
@@ -96,16 +102,16 @@ riverctl map-pointer normal Super BTN_LEFT move-view
 riverctl map-pointer normal Super BTN_RIGHT resize-view
 riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 
-for TOUCHPAD in $(riverctl list-inputs | grep -i touchpad )
+for SYNAPTICS in $(riverctl list-inputs | grep -i Synaptics)
 do
 
-  riverctl input $TOUCHPAD events enabled
-  riverctl input $TOUCHPAD tap enabled
-  riverctl input $TOUCHPAD natural-scroll enabled
+  riverctl input $SYNAPTICS events enabled
+  riverctl input $SYNAPTICS tap enabled
+  riverctl input $SYNAPTICS natural-scroll enabled
 
 done
 
-for POINTERS in $(riverctl list-inputs)
+for POINTERS in $(riverctl list-inputs | grep -i pointer)
 do
 
   riverctl input $POINTERS accel-profile flat
