@@ -18,8 +18,7 @@ sudo xbps-remove -ROoFfvy irqbalance
 sudo xbps-install -Suvy
 
 # installing important dependencies
-sudo xbps-install -Suvy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire
-sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
+sudo xbps-install -Suvy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire mate-polkit && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 
 # removing acpid and its service as it conflicts elogind
 sudo xbps-remove -ROoFfvy acpid && sudo rm -rf /var/service/acpid
@@ -111,19 +110,16 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#sudo xbps-install -Suvy bspwm sxhkd polybar i3lock xinit xrdb xcolor xss-lock xsel xclip xdotool xrandr ueberzug ffmpegthumbnailer scrot rxvt-unicode
+#sudo xbps-install -Suvy bspwm sxhkd polybar i3lock-color xinit xrdb xcolor xss-lock xsel xclip xdotool xrandr scrot rofi rxvt-unicode
 
-# hyprland (GLIBC_Wayland)
-#sudo rm -rf /etc/xbps.d/00-hyprland-void-glibc.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc" | sudo tee -a /etc/xbps.d/00-hyprland-void-glibc.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland xdg-desktop-portal-gtk foot wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
-
-# install hyprland (MUSL_Wayland)
-#sudo rm -rf /etc/xbps.d/00-hyprland-void-musl.conf && sudo echo "repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-musl" | sudo tee -a /etc/xbps.d/00-hyprland-void-musl.conf > /dev/null && sudo xbps-install -Suvy xorg-server-xwayland hyprland hyprpicker hyprlock Waybar xdg-desktop-portal-hyprland xdg-desktop-portal-gtk foot wl-clipboard wtype grim slurp && git clone --depth 1 https://github.com/Gustash/hyprshot.git ~/stuffs/git/hyprshot && cp -r ~/stuffs/git/hyprshot/hyprshot ~/.local/bin/ && chmod +x ~/stuffs/git/hyprshot/hyprshot
+# river (Wayland)
+sudo xbps-install -Suvy river Waybar xorg-server-xwayland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-sudo xbps-install -Suvy nwg-look noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop ufetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst rofi rofi-calc rofi-emoji brightnessctl nsxiv ffmpeg acpi mate-polkit
+sudo xbps-install -Suvy nwg-look noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop ufetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst brightnessctl nsxiv ffmpeg acpi ueberzug ffmpegthumbnailer
 
 # enable ufw with recommended settings by chris_titus
 sudo ln -s /etc/sv/ufw/ /var/service && sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable

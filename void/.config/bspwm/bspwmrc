@@ -3,9 +3,10 @@
 # start polybar
 $HOME/.config/polybar/launch.sh &
 
-xss-lock --transfer-sleep-lock -- i3lock --nofork &
+xss-lock --transfer-sleep-lock -- i3lock --nofork -ec 00000000 &
 
 #xrandr --output eDP1 --mode 1024x768
+xrandr --output DP1 --preferred
 
 # general
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10 &
