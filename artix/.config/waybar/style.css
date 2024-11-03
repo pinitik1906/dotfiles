@@ -10,27 +10,40 @@
   background: #1a1a1a;
   color: #ebdbb2;
 }
-
-#workspaces {
-  background: #282828;
-}
-
 #window {
   padding: 0 3px;
+  color: #707880
 }
-#workspaces button {
-  padding: 0 0px;
+#tags button {
+  min-width: 12px;
+  padding: 0px;
+  color: #707880;
+}
+#tags button.focused {
+  color: #ebdbb2;
+  border-bottom: 2px solid #d79921;
+}
+#tags button.occupied {
   color: #ebdbb2;
 }
-#workspaces button.focused {
-  color: #3c3836;
+#tags button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: #1a1a1a;
+    padding: 0 0px;
+}
+#pulseaudio.muted {
+    color: #707880;
 }
 
 #battery {
-  color: #689d6a;
+  color: #458588;
 }
 #temperature {
   color: #d79921;
+}
+#temperature.critical {
+  color: #cc241d;
 }
 
 #clock,
@@ -38,8 +51,7 @@
 #battery,
 #tray,
 #temperature,
-#gamemode,
 #network,
-#bluetooth {
+#backlight {
   padding: 0 3px;
 }

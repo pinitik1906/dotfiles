@@ -11,6 +11,7 @@
 
 ###### REPO ######
 
+
 # remove irqbalance as it reduces performance
 sudo xbps-remove -ROoFfvy irqbalance
 
@@ -18,7 +19,7 @@ sudo xbps-remove -ROoFfvy irqbalance
 sudo xbps-install -Suvy
 
 # installing important dependencies
-sudo xbps-install -Suvy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire mate-polkit && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
+sudo xbps-install -Suvy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 
 # removing acpid and its service as it conflicts elogind
 sudo xbps-remove -ROoFfvy acpid && sudo rm -rf /var/service/acpid
@@ -34,6 +35,7 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 
 # clone madand's runit-services (you have an option to enable this for the optional sections)
 #git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
+
 
 ###### DRIVERS ######
 
@@ -110,24 +112,21 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#sudo xbps-install -Suvy bspwm sxhkd polybar i3lock-color xinit xrdb xcolor xss-lock xsel xclip xdotool xrandr scrot rofi rxvt-unicode
+#sudo xbps-install -Suvy sxhkd bspwm polybar i3lock-color xinit xrdb xcolor xss-lock xsel xclip xdotool xrandr scrot rofi rxvt-unicode
 
 # river (Wayland)
-#sudo xbps-install -Suvy river Waybar xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
+#sudo xbps-install -Suvy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-sudo xbps-install -Suvy nwg-look noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop ufetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst brightnessctl nsxiv ffmpeg acpi ueberzug ffmpegthumbnailer
+sudo xbps-install -Suvy nwg-look noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop ufetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst libnotify brightnessctl nsxiv acpi ueberzug ffmpegthumbnailer
 
 # enable ufw with recommended settings by chris_titus
 sudo ln -s /etc/sv/ufw/ /var/service && sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable
 
-# make pipewire usable
-sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
-
-# sudo alternative (opendoas/doas), simple yet secure and minimal (recommended)
+# sudo alternative (doas) [RECOMMENDED]
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null
 
 # fix bad font rendering

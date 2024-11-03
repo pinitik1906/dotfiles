@@ -58,7 +58,7 @@ XF86AudioMicMute
 
 # lockscreen
 super + comma
-	i3lock --nofork
+	i3lock --nofork -ec 00000000
 
 
 # program launcher

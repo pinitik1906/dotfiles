@@ -5,7 +5,7 @@ pkill -9 swayidle && pkill -9 waybar && pkill -9 dunst && pkill -9 wlsunset && p
 waybar &
 dunst &
 wlsunset -t 2300 -S 0:00 &
-/usr/libexec/polkit-mate-authentication-agent-1 &
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
 #wlr-randr --output eDP-1 --custom-mode 1024x768 @60Hz
 wlr-randr --output DP-1 --preferred
@@ -90,7 +90,7 @@ done
 # border and background color
 riverctl background-color 0x000000
 riverctl border-color-unfocused 0x7b6e63
-riverctl border-color-focused 0x98971a
+riverctl border-color-focused 0x458588
 riverctl border-width 2
 
 # mouse

@@ -13,7 +13,7 @@ sudo pacman -Syu --needed --noconfirm
 sudo pacman -Syu --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git ~/stuffs/git/paru-bin && cd ~/stuffs/git/paru-bin && makepkg -si && echo "[bin]" | sudo tee -a ~/.config/paru/paru.conf > /dev/null
 
 # installing important dependencies
-paru -Syu --needed --noconfirm elogind-runit polkit dbus opendoas xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack
+paru -Syu --needed --noconfirm base-devel elogind-runit polkit dbus opendoas xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
@@ -84,7 +84,7 @@ paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layer
 #sudo cp -r ~/stuffs/git/runit-services/thinkfan /etc/runit/sv/ && paru -Syu --needed --noconfirm thinkfan && sudo ln -s /etc/runit/sv/thinkfan/ /run/runit/service
 
 # thermald (supports tlp) [INTEL ONLY]
-#paru -Syu --needed --noconfirm thermald-runit 
+#paru -Syu --needed --noconfirm thermald-runit && sudo ln -s /etc/runit/sv/thermald/ /run/runit/service
 
 # tlp
 #paru -Syu --needed --noconfirm tlp-runit && sudo ln -s /etc/runit/sv/tlp/ /run/runit/service
@@ -98,16 +98,16 @@ paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layer
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#paru -Syu --needed --noconfirm bspwm sxhkd polybar i3lock xorg-xinit xcolor xss-lock xsel xclip xdotool scrot rxvt-unicode
+#paru -Syu --needed --noconfirm sxhkd bspwm polybar i3lock xorg-xinit xcolor xss-lock xsel xclip xdotool scrot rofi rxvt-unicode
 
-# hyprland (Wayland)
-#paru -Syu --needed --noconfirm hyprland waybar hyprpicker hyprshot hyprlock xdg-desktop-portal-hyprland xdg-desktop-portal-gtk wl-clipboard foot
+# river (Wayland)
+#paru -Syu --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wype wlr-randr grim slurp tofi foot swayidle wlopm
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-paru -Syu --needed --noconfirm nwg-look noto-fonts noto-fonts-cjk noto-fonts-emoji dunst libnotify rofi rofi-calc rofi-emoji brightnessctl mpv nsxiv ranger zathura zathura-pdf-poppler  pavucontrol ufw acpi ueberzugpp ffmpegthumbnailer mate-polkit
+paru -Syu --needed --noconfirm nwg-look noto-fonts noto-fonts-emoji noto-fonts-cjk htop ufetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst libnotify brightnessctl nsxiv acpi ueberzugpp ffmpegthumbnailer
 
 # enable ufw with recommended settings by chris_titus
 sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable
