@@ -15,7 +15,7 @@ cd ~/git/dotfiles && git fetch && git pull
 ## my personal-kernel-parameters for *intel*
 for `grub` in /etc/default/grub
 ```
-GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 console=tty12 udev.log_level=0 nmi_watchdog=0 intel_iommu=off clocksource=tsc tsc=reliable preempt=full msr.allow_writes=on i915.enable_fbc=1 i915.enable_guc=3 i915.fastboot=1 i915.enable_dc=4 i915.enable_psr=2"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 console=tty12 udev.log_level=0 nmi_watchdog=0 nowatchdog modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco intel_iommu=off clocksource=tsc tsc=reliable preempt=full msr.allow_writes=on i915.enable_fbc=1 i915.enable_guc=3 i915.fastboot=1 i915.enable_dc=4 i915.enable_psr=2"
 ```
 then do in ***artix***,
 ```
@@ -28,7 +28,7 @@ update-grub
 
 for `refind` in /boot/refind_linux.conf (ignore the root=*)
 ```
-"Boot with standard options"  "root=UUID=d13a76e9-3ed4-41d9-8ddd-1e31c40b91b4 rw quiet loglevel=0 console=tty12 udev.log_level=0 nmi_watchdog=0 intel_iommu=off clocksource=tsc tsc=reliable preempt=full msr.allow_writes=on i915.enable_fbc=1 i915.enable_guc=3 i915.fastboot=1 i915.enable_dc=4 i915.enable_psr=2"
+"Boot with standard options"  "root=UUID=d13a76e9-3ed4-41d9-8ddd-1e31c40b91b4 rw quiet loglevel=0 console=tty12 udev.log_level=0 nmi_watchdog=0 nowatchdog modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco intel_iommu=off clocksource=tsc tsc=reliable preempt=full msr.allow_writes=on i915.enable_fbc=1 i915.enable_guc=3 i915.fastboot=1 i915.enable_dc=4 i915.enable_psr=2"
 ```
 
 ## faq
