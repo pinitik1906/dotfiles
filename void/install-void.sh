@@ -106,13 +106,16 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 # bluetooth with pipewire and alsa
 #sudo xbps-install -Suvy bluez bluez-alsa libspa-bluetooth && sudo ln -s /etc/sv/bluetoothd/ /var/service
 
+# bsp-layout (MASTER STACK)
+#sudo xbps-install -Suvy bc && git clone --depth 1 https://github.com/phenax/bsp-layout.git ~/stuffs/git/bsp-layout && cd ~/stuffs/git/bsp-layout && sudo make install
+
 ###### OPTIONAL ######
 
 
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#sudo xbps-install -Suvy sxhkd bspwm polybar i3lock-color xinit xrdb xcolor xss-lock xsel xclip xdotool xrandr scrot rofi rxvt-unicode
+#sudo xbps-install -Suvy sxhkd bspwm polybar i3lock-color xinit xrdb xcolor xss-lock xset xsel xclip xdotool xrandr scrot rofi rxvt-unicode
 
 # river (Wayland)
 #sudo xbps-install -Suvy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm

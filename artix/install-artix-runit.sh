@@ -92,13 +92,16 @@ paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layer
 # bluetooth
 #paru -Syu --needed --noconfirm bluez-runit bluez-utils && sudo ln -s /etc/runit/sv/bluetoothd/ /run/runit/service
 
+# bsp-layout (MASTER STACK)
+#paru -Syu --needed --noconfirm bsp-layout
+
 ###### OPTIONAL ######
 
 
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#paru -Syu --needed --noconfirm sxhkd bspwm polybar i3lock xorg-xinit xcolor xss-lock xsel xclip xdotool scrot rofi rxvt-unicode
+#paru -Syu --needed --noconfirm sxhkd bspwm polybar i3lock xorg-xinit xcolor xss-lock xset xsel xclip xdotool scrot rofi rxvt-unicode
 
 # river (Wayland)
 #paru -Syu --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wype wlr-randr grim slurp tofi foot swayidle wlopm
