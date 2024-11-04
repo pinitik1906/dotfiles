@@ -7,7 +7,7 @@
 #sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/multilib" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/multilib/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
 
 # enable nonfree [MUSL]
-sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
+#sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
 
 ###### REPO ######
 
@@ -34,19 +34,19 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 #sudo xbps-install -Suvy vulkan-loader-32bit mesa-vulkan-lavapipe-32bit
 
 # clone madand's runit-services (you have an option to enable this for the optional sections)
-git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
+#git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
 
 
 ###### DRIVERS ######
 
 # intel [NEEDS NONFREE REPO ENABLED]
-sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri mesa-vulkan-intel intel-video-accel libvdpau libvdpau-va-gl
+#sudo xbps-install -Suvy xf86-video-intel linux-firmware-intel mesa-dri mesa-vulkan-intel intel-video-accel libvdpau libvdpau-va-gl
 
 # 32-bit intel [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #sudo xbps-install -Suvy mesa-dri-32bit mesa-vulkan-intel-32bit libva-intel-driver-32bit libvdpau-32bit libvdpau-va-gl-32bit
 
 # intel microcode (NEEDS NONFREE REPO ENABLED) [IMPORTANT]
-sudo xbps-install -Suvy intel-ucode
+#sudo xbps-install -Suvy intel-ucode
 
 # modern_amd [NEEDS NONFREE REPO ENABLED]
 #sudo xbps-install -Suvy xf86-video-amdgpu linux-firmware-amd mesa-dri mesa-vulkan-radeon mesa-vaapi mesa-vdpau
@@ -81,7 +81,7 @@ sudo xbps-install -Suvy intel-ucode
 #git clone --depth 1 https://github.com/void-linux/void-packages.git ~/stuffs/git/void-packages && cd ~/stuffs/git/void-packages && echo XBPS_ALLOW_RESTRICTED=yes >> ~/stuffs/git/void-packages/etc/conf && rm -rf ~/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf && rm -rf ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib.conf && echo "repository=https://repo-fastly.voidlinux.org/current" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/bootstrap" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/nonfree" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/debug" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib/bootstrap" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib/nonfree" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && ./xbps-src binary-bootstrap
 
 # enable nonfree [MUSL]
-git clone --depth 1 https://github.com/void-linux/void-packages.git ~/stuffs/git/void-packages && cd ~/stuffs/git/void-packages && echo XBPS_ALLOW_RESTRICTED=yes >> ~/stuffs/git/void-packages/etc/conf && rm -rf ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/bootstrap" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/debug" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && ./xbps-src binary-bootstrap
+#git clone --depth 1 https://github.com/void-linux/void-packages.git ~/stuffs/git/void-packages && cd ~/stuffs/git/void-packages && echo XBPS_ALLOW_RESTRICTED=yes >> ~/stuffs/git/void-packages/etc/conf && rm -rf ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/bootstrap" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/debug" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && ./xbps-src binary-bootstrap
 
 ###### VOID-SRC ######
 
@@ -89,22 +89,22 @@ git clone --depth 1 https://github.com/void-linux/void-packages.git ~/stuffs/git
 ###### OPTIONAL ######
 
 # msttcorefonts [NEEDS VOID-SRC ENABLED]
-cd ~/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && sudo xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
+#cd ~/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && sudo xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
 # enable backlight service for saving previous brightness you've set after rebooting your pc
-sudo cp -r ~/stuffs/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service
+#sudo cp -r ~/stuffs/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service
 
 # thinkfan [THINKPADS ONLY]
 #sudo cp -r ~/stuffs/git/runit-services/thinkfan /etc/sv/ && sudo xbps-install -Suvy thinkfan && sudo ln -s /etc/sv/thinkfan/ /var/service
 
 # thermald (supports tlp) [INTEL ONLY]
-sudo xbps-install -Suvy thermald && sudo ln -s /etc/sv/thermald/ /var/service
+#sudo xbps-install -Suvy thermald && sudo ln -s /etc/sv/thermald/ /var/service
 
 # tlp
 sudo xbps-install -Suvy tlp && sudo ln -s /etc/sv/tlp/ /var/service
 
 # bluetooth with pipewire and alsa
-sudo xbps-install -Suvy bluez bluez-alsa libspa-bluetooth && sudo ln -s /etc/sv/bluetoothd/ /var/service
+#sudo xbps-install -Suvy bluez bluez-alsa libspa-bluetooth && sudo ln -s /etc/sv/bluetoothd/ /var/service
 
 # bsp-layout (MASTER STACK)
 #sudo xbps-install -Suvy bc && git clone --depth 1 https://github.com/phenax/bsp-layout.git ~/stuffs/git/bsp-layout && cd ~/stuffs/git/bsp-layout && sudo make install
@@ -118,7 +118,7 @@ sudo xbps-install -Suvy bluez bluez-alsa libspa-bluetooth && sudo ln -s /etc/sv/
 #sudo xbps-install -Suvy sxhkd bspwm polybar i3lock-color xinit xrdb xcolor xss-lock xset xsel xclip xdotool xrandr scrot rofi rxvt-unicode
 
 # river (Wayland)
-sudo xbps-install -Suvy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
+#sudo xbps-install -Suvy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
 
 ###### WINDOW MANAGERS ######
 
