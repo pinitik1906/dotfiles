@@ -1,7 +1,13 @@
 #!/bin/sh
 
-# start polybar
-$HOME/.config/polybar/launch.sh &
+# autostart
+pkill -9 sxhkd && pkill -9 dunst && pkill -9 redshift && pkill -9 polkit-mate-authentication-agent-1
+pgrep -x sxhkd > /dev/null || sxhkd &
+~/.config/polybar/launch.sh &
+dunst &
+redshift -P -x -r -O 2300 &
+/usr/libexec/polkit-mate-authentication-agent-1 &
+xrdb -merge ~/.Xresources &
 
 # lockscreen with suspend
 xss-lock --transfer-sleep-lock -- i3lock --nofork -ec 00000000 &
