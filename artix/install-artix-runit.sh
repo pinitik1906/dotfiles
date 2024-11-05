@@ -13,7 +13,7 @@ sudo pacman -Syu --needed --noconfirm
 sudo pacman -Syu --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git ~/stuffs/git/paru-bin && cd ~/stuffs/git/paru-bin && makepkg -si && echo "[bin]" | sudo tee -a ~/.config/paru/paru.conf > /dev/null
 
 # installing important dependencies
-paru -Syu --needed --noconfirm base-devel elogind-runit polkit dbus opendoas xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg
+paru -Syu --needed --noconfirm base-devel elogind-runit polkit dbus opendoas xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
@@ -104,7 +104,7 @@ paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layer
 #paru -Syu --needed --noconfirm sxhkd bspwm polybar i3lock xorg-xinit xcolor xss-lock xset xsel xclip xdotool scrot rofi rxvt-unicode
 
 # river (Wayland)
-#paru -Syu --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wype wlr-randr grim slurp tofi foot swayidle wlopm
+#paru -Syu --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wype wlr-randr grim slurp tofi foot swayidle
 
 ###### WINDOW MANAGERS ######
 

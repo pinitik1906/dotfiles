@@ -1,44 +1,64 @@
-# xcolor
+# app binds
+super + Return
+	$TERMINAL
+
+super + r
+	$TERMINAL -e ranger
+
+super + d
+	rofi -terminal $TERMINAL -show drun
+
+super + e
+	$MAIL
+
+super + w
+	$BROWSER
+
+# camera
+super + control + c
+	ffplay -fast /dev/video0
+
+# lockscreen
+super + comma
+	i3lock --nofork -ec 00000000
+
+# notification details without bars
+super + b
+  	notify-send -t 2000 "`date +%A` `date +%m/%d/%Y`" "`date +%H:%M:%S`"
+
+super + shift + b
+  	notify-send -t 2000 "`acpi -b`"
+
+super + control + b
+  	notify-send -t 2000 "`acpi -t`"
+
+super + space
+  	dunstctl history-pop
+
+# color-picker
 super + p
 	xcolor -f HEX -s clipboard
 
 super + shift + p
 	xcolor -f rgb -s clipboard
 
-# printscreen
-@Print
+# screenshot
+Print
 	scrot ~/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png -i -s -l mode=edge && notify-send -t 1250 "screenshot taken"
 
-control + @Print
-	scrot ~/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png -i && notify-send -t 1250 "screenshot taken"
+control + Print
+	scrot ~/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png && notify-send -t 1250 "screenshot taken"
 
-# camera
-control + super + c
-	ffplay -fast /dev/video0
+# reload sxhkd & bspwm
+super + shift + Escape
+	pkill -USR1 -x sxhkd
 
-# brightness keys
-XF86MonBrightnessUp
-	brightnessctl set 10%+
+super + shift + {q,r}
+	bspc {quit,wm -r}
 
-XF86MonBrightnessDown
-	brightnessctl set 10%-
-
-
-# media keys
+# media binds
 XF86Eject
 	eject -T
-
-XF86AudioPrev
-	playerctl previous
-
-XF86AudioNext
-	playerctl next
-
-XF86AudioPlay
-	playerctl play-pause
-
-XF86AudioMedia
-	playerctl play-pause
 
 XF86AudioRaiseVolume
 	pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -52,36 +72,29 @@ XF86AudioMute
 XF86AudioMicMute
   	pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+XF86AudioMedia
+	playerctl play-pause
 
-# lockscreen
-super + comma
-	i3lock --nofork -ec 00000000
+XF86AudioPlay
+	playerctl play-pause
 
+XF86AudioPrev
+	playerctl previous
 
-# program launcher
-super + d
-	rofi -terminal $TERMINAL -show drun
+XF86AudioNext
+	playerctl next
 
+XF86MonBrightnessUp
+	brightnessctl set +10%
 
-# reload sxhkd
-super + shift + Escape
-	pkill -USR1 -x sxhkd
+XF86MonBrightnessDown
+	brightnessctl set -10%
 
-
-# bspwm hotkeys
-
-
-# quit/restart bspwm
-super + shift + {q,r}
-	bspc {quit,wm -r}
-
-
-# close only one window
+# close a window
 super + q
 	bspc node -c
 
-
-# state/flags
+# fullscreen/float
 super + f
 	bspc node -t fullscreen
 
@@ -94,88 +107,25 @@ super + shift + f
 super + shift + t
 	bspc node focused.floating -t tiled
 
-
-# focus/swap
-
-
-# focus the node in the given direction
+# focus window
 super + {h,j,k,l}
 	bspc node -f {west,south,north,east}
-
-
-# focus the next/previous desktop in the current monitor
-super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
-
 
 # focus the last node/desktop
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
-
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} '^{1-9}'
 
-
-# move/resize
-
-
-# expand a window by moving one of its side outward
+# expand window
 super + shift + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-
-# contract a window by moving one of its side inward
-control + super + {h,j,k,l}
+super + control + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
-
-# move a floating window
+# move floating window
 control + shift + {h,j,k,l}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-
-# applications
-
-
-# browser
-super + w
-	$BROWSER
-
-# mail
-super + e
-  $MAIL
-
-# terminal
-super + Return
-	$TERMINAL
-
-super + r
-	$TERMINAL -e ranger
-
-
-# using notification either with or without bars
-
-
-# date
-super + b
-  	notify-send -t 2000 "`date +%A` `date +%m/%d/%Y`" "`date +%H:%M:%S`"
-
-# battery
-super + shift + b
-  	notify-send -t 2000 "`acpi -b`"
-
-# temperature
-control + super + b
-  	notify-send -t 2000 "`acpi -t`"
-
-
-# notifications
-
-# history
-super + space
-  	dunstctl history-pop
-
-Menu
-	xte 'mouseclick 3'

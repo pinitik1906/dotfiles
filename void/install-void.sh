@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 ###### REPO ######
 
 # enable nonfree and multilib [GLIBC]
@@ -9,8 +8,8 @@
 # enable nonfree [MUSL]
 #sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
 
-###### REPO ######
 
+###### REPO ######
 
 # remove irqbalance as it reduces performance
 sudo xbps-remove -ROoFfvy irqbalance
@@ -19,7 +18,7 @@ sudo xbps-remove -ROoFfvy irqbalance
 sudo xbps-install -Suvy
 
 # installing important dependencies
-sudo xbps-install -Suvy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+sudo xbps-install -Suvy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 
 # removing acpid and its service as it conflicts elogind
 sudo xbps-remove -ROoFfvy acpid && sudo rm -rf /var/service/acpid
@@ -118,7 +117,7 @@ sudo xbps-install -Suvy tlp && sudo ln -s /etc/sv/tlp/ /var/service
 #sudo xbps-install -Suvy sxhkd bspwm polybar i3lock-color xinit xrdb xcolor xss-lock xset xsel xclip xdotool xrandr scrot rofi rxvt-unicode
 
 # river (Wayland)
-#sudo xbps-install -Suvy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
+#sudo xbps-install -Suvy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle
 
 ###### WINDOW MANAGERS ######
 
