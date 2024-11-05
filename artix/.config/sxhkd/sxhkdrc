@@ -88,7 +88,7 @@ XF86MonBrightnessUp
 	brightnessctl set +10%
 
 XF86MonBrightnessDown
-	brightnessctl set -10%
+	brightnessctl set 10%-
 
 # close a window
 super + q
