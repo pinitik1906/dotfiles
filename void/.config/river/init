@@ -1,12 +1,5 @@
 #!/bin/sh
 
-# default commands
-TERMINAL="foot"
-FILEMANAGER="foot -e ranger"
-MENU="tofi-drun -c ~/.config/tofi/config"
-MAIL="thunderbird"
-BROWSER="firefox"
-
 # autokill & start
 pkill -9 swayidle && pkill -9 waybar && pkill -9 dunst && pkill -9 wlsunset && pkill -9 polkit-mate-authentication-agent-1
 
@@ -15,6 +8,7 @@ dunst &
 wlsunset -t 2300 -S 0:00 &
 /usr/libexec/polkit-mate-authentication-agent-1 &
 
+# resolution
 #wlr-randr --output eDP-1 --custom-mode 1024x768 @60Hz
 wlr-randr --output DP-1 --preferred
 
@@ -24,19 +18,19 @@ swayidle -w \
 
 # apps binds
 riverctl map normal Super Return spawn \
-	"$TERMINAL"
+	"foot"
 
 riverctl map normal Super R spawn \
-	"$FILEMANAGER"
+	"foot -e ranger"
 
 riverctl map normal Super D spawn \
-	"$MENU"
+	"tofi-drun"
 
 riverctl map normal Super E spawn \
-	"$MAIL"
+	"thunderbird"
 
 riverctl map normal Super W spawn \
-	"$BROWSER"
+	"librewolf"
 
 # camera
 riverctl map normal Super+Control C spawn \
@@ -71,16 +65,15 @@ riverctl map normal None Print spawn \
 riverctl map normal Control Print spawn \
 	'IMG=~/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && grim $IMG && notify-send -t 1250 "screenshot taken"'
 
-# reload river
-riverctl map normal Super+Shift R spawn \
-	~/.config/river/init
-
-# close, exit river
+# close, exit and reload river
 riverctl map normal Super Q \
 	close
 
 riverctl map normal Super+Shift Q \
 	exit
+
+riverctl map normal Super+Shift R spawn \
+	~/.config/river/init
 
 # focus window
 riverctl map normal Super H focus-view \
@@ -102,7 +95,7 @@ riverctl map normal Super Left send-layout-cmd \
 riverctl map normal Super Right send-layout-cmd \
 	rivertile "main-ratio +0.01"
 
-# tags/workspaces
+# workspaces
 for i in $(seq 1 9)
 do
     

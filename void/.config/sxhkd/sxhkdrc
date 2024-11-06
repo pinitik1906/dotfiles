@@ -49,12 +49,44 @@ Print
 control + Print
 	scrot ~/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png && notify-send -t 1250 "screenshot taken"
 
-# reload sxhkd & bspwm
-super + shift + Escape
-	pkill -USR1 -x sxhkd
+# close, exit and reload bspwm
+super + q
+	bspc node -c
 
 super + shift + {q,r}
 	bspc {quit,wm -r}
+
+# focus window
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+# move window
+super + {Left,Down,Up,Right}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+super + shift + {Left,Down,Up,Right}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# workspaces
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} '^{1-9}'
+
+# fullscreen/float
+super + f
+	bspc node -t fullscreen
+
+super + t
+	bspc node focused.fullscreen -t tiled
+
+super + shift + f
+	bspc node focused.tiled -t floating
+
+super + shift + t
+	bspc node focused.floating -t tiled
+
+# move floating window
+super + control + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # media binds
 XF86Eject
@@ -89,43 +121,3 @@ XF86MonBrightnessUp
 
 XF86MonBrightnessDown
 	brightnessctl set 10%-
-
-# close a window
-super + q
-	bspc node -c
-
-# fullscreen/float
-super + f
-	bspc node -t fullscreen
-
-super + t
-	bspc node focused.fullscreen -t tiled
-
-super + shift + f
-	bspc node focused.tiled -t floating
-
-super + shift + t
-	bspc node focused.floating -t tiled
-
-# focus window
-super + {h,j,k,l}
-	bspc node -f {west,south,north,east}
-
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
-
-# focus or send to the given desktop
-super + {_,shift + }{1-9}
-	bspc {desktop -f,node -d} '^{1-9}'
-
-# expand window
-super + shift + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-super + control + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-# move floating window
-control + shift + {h,j,k,l}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
