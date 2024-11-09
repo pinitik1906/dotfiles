@@ -100,7 +100,7 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 #sudo xbps-install -Suvy thermald && sudo ln -s /etc/sv/thermald/ /var/service
 
 # tlp
-sudo xbps-install -Suvy tlp && sudo ln -s /etc/sv/tlp/ /var/service
+#sudo xbps-install -Suvy tlp && sudo ln -s /etc/sv/tlp/ /var/service
 
 # bluetooth with pipewire and alsa
 #sudo xbps-install -Suvy bluez bluez-alsa libspa-bluetooth && sudo ln -s /etc/sv/bluetoothd/ /var/service
