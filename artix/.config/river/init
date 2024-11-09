@@ -154,7 +154,7 @@ riverctl border-width 2
 
 # mouse
 riverctl focus-follows-cursor always
-riverctl hide-cursor when-typing enabled
+riverctl hide-cursor when-typing disabled
 riverctl set-cursor-warp disabled
 
 riverctl map-pointer normal Super BTN_LEFT \
@@ -175,6 +175,7 @@ done
 for POINTERS in $(riverctl list-inputs | grep -i pointer)
 do
 
+  riverctl input $POINTERS disable-while-typing disabled
   riverctl input $POINTERS accel-profile flat
   riverctl input $POINTERS pointer-accel 0.3
 
