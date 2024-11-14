@@ -7,6 +7,8 @@ export TERMINAL="urxvt"
 export BROWSER="firefox"
 export MAIL="thunderbird"
 
+export MOZ_USE_XINPUT2=1
+
 #export LIBVA_DRIVER_NAME=i965
 #export VDPAU_DRIVER=va_gl
 

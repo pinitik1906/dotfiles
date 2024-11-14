@@ -7,7 +7,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 ~/.config/polybar/launch.sh &
 dunst &
 redshift -P -x -r -O 2300 &
-/usr/libexec/polkit-mate-authentication-agent-1 &
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 xrdb -merge ~/.Xresources &
 
 # lockscreen with suspend
