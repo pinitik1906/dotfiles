@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # autokill & start
-pkill -9 -x sxhkd && pkill -9 dunst && pkill -9 redshift && pkill -9 polkit-mate-authentication-agent-1
+pkill -9 -x sxhkd && pkill -9 polybar && pkill -9 dunst && pkill -9 redshift && pkill -9 polkit-mate-authentication-agent-1
 
 pgrep -x sxhkd > /dev/null || sxhkd &
-~/.config/polybar/launch.sh &
+polybar top &
 dunst &
 redshift -P -x -r -O 2300 &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
@@ -42,5 +42,6 @@ bsp-layout set tall 7 -- --master-size 0.5
 bsp-layout set tall 8 -- --master-size 0.5
 bsp-layout set tall 9 -- --master-size 0.5
 
+# float rule
 bspc rule -a pavucontrol state=floating
 bspc rule -a ffplay state=floating

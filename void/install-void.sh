@@ -117,7 +117,7 @@ sudo xbps-install -Suvy vulkan-loader mesa-vulkan-lavapipe
 #sudo xbps-install -Suvy sxhkd bspwm polybar i3lock-color xinit xrdb xcolor xss-lock xset xsel xclip xdotool xrandr scrot rofi rxvt-unicode
 
 # river (Wayland)
-#sudo xbps-install -Suvy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle
+#sudo xbps-install -Suvy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
 
 ###### WINDOW MANAGERS ######
 

@@ -14,7 +14,9 @@ wlr-randr --output DP-1 --preferred
 
 # xorg-like idle
 swayidle -w \
-  timeout 600 'swaylock -ec 000000' &
+  timeout 600 'swaylock -fec 000000' \
+  timeout 900 'wlopm --off \*;swaylock -fec 000000' resume 'wlopm --on \*' \
+  before-sleep 'swaylock -fec 000000' &
 
 # apps binds
 riverctl map normal Super Return spawn \
@@ -22,6 +24,9 @@ riverctl map normal Super Return spawn \
 
 riverctl map normal Super R spawn \
 	"foot -e ranger"
+
+riverctl map normal Super+Control R spawn \
+	"pcmanfm"
 
 riverctl map normal Super D spawn \
 	"tofi-drun"
@@ -193,10 +198,27 @@ rivertile -view-padding 3 -outer-padding 2 -main-ratio 0.5 &
 riverctl rule-add -title "Volume Control" float
 riverctl rule-add -title "LibreWolf - Sharing Indicator" float
 riverctl rule-add -title "Firefox - Sharing Indicator" float
+riverctl rule-add -title "Welcome to Audacity!" float
+riverctl rule-add -title "Open File" float
+
+riverctl rule-add -app-id "sober_services" float
 
 # fix border rule
 riverctl rule-add -title "Volume Control" ssd
-riverctl rule-add -title "LibreWolf" ssd
-riverctl rule-add -title "LibreWolf - Sharing Indicator" ssd
-riverctl rule-add -title "Firefox" ssd
-riverctl rule-add -title "Firefox - Sharing Indicator" ssd
+riverctl rule-add -title "osu!" ssd
+riverctl rule-add -title "Transmission" ssd
+riverctl rule-add -title "Mozilla Thunderbird" ssd
+riverctl rule-add -title "org.pwmt.zathura" ssd
+riverctl rule-add -title "*.pdf" ssd
+riverctl rule-add -title "Open File" ssd
+riverctl rule-add -title "File Upload" ssd
+riverctl rule-add -title "GIMP Startup" ssd
+
+riverctl rule-add -app-id "firefox" ssd
+riverctl rule-add -app-id "librewolf" ssd
+riverctl rule-add -app-id "audacity" ssd
+riverctl rule-add -app-id "pcmanfm" ssd
+riverctl rule-add -app-id "lutris" ssd
+riverctl rule-add -app-id "sober_services" ssd
+riverctl rule-add -app-id "nwg-look" ssd
+riverctl rule-add -app-id "tlpui" ssd

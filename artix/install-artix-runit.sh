@@ -104,7 +104,7 @@ paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layer
 #paru -Syu --needed --noconfirm sxhkd bspwm polybar i3lock xorg-xinit xcolor xss-lock xset xsel xclip xdotool scrot rofi rxvt-unicode
 
 # river (Wayland)
-#paru -Syu --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wype wlr-randr grim slurp tofi foot swayidle
+#paru -Syu --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wype wlr-randr grim slurp tofi foot swayidle wlopm
 
 ###### WINDOW MANAGERS ######
 

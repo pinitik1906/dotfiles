@@ -5,6 +5,9 @@ super + Return
 super + r
 	$TERMINAL -e ranger
 
+super + control + r
+	pcmanfm
+
 super + d
 	rofi -terminal $TERMINAL -show drun
 

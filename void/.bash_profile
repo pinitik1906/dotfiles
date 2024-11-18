@@ -7,8 +7,11 @@ export TERMINAL="urxvt"
 export BROWSER="firefox"
 export MAIL="thunderbird"
 
+# firefox tweaks
 export MOZ_USE_XINPUT2=1
+export MOZ_ENABLE_WAYLAND=1
 
+# vaapi & vdpau env
 #export LIBVA_DRIVER_NAME=i965
 #export VDPAU_DRIVER=va_gl
 
