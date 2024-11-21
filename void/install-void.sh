@@ -11,9 +11,6 @@
 
 ###### REPO ######
 
-# remove irqbalance as it reduces performance
-sudo xbps-remove -ROoFfvy irqbalance
-
 # checking updates
 sudo xbps-install -Suvy
 

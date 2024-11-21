@@ -1,9 +1,9 @@
 ! general
 
-URxvt.font: xft:monospace:size=8:style=Regular
-URxvt.boldFont: xft:monospace:size=8:style=Bold
-URxvt.italicFont: xft:monospace:size=8:style=Italic
-URxvt.boldItalicFont: xft:monospace:size=8:style=Bold Italic
+URxvt.font: xft:Inconsolata:size=9:style=Regular
+URxvt.boldFont: xft:Inconsolata:size=9:style=Bold
+URxvt.italicFont: xft:Inconsolata:size=9:style=Italic
+URxvt.boldItalicFont: xft:Inconsolata:size=9:style=Bold Italic
 
 URxvt.intensityStyles: false
 

@@ -3,17 +3,14 @@
 # add important groups
 sudo usermod -aG video $(whoami) && sudo usermod -aG audio $(whoami) && sudo usermod -aG wheel $(whoami)
 
-# remove irqbalance as it reduces performance
-sudo pacman -Rnsudd irqbalance
-
 # checking updates
 sudo pacman -Syu --needed --noconfirm
 
 # installing paru as a default AUR HELPER
-sudo pacman -Syu --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git ~/stuffs/git/paru-bin && cd ~/stuffs/git/paru-bin && makepkg -si && echo "[bin]" | sudo tee -a ~/.config/paru/paru.conf > /dev/null
+sudo pacman -Syu --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git ~/stuffs/git/paru-bin && cd ~/stuffs/git/paru-bin && makepkg -si 
 
 # installing important dependencies
-paru -Syu --needed --noconfirm base-devel elogind-runit polkit dbus opendoas xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl
+paru -Syu --needed --noconfirm base-devel elogind-runit polkit dbus opendoas xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl ttf-inconsolata
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
@@ -101,10 +98,10 @@ paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layer
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#paru -Syu --needed --noconfirm sxhkd bspwm polybar i3lock xorg-xinit xcolor xss-lock xset xsel xclip xdotool scrot rofi rxvt-unicode
+#paru -Syu --needed --noconfirm sxhkd bspwm polybar i3lock xorg-xinit xcolor xss-lock xorg-xset xsel xclip xdotool scrot rofi rxvt-unicode
 
 # river (Wayland)
-#paru -Syu --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wype wlr-randr grim slurp tofi foot swayidle wlopm
+#paru -Syu --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
 
 ###### WINDOW MANAGERS ######
 
@@ -122,4 +119,4 @@ sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doa
 paru -Rnsudd --noconfirm && paru -Sc --noconfirm
 
 # removing sudo
-paru -Rnsudd --noconfirm sudo
+paru -Rnsudd --noconfirm sudo && echo "[bin]" | sudo tee -a /etc/paru.conf > /dev/null && echo "Sudo = doas" | sudo tee -a /etc/paru.conf
