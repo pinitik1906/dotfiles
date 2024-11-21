@@ -28,8 +28,8 @@ update-grub
 
 ## faq
 
-#### enabling-repos for artix
-a [guide](https://wiki.artixlinux.org/Main/Repositories) by the artix linux team (NEEDED FROM MY ARTIX INSTALL SCRIPT)
+#### unofficial-repos for artix
+a list from [arch](https://wiki.archlinux.org/title/Unofficial.user.repositories#Signed) and [artix](https://wiki.artixlinux.org/Main/UnofficialUserRepositories)
 
 #### autostart-river-without-display-manager
 edit in `.bash_profile` from your home directory
