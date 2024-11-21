@@ -3,6 +3,9 @@
 # add important groups
 sudo usermod -aG video $(whoami) && sudo usermod -aG audio $(whoami) && sudo usermod -aG wheel $(whoami)
 
+# copying preconfigured pacman.conf
+sudo cp -r ~/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf
+
 # checking updates
 sudo pacman -Syu --needed --noconfirm
 
@@ -107,7 +110,7 @@ paru -Syu --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layer
 
 
 # install your programs here
-paru -Syu --needed --noconfirm nwg-look noto-fonts noto-fonts-emoji noto-fonts-cjk htop ufetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst libnotify brightnessctl nsxiv acpi ueberzugpp ffmpegthumbnailer
+paru -Syu --needed --noconfirm nwg-look noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger ufw pavucontrol dunst libnotify brightnessctl nsxiv acpi ueberzugpp ffmpegthumbnailer
 
 # enable ufw with recommended settings by chris_titus
 sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable

@@ -17,4 +17,4 @@ alias poweroff="loginctl poweroff"
 alias bctl="bluetoothctl"
 alias sudo="doas"
 
-ufetch
+fastfetch --logo ~/.config/fastfetch/artix_logo.txt --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1

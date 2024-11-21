@@ -15,4 +15,4 @@ alias poweroff="loginctl poweroff"
 alias bctl="bluetoothctl"
 alias sudo="doas"
 
-ufetch
+fastfetch --logo-color-2 37 --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1
