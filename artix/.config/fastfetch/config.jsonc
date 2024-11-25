@@ -14,13 +14,25 @@
         },
         "break",
         {
+	    "key": "host      ",
+	    "type": "host"
+	},
+	{
             "key": "distro    ",
             "type": "os"
         },
+	{
+	    "key": "kernel    ",
+	    "type": "kernel"
+	},
         {
             "key": "packages  ",
             "type": "packages"
         },
+	{
+	    "key": "wm        ",
+	    "type": "wm"
+	},
         {
             "key": "shell     ",
             "type": "shell"
@@ -29,6 +41,18 @@
             "key": "terminal  ",
             "type": "terminal"
         },
+	{
+	    "key": "cpu       ",
+	    "type": "cpu"
+	},
+	{
+	    "key": "gpu       ",
+	    "type": "gpu"
+	},
+	{
+	    "key": "display   ",
+	    "type": "display"
+	},
         {
             "key": "memory    ",
             "type": "memory"

@@ -8,15 +8,97 @@ dunst &
 wlsunset -t 2300 -S 0:00 &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
+# lockscreen with suspend
+riverctl map-switch normal lid open spawn "swaylock -ec 000000"
+
 # resolution
 #wlr-randr --output eDP-1 --custom-mode 1024x768 @60Hz
 wlr-randr --output DP-1 --preferred
+
+# tty-like keyboard config
+riverctl set-repeat 50 300
 
 # xorg-like idle
 swayidle -w \
   timeout 600 'swaylock -fec 000000' \
   timeout 900 'wlopm --off \*;swaylock -fec 000000' resume 'wlopm --on \*' \
   before-sleep 'swaylock -fec 000000' &
+
+# mouse
+riverctl focus-follows-cursor always
+riverctl hide-cursor when-typing disabled
+riverctl set-cursor-warp disabled
+
+riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+
+for SYNAPTICS in $(riverctl list-inputs | grep -i Synaptics)
+do
+
+  riverctl input $SYNAPTICS events enabled
+  riverctl input $SYNAPTICS tap enabled
+  riverctl input $SYNAPTICS natural-scroll enabled
+
+done
+
+for POINTERS in $(riverctl list-inputs | grep -i pointer)
+do
+
+  riverctl input $POINTERS disable-while-typing disabled
+  riverctl input $POINTERS accel-profile flat
+  riverctl input $POINTERS pointer-accel 0.3
+
+done
+
+# general
+for i in $(seq 1 9)
+do
+    
+    tags=$((1 << ($i - 1)))
+
+    riverctl map normal Super $i set-focused-tags $tags
+    riverctl map normal Super+Shift $i set-view-tags $tags
+
+done
+
+rivertile -view-padding 3 -outer-padding 2 -main-ratio 0.5 &
+riverctl border-width 2
+riverctl background-color 0x000000
+riverctl border-color-unfocused 0x7b6e63
+riverctl border-color-focused 0x458588
+
+riverctl default-attach-mode bottom
+riverctl default-layout rivertile
+
+# float rule
+riverctl rule-add -title "Volume Control" float
+riverctl rule-add -title "LibreWolf - Sharing Indicator" float
+riverctl rule-add -title "Firefox - Sharing Indicator" float
+riverctl rule-add -title "Welcome to Audacity!" float
+riverctl rule-add -title "Open File" float
+
+riverctl rule-add -app-id "sober_services" float
+
+# fix border rule
+riverctl rule-add -title "Volume Control" ssd
+riverctl rule-add -title "osu!" ssd
+riverctl rule-add -title "Transmission" ssd
+riverctl rule-add -title "Mozilla Thunderbird" ssd
+riverctl rule-add -title "org.pwmt.zathura" ssd
+riverctl rule-add -title "*.pdf" ssd
+riverctl rule-add -title "Open File" ssd
+riverctl rule-add -title "File Upload" ssd
+riverctl rule-add -title "GIMP Startup" ssd
+
+riverctl rule-add -app-id "firefox" ssd
+riverctl rule-add -app-id "librewolf" ssd
+riverctl rule-add -app-id "audacity" ssd
+riverctl rule-add -app-id "pcmanfm" ssd
+riverctl rule-add -app-id "lutris" ssd
+riverctl rule-add -app-id "sober_services" ssd
+riverctl rule-add -app-id "nwg-look" ssd
+riverctl rule-add -app-id "tlpui" ssd
+
 
 # apps binds
 riverctl map normal Super Return spawn \
@@ -44,9 +126,6 @@ riverctl map normal Super+Control C spawn \
 riverctl rule-add -app-id "ffplay" float
 
 # lockscreen
-riverctl map-switch normal lid open spawn \
-	"swaylock -ec 000000"
-
 riverctl map normal Super Comma spawn \
 	"swaylock -ec 000000"
 
@@ -100,19 +179,6 @@ riverctl map normal Super Left send-layout-cmd \
 riverctl map normal Super Right send-layout-cmd \
 	rivertile "main-ratio +0.01"
 
-# workspaces
-for i in $(seq 1 9)
-do
-    
-    tags=$((1 << ($i - 1)))
-
-    riverctl map normal Super $i \
-	set-focused-tags $tags
-    riverctl map normal Super+Shift $i \
-	set-view-tags $tags
-
-done
-
 # fullscreen
 riverctl map normal Super F \
 	toggle-fullscreen
@@ -150,75 +216,3 @@ riverctl map normal None XF86MonBrightnessUp spawn \
 
 riverctl map normal None XF86MonBrightnessDown spawn \
 	'brightnessctl set 10%-'
-
-# border and background color
-riverctl background-color 0x000000
-riverctl border-color-unfocused 0x7b6e63
-riverctl border-color-focused 0x458588
-riverctl border-width 2
-
-# mouse
-riverctl focus-follows-cursor always
-riverctl hide-cursor when-typing disabled
-riverctl set-cursor-warp disabled
-
-riverctl map-pointer normal Super BTN_LEFT \
-	move-view
-
-riverctl map-pointer normal Super BTN_RIGHT \
-	resize-view
-
-for SYNAPTICS in $(riverctl list-inputs | grep -i Synaptics)
-do
-
-  riverctl input $SYNAPTICS events enabled
-  riverctl input $SYNAPTICS tap enabled
-  riverctl input $SYNAPTICS natural-scroll enabled
-
-done
-
-for POINTERS in $(riverctl list-inputs | grep -i pointer)
-do
-
-  riverctl input $POINTERS disable-while-typing disabled
-  riverctl input $POINTERS accel-profile flat
-  riverctl input $POINTERS pointer-accel 0.3
-
-done
-
-# tty-like keyboard config
-riverctl set-repeat 50 300
-
-# master layout and gaps
-riverctl default-attach-mode bottom
-riverctl default-layout rivertile
-rivertile -view-padding 3 -outer-padding 2 -main-ratio 0.5 &
-
-# float rule
-riverctl rule-add -title "Volume Control" float
-riverctl rule-add -title "LibreWolf - Sharing Indicator" float
-riverctl rule-add -title "Firefox - Sharing Indicator" float
-riverctl rule-add -title "Welcome to Audacity!" float
-riverctl rule-add -title "Open File" float
-
-riverctl rule-add -app-id "sober_services" float
-
-# fix border rule
-riverctl rule-add -title "Volume Control" ssd
-riverctl rule-add -title "osu!" ssd
-riverctl rule-add -title "Transmission" ssd
-riverctl rule-add -title "Mozilla Thunderbird" ssd
-riverctl rule-add -title "org.pwmt.zathura" ssd
-riverctl rule-add -title "*.pdf" ssd
-riverctl rule-add -title "Open File" ssd
-riverctl rule-add -title "File Upload" ssd
-riverctl rule-add -title "GIMP Startup" ssd
-
-riverctl rule-add -app-id "firefox" ssd
-riverctl rule-add -app-id "librewolf" ssd
-riverctl rule-add -app-id "audacity" ssd
-riverctl rule-add -app-id "pcmanfm" ssd
-riverctl rule-add -app-id "lutris" ssd
-riverctl rule-add -app-id "sober_services" ssd
-riverctl rule-add -app-id "nwg-look" ssd
-riverctl rule-add -app-id "tlpui" ssd

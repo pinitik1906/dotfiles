@@ -32,6 +32,10 @@
     background: #1a1a1a;
     padding: 0 0px;
 }
+#network.disconnected {
+    color: #cc241d
+}
+
 #pulseaudio.muted {
     color: #707880;
 }

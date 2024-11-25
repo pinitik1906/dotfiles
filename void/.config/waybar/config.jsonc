@@ -59,7 +59,7 @@
         "critical-threshold": 80,
       	"format-critical": "{temperatureC}°C",
       	"format": "{temperatureC}°C",
-        "interval": 1
+        "interval": 3
     },
     
     "battery": {
@@ -71,12 +71,12 @@
         "format-full": "full {capacity}% ({power}W)",
         "format-charging": "chr {capacity}% ({power}W)",
         "format-plugged": "chr {capacity}% ({power}W)",
-        "interval": 1
+        "interval": 5
     },
     
     "battery#bat2": {
         "bat": "BAT2",
-        "interval": 1
+        "interval": 10
     },
 
     "backlight": {
