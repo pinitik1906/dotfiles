@@ -13,7 +13,7 @@ sudo pacman -S --needed --noconfirm artix-archlinux-support && sudo cp -r ~/stuf
 sudo pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git ~/stuffs/git/paru-bin && cd ~/stuffs/git/paru-bin && makepkg -si 
 
 # installing important dependencies
-paru -Rnsudd --noconfirm jack2 && paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc ttf-inconsolata bat eza ripgrep
+paru -Rnsudd --noconfirm jack2 && paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc ttf-inconsolata
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid

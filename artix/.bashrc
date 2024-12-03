@@ -1,9 +1,7 @@
 [[ $- != *i* ]] && return
 
-alias cat="bat -n"
-alias less="bat --paging always"
-alias ls="eza -A"
-alias grep="rg --no-ignore --hidden"
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
 PS1='\[\e[1;31m\][\[\e[1;33m\]\u\[\e[1;32m\]@\[\e[1;34m\]\h \[\e[1;35m\]\w\[\e[1;31m\]]\[\e[1;00m\]\$\[\e[0;00m\] '
 
 alias lf="ranger"
