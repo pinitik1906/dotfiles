@@ -1,22 +1,26 @@
 #!/bin/sh
 
 # add important groups
-sudo usermod -aG video,audio,wheel,vboxusers $(whoami)
+sudo usermod -aG video,audio,wheel $(whoami)
 
-# checking updates, syncing repos and installing opendoas
-sudo pacman -Syu --needed --noconfirm opendoas
+# checking updates, syncing repos
+sudo pacman -Syu --needed --noconfirm
+
+# installing opendoas & removing sudo
+sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo pacman -S --needed --noconfirm opendoas && doas pacman -Rnsdd --noconfirm sudo
 
 # copying preconfigured pacman.conf and paru.conf
-sudo pacman -S --needed --noconfirm artix-archlinux-support && sudo cp -r ~/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf && sudo cp -r ~/stuffs/git/dotfiles/artix/paru.conf /etc/paru.conf
+doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r ~/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf && doas cp -r ~/stuffs/git/dotfiles/artix/paru.conf /etc/paru.conf
 
 # installing paru as a default AUR HELPER
-sudo pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git ~/stuffs/git/paru-bin && cd ~/stuffs/git/paru-bin && makepkg -si 
+doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git ~/stuffs/git/paru-bin && cd ~/stuffs/git/paru-bin && makepkg -si 
 
 # installing important dependencies
-paru -Rnsudd --noconfirm jack2 && paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc ttf-inconsolata
+paru -Rnsdd --noconfirm jack2
+paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc ttf-inconsolata
 
 # removing acpid and its service as it conflicts elogind
-paru -Rnsudd --noconfirm acpid acpid-runit && sudo rm -rf /etc/runit/sv/acpid
+paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
 
 # installing additional vulkan dependencies
 paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
@@ -75,16 +79,19 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 #paru -S --needed --noconfirm ttf-ms-fonts
 
 # enable backlight service for saving previous brightness you've set after rebooting your pc
-#paru -S --needed --noconfirm backlight-runit && sudo ln -s /etc/runit/sv/backlight/ /run/runit/service
+#paru -S --needed --noconfirm backlight-runit && doas ln -s /etc/runit/sv/backlight/ /run/runit/service
+
+# thinkfan (please enable thinkfan service after you restart your pc) [THINKPADS ONLY]
+#paru -S --needed --noconfirm thinkfan-runit
 
 # thermald (supports tlp) [INTEL ONLY]
-#paru -S --needed --noconfirm thermald-runit && sudo ln -s /etc/runit/sv/thermald/ /run/runit/service
+#paru -S --needed --noconfirm thermald-runit && doas ln -s /etc/runit/sv/thermald/ /run/runit/service
 
 # tlp
-#paru -S --needed --noconfirm tlp-runit && sudo ln -s /etc/runit/sv/tlp/ /run/runit/service
+#paru -S --needed --noconfirm tlp-runit && doas ln -s /etc/runit/sv/tlp/ /run/runit/service
 
 # bluetooth
-#paru -S --needed --noconfirm bluez-runit bluez-utils && sudo ln -s /etc/runit/sv/bluetoothd/ /run/runit/service
+#paru -S --needed --noconfirm bluez-runit bluez-utils && doas ln -s /etc/runit/sv/bluetoothd/ /run/runit/service
 
 # bsp-layout (MASTER STACK)
 #paru -S --needed --noconfirm bsp-layout
@@ -104,13 +111,10 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 
 
 # install your programs here
-paru -S --needed --noconfirm nwg-look noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger pcmanfm xarchiver ufw pavucontrol dunst libnotify brightnessctl nsxiv acpi ueberzug ffmpegthumbnailer
+paru -S --needed --noconfirm nwg-look noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger pcmanfm xarchiver ufw pavucontrol dunst libnotify brightnessctl nsxiv acpi ueberzugpp ffmpegthumbnailer
 
 # enable ufw with recommended settings by chris_titus
-sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable
-
-# sudo alternative (doas) [RECOMMENDED]
-sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null
+doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
 
 # remove any orphaned packages
 paru -Rnsudd --noconfirm && paru -Sc --noconfirm

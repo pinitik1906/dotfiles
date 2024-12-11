@@ -15,59 +15,62 @@
 # checking updates & syncing repos
 sudo xbps-install -Suvy
 
+# installing opendoas & removing sudo
+sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -ROoFfvy sudo
+
 # installing important dependencies
-sudo xbps-install -vy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl && sudo mkdir -p /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && sudo ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && sudo mkdir -p /etc/pipewire/pipewire.conf.d && sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+doas xbps-install -vy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 
 # removing acpid and its service as it conflicts elogind
-sudo xbps-remove -ROoFfvy acpid && sudo rm -rf /var/service/acpid
+doas xbps-remove -ROoFfvy acpid && doas rm -rf /var/service/acpid
 
 # enabling dbus for elogind and others
-sudo ln -s /etc/sv/dbus/ /var/service
+doas ln -s /etc/sv/dbus/ /var/service
 
 # installing additional vulkan dependencies
-sudo xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
+doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 
 # 32-bit vulkan dependencies [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
-#sudo xbps-install -vy vulkan-loader-32bit mesa-vulkan-lavapipe-32bit
+#doas xbps-install -vy vulkan-loader-32bit mesa-vulkan-lavapipe-32bit
 
-# clone madand's runit-services (you have an option to enable this for the optional sections)
-#git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
+# clone madand's runit-services
+git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
 
 
 ###### DRIVERS ######
 
 # intel [NEEDS NONFREE REPO ENABLED]
-#sudo xbps-install -vy xf86-video-intel linux-firmware-intel mesa-dri mesa-vulkan-intel intel-video-accel libvdpau libvdpau-va-gl
+#doas xbps-install -vy xf86-video-intel linux-firmware-intel mesa-dri mesa-vulkan-intel intel-video-accel libvdpau libvdpau-va-gl
 
 # 32-bit intel [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
-#sudo xbps-install -vy mesa-dri-32bit mesa-vulkan-intel-32bit libva-intel-driver-32bit libvdpau-32bit libvdpau-va-gl-32bit
+#doas xbps-install -vy mesa-dri-32bit mesa-vulkan-intel-32bit libva-intel-driver-32bit libvdpau-32bit libvdpau-va-gl-32bit
 
 # intel microcode (NEEDS NONFREE REPO ENABLED) [IMPORTANT]
-#sudo xbps-install -vy intel-ucode
+#doas xbps-install -vy intel-ucode
 
 # modern_amd [NEEDS NONFREE REPO ENABLED]
-#sudo xbps-install -vy xf86-video-amdgpu linux-firmware-amd mesa-dri mesa-vulkan-radeon mesa-vaapi mesa-vdpau
+#doas xbps-install -vy xf86-video-amdgpu linux-firmware-amd mesa-dri mesa-vulkan-radeon mesa-vaapi mesa-vdpau
 
 # 32-bit modern_amd [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
-#sudo xbps-install -vy mesa-dri-32bit mesa-vulkan-radeon-32bit mesa-vaapi-32bit mesa-vdpau-32bit
+#doas xbps-install -vy mesa-dri-32bit mesa-vulkan-radeon-32bit mesa-vaapi-32bit mesa-vdpau-32bit
 
 # old_amd [NEEDS NONFREE REPO ENABLED]
-#sudo xbps-install -vy xf86-video-ati linux-firmware-amd mesa-dri amdvlk mesa-vaapi mesa-vdpau
+#doas xbps-install -vy xf86-video-ati linux-firmware-amd mesa-dri amdvlk mesa-vaapi mesa-vdpau
 
 # 32-bit old_amd [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
-#sudo xbps-install -vy mesa-dri-32bit amdvlk-32bit mesa-vaapi-32bit mesa-vdpau-32bit
+#doas xbps-install -vy mesa-dri-32bit amdvlk-32bit mesa-vaapi-32bit mesa-vdpau-32bit
 
 # modern_nvidia proprietary [NEEDS NONFREE REPO ENABLED]
-#sudo xbps-install -vy nvidia nvidia-dkms linux-firmware-nvidia nvidia-firmware nvidia-vaapi-driver mesa-vdpau mesa-dri nvidia-libs
+#doas xbps-install -vy nvidia nvidia-dkms linux-firmware-nvidia nvidia-firmware nvidia-vaapi-driver mesa-vdpau mesa-dri nvidia-libs
 
 # 32-bit modern_nvidia proprietary [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
-#sudo xbps-install -vy mesa-vdpau-32bit mesa-dri-32bit nvidia-libs-32bit
+#doas xbps-install -vy mesa-vdpau-32bit mesa-dri-32bit nvidia-libs-32bit
 
 # old_nvidia nouveau [NEEDS NONFREE REPO ENABLED]
-#sudo xbps-install -vy xf86-video-nouveau mesa-dri mesa-vdpau
+#doas xbps-install -vy xf86-video-nouveau mesa-dri mesa-vdpau
 
 # 32-bit old_nvidia nouveau [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
-#sudo xbps-install -vy mesa-dri-32bit mesa-vdpau-32bit
+#doas xbps-install -vy mesa-dri-32bit mesa-vdpau-32bit
 
 ###### DRIVERS ######
 
@@ -86,25 +89,25 @@ sudo xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 ###### OPTIONAL ######
 
 # msttcorefonts [NEEDS VOID-SRC ENABLED]
-#cd ~/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && sudo xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
+#cd ~/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
 # enable backlight service for saving previous brightness you've set after rebooting your pc
-#sudo cp -r ~/stuffs/git/runit-services/backlight /etc/sv/ && sudo ln -s /etc/sv/backlight/ /var/service
+#doas cp -r ~/stuffs/git/runit-services/backlight /etc/sv/ && doas ln -s /etc/sv/backlight/ /var/service
 
-# thinkfan [THINKPADS ONLY]
-#sudo cp -r ~/stuffs/git/runit-services/thinkfan /etc/sv/ && sudo xbps-install -Suvy thinkfan && sudo ln -s /etc/sv/thinkfan/ /var/service
+# thinkfan (please enable thinkfan service after you restart your pc) [THINKPADS ONLY]
+#doas cp -r ~/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan
 
 # thermald (supports tlp) [INTEL ONLY]
-#sudo xbps-install -vy thermald && sudo ln -s /etc/sv/thermald/ /var/service
+#doas xbps-install -vy thermald && doas ln -s /etc/sv/thermald/ /var/service
 
 # tlp
-#sudo xbps-install -vy tlp && sudo ln -s /etc/sv/tlp/ /var/service
+#doas xbps-install -vy tlp && doas ln -s /etc/sv/tlp/ /var/service
 
 # bluetooth with pipewire and alsa
-#sudo xbps-install -vy bluez bluez-alsa libspa-bluetooth && sudo ln -s /etc/sv/bluetoothd/ /var/service
+#doas xbps-install -vy bluez bluez-alsa libspa-bluetooth && doas ln -s /etc/sv/bluetoothd/ /var/service
 
 # bsp-layout (MASTER STACK)
-#sudo xbps-install -vy bc && git clone --depth 1 https://github.com/phenax/bsp-layout.git ~/stuffs/git/bsp-layout && cd ~/stuffs/git/bsp-layout && sudo make install
+#doas xbps-install -vy bc && git clone --depth 1 https://github.com/phenax/bsp-layout.git ~/stuffs/git/bsp-layout && cd ~/stuffs/git/bsp-layout && doas make install
 
 ###### OPTIONAL ######
 
@@ -112,31 +115,28 @@ sudo xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#sudo xbps-install -vy sxhkd bspwm polybar i3lock-color xinit xrdb xcolor xss-lock xset xsel xclip xdotool xrandr scrot rofi rxvt-unicode
+#doas xbps-install -vy sxhkd bspwm polybar i3lock-color xinit xrdb xcolor xss-lock xset xsel xclip xdotool xrandr scrot rofi rxvt-unicode
 
 # river (Wayland)
-#sudo xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
+#doas xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-sudo xbps-install -vy nwg-look noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger pcmanfm xarchiver ufw pavucontrol dunst libnotify brightnessctl nsxiv acpi ueberzug ffmpegthumbnailer
+doas xbps-install -vy nwg-look noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger pcmanfm xarchiver ufw pavucontrol dunst libnotify brightnessctl nsxiv acpi ueberzug ffmpegthumbnailer
 
 # enable ufw with recommended settings by chris_titus
-sudo ln -s /etc/sv/ufw/ /var/service && sudo ufw limit 22/tcp && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw enable
-
-# sudo alternative (doas) [RECOMMENDED]
-sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null
+doas ln -s /etc/sv/ufw/ /var/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
 
 # fix bad font rendering
-sudo ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
+doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
 
 # install NetworkManager (optional. if you uncomment it, please use `nmtui` to connect)
-#sudo xbps-install -vy NetworkManager && sudo rm -rf /var/service/wpa_supplicant && sudo rm -rf /var/service/dhcpcd && sudo ln -s /etc/sv/NetworkManager/ /var/service && sudo usermod -aG network $(whoami)
+#doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service && doas usermod -aG network $(whoami)
 
 # remove any orphaned packages
-sudo xbps-remove -ROoFfvy
+doas xbps-remove -ROoFfvy
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
 doas xbps-reconfigure -fa
