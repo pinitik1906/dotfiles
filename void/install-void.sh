@@ -15,6 +15,12 @@
 # create folder for screenshotting, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
 
+# copying all conf to home folder
+cp $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/ && cp $HOME/stuffs/git/dotfiles/void/.bash_profile $HOME/.bash_profile && cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc && cp $HOME/stuffs/git/dotfiles/void/.xinitrc $HOME/.xinitrc && cp $HOME/stuffs/git/dotfiles/void/.Xresources $HOME/.Xresources
+
+# copying all xorg conf to /etc/X11/xorg.conf.d/
+sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/void/20-intel.conf /etc/X11/xorg.conf.d/ && sudo cp $HOME/stuffs/git/dotfiles/void/40-libinput.conf /etc/X11/xorg.conf.d/ && sudo cp $HOME/stuffs/git/dotfiles/void/90-touchpad.conf /etc/X11/xorg.conf.d/
+
 # checking updates & syncing repos
 sudo xbps-install -Suvy
 
@@ -97,8 +103,8 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 # enable backlight service for saving previous brightness you've set after rebooting your pc
 #doas cp -r $HOME/stuffs/git/runit-services/backlight /etc/sv/ && doas ln -s /etc/sv/backlight/ /var/service
 
-# thinkfan (please enable thinkfan service after you restart your pc) [THINKPADS ONLY]
-#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan
+# thinkfan (please enable thinkfan service after you reboot your pc) [THINKPADS ONLY]
+#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/thinkfan.yaml /etc/
 
 # thermald (supports tlp) [INTEL ONLY]
 #doas xbps-install -vy thermald && doas ln -s /etc/sv/thermald/ /var/service
@@ -143,3 +149,6 @@ doas xbps-remove -ROoFfvy
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
 doas xbps-reconfigure -fa
+
+# rebooting your pc
+loginctl reboot

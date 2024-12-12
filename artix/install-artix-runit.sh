@@ -6,14 +6,20 @@ sudo usermod -aG video,audio,wheel,network $(whoami)
 # create folder for screenshotting, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
 
+# copying all conf to home folder
+cp $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/ && cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile && cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc && cp $HOME/stuffs/git/dotfiles/artix/.xinitrc $HOME/.xinitrc && cp $HOME/stuffs/git/dotfiles/artix/.Xresources $HOME/.Xresources
+
+# copying all xorg conf to /etc/X11/xorg.conf.d/
+sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/artix/20-intel.conf /etc/X11/xorg.conf.d/ && sudo cp $HOME/stuffs/git/dotfiles/artix/40-libinput.conf /etc/X11/xorg.conf.d/ && sudo cp $HOME/stuffs/git/dotfiles/artix/90-touchpad.conf /etc/X11/xorg.conf.d/
+
+# copying preconfigured pacman.conf and paru.conf
+doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/paru.conf /etc/paru.conf
+
 # checking updates, syncing repos
 sudo pacman -Syu --needed --noconfirm
 
 # installing opendoas & removing sudo
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo pacman -S --needed --noconfirm opendoas && doas pacman -Rnsdd --noconfirm sudo
-
-# copying preconfigured pacman.conf and paru.conf
-doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/paru.conf /etc/paru.conf
 
 # installing paru as a default AUR HELPER
 doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -si 
@@ -84,8 +90,8 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 # enable backlight service for saving previous brightness you've set after rebooting your pc
 #paru -S --needed --noconfirm backlight-runit && doas ln -s /etc/runit/sv/backlight/ /run/runit/service
 
-# thinkfan (please enable thinkfan service after you restart your pc) [THINKPADS ONLY]
-#paru -S --needed --noconfirm thinkfan-runit
+# thinkfan (please enable thinkfan service after you reboot your pc) [THINKPADS ONLY]
+#paru -S --needed --noconfirm thinkfan-runit && doas cp $HOME/stuffs/git/dotfiles/artix/thinkfan.yaml /etc/
 
 # thermald (supports tlp) [INTEL ONLY]
 #paru -S --needed --noconfirm thermald-runit && doas ln -s /etc/runit/sv/thermald/ /run/runit/service
@@ -121,3 +127,6 @@ doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas
 
 # remove any orphaned packages
 paru -Rnsudd --noconfirm && paru -Sc --noconfirm
+
+# rebooting your pc
+loginctl reboot
