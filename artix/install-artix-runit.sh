@@ -1,7 +1,10 @@
 #!/bin/sh
 
 # add important groups
-sudo usermod -aG video,audio,wheel $(whoami)
+sudo usermod -aG video,audio,wheel,network $(whoami)
+
+# create folder for screenshotting, otherwise it won't work
+mkdir -p $HOME/stuffs/pic/screenshots
 
 # checking updates, syncing repos
 sudo pacman -Syu --needed --noconfirm
@@ -10,10 +13,10 @@ sudo pacman -Syu --needed --noconfirm
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo pacman -S --needed --noconfirm opendoas && doas pacman -Rnsdd --noconfirm sudo
 
 # copying preconfigured pacman.conf and paru.conf
-doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r ~/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf && doas cp -r ~/stuffs/git/dotfiles/artix/paru.conf /etc/paru.conf
+doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/paru.conf /etc/paru.conf
 
 # installing paru as a default AUR HELPER
-doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git ~/stuffs/git/paru-bin && cd ~/stuffs/git/paru-bin && makepkg -si 
+doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -si 
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2

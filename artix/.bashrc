@@ -5,7 +5,7 @@ alias grep="grep --color=auto"
 PS1='\[\e[1;31m\][\[\e[1;33m\]\u\[\e[1;32m\]@\[\e[1;34m\]\h \[\e[1;35m\]\w\[\e[1;31m\]]\[\e[1;00m\]\$\[\e[0;00m\] '
 
 alias lf="ranger"
-alias pr="paru -Qqtd | paru -Rnsdd"
+alias pr="paru -Qqtd | paru -Rnsdd -"
 alias pi="paru -Syu --needed"
 alias pq="paru"
 alias pf="paru -Ql"

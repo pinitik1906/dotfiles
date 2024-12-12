@@ -12,6 +12,9 @@
 ###### REPO ######
 
 
+# create folder for screenshotting, otherwise it won't work
+mkdir -p $HOME/stuffs/pic/screenshots
+
 # checking updates & syncing repos
 sudo xbps-install -Suvy
 
@@ -34,7 +37,7 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 #doas xbps-install -vy vulkan-loader-32bit mesa-vulkan-lavapipe-32bit
 
 # clone madand's runit-services
-git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/runit-services
+git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/git/runit-services
 
 
 ###### DRIVERS ######
@@ -78,10 +81,10 @@ git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/ru
 ###### VOID-SRC ######
 
 # enable nonfree and multilib [GLIBC]
-#git clone --depth 1 https://github.com/void-linux/void-packages.git ~/stuffs/git/void-packages && cd ~/stuffs/git/void-packages && echo XBPS_ALLOW_RESTRICTED=yes >> ~/stuffs/git/void-packages/etc/conf && rm -rf ~/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf && rm -rf ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib.conf && echo "repository=https://repo-fastly.voidlinux.org/current" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/bootstrap" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/nonfree" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/debug" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib/bootstrap" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib/nonfree" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && ./xbps-src binary-bootstrap
+#git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/void-packages && cd $HOME/stuffs/git/void-packages && echo XBPS_ALLOW_RESTRICTED=yes >> $HOME/stuffs/git/void-packages/etc/conf && rm -rf $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf && rm -rf $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib.conf && echo "repository=https://repo-fastly.voidlinux.org/current" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/bootstrap" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/nonfree" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/debug" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib/bootstrap" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib/nonfree" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && ./xbps-src binary-bootstrap
 
 # enable nonfree [MUSL]
-#git clone --depth 1 https://github.com/void-linux/void-packages.git ~/stuffs/git/void-packages && cd ~/stuffs/git/void-packages && echo XBPS_ALLOW_RESTRICTED=yes >> ~/stuffs/git/void-packages/etc/conf && rm -rf ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/bootstrap" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/debug" | tee -a ~/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && ./xbps-src binary-bootstrap
+#git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/void-packages && cd $HOME/stuffs/git/void-packages && echo XBPS_ALLOW_RESTRICTED=yes >> $HOME/stuffs/git/void-packages/etc/conf && rm -rf $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/bootstrap" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/debug" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && ./xbps-src binary-bootstrap
 
 ###### VOID-SRC ######
 
@@ -89,13 +92,13 @@ git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/ru
 ###### OPTIONAL ######
 
 # msttcorefonts [NEEDS VOID-SRC ENABLED]
-#cd ~/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
+#cd $HOME/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
 # enable backlight service for saving previous brightness you've set after rebooting your pc
-#doas cp -r ~/stuffs/git/runit-services/backlight /etc/sv/ && doas ln -s /etc/sv/backlight/ /var/service
+#doas cp -r $HOME/stuffs/git/runit-services/backlight /etc/sv/ && doas ln -s /etc/sv/backlight/ /var/service
 
 # thinkfan (please enable thinkfan service after you restart your pc) [THINKPADS ONLY]
-#doas cp -r ~/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan
+#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan
 
 # thermald (supports tlp) [INTEL ONLY]
 #doas xbps-install -vy thermald && doas ln -s /etc/sv/thermald/ /var/service
@@ -107,7 +110,7 @@ git clone --depth 1 https://github.com/madand/runit-services.git ~/stuffs/git/ru
 #doas xbps-install -vy bluez bluez-alsa libspa-bluetooth && doas ln -s /etc/sv/bluetoothd/ /var/service
 
 # bsp-layout (MASTER STACK)
-#doas xbps-install -vy bc && git clone --depth 1 https://github.com/phenax/bsp-layout.git ~/stuffs/git/bsp-layout && cd ~/stuffs/git/bsp-layout && doas make install
+#doas xbps-install -vy bc && git clone --depth 1 https://github.com/phenax/bsp-layout.git $HOME/stuffs/git/bsp-layout && cd $HOME/stuffs/git/bsp-layout && doas make install
 
 ###### OPTIONAL ######
 
