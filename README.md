@@ -16,7 +16,6 @@ cd ~/git/dotfiles && git pull
 for `grub` in /etc/default/grub, copy my kernel parameters
 
 ```
-GRUB_DISTRIBUTOR="Void"
 GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 console=tty12 udev.log_level=0 nmi_watchdog=0 nowatchdog modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco intel_iommu=igfx_off clocksource=tsc tsc=reliable preempt=full msr.allow_writes=on i915.enable_fbc=1 i915.enable_guc=3 i915.fastboot=1 i915.enable_dc=4 i915.enable_psr=2 cryptomgr.notests initcall_debug kvm-intel.nested=1 no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 mitigations=off"
 ```
 
@@ -136,7 +135,7 @@ finally, reboot your pc and check if NVIDIA DRM were set correctly
 sudo cat /sys/module/nvidia_drm/parameters/modeset
 ```
 
-# pixelated-image-in-any-tui-file-manager-using-foot-terminal (riverwm)
+#### pixelated-image-in-any-tui-file-manager-using-foot-terminal (riverwm)
 if it does occur, please take a look at this [issue](https://github.com/jstkdng/ueberzugpp/issues/157)
 
 dependency: `libsixel`
@@ -164,10 +163,10 @@ taken from the [void-xmirror](https://xmirror.voidlinux.org)
 "The **tier 1 mirrors** sync directly from the build servers and will always have the latest packages available. While **tier 2 mirrors** are not managed by Void and do not have any guarantees of freshness or completeness of packages, nor are they required to sync every available architecture or sub-repository."
 
 ## quick-links (huge thanks <3)
+- Native Wayland App Lists: [1,](https://wearewaylandnow.com/) [2,](https://github.com/rcalixte/awesome-wayland) [3,](https://wiki.gentoo.org/wiki/List_of_software_for_Wayland) [4](https://codeberg.org/river/wiki/src/branch/master/pages/Recommended-Software.md)
 - [Laptop Optimizations for Linux](https://gist.github.com/LarryIsBetter/218fda4358565c431ba0e831665af3d1)
 - [madand's runit-services](https://github.com/madand/runit-services)
 - [nvidia-vaapi-driver](https://github.com/elFarto/nvidia-vaapi-driver)
-- Native Wayland App Lists: [1,](https://wearewaylandnow.com/) [2,](https://github.com/rcalixte/awesome-wayland) [3,](https://wiki.gentoo.org/wiki/List_of_software_for_Wayland) [4](https://codeberg.org/river/wiki/src/branch/master/pages/Recommended-Software.md)
 - [void-handbook](https://docs.voidlinux.org)
 - [void-optimizations](https://gist.github.com/themagicalmammal/e443d3c5440d566f8206e5b957ab1493)
 - [void-src](https://github.com/void-linux/void-packages)
