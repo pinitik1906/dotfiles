@@ -9,7 +9,7 @@ wlsunset -t 2300 -S 0:00 &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
 # lockscreen with suspend
-riverctl map-switch normal lid open spawn "swaylock -ec 000000"
+riverctl map-switch normal lid open spawn 'swaylock -ec 000000'
 
 # resolution
 #wlr-randr --output eDP-1 --custom-mode 1024x768 @60Hz
@@ -51,16 +51,6 @@ do
 done
 
 # general
-for i in $(seq 1 9)
-do
-    
-    tags=$((1 << ($i - 1)))
-
-    riverctl map normal Super $i set-focused-tags $tags
-    riverctl map normal Super+Shift $i set-view-tags $tags
-
-done
-
 rivertile -view-padding 3 -outer-padding 2 -main-ratio 0.5 &
 riverctl border-width 2
 riverctl background-color 0x000000
@@ -75,6 +65,7 @@ riverctl rule-add -title "Volume Control" float
 riverctl rule-add -title "LibreWolf - Sharing Indicator" float
 riverctl rule-add -title "Firefox - Sharing Indicator" float
 riverctl rule-add -title "Welcome to Audacity!" float
+riverctl rule-add -title "Welcome to Tenacity!" float
 riverctl rule-add -title "Open File" float
 
 riverctl rule-add -app-id "sober_services" float
@@ -84,50 +75,60 @@ riverctl rule-add -title "Volume Control" ssd
 riverctl rule-add -title "osu!" ssd
 riverctl rule-add -title "Transmission" ssd
 riverctl rule-add -title "Mozilla Thunderbird" ssd
+riverctl rule-add -title "Betterbird" ssd
 riverctl rule-add -title "org.pwmt.zathura" ssd
 riverctl rule-add -title "*.pdf" ssd
 riverctl rule-add -title "Open File" ssd
 riverctl rule-add -title "File Upload" ssd
 riverctl rule-add -title "GIMP Startup" ssd
+riverctl rule-add -title "LibreOffice" ssd
+riverctl rule-add -title "Save Document?" ssd
+riverctl rule-add -title "Open" ssd
+riverctl rule-add -title "Save" ssd
+riverctl rule-add -title "Lutris" ssd
+riverctl rule-add -title "Add games to Lutris" ssd
+riverctl rule-add -title "Lutris settings" ssd
 
 riverctl rule-add -app-id "firefox" ssd
 riverctl rule-add -app-id "librewolf" ssd
 riverctl rule-add -app-id "audacity" ssd
 riverctl rule-add -app-id "pcmanfm" ssd
-riverctl rule-add -app-id "lutris" ssd
 riverctl rule-add -app-id "sober_services" ssd
 riverctl rule-add -app-id "nwg-look" ssd
 riverctl rule-add -app-id "tlpui" ssd
-
+riverctl rule-add -app-id "xarchiver" ssd
+riverctl rule-add -app-id "thunar" ssd
+riverctl rule-add -app-id "imv" ssd
+riverctl rule-add -app-id "tenacity" ssd
 
 # apps binds
 riverctl map normal Super Return spawn \
-	"foot"
+	'foot'
 
 riverctl map normal Super R spawn \
-	"foot -e ranger"
+	'foot -e ranger'
 
 riverctl map normal Super+Control R spawn \
-	"pcmanfm"
+	'thunar'
 
 riverctl map normal Super D spawn \
-	"tofi-drun"
+	'tofi-drun'
 
 riverctl map normal Super E spawn \
-	"thunderbird"
+	'thunderbird'
 
 riverctl map normal Super W spawn \
-	"firefox"
+	'firefox'
 
 # camera
 riverctl map normal Super+Control C spawn \
-	"ffplay -fast /dev/video0"
+	'ffplay -fast /dev/video0'
 
 riverctl rule-add -app-id "ffplay" float
 
 # lockscreen
 riverctl map normal Super Comma spawn \
-	"swaylock -ec 000000"
+	'swaylock -ec 000000'
 
 # notification details without bars
 riverctl map normal Super B spawn \
@@ -140,14 +141,18 @@ riverctl map normal Super+Control B spawn \
 	'notify-send -t 2000 "`acpi -t`"'
 
 riverctl map normal Super Space spawn \
-	"dunstctl history-pop"
+	'dunstctl history-pop'
+
+# color-picker
+riverctl map normal Super P spawn \
+	'wl-color-picker clipboard'
 
 # screenshot
 riverctl map normal None Print spawn \
-	'IMG=~/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && grim -g "$(slurp)" $IMG && notify-send -t 1250 "screenshot taken"'
+	'IMG=$HOME/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && grim -g "$(slurp)" $IMG && notify-send -t 1250 "screenshot taken"'
 
 riverctl map normal Control Print spawn \
-	'IMG=~/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && grim $IMG && notify-send -t 1250 "screenshot taken"'
+	'IMG=$HOME/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && grim $IMG && notify-send -t 1250 "screenshot taken"'
 
 # close, exit and reload river
 riverctl map normal Super Q \
@@ -172,16 +177,54 @@ riverctl map normal Super K focus-view \
 riverctl map normal Super L focus-view \
 	right
 
-# move window
+# move/resize window
 riverctl map normal Super Left send-layout-cmd \
-	rivertile "main-ratio -0.01"
+	rivertile 'main-ratio -0.01'
 
 riverctl map normal Super Right send-layout-cmd \
-	rivertile "main-ratio +0.01"
+	rivertile 'main-ratio +0.01'
 
-# fullscreen
+riverctl map normal Super+Control Left \
+	move left 50
+
+riverctl map normal Super+Control Down \
+	move down 50
+
+riverctl map normal Super+Control Up \
+	move up 50
+
+riverctl map normal Super+Control Right \
+	move right 50
+
+riverctl map normal Super+Shift Left \
+	resize horizontal -50
+
+riverctl map normal Super+Shift Down \
+	resize vertical -50
+
+riverctl map normal Super+Shift Up \
+	resize vertical 50
+
+riverctl map normal Super+Shift Right \
+	resize horizontal 50
+
+# workspaces
+for i in $(seq 1 9)
+do
+    
+    tags=$((1 << ($i - 1)))
+
+    riverctl map normal Super $i set-focused-tags $tags
+    riverctl map normal Super+Shift $i set-view-tags $tags
+
+done
+
+# fullscreen/float
 riverctl map normal Super F \
 	toggle-fullscreen
+
+riverctl map normal Super+Shift F \
+	toggle-float
 
 # media binds
 riverctl map normal None XF86Eject spawn \

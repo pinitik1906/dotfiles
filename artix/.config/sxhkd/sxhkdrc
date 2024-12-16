@@ -6,7 +6,7 @@ super + r
 	$TERMINAL -e ranger
 
 super + control + r
-	pcmanfm
+	thunar
 
 super + d
 	rofi -terminal $TERMINAL -show drun
@@ -47,10 +47,10 @@ super + shift + p
 
 # screenshot
 Print
-	scrot ~/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png -i -s -l mode=edge && notify-send -t 1250 "screenshot taken"
+	scrot $HOME/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png -i -s -l mode=edge && notify-send -t 1250 "screenshot taken"
 
 control + Print
-	scrot ~/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png && notify-send -t 1250 "screenshot taken"
+	scrot $HOME/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png && notify-send -t 1250 "screenshot taken"
 
 # close, exit and reload bspwm
 super + q
@@ -63,7 +63,7 @@ super + shift + {q,r}
 super + {h,j,k,l}
 	bspc node -f {west,south,north,east}
 
-# move window
+# move/resize window
 super + {Left,Down,Up,Right}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 

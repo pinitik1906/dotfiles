@@ -26,7 +26,7 @@ doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https:
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc ttf-inconsolata
+paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc ttf-inconsolata dunst libnotify
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
@@ -41,7 +41,7 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 ###### DRIVERS ######
 
 # intel [NEEDS ARCH REPO ENABLED]
-#paru -S --needed --noconfirm xf86-video-intel mesa vulkan-intel intel-media-driver libva-intel-driver libvdpau libvdpau-va-gl intel-media-sdk
+#paru -S --needed --noconfirm xf86-video-intel mesa vulkan-intel intel-media-driver libva-intel-driver-git libvdpau libvdpau-va-gl intel-media-sdk
 
 # 32-bit intel [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libva-intel-driver lib32-libvdpau lib32-libvdpau-va-gl
@@ -114,19 +114,19 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 #paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-xinit xcolor xss-lock xorg-xset xsel xclip xdotool scrot rofi rxvt-unicode
 
 # river (Wayland)
-#paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
+#paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-paru -S --needed --noconfirm nwg-look noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger pcmanfm xarchiver ufw pavucontrol dunst libnotify brightnessctl nsxiv acpi ueberzugpp ffmpegthumbnailer
+paru -S --needed --noconfirm nwg-look noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger thunar thunar-archive-plugin xarchiver ufw pavucontrol brightnessctl imv acpi ueberzugpp ffmpegthumbnailer
 
 # enable ufw with recommended settings by chris_titus
 doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
 
 # remove any orphaned packages
-paru -Rnsudd --noconfirm && paru -Sc --noconfirm
+paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm
 
 # rebooting your pc
 loginctl reboot
