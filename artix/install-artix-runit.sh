@@ -7,10 +7,19 @@ sudo usermod -aG video,audio,wheel,network $(whoami)
 mkdir -p $HOME/stuffs/pic/screenshots
 
 # copying all conf to home folder
-cp $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/ && cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile && cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc && cp $HOME/stuffs/git/dotfiles/artix/.xinitrc $HOME/.xinitrc && cp $HOME/stuffs/git/dotfiles/artix/.Xresources $HOME/.Xresources
+rm -rf $HOME/.config
+mkdir -p $HOME/.config
+cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/
+cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile
+cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
+cp $HOME/stuffs/git/dotfiles/artix/.xinitrc $HOME/.xinitrc
+cp $HOME/stuffs/git/dotfiles/artix/.Xresources $HOME/.Xresources
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
-sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/artix/20-intel.conf /etc/X11/xorg.conf.d/ && sudo cp $HOME/stuffs/git/dotfiles/artix/40-libinput.conf /etc/X11/xorg.conf.d/ && sudo cp $HOME/stuffs/git/dotfiles/artix/90-touchpad.conf /etc/X11/xorg.conf.d/
+sudo mkdir -p /etc/X11/xorg.conf.d
+sudo cp $HOME/stuffs/git/dotfiles/artix/20-intel.conf /etc/X11/xorg.conf.d/
+sudo cp $HOME/stuffs/git/dotfiles/artix/40-libinput.conf /etc/X11/xorg.conf.d/
+sudo cp $HOME/stuffs/git/dotfiles/artix/90-touchpad.conf /etc/X11/xorg.conf.d/
 
 # copying preconfigured pacman.conf and paru.conf
 doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/paru.conf /etc/paru.conf
@@ -111,16 +120,16 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-xinit xcolor xss-lock xorg-xset xsel xclip xdotool scrot rofi rxvt-unicode
+#paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-xinit xcolor xss-lock xorg-xset xsel xclip xdotool scrot rofi rxvt-unicode lxappearance
 
 # river (Wayland)
-#paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm
+#paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm nwg-look
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-paru -S --needed --noconfirm nwg-look noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger thunar thunar-archive-plugin xarchiver ufw pavucontrol brightnessctl imv acpi ueberzugpp ffmpegthumbnailer
+paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger thunar thunar-archive-plugin xarchiver ufw pavucontrol brightnessctl imv acpi ueberzugpp ffmpegthumbnailer
 
 # enable ufw with recommended settings by chris_titus
 doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable

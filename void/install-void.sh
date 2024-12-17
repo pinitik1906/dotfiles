@@ -16,10 +16,19 @@
 mkdir -p $HOME/stuffs/pic/screenshots
 
 # copying all conf to home folder
-cp $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/ && cp $HOME/stuffs/git/dotfiles/void/.bash_profile $HOME/.bash_profile && cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc && cp $HOME/stuffs/git/dotfiles/void/.xinitrc $HOME/.xinitrc && cp $HOME/stuffs/git/dotfiles/void/.Xresources $HOME/.Xresources
+rm -rf $HOME/.config
+mkdir -p $HOME/.config
+cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/
+cp $HOME/stuffs/git/dotfiles/void/.bash_profile $HOME/.bash_profile
+cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc
+cp $HOME/stuffs/git/dotfiles/void/.xinitrc $HOME/.xinitrc
+cp $HOME/stuffs/git/dotfiles/void/.Xresources $HOME/.Xresources
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
-sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/void/20-intel.conf /etc/X11/xorg.conf.d/ && sudo cp $HOME/stuffs/git/dotfiles/void/40-libinput.conf /etc/X11/xorg.conf.d/ && sudo cp $HOME/stuffs/git/dotfiles/void/90-touchpad.conf /etc/X11/xorg.conf.d/
+sudo mkdir -p /etc/X11/xorg.conf.d
+sudo cp $HOME/stuffs/git/dotfiles/void/20-intel.conf /etc/X11/xorg.conf.d/
+sudo cp $HOME/stuffs/git/dotfiles/void/40-libinput.conf /etc/X11/xorg.conf.d/
+sudo cp $HOME/stuffs/git/dotfiles/void/90-touchpad.conf /etc/X11/xorg.conf.d/
 
 # checking updates & syncing repos
 sudo xbps-install -Suvy
@@ -124,16 +133,16 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#doas xbps-install -vy sxhkd bspwm polybar i3lock-color xinit xrdb xcolor xss-lock xset xsel xclip xdotool xrandr scrot rofi rxvt-unicode
+#doas xbps-install -vy sxhkd bspwm polybar i3lock-color xinit xrdb xcolor xss-lock xset xsel xclip xdotool xrandr scrot rofi rxvt-unicode lxappearance
 
 # river (Wayland)
-#doas xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk+3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm zenity ImageMagick && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker && cd $HOME/stuffs/git/wl-color-picker && doas make install
+#doas xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk+3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm zenity ImageMagick nwg-look && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker && cd $HOME/stuffs/git/wl-color-picker && doas make install
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-doas xbps-install -vy nwg-look noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger Thunar thunar-archive-plugin xarchiver ufw pavucontrol brightnessctl imv acpi ueberzug ffmpegthumbnailer
+doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger Thunar thunar-archive-plugin xarchiver ufw pavucontrol brightnessctl imv acpi ueberzug ffmpegthumbnailer
 
 # enable ufw with recommended settings by chris_titus
 doas ln -s /etc/sv/ufw/ /var/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
