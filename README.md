@@ -135,12 +135,12 @@ finally, reboot your pc and check if NVIDIA DRM were set correctly
 sudo cat /sys/module/nvidia_drm/parameters/modeset
 ```
 
-#### pixelated-image-in-any-tui-file-manager-using-foot-terminal (riverwm)
-if it does occur, please take a look at this [issue](https://github.com/jstkdng/ueberzugpp/issues/157)
+#### corrupted-output-in-any-tui-file-manager-using-urxvt (X11)
+copy this if you do not installed any wayland compositor
 
-dependency: `libsixel`
-
-DO NOT USE IT IN ANY X11 DESKTOP ENVIROMENT/WINDOW MANAGER, OTHERWISE IT WILL CORRUPT THE OUTPUT OF YOUR TUI FILE MANAGER
+```
+rm -rf $HOME/.config/ueberzugpp
+```
 
 #### unofficial-repos for artix
 a list from [arch](https://wiki.archlinux.org/title/Unofficial.user.repositories#Signed) and [artix](https://wiki.artixlinux.org/Main/UnofficialUserRepositories)

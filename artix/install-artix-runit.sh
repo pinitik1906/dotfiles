@@ -1,7 +1,9 @@
 #!/bin/sh
 
+PLEASE INSTALL opendoas BEFORE USING THIS SCRIPT AND TYPE INSIDE /etc/doas.conf WITH permit persist yourusername
+
 # add important groups
-sudo usermod -aG video,audio,wheel,network $(whoami)
+doas usermod -aG video,audio,wheel,network $(whoami)
 
 # create folder for screenshotting, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
@@ -16,19 +18,16 @@ cp $HOME/stuffs/git/dotfiles/artix/.xinitrc $HOME/.xinitrc
 cp $HOME/stuffs/git/dotfiles/artix/.Xresources $HOME/.Xresources
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
-sudo mkdir -p /etc/X11/xorg.conf.d
-sudo cp $HOME/stuffs/git/dotfiles/artix/20-intel.conf /etc/X11/xorg.conf.d/
-sudo cp $HOME/stuffs/git/dotfiles/artix/40-libinput.conf /etc/X11/xorg.conf.d/
-sudo cp $HOME/stuffs/git/dotfiles/artix/90-touchpad.conf /etc/X11/xorg.conf.d/
+doas mkdir -p /etc/X11/xorg.conf.d
+doas cp $HOME/stuffs/git/dotfiles/artix/20-intel.conf /etc/X11/xorg.conf.d/
+doas cp $HOME/stuffs/git/dotfiles/artix/40-libinput.conf /etc/X11/xorg.conf.d/
+doas cp $HOME/stuffs/git/dotfiles/artix/90-touchpad.conf /etc/X11/xorg.conf.d/
 
 # copying preconfigured pacman.conf and paru.conf
 doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/paru.conf /etc/paru.conf
 
 # checking updates, syncing repos
-sudo pacman -Syu --needed --noconfirm
-
-# installing opendoas & removing sudo
-sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo pacman -S --needed --noconfirm opendoas && doas pacman -Rnsdd --noconfirm sudo
+doas pacman -Syu --needed --noconfirm
 
 # installing paru as a default AUR HELPER
 doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -si 
@@ -123,7 +122,7 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 #paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-xinit xcolor xss-lock xorg-xset xsel xclip xdotool scrot rofi rxvt-unicode lxappearance
 
 # river (Wayland)
-#paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm nwg-look
+paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm nwg-look
 
 ###### WINDOW MANAGERS ######
 
@@ -138,4 +137,4 @@ doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas
 paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm
 
 # rebooting your pc
-loginctl reboot
+doas reboot
