@@ -1,9 +1,15 @@
 #!/bin/sh
 
-PLEASE INSTALL opendoas BEFORE USING THIS SCRIPT AND TYPE INSIDE /etc/doas.conf WITH permit persist yourusername
+echo "PLEASE INSTALL opendoas BEFORE USING THIS SCRIPT AND TYPE INSIDE /etc/doas.conf WITH permit persist yourusername"
+
+echo "if you want to cancel this install script, simultaneuously press CTRL + C"
+
 
 # add important groups
 doas usermod -aG video,audio,wheel,network $(whoami)
+
+# checking updates, syncing repos
+doas pacman -Syu --needed --noconfirm
 
 # create folder for screenshotting, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
@@ -26,9 +32,6 @@ doas cp $HOME/stuffs/git/dotfiles/artix/90-touchpad.conf /etc/X11/xorg.conf.d/
 # copying preconfigured pacman.conf and paru.conf
 doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/paru.conf /etc/paru.conf
 
-# checking updates, syncing repos
-doas pacman -Syu --needed --noconfirm
-
 # installing paru as a default AUR HELPER
 doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -si 
 
@@ -49,7 +52,7 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 ###### DRIVERS ######
 
 # intel [NEEDS ARCH REPO ENABLED]
-#paru -S --needed --noconfirm xf86-video-intel mesa vulkan-intel intel-media-driver libva-intel-driver-git libvdpau libvdpau-va-gl intel-media-sdk
+#paru -S --needed --noconfirm xf86-video-intel mesa vulkan-intel intel-media-driver libvdpau libvdpau-va-gl intel-media-sdk && paru -Rnsdd --noconfirm libva && paru -S --needed --noconfirm libva-intel-driver-git
 
 # 32-bit intel [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libva-intel-driver lib32-libvdpau lib32-libvdpau-va-gl

@@ -136,10 +136,15 @@ sudo cat /sys/module/nvidia_drm/parameters/modeset
 ```
 
 #### corrupted-output-in-any-tui-file-manager-using-urxvt (X11)
-copy this if you do not installed any wayland compositor
+please change `sixel` to `x11`
 
+ex. inside in `$HOME/.config/ueberzugpp/config.json`
 ```
-rm -rf $HOME/.config/ueberzugpp
+{
+    "layer": {
+        "output": "x11"
+    }
+}
 ```
 
 #### unofficial-repos for artix

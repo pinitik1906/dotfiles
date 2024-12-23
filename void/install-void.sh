@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "if you want to cancel this install script, simultaneuously press CTRL + C"
+
 
 ###### REPO ######
 
@@ -11,6 +13,9 @@
 
 ###### REPO ######
 
+
+# checking updates & syncing repos
+sudo xbps-install -Suvy
 
 # create folder for screenshotting, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
@@ -29,9 +34,6 @@ sudo mkdir -p /etc/X11/xorg.conf.d
 sudo cp $HOME/stuffs/git/dotfiles/void/20-intel.conf /etc/X11/xorg.conf.d/
 sudo cp $HOME/stuffs/git/dotfiles/void/40-libinput.conf /etc/X11/xorg.conf.d/
 sudo cp $HOME/stuffs/git/dotfiles/void/90-touchpad.conf /etc/X11/xorg.conf.d/
-
-# checking updates & syncing repos
-sudo xbps-install -Suvy
 
 # installing opendoas & removing sudo
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -ROoFfvy sudo
