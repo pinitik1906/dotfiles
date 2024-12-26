@@ -1,8 +1,10 @@
 #!/bin/sh
 
-echo "PLEASE INSTALL opendoas BEFORE USING THIS SCRIPT AND TYPE INSIDE /etc/doas.conf WITH permit persist yourusername"
+echo "- PLEASE INSTALL opendoas BEFORE USING THIS SCRIPT AND TYPE INSIDE /etc/doas.conf WITH permit persist yourusername"
+echo "- You might also check inside this script if you want to make changes."
+echo ""
 
-echo "if you want to cancel this install script, simultaneuously press CTRL + C"
+echo "If you want to cancel this install script, simultaneuously press CTRL and C"
 
 
 # add important groups
@@ -21,7 +23,7 @@ cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/
 cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile
 cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
 cp $HOME/stuffs/git/dotfiles/artix/.xinitrc $HOME/.xinitrc
-cp $HOME/stuffs/git/dotfiles/artix/.Xresources $HOME/.Xresources
+cp $HOME/stuffs/git/dotfiles/artix/.local $HOME/.local
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 doas mkdir -p /etc/X11/xorg.conf.d
@@ -37,7 +39,7 @@ doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https:
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc ttf-inconsolata dunst libnotify
+paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc ttf-inconsolata dunst libnotify rsync gd && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
@@ -47,6 +49,9 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 
 # 32bit vulkan dependencies [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
+
+# clone madand's runit-services
+git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/git/runit-services
 
 
 ###### DRIVERS ######
@@ -122,16 +127,16 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-xinit xcolor xss-lock xorg-xset xsel xclip xdotool scrot rofi rxvt-unicode lxappearance
+#paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-xinit xss-lock xorg-xset xsel xclip xdotool maim rofi lxappearance xcolor && git clone --depth 1 https://github.com/pinitik1906/st-gruvbox.git $HOME/stuffs/git/st-gruvbox && cd $HOME/stuffs/git/st-gruvbox && doas make clean install
 
 # river (Wayland)
-paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm nwg-look
+paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm nwg-look foot wl-color-picker
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger thunar thunar-archive-plugin xarchiver ufw pavucontrol brightnessctl imv acpi ueberzugpp ffmpegthumbnailer
+paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf thunar thunar-archive-plugin xarchiver ufw pavucontrol brightnessctl imv acpi ueberzugpp ffmpegthumbnailer gammastep
 
 # enable ufw with recommended settings by chris_titus
 doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable

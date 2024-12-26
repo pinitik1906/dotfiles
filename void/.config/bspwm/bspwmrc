@@ -1,14 +1,13 @@
 #!/bin/sh
 
 # autokill & start
-pkill -9 -x sxhkd && pkill -9 polybar && pkill -9 dunst && pkill -9 redshift && pkill -9 polkit-mate-authentication-agent-1
+pkill -9 -x sxhkd && pkill -9 polybar && pkill -9 dunst && pkill -9 gammastep && pkill -9 polkit-mate-authentication-agent-1
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 polybar top &
 dunst &
-redshift -P -x -r -O 2300 &
+gammastep -P -x -r -O 2300 &
 /usr/libexec/polkit-mate-authentication-agent-1 &
-xrdb -merge ~/.Xresources &
 
 # lockscreen with suspend
 xss-lock --transfer-sleep-lock -- i3lock --nofork -ec 00000000 &

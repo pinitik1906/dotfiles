@@ -3,7 +3,7 @@ super + Return
 	$TERMINAL
 
 super + r
-	$TERMINAL -e ranger
+	$TERMINAL -e lfub
 
 super + control + r
 	thunar
@@ -47,10 +47,10 @@ super + shift + p
 
 # screenshot
 Print
-	scrot $HOME/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png -i -s -l mode=edge && notify-send -t 1250 "screenshot taken"
+	maim -suq $HOME/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && notify-send -t 1250 "screenshot taken"
 
 control + Print
-	scrot $HOME/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png && notify-send -t 1250 "screenshot taken"
+	maim -q $HOME/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && notify-send -t 1250 "screenshot taken"
 
 # close, exit and reload bspwm
 super + q

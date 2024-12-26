@@ -1,6 +1,9 @@
 #!/bin/sh
 
-echo "if you want to cancel this install script, simultaneuously press CTRL + C"
+echo "- You might check inside this script if you want to make changes."
+echo ""
+
+echo "If you want to cancel this install script, simultaneuously press CTRL and C"
 
 
 ###### REPO ######
@@ -27,7 +30,7 @@ cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/
 cp $HOME/stuffs/git/dotfiles/void/.bash_profile $HOME/.bash_profile
 cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc
 cp $HOME/stuffs/git/dotfiles/void/.xinitrc $HOME/.xinitrc
-cp $HOME/stuffs/git/dotfiles/void/.Xresources $HOME/.Xresources
+cp $HOME/stuffs/git/dotfiles/void/.local $HOME/.local
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 sudo mkdir -p /etc/X11/xorg.conf.d
@@ -39,7 +42,7 @@ sudo cp $HOME/stuffs/git/dotfiles/void/90-touchpad.conf /etc/X11/xorg.conf.d/
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -ROoFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl dunst libnotify && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+doas xbps-install -vy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl dunst libnotify rsync libXft-devel libX11-devel harfbuzz-devel libXext-devel libXrender-devel libXinerama-devel gd-devel && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/ && doas ln -s /etc/sv/rsyncd/ /var/service
 
 # removing acpid and its service as it conflicts elogind
 doas xbps-remove -ROoFfvy acpid && doas rm -rf /var/service/acpid
@@ -135,7 +138,7 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#doas xbps-install -vy sxhkd bspwm polybar i3lock-color xinit xrdb xcolor xss-lock xset xsel xclip xdotool xrandr scrot rofi rxvt-unicode lxappearance
+#doas xbps-install -vy sxhkd bspwm polybar i3lock-color xinit xrdb xss-lock xset xsel xclip xdotool xrandr maim rofi lxappearance xcolor && git clone --depth 1 https://github.com/pinitik1906/st-gruvbox.git $HOME/stuffs/git/st-gruvbox && cd $HOME/stuffs/git/st-gruvbox && doas make clean install
 
 # river (Wayland)
 doas xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk+3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm zenity ImageMagick nwg-look && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker && cd $HOME/stuffs/git/wl-color-picker && doas make install
@@ -144,7 +147,7 @@ doas xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-por
 
 
 # install your programs here
-doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv ranger Thunar thunar-archive-plugin xarchiver ufw pavucontrol brightnessctl imv acpi ueberzug ffmpegthumbnailer
+doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf Thunar thunar-archive-plugin xarchiver ufw pavucontrol brightnessctl imv acpi ueberzug ffmpegthumbnailer gammastep
 
 # enable ufw with recommended settings by chris_titus
 doas ln -s /etc/sv/ufw/ /var/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable

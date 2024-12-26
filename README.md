@@ -56,6 +56,19 @@ sudo dracut --force && sudo xbps-reconfigure -f *yourkernel*
 
 ## tips
 
+#### weird-yellow/red-color-on-my-monitor!
+it is a program `gammastep` helps your eye with less eye-strains. if you want to remove, use the command below:
+
+***artix***
+```
+sudo pacman -Rns gammastep
+```
+
+***void***
+```
+sudo xbps-remove -R gammastep
+```
+
 #### stutters-on-wayland (AMD)
 add this to your kernel parameters (grub)
 
@@ -135,7 +148,7 @@ finally, reboot your pc and check if NVIDIA DRM were set correctly
 sudo cat /sys/module/nvidia_drm/parameters/modeset
 ```
 
-#### corrupted-output-in-any-tui-file-manager-using-urxvt (X11)
+#### no-output-in-lf-using-st (X11)
 please change `sixel` to `x11`
 
 ex. inside in `$HOME/.config/ueberzugpp/config.json`

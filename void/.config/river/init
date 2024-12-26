@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # autokill & start
-pkill -9 swayidle && pkill -9 waybar && pkill -9 dunst && pkill -9 wlsunset && pkill -9 polkit-mate-authentication-agent-1
+pkill -9 swayidle && pkill -9 waybar && pkill -9 dunst && pkill -9 gammastep && pkill -9 polkit-mate-authentication-agent-1
 
 waybar &
 dunst &
-wlsunset -t 2300 -S 0:00 &
+gammastep -P -x -r -O 2300 &
 /usr/libexec/polkit-mate-authentication-agent-1 &
 
 # lockscreen with suspend
@@ -21,7 +21,7 @@ riverctl set-repeat 50 300
 # xorg-like idle
 swayidle -w \
   timeout 600 'swaylock -fec 000000' \
-  timeout 900 'wlopm --off \*;swaylock -fec 000000' resume 'wlopm --on \*' \
+  timeout 600 'wlopm --off \*;swaylock -fec 000000' resume 'wlopm --on \*' \
   before-sleep 'swaylock -fec 000000' &
 
 # mouse
@@ -106,7 +106,7 @@ riverctl map normal Super Return spawn \
 	'foot'
 
 riverctl map normal Super R spawn \
-	'foot -e ranger'
+	'foot -e lfub'
 
 riverctl map normal Super+Control R spawn \
 	'thunar'
@@ -152,7 +152,7 @@ riverctl map normal None Print spawn \
 	'IMG=$HOME/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && grim -g "$(slurp)" $IMG && notify-send -t 1250 "screenshot taken"'
 
 riverctl map normal Control Print spawn \
-	'IMG=$HOME/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && grim $IMG && notify-send -t 1250 "screenshot taken"'
+	'IMG=$HOME/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && grim -c $IMG && notify-send -t 1250 "screenshot taken"'
 
 # close, exit and reload river
 riverctl map normal Super Q \

@@ -5,7 +5,7 @@ export PATH=$PATH:$HOME/stuffs/.scripts:$HOME/.local/bin
 export EDITOR='nvim'
 export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
-export TERMINAL='urxvt'
+export TERMINAL='st'
 export BROWSER='firefox'
 export MAIL='thunderbird'
 export GTK_THEME=Adwaita:dark
@@ -47,6 +47,6 @@ pipewire-pulse &
 wireplumber &
 
 # autostart your WM here
-if [ "$(tty)" = "/dev/tty1" ]; then
-startx &>/dev/null
+if [[ "$(tty)" = "/dev/tty1" ]]; then
+river &>/dev/null
 fi
