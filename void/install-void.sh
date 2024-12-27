@@ -7,6 +7,7 @@ echo "- You might check inside this script if you want to make changes."
 echo ""
 
 echo "If you want to cancel this install script, simultaneuously press CTRL and C"
+echo ""
 
 
 ###### REPO ######
@@ -30,8 +31,8 @@ mkdir -p $HOME/stuffs/pic/screenshots
 rm -rf $HOME/.config
 rm -rf $HOME/.local
 mkdir -p $HOME/.config
-cp -r $HOME/stuffs/git/dotfiles/void/.config $HOME/.config
-cp -r $HOME/stuffs/git/dotfiles/void/.local $HOME/.local
+cp -r $HOME/stuffs/git/dotfiles/void/.config $HOME
+cp -r $HOME/stuffs/git/dotfiles/void/.local $HOME
 
 cp $HOME/stuffs/git/dotfiles/void/.bash_profile $HOME/.bash_profile
 cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc

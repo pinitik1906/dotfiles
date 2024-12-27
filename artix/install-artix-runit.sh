@@ -4,10 +4,12 @@ echo ""
 echo ""
 echo ""
 echo "- PLEASE INSTALL opendoas BEFORE USING THIS SCRIPT AND TYPE INSIDE /etc/doas.conf WITH permit persist yourusername"
+echo "- DO NOT LEAVE your computer unattended, it will ask for your password multiple times"
 echo "- You might also check inside this script if you want to make changes."
 echo ""
 
 echo "If you want to cancel this install script, simultaneuously press CTRL and C"
+echo ""
 
 
 # add important groups
@@ -23,8 +25,8 @@ mkdir -p $HOME/stuffs/pic/screenshots
 rm -rf $HOME/.config
 rm -rf $HOME/.local
 mkdir -p $HOME/.config
-cp -r $HOME/stuffs/git/dotfiles/artix/.config $HOME/.config
-cp -r $HOME/stuffs/git/dotfiles/artix/.local $HOME/.local
+cp -r $HOME/stuffs/git/dotfiles/artix/.config $HOME
+cp -r $HOME/stuffs/git/dotfiles/artix/.local $HOME
 
 cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile
 cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
@@ -40,7 +42,7 @@ doas cp $HOME/stuffs/git/dotfiles/artix/90-touchpad.conf /etc/X11/xorg.conf.d/
 doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/paru.conf /etc/paru.conf
 
 # installing paru as a default AUR HELPER
-doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -si 
+doas pacman -Rnsdd sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -si 
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
