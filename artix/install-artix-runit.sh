@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo ""
+echo ""
+echo ""
 echo "- PLEASE INSTALL opendoas BEFORE USING THIS SCRIPT AND TYPE INSIDE /etc/doas.conf WITH permit persist yourusername"
 echo "- You might also check inside this script if you want to make changes."
 echo ""
@@ -18,12 +21,14 @@ mkdir -p $HOME/stuffs/pic/screenshots
 
 # copying all conf to home folder
 rm -rf $HOME/.config
+rm -rf $HOME/.local
 mkdir -p $HOME/.config
-cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/
+cp -r $HOME/stuffs/git/dotfiles/artix/.config $HOME/.config
+cp -r $HOME/stuffs/git/dotfiles/artix/.local $HOME/.local
+
 cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile
 cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
 cp $HOME/stuffs/git/dotfiles/artix/.xinitrc $HOME/.xinitrc
-cp $HOME/stuffs/git/dotfiles/artix/.local $HOME/.local
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 doas mkdir -p /etc/X11/xorg.conf.d
