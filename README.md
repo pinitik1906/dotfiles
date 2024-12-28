@@ -153,7 +153,7 @@ ex. inside in `$HOME/.config/ueberzugpp/config.json`
 }
 ```
 
-#### unofficial-repos for artix
+#### unofficial repos for artix
 a list from [arch](https://wiki.archlinux.org/title/Unofficial.user.repositories#Signed) and [artix](https://wiki.artixlinux.org/Main/UnofficialUserRepositories)
 
 #### autostart on either X11 or Wayland without a display manager
@@ -175,6 +175,7 @@ taken from the [void-xmirror](https://xmirror.voidlinux.org)
 
 ### quick links (huge thanks <3)
 - Native Wayland App Lists: [1,](https://wearewaylandnow.com/) [2,](https://github.com/rcalixte/awesome-wayland) [3,](https://wiki.gentoo.org/wiki/List_of_software_for_Wayland) [4](https://codeberg.org/river/wiki/src/branch/master/pages/Recommended-Software.md)
+- [Are We Sixel Yet?](https://www.arewesixelyet.com/)
 - [Laptop Optimizations for Linux](https://gist.github.com/LarryIsBetter/218fda4358565c431ba0e831665af3d1)
 - [madand's runit-services](https://github.com/madand/runit-services)
 - [nvidia-vaapi-driver](https://github.com/elFarto/nvidia-vaapi-driver)
