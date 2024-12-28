@@ -1,37 +1,30 @@
-## install
+### install
 to get my dotfiles, type
 
 ```
 git clone --depth 1 https://github.com/pinitik1906/dotfiles.git ~/git/dotfiles
 ```
 
-## update
+### update
 to update my dotfiles (either check it weekly or monthly), type
 
 ```
 cd ~/git/dotfiles && git pull
 ```
 
-## my personal-kernel-parameters for *intel*
+### my kernel parameters for intel
 for `grub` in /etc/default/grub, copy my kernel parameters
 
 ```
 GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 console=tty12 udev.log_level=0 nmi_watchdog=0 nowatchdog modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco intel_iommu=igfx_off clocksource=tsc tsc=reliable preempt=full msr.allow_writes=on i915.enable_fbc=1 i915.enable_guc=3 i915.fastboot=1 i915.enable_dc=4 i915.enable_psr=2 cryptomgr.notests initcall_debug kvm-intel.nested=1 no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 mitigations=off"
 ```
 
-then do in ***artix***,
-
-```
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-or in ***void***
-
+then do,
 ```
 sudo update-grub
 ```
 
-## my personal-initramfs-optimization
+### my initramfs optimization for void
 **DANGEROUS SETTINGS**
 
 for `dracut` /etc/dracut.conf.d/*anyname*.conf, copy my *anyname*.conf
@@ -48,28 +41,28 @@ do_strip="yes"
 aggressive_strip="yes"
 ```
 
-then do in ***void***
+then do,
 
 ```
 sudo dracut --force && sudo xbps-reconfigure -f *yourkernel*
 ```
 
-## tips
+### faq
 
-#### weird-yellow/red-color-on-my-monitor!
+#### weird yellow/red color on my monitor
 it is a program `gammastep` helps your eye with less eye-strains. if you want to remove, use the command below:
 
-***artix***
+**artix**
 ```
 sudo pacman -Rns gammastep
 ```
 
-***void***
+**void**
 ```
 sudo xbps-remove -R gammastep
 ```
 
-#### stutters-on-wayland (AMD)
+#### stutters on wayland (AMD)
 add this to your kernel parameters (grub)
 
 ```
@@ -79,10 +72,10 @@ GRUB_CMDLINE_LINUX_DEFAULT="amdgpu.dcdebugmask=0x400"
 and do not forget to regenerate it
 
 ```
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo update-grub
 ```
 
-#### proprietary-NVIDIA-on-Wayland for artix
+#### proprietary NVIDIA on Wayland for artix
 this is needed to make wayland compositors to function properly, referencing this [website](https://linuxiac.com/nvidia-with-wayland-on-arch-setup-guide/) but friendly since I did some preconfiguration. (i will choose neovim for this tutorial)
 
 uncomment inside my `.bash_profile` in `nvidia tweaks` and `direct backend for nvidia` by removing a hashtag and rename in `vaapi & vdpau env` from both `i965,va_gl` to `nvidia`, so it will look like this
@@ -139,7 +132,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1 nvidia_drm.fbdev=1"
 regenerate it
 
 ```
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo update-grub
 ```
 
 finally, reboot your pc and check if NVIDIA DRM were set correctly
@@ -148,7 +141,7 @@ finally, reboot your pc and check if NVIDIA DRM were set correctly
 sudo cat /sys/module/nvidia_drm/parameters/modeset
 ```
 
-#### no-output-in-lf-using-st (X11)
+#### no output in lf using st (X11)
 please change `sixel` to `x11`
 
 ex. inside in `$HOME/.config/ueberzugpp/config.json`
@@ -163,7 +156,7 @@ ex. inside in `$HOME/.config/ueberzugpp/config.json`
 #### unofficial-repos for artix
 a list from [arch](https://wiki.archlinux.org/title/Unofficial.user.repositories#Signed) and [artix](https://wiki.artixlinux.org/Main/UnofficialUserRepositories)
 
-#### autostart-on-either-X11-or-Wayland-without-display-manager
+#### autostart on either X11 or Wayland without a display manager
 edit in `.bash_profile` from your home directory
 
 find a line below and replace it from `river` to `startx` or vice-versa
@@ -175,12 +168,12 @@ startx &>/dev/null
 fi
 ```
 
-#### why-tier-1-mirror for void?
+#### why use a tier 1 mirror for void?
 taken from the [void-xmirror](https://xmirror.voidlinux.org) 
 
 "The **tier 1 mirrors** sync directly from the build servers and will always have the latest packages available. While **tier 2 mirrors** are not managed by Void and do not have any guarantees of freshness or completeness of packages, nor are they required to sync every available architecture or sub-repository."
 
-## quick-links (huge thanks <3)
+### quick links (huge thanks <3)
 - Native Wayland App Lists: [1,](https://wearewaylandnow.com/) [2,](https://github.com/rcalixte/awesome-wayland) [3,](https://wiki.gentoo.org/wiki/List_of_software_for_Wayland) [4](https://codeberg.org/river/wiki/src/branch/master/pages/Recommended-Software.md)
 - [Laptop Optimizations for Linux](https://gist.github.com/LarryIsBetter/218fda4358565c431ba0e831665af3d1)
 - [madand's runit-services](https://github.com/madand/runit-services)

@@ -21,6 +21,7 @@ alias hybrid-sleep='loginctl hybrid-sleep'
 alias suspend-then-hibernate='loginctl suspend-then-hibernate'
 alias bctl='bluetoothctl'
 alias sudo='doas'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias update-rules='cd /etc/ananicy.d/ && sudo git pull && cd'
 
 fastfetch --logo ~/.config/fastfetch/artix_logo.txt --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1
