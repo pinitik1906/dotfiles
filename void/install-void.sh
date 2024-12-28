@@ -3,6 +3,7 @@
 echo ""
 echo ""
 echo ""
+echo "- DO NOT LEAVE your computer unattended, it will ask for your password multiple times"
 echo "- You might check inside this script if you want to make changes."
 echo ""
 
