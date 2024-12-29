@@ -6,7 +6,7 @@ super + r
 	$TERMINAL -e lfub
 
 super + control + r
-	thunar
+	pcmanfm
 
 super + d
 	rofi -terminal $TERMINAL -show drun

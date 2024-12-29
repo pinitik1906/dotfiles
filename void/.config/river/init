@@ -109,7 +109,7 @@ riverctl map normal Super R spawn \
 	'foot -e lfub'
 
 riverctl map normal Super+Control R spawn \
-	'thunar'
+	'pcmanfm'
 
 riverctl map normal Super D spawn \
 	'tofi-drun'
