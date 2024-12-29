@@ -149,7 +149,7 @@ paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fas
 doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
 
 # remove any orphaned packages
-paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm
+paru -Qqtd | paru -Rns --noconfirm - && paru -Sc --noconfirm
 
 # rebooting your pc
 doas reboot
