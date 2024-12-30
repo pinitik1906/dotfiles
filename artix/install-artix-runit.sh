@@ -46,7 +46,7 @@ doas pacman -Rnsdd sudo && doas pacman -S --needed --noconfirm base-devel git &&
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc ttf-inconsolata dunst libnotify runit-bash-completions rsync-runit gd && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
+paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit gtk3 gtk4 qt5-wayland qt6-wayland qt5ct ffmpeg playerctl less mandoc ttf-inconsolata dunst libnotify runit-bash-completions rsync-runit gd && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
@@ -137,7 +137,7 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 #paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-xinit xss-lock xorg-xset xsel xclip xdotool maim rofi lxappearance xcolor && git clone --depth 1 https://github.com/pinitik1906/st-gruvbox.git $HOME/stuffs/git/st-gruvbox && cd $HOME/stuffs/git/st-gruvbox && doas make clean install
 
 # river (Wayland)
-paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm nwg-look foot wl-color-picker
+paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm nwg-look foot wl-color-picker
 
 ###### WINDOW MANAGERS ######
 

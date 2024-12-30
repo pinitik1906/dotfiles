@@ -49,7 +49,7 @@ sudo cp $HOME/stuffs/git/dotfiles/void/90-touchpad.conf /etc/X11/xorg.conf.d/
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl dunst libnotify bash-completion rsync libXft-devel libX11-devel harfbuzz-devel libXext-devel libXrender-devel libXinerama-devel gd-devel && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/ && doas ln -s /etc/sv/rsyncd/ /var/service
+doas xbps-install -vy base-devel elogind polkit dbus opendoas xorg-minimal xorg-fonts linux-firmware pipewire alsa-pipewire mate-polkit gtk+3 gtk4 qt5-wayland qt6-wayland qt5ct ffmpeg playerctl dunst libnotify bash-completion rsync libXft-devel libX11-devel harfbuzz-devel libXext-devel libXrender-devel libXinerama-devel gd-devel && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/ && doas ln -s /etc/sv/rsyncd/ /var/service
 
 # removing acpid and its service as it conflicts elogind
 doas xbps-remove -RFfvy acpid && doas rm -rf /var/service/acpid
@@ -148,7 +148,7 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 #doas xbps-install -vy sxhkd bspwm polybar i3lock-color xinit xrdb xss-lock xset xsel xclip xdotool xrandr maim rofi lxappearance xcolor && git clone --depth 1 https://github.com/pinitik1906/st-gruvbox.git $HOME/stuffs/git/st-gruvbox && cd $HOME/stuffs/git/st-gruvbox && doas make clean install
 
 # river (Wayland)
-doas xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk gtk+3 gtk4 qt5-wayland qt6-wayland qt5ct wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm zenity ImageMagick nwg-look && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker && cd $HOME/stuffs/git/wl-color-picker && doas make install
+doas xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi foot swayidle wlopm zenity ImageMagick nwg-look && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker && cd $HOME/stuffs/git/wl-color-picker && doas make install
 
 ###### WINDOW MANAGERS ######
 
