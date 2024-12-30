@@ -22,4 +22,4 @@ alias bctl='bluetoothctl'
 alias sudo='doas'
 alias update-rules='cd /etc/ananicy.d/ && sudo git pull && cd'
 
-fastfetch --logo-color-2 37 --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1
+fastfetch --logo void2_small --logo-color-2 37 --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1
