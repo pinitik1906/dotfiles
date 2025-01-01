@@ -5,7 +5,7 @@ export PATH=$PATH:$HOME/stuffs/.scripts:$HOME/.local/bin
 export EDITOR='nvim'
 export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
-export TERMINAL='st'
+export TERMINAL='urxvt'
 export BROWSER='firefox'
 export MAIL='thunderbird'
 export GTK_THEME=Adwaita:dark
@@ -40,11 +40,6 @@ export MOZ_DISABLE_RDD_SANDBOX=1
 
 # screenshare support for wayland
 export XDG_CURRENT_DESKTOP=river
-
-# autostart for audio/video
-pipewire &
-pipewire-pulse &
-wireplumber &
 
 # autostart your WM here
 if [[ "$(tty)" = "/dev/tty1" ]]; then

@@ -4,7 +4,6 @@ set autoquit
 set ifs "\n"
 set mouse
 set scrolloff 10
-set relativenumber
 set hidden
 set drawbox
 set sixel

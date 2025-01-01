@@ -1,1 +1,2 @@
+pipewire &
 exec bspwm

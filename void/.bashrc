@@ -5,6 +5,7 @@ alias grep='grep --color=auto'
 PS1='\[\e[1;31m\][\[\e[1;33m\]\u\[\e[1;32m\]@\[\e[1;34m\]\h \[\e[1;35m\]\w\[\e[1;31m\]]\[\e[1;00m\]\$\[\e[0;00m\] '
 
 alias lf='lfub'
+alias ff='fastfetch --logo void2_small --logo-color-2 37 --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1'
 alias xr='doas xbps-remove -ROov'
 alias xi='doas xbps-install -Suv'
 alias xq='xbps-query -Rs'
@@ -17,9 +18,6 @@ alias suspend='loginctl suspend'
 alias hibernate='loginctl hibernate'
 alias hybrid-sleep='loginctl hybrid-sleep'
 alias suspend-then-hibernate='loginctl suspend-then-hibernate'
-
 alias bctl='bluetoothctl'
 alias sudo='doas'
 alias update-rules='cd /etc/ananicy.d/ && sudo git pull && cd'
-
-fastfetch --logo void2_small --logo-color-2 37 --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1
