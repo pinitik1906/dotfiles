@@ -47,7 +47,7 @@ doas pacman -Rnsdd sudo && doas pacman -S --needed --noconfirm base-devel git &&
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit gtk3 gtk4 qt5-wayland qt6-wayland qt5ct ffmpeg playerctl less mandoc ttf-inconsolata dunst libnotify runit-bash-completions rsync-runit && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
+paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit gtk3 gtk4 qt5-wayland qt6-wayland qt5ct ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
