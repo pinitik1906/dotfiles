@@ -15,6 +15,7 @@ polybar top &
 dunst &
 gammastep -P -x -r -O 2300 &
 /usr/libexec/polkit-mate-authentication-agent-1 &
+xrdb -merge /.Xresources
 
 # lockscreen with suspend
 xss-lock --transfer-sleep-lock -- i3lock --nofork -ec 00000000 &
