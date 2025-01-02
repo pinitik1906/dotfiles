@@ -47,10 +47,10 @@ super + shift + p
 
 # screenshot
 Print
-	maim -suq $HOME/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && notify-send -t 1250 "screenshot taken"
+	scrot $HOME/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png -i -s -l mode=edge && notify-send -t 1250 "screenshot taken"
 
 control + Print
-	maim -q $HOME/stuffs/pic/screenshots/$(date +%m-%d-%Y_%T)-screenshot.png && notify-send -t 1250 "screenshot taken"
+	scrot $HOME/stuffs/pic/screenshots/%m-%d-%Y_%T-screenshot.png && notify-send -t 1250 "screenshot taken"
 
 # close, exit and reload bspwm
 super + q

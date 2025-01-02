@@ -134,7 +134,7 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-#paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-xinit xss-lock xorg-xset xsel xclip xdotool maim rofi lxappearance xcolor rxvt-unicode
+#paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-xinit xss-lock xorg-xset xsel xclip xdotool scrot rofi lxappearance xcolor rxvt-unicode-truecolor-wide-glyphs
 
 # river (Wayland)
 paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm nwg-look foot wl-color-picker
