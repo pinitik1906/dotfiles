@@ -31,6 +31,7 @@ cp -r $HOME/stuffs/git/dotfiles/artix/.local $HOME
 cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile
 cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
 cp $HOME/stuffs/git/dotfiles/artix/.xinitrc $HOME/.xinitrc
+cp $HOME/stuffs/git/dotfiles/artix/.Xresources $HOME/.Xresources
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 doas mkdir -p /etc/X11/xorg.conf.d
