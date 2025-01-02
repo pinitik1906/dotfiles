@@ -1,8 +1,15 @@
 #!/bin/sh
 
-# autokill & start
-pkill -9 -x sxhkd && pkill -9 polybar && pkill -9 dunst && pkill -9 gammastep && pkill -9 polkit-mate-authentication-agent-1
+# autokill
+pkill -9 pipewire
+pkill -9 -x sxhkd
+pkill -9 polybar
+pkill -9 dunst
+pkill -9 gammastep
+pkill -9 polkit-mate-authentication-agent-1
 
+# autostart
+pipewire &
 pgrep -x sxhkd > /dev/null || sxhkd &
 polybar top &
 dunst &
