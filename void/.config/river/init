@@ -113,9 +113,6 @@ riverctl map normal Super Return spawn \
 	'foot'
 
 riverctl map normal Super R spawn \
-	'foot -e lfub'
-
-riverctl map normal Super+Control R spawn \
 	'pcmanfm'
 
 riverctl map normal Super D spawn \

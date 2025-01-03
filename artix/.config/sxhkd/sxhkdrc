@@ -3,9 +3,6 @@ super + Return
 	$TERMINAL
 
 super + r
-	$TERMINAL -e lfub
-
-super + control + r
 	pcmanfm
 
 super + d
