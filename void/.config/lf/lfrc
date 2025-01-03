@@ -98,12 +98,16 @@ cmd delete ${{
 
 # keybinds
 map <delete> delete
+map <backspace2> set hidden!
 map s shell $SHELL
 
+map <esc> quit
 map dd cut
+map dD delete
 map yy copy
 map pp paste
 map po paste-overwrite
+map a rename
 map e extract
 map o &mimeopen "$f"
 map O $mimeopen --ask "$f"

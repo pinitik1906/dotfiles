@@ -6,8 +6,8 @@ transparency = 0
 
 #width = 250
 #height = 300
-origin = top-right
-offset = 7x7
+origin = bottom-right
+offset = 5x5
 
 corner_radius = 0
 corners = all
