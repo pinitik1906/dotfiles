@@ -1,0 +1,22 @@
+[Default Applications]
+
+# text
+text/x-shellscript=text.desktop
+application/json=text.desktop
+text/plain=text.desktop
+
+# pdf
+application/postscript=pdf.desktop
+application/pdf=pdf.desktop
+
+# image
+image/jpeg=img.desktop
+image/png=img.desktop
+image/gif=img.desktop
+
+# video
+video/mp4=video.desktop
+video/x-matroska=mpv.desktop
+
+# file manager
+inode/directory=file.desktop

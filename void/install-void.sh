@@ -6,6 +6,7 @@ echo ""
 echo "- DO NOT LEAVE your computer unattended, it will ask for your password multiple times"
 echo "- You might check inside this script if you want to make changes."
 echo ""
+echo "This script will automatically reboot to apply all configurations"
 
 echo "If you want to cancel this install script, simultaneuously press CTRL and C"
 echo ""
@@ -155,7 +156,7 @@ doas xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-por
 
 
 # install your programs here
-doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm xarchiver ufw pavucontrol brightnessctl imv acpi gammastep
+doas xbps-install -vy arc-theme papirus-icon-theme noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm xarchiver ufw pavucontrol brightnessctl imv acpi gammastep
 
 # enable ufw with recommended settings by chris_titus
 doas ln -s /etc/sv/ufw/ /var/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
@@ -164,7 +165,7 @@ doas ln -s /etc/sv/ufw/ /var/service && doas ufw limit 22/tcp && doas ufw allow 
 doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
 
 # install NetworkManager (optional. if you uncomment it, please use `nmtui` to connect)
-#doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service && doas usermod -aG network $(whoami)
+#doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service && doas usermod -aG network $USER
 
 # remove any orphaned packages
 doas xbps-remove -ROovy

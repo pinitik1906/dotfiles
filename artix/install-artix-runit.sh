@@ -7,18 +7,19 @@ echo "- PLEASE INSTALL opendoas BEFORE USING THIS SCRIPT AND TYPE INSIDE /etc/do
 echo "- DO NOT LEAVE your computer unattended, it will ask for your password multiple times"
 echo "- You might also check inside this script if you want to make changes."
 echo ""
+echo "This script will automatically reboot to apply all configurations"
 
 echo "If you want to cancel this install script, simultaneuously press CTRL and C"
 echo ""
 
 
 # add important groups
-doas usermod -aG video,audio,wheel,network $(whoami)
+doas usermod -aG video,audio,wheel,network $USER
 
 # checking updates, syncing repos
 doas pacman -Syu --needed --noconfirm
 
-# create folder for screenshotting, otherwise it won't work
+# create folder for screenshooting, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
 
 # copying all conf to home folder
@@ -144,7 +145,7 @@ paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-por
 
 
 # install your programs here
-paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver ufw pavucontrol brightnessctl imv acpi gammastep
+paru -S --needed --noconfirm arc-gtk-theme papirus-icon-theme noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver ufw pavucontrol brightnessctl imv acpi gammastep
 
 # enable ufw with recommended settings by chris_titus
 doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
