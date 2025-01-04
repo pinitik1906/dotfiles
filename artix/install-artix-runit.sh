@@ -8,7 +8,7 @@ echo "- DO NOT LEAVE your computer unattended, it will ask for your password mul
 echo "- You might also check inside this script if you want to make changes."
 echo ""
 echo "This script will automatically reboot to apply all configurations"
-
+echo ""
 echo "If you want to cancel this install script, simultaneuously press CTRL and C"
 echo ""
 
