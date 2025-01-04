@@ -26,7 +26,7 @@ echo ""
 # checking updates & syncing repos
 sudo xbps-install -Suvy
 
-# create folder for screenshotting, otherwise it won't work
+# create folder for screenshooting, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
 
 # copying all conf to home folder
