@@ -24,29 +24,6 @@ then do,
 sudo update-grub
 ```
 
-### my initramfs optimization for void
-**DANGEROUS SETTINGS**
-
-for `dracut` /etc/dracut.conf.d/*anyname*.conf, copy my *anyname*.conf
-
-```
-hostonly="yes"
-hostonly_cmdline="no"
-use_fstab="yes"
-compress="cat"
-omit_dracutmodules+=" mulitpath lvm watchdog watchdog-modules btrfs numlock dash crypt crypt-gpg convertfs caps il8n dmraid mdraid qemu dmsquash-live dmsquash-live-ntfs dmsquash-live-autooverlay img-lib biosdevname terminfo fstab-sys lunmask ecryptfs virtfs virtiofs drm nvmf dm debug nvdimm pollcdrom syslog busybox pcmcia ppcmac warpclock lvmthinpool-monitor hwdb fips fips-crypto-policies masterkey overlayfs dracut-systemd systemd systemd-network-management systemd-networkd integrity kernel-modules-extra "
-kernel_cmdline="rd.luks=0 rd.lvm=0 rd.md=0 rd.dm=0"
-nofscks="yes"
-do_strip="yes"
-aggressive_strip="yes"
-```
-
-then do,
-
-```
-sudo dracut --force && sudo xbps-reconfigure -f *yourkernel*
-```
-
 ### faq
 
 #### weird yellow/red color on my monitor
@@ -139,18 +116,6 @@ finally, reboot your pc and check if NVIDIA DRM were set correctly
 
 ```
 sudo cat /sys/module/nvidia_drm/parameters/modeset
-```
-
-#### no output in lf using st (X11)
-please change `sixel` to `x11`
-
-ex. inside in `$HOME/.config/ueberzugpp/config.json`
-```
-{
-    "layer": {
-        "output": "x11"
-    }
-}
 ```
 
 #### unofficial repos for artix
