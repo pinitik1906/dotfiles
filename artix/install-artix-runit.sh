@@ -31,7 +31,6 @@ cp -r $HOME/stuffs/git/dotfiles/artix/.local $HOME
 
 cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile
 cp $HOME/stuffs/git/dotfiles/artix/.Xresources $HOME/.Xresources
-cp $HOME/stuffs/git/dotfiles/artix/.gtkrc-2.0 $HOME/.gtkrc-2.0
 cp $HOME/stuffs/git/dotfiles/artix/.xinitrc $HOME/.xinitrc
 cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
 
@@ -146,7 +145,7 @@ paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-por
 
 
 # install your programs here
-paru -S --needed --noconfirm arc-gtk-theme papirus-icon-theme noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver ufw pavucontrol brightnessctl imv acpi gammastep
+paru -S --needed --noconfirm arc-gtk-theme epapirus-icon-theme noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver ufw pavucontrol brightnessctl imv acpi gammastep
 
 # enable ufw with recommended settings by chris_titus
 doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable

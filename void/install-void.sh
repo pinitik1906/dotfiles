@@ -38,7 +38,6 @@ cp -r $HOME/stuffs/git/dotfiles/void/.local $HOME
 
 cp $HOME/stuffs/git/dotfiles/void/.bash_profile $HOME/.bash_profile
 cp $HOME/stuffs/git/dotfiles/void/.Xresources $HOME/.Xresources
-cp $HOME/stuffs/git/dotfiles/void/.gtkrc-2.0 $HOME/.gtkrc-2.0
 cp $HOME/stuffs/git/dotfiles/void/.xinitrc $HOME/.xinitrc
 cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc
 
