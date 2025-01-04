@@ -5,14 +5,14 @@ to get my dotfiles, type
 git clone --depth 1 https://github.com/pinitik1906/dotfiles.git ~/git/dotfiles
 ```
 
-### update
+## update
 to update my dotfiles (either check it weekly or monthly), type
 
 ```
 cd ~/git/dotfiles && git pull
 ```
 
-### my kernel parameters for intel
+## my kernel parameters for intel
 for `grub` in /etc/default/grub, copy my kernel parameters
 
 ```
@@ -24,9 +24,9 @@ then do,
 sudo update-grub
 ```
 
-### faq
+## faq
 
-#### weird yellow/red color on my monitor
+### weird yellow/red color on my monitor
 it is a program `gammastep` helps your eye with less eye-strains. if you want to remove, use the command below:
 
 **artix**
@@ -39,7 +39,7 @@ sudo pacman -Rns gammastep
 sudo xbps-remove -R gammastep
 ```
 
-#### stutters on wayland (AMD)
+### stutters on wayland (AMD)
 add this to your kernel parameters (grub)
 
 ```
@@ -52,7 +52,7 @@ and do not forget to regenerate it
 sudo update-grub
 ```
 
-#### proprietary NVIDIA on Wayland for artix
+### proprietary NVIDIA on Wayland for artix
 this is needed to make wayland compositors to function properly, referencing this [website](https://linuxiac.com/nvidia-with-wayland-on-arch-setup-guide/) but friendly since I did some preconfiguration. (i will choose neovim for this tutorial)
 
 uncomment inside my `.bash_profile` in `nvidia tweaks` and `direct backend for nvidia` by removing a hashtag and rename in `vaapi & vdpau env` from both `i965,va_gl` to `nvidia`, so it will look like this
@@ -118,7 +118,7 @@ finally, reboot your pc and check if NVIDIA DRM were set correctly
 sudo cat /sys/module/nvidia_drm/parameters/modeset
 ```
 
-#### unofficial repos for artix
+### unofficial repos for artix
 a list from [arch](https://wiki.archlinux.org/title/Unofficial.user.repositories#Signed) and [artix](https://wiki.artixlinux.org/Main/UnofficialUserRepositories)
 
 #### autostart on either X11 or Wayland without a display manager
@@ -133,7 +133,7 @@ startx &>/dev/null
 fi
 ```
 
-#### why use a tier 1 mirror for void?
+### why use a tier 1 mirror for void?
 taken from the [void-xmirror](https://xmirror.voidlinux.org) 
 
 "The **tier 1 mirrors** sync directly from the build servers and will always have the latest packages available. While **tier 2 mirrors** are not managed by Void and do not have any guarantees of freshness or completeness of packages, nor are they required to sync every available architecture or sub-repository."
