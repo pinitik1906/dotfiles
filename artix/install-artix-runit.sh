@@ -48,7 +48,7 @@ doas pacman -Rnsdd sudo && doas pacman -S --needed --noconfirm base-devel git &&
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit gtk3 gtk4 qt5-wayland qt6-wayland qt5ct ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
+paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
@@ -139,7 +139,7 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 #paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-xinit xss-lock xorg-xset xsel xclip xdotool scrot rofi lxappearance xcolor rxvt-unicode-truecolor-wide-glyphs
 
 # river (Wayland)
-paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm nwg-look foot wl-color-picker
+paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm gtk3 gtk4 qt5-wayland qt6-wayland qt5ct qt6ct nwg-look foot wl-color-picker
 
 ###### WINDOW MANAGERS ######
 
