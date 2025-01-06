@@ -156,7 +156,7 @@ doas xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-por
 
 
 # install your programs here
-doas xbps-install -vy arc-theme papirus-icon-theme noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm xarchiver ufw pavucontrol brightnessctl imv acpi gammastep
+doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm xarchiver ufw pavucontrol brightnessctl imv acpi gammastep
 
 # enable ufw with recommended settings by chris_titus
 doas ln -s /etc/sv/ufw/ /var/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
