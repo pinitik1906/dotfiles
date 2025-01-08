@@ -145,10 +145,10 @@ paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-por
 
 
 # install your programs here
-paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver ufw pavucontrol brightnessctl imv acpi gammastep
+paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver ufw-runit pavucontrol brightnessctl imv acpi gammastep
 
 # enable ufw with recommended settings by chris_titus
-doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
+doas ln -s /etc/runit/sv/ufw/ /run/runit/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
 
 # remove any orphaned packages
 paru -Qqtd | paru -Rns --noconfirm - && paru -Sc --noconfirm
