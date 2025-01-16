@@ -41,6 +41,11 @@ export MOZ_DISABLE_RDD_SANDBOX=1
 # screenshare support for wayland
 export XDG_CURRENT_DESKTOP=river
 
+# autostart for audio/video
+pipewire &
+pipewire-pulse &
+wireplumber &
+
 # autostart your WM here
 if [[ "$(tty)" = "/dev/tty1" ]]; then
 river &>/dev/null

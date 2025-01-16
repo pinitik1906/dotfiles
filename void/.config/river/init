@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # autokill
-pkill -9 pipewire
 pkill -9 swayidle
 pkill -9 waybar
 pkill -9 dunst
@@ -9,7 +8,6 @@ pkill -9 gammastep
 pkill -9 polkit-mate-authentication-agent-1
 
 # autostart
-pipewire &
 waybar &
 dunst &
 gammastep -P -x -r -O 2300 &
