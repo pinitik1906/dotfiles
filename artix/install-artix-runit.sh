@@ -36,7 +36,6 @@ cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 doas mkdir -p /etc/X11/xorg.conf.d
-doas cp $HOME/stuffs/git/dotfiles/artix/20-intel.conf /etc/X11/xorg.conf.d/
 doas cp $HOME/stuffs/git/dotfiles/artix/40-libinput.conf /etc/X11/xorg.conf.d/
 doas cp $HOME/stuffs/git/dotfiles/artix/90-touchpad.conf /etc/X11/xorg.conf.d/
 
@@ -48,7 +47,7 @@ doas pacman -Rnsdd sudo && doas pacman -S --needed --noconfirm base-devel git &&
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg-xhost linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions
+paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
