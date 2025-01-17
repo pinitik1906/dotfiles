@@ -150,7 +150,7 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 #doas xbps-install -vy sxhkd bspwm polybar i3lock-color xorg-server xf86-input-libinput xauth xinit xrdb xss-lock xset xsel xclip xdotool xrandr scrot rofi lxappearance xcolor rxvt-unicode
 
 # river (Wayland)
-doas xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm gtk+3 gtk4 qt5-wayland qt6-wayland qt5ct qt6ct zenity ImageMagick nwg-look foot && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker && cd $HOME/stuffs/git/wl-color-picker && doas make install
+doas xbps-install -vy river Waybar swaylock xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct zenity ImageMagick nwg-look foot && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker && cd $HOME/stuffs/git/wl-color-picker && doas make install
 
 ###### WINDOW MANAGERS ######
 

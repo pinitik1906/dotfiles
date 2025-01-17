@@ -139,7 +139,7 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 #paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-server xf86-input-libinput xorg-xauth xorg-xinit xorg-xrdb xss-lock xorg-xset xsel xclip xdotool scrot rofi lxappearance xcolor rxvt-unicode-truecolor-wide-glyphs
 
 # river (Wayland)
-paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm gtk3 gtk4 qt5-wayland qt6-wayland qt5ct qt6ct nwg-look foot wl-color-picker
+paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct nwg-look foot wl-color-picker
 
 ###### WINDOW MANAGERS ######
 
