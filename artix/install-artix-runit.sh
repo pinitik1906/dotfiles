@@ -14,7 +14,7 @@ echo ""
 
 
 # add important groups
-doas usermod -aG video,audio,wheel,network $USER
+doas usermod -aG video,audio,wheel,network,storage $USER
 
 # checking updates, syncing repos
 doas pacman -Syu --needed --noconfirm

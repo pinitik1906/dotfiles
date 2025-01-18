@@ -23,6 +23,9 @@ echo ""
 ###### REPO ######
 
 
+# add important groups
+sudo usermod -aG video,audio,wheel,network,storage $USER
+
 # checking updates & syncing repos
 sudo xbps-install -Suvy
 
