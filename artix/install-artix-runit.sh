@@ -53,7 +53,7 @@ paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg-xhost lib
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
 
 # installing additional vulkan dependencies
-paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers swiftshader-git
+paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 
 # 32bit vulkan dependencies [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
