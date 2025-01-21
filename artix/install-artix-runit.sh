@@ -53,7 +53,7 @@ paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg-xhost lib
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
 
 # installing additional vulkan dependencies
-paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
+paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers swiftshader-git
 
 # 32bit vulkan dependencies [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
@@ -64,44 +64,54 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 
 ###### DRIVERS ######
 
-# intel [NEEDS ARCH REPO ENABLED]
-#paru -S --needed --noconfirm xf86-video-intel mesa vulkan-intel intel-media-driver libvdpau libvdpau-va-gl intel-media-sdk && paru -Rnsdd --noconfirm libva && paru -S --needed --noconfirm libva-intel-driver-git
 
-# 32-bit intel [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libva-intel-driver lib32-libvdpau lib32-libvdpau-va-gl
+# modern_intel [NEEDS ARCH REPO ENABLED]
+#paru -S --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl intel-media-driver xf86-video-intel
+
+# 32-bit modern_intel [NEEDS MULTILIB REPO ENABLED]
+#paru -S --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libvdpau lib32-libvdpau-va-gl
+
+# old_intel [NEEDS ARCH REPO ENABLED]
+#paru -S --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl libva-intel-driver-git xf86-video-intel
+
+# 32-bit old_intel [NEEDS MULTILIB REPO ENABLED]
+#paru -S --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libvdpau lib32-libvdpau-va-gl lib32-libva-intel-driver
 
 # intel microcode [IMPORTANT]
 #paru -S --needed --noconfirm intel-ucode
 
 # modern_amd
-#paru -S --needed --noconfirm xf86-video-amdgpu mesa vulkan-radeon libva-mesa-driver mesa-vdpau
+#paru -S --needed --noconfirm mesa libva-mesa-driver mesa-vdpau vulkan-radeon xf86-video-amdgpu
 
 # 32-bit modern_amd [NEEDS MULTILIB  ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-vulkan-radeon lib32-libva-mesa-driver lib32-mesa-vdpau
+#paru -S --needed --noconfirm lib32-mesa lib32-libva-mesa-driver lib32-mesa-vdpau lib32-vulkan-radeon
 
 # old_amd
-#paru -S --needed --noconfirm xf86-video-ati mesa amdvlk libva-mesa-driver mesa-vdpau
+#paru -S --needed --noconfirm mesa libva-mesa-driver mesa-vdpau amdvlk xf86-video-ati
 
 # 32-bit old_amd [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-amdvlk lib32-libva-mesa-driver lib32-mesa-vdpau
+#paru -S --needed --noconfirm lib32-mesa lib32-libva-mesa-driver lib32-mesa-vdpau lib32-amdvlk
 
 # amd microcode [IMPORTANT]
 #paru -S --needed --noconfirm amd-ucode
 
+# modern_nvidia open-source [NEEDS MULTILIB REPO ENABLED]
+#paru -S --needed --noconfirm mesa mesa-vdpau libva-mesa-driver nvidia-open nvidia-open-dkms nvidia-utils libva-nvidia-driver
+
 # 32-bit modern_nvidia open-source [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-nvidia-utils
+#paru -S --needed --noconfirm lib32-mesa lib32-mesa-vdpau lib32-libva-mesa-driver lib32-nvidia-utils
 
 # modern_nvidia proprietary [NEEDS ARCH REPO ENABLED]
-#paru -S --needed --noconfirm nvidia nvidia-dkms nvidia-utils libva-nvidia-driver
+#paru -S --needed --noconfirm mesa mesa-vdpau libva-mesa-driver nvidia nvidia-dkms nvidia-utils libva-nvidia-driver
 
 # 32-bit modern_nvidia proprietary [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-nvidia-utils
+#paru -S --needed --noconfirm lib32-mesa lib32-mesa-vdpau lib32-libva-mesa-driver lib32-nvidia-utils
 
 # old_nvidia nouveau
-#paru -S --needed --noconfirm xf86-video-nouveau mesa mesa-vdpau libva-mesa-driver vulkan-nouveau
+#paru -S --needed --noconfirm mesa mesa-vdpau libva-mesa-driver vulkan-nouveau xf86-video-nouveau
 
 # 32-bit old_nvidia nouveau [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --nouveau lib32-mesa lib32-mesa-vdpau lib32-libva-mesa-driver lib32-vulkan-nouveau
+#paru -S --needed --noconfirm lib32-mesa lib32-mesa-vdpau lib32-libva-mesa-driver lib32-vulkan-nouveau
 
 ###### DRIVERS ######
 
