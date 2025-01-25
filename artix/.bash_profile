@@ -8,7 +8,9 @@ export MANPAGER='nvim +Man!'
 export TERMINAL='urxvt'
 export BROWSER='firefox'
 export MAIL='thunderbird'
-export GTK_THEME=Adwaita:dark
+
+# force adwaita dark theme
+#export GTK_THEME=Adwaita:dark
 
 # wayland fixes
 export GDK_BACKEND='wayland,x11'
