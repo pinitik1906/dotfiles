@@ -24,7 +24,8 @@ echo ""
 
 
 # add important groups
-sudo usermod -aG video,audio,wheel,network,storage $USER
+sudo groupadd plugdev
+sudo usermod -aG video,audio,wheel,network,storage,kvm,plugdev $USER
 
 # checking updates & syncing repos
 sudo xbps-install -Suvy

@@ -14,9 +14,10 @@ echo ""
 
 
 # add important groups
-doas usermod -aG video,audio,wheel,network,storage $USER
+doas groupadd plugdev
+doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev $USER
 
-# checking updates, syncing repos
+# checking updates & syncing repos
 doas pacman -Syu --needed --noconfirm
 
 # create folder for screenshooting, otherwise it won't work
