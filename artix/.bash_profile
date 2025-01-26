@@ -50,5 +50,5 @@ wireplumber &
 
 # autostart your WM here
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-river &>/dev/null
+startx &>/dev/null
 fi
