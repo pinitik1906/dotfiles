@@ -44,7 +44,7 @@ doas cp $HOME/stuffs/git/dotfiles/artix/90-touchpad.conf /etc/X11/xorg.conf.d/
 doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/paru.conf /etc/paru.conf
 
 # installing paru as a default AUR HELPER
-doas pacman -Rnsdd sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -si 
+doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
