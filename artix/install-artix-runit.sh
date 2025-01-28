@@ -15,7 +15,9 @@ echo ""
 
 # add important groups
 doas groupadd plugdev
-doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev $USER
+doas groupadd cdrom
+
+doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical $USER
 
 # checking updates & syncing repos
 doas pacman -Syu --needed --noconfirm

@@ -25,7 +25,9 @@ echo ""
 
 # add important groups
 sudo groupadd plugdev
-sudo usermod -aG video,audio,wheel,network,storage,kvm,plugdev $USER
+sudo groupadd cdrom
+
+sudo usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical $USER
 
 # checking updates & syncing repos
 sudo xbps-install -Suvy
