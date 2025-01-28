@@ -124,7 +124,7 @@ a list from [arch](https://wiki.archlinux.org/title/Unofficial.user.repositories
 ### autostart on either X11 or Wayland without a display manager
 edit in `.bash_profile` from your home directory
 
-find a line below and replace it from `river` to `startx` or vice-versa
+find a line below and replace it from `startx` to `river` or vice-versa
 
 ```
 # autostart your WM here
