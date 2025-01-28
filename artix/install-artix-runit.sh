@@ -139,16 +139,13 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 # bluetooth
 #paru -S --needed --noconfirm bluez-runit bluez-utils && doas ln -s /etc/runit/sv/bluetoothd/ /run/runit/service
 
-# bsp-layout (MASTER STACK)
-#paru -S --needed --noconfirm bsp-layout
-
 ###### OPTIONAL ######
 
 
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-server xf86-input-libinput xorg-xauth xorg-xinit xorg-xrdb xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot rofi lxappearance xcolor rxvt-unicode-truecolor-wide-glyphs
+paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-server xf86-input-libinput xorg-xauth xorg-xinit xorg-xrdb xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot rofi lxappearance xcolor rxvt-unicode-truecolor-wide-glyphs bsp-layout
 
 # river (Wayland)
 #paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct nwg-look foot wl-color-picker
