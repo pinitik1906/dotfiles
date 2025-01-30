@@ -84,37 +84,37 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 #paru -S --needed --noconfirm intel-ucode
 
 # modern_amd
-#paru -S --needed --noconfirm mesa libva-mesa-driver mesa-vdpau vulkan-radeon xf86-video-amdgpu
+#paru -S --needed --noconfirm mesa vulkan-radeon xf86-video-amdgpu
 
 # 32-bit modern_amd [NEEDS MULTILIB  ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-libva-mesa-driver lib32-mesa-vdpau lib32-vulkan-radeon
+#paru -S --needed --noconfirm lib32-mesa lib32-vulkan-radeon
 
 # old_amd
-#paru -S --needed --noconfirm mesa libva-mesa-driver mesa-vdpau amdvlk xf86-video-ati
+#paru -S --needed --noconfirm mesa amdvlk xf86-video-ati
 
 # 32-bit old_amd [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-libva-mesa-driver lib32-mesa-vdpau lib32-amdvlk
+#paru -S --needed --noconfirm lib32-mesa lib32-amdvlk
 
 # amd microcode [IMPORTANT]
 #paru -S --needed --noconfirm amd-ucode
 
 # modern_nvidia open-source [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm mesa mesa-vdpau libva-mesa-driver nvidia-open nvidia-open-dkms nvidia-utils libva-nvidia-driver
+#paru -S --needed --noconfirm mesa nvidia-open nvidia-open-dkms nvidia-utils libva-nvidia-driver
 
 # 32-bit modern_nvidia open-source [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-mesa-vdpau lib32-libva-mesa-driver lib32-nvidia-utils
+#paru -S --needed --noconfirm lib32-mesa lib32-nvidia-utils
 
 # modern_nvidia proprietary [NEEDS ARCH REPO ENABLED]
-#paru -S --needed --noconfirm mesa mesa-vdpau libva-mesa-driver nvidia nvidia-dkms nvidia-utils libva-nvidia-driver
+#paru -S --needed --noconfirm mesa nvidia nvidia-dkms nvidia-utils libva-nvidia-driver
 
 # 32-bit modern_nvidia proprietary [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-mesa-vdpau lib32-libva-mesa-driver lib32-nvidia-utils
+#paru -S --needed --noconfirm lib32-mesa lib32-lib32-nvidia-utils
 
 # old_nvidia nouveau
-#paru -S --needed --noconfirm mesa mesa-vdpau libva-mesa-driver vulkan-nouveau xf86-video-nouveau
+#paru -S --needed --noconfirm mesa vulkan-nouveau xf86-video-nouveau
 
 # 32-bit old_nvidia nouveau [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-mesa-vdpau lib32-libva-mesa-driver lib32-vulkan-nouveau
+#paru -S --needed --noconfirm lib32-mesa lib32-vulkan-nouveau
 
 ###### DRIVERS ######
 
