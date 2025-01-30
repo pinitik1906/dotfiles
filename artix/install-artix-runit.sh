@@ -50,7 +50,7 @@ doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions
+paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions ufw-runit acpi
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
@@ -154,7 +154,7 @@ paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-server xf86-i
 
 
 # install your programs here
-paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver ufw-runit pavucontrol brightnessctl imv-git acpi gammastep
+paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver pavucontrol brightnessctl imv-git gammastep
 
 # enable ufw with recommended settings by chris_titus
 doas ln -s /etc/runit/sv/ufw/ /run/runit/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
