@@ -50,7 +50,7 @@ doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions ufw-runit acpi
+paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions ufw-runit acpi backlight-runit && doas ln -s /etc/runit/sv/backlight/ /run/runit/service
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
@@ -123,9 +123,6 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 
 # ttf-ms-fonts [LEGACY]
 #paru -S --needed --noconfirm ttf-ms-fonts
-
-# enable backlight service for saving previous brightness you've set after rebooting your pc
-#paru -S --needed --noconfirm backlight-runit && doas ln -s /etc/runit/sv/backlight/ /run/runit/service
 
 # thinkfan (please enable thinkfan service after you reboot your pc) [THINKPADS ONLY]
 #paru -S --needed --noconfirm thinkfan-runit && doas cp $HOME/stuffs/git/dotfiles/artix/thinkfan.yaml /etc/

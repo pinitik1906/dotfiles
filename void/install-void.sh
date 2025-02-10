@@ -56,7 +56,7 @@ sudo cp $HOME/stuffs/git/dotfiles/void/90-touchpad.conf /etc/X11/xorg.conf.d/
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy base-devel elogind polkit dbus xhost inih opendoas linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl dunst libnotify bash-completion ufw acpi && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+doas xbps-install -vy base-devel elogind polkit dbus xhost inih opendoas linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl dunst libnotify bash-completion ufw acpi && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/ && doas cp -r $HOME/stuffs/git/runit-services/backlight /etc/sv/ && doas ln -s /etc/sv/backlight/ /var/service
 
 # removing acpid and its service as it conflicts elogind
 doas xbps-remove -RFfvy acpid && doas rm -rf /var/service/acpid
@@ -134,9 +134,6 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 
 # msttcorefonts [NEEDS VOID-SRC ENABLED]
 #cd $HOME/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
-
-# enable backlight service for saving previous brightness you've set after rebooting your pc
-#doas cp -r $HOME/stuffs/git/runit-services/backlight /etc/sv/ && doas ln -s /etc/sv/backlight/ /var/service
 
 # thinkfan (please enable thinkfan service after you reboot your pc) [THINKPADS ONLY]
 #doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/thinkfan.yaml /etc/
