@@ -54,7 +54,7 @@ do
 
   riverctl input $POINTERS disable-while-typing disabled
   riverctl input $POINTERS accel-profile flat
-  riverctl input $POINTERS pointer-accel 0.3
+  riverctl input $POINTERS pointer-accel 0
 
 done
 
