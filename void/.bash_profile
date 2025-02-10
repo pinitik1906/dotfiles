@@ -48,5 +48,5 @@ pipewire &
 
 # autostart your WM here
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-startx &>/dev/null
+river &>/dev/null
 fi

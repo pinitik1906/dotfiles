@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Text Editor
-Exec=urxvt -e nvim %u
+Exec=foot -e nvim %u
