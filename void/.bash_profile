@@ -10,7 +10,7 @@ export BROWSER='firefox'
 export MAIL='thunderbird'
 
 # force adwaita dark theme
-#export GTK_THEME=Adwaita:dark
+export GTK_THEME=Adwaita:dark
 
 # wayland fixes
 export GDK_BACKEND='wayland,x11'
