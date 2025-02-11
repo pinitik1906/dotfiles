@@ -24,7 +24,7 @@ wlr-randr --output DP-1 --preferred
 riverctl set-repeat 50 300
 
 # tearfree
-riverctl allow-tearing disabled
+riverctl allow-tearing enabled
 
 # xorg-like idle
 swayidle -w \
