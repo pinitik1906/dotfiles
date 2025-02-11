@@ -138,9 +138,6 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 # thinkfan (please enable thinkfan service after you reboot your pc) [THINKPADS ONLY]
 #doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/thinkfan.yaml /etc/
 
-# thermald (supports tlp) [INTEL ONLY]
-#doas xbps-install -vy thermald && doas ln -s /etc/sv/thermald/ /var/service
-
 # tlp
 #doas xbps-install -vy tlp && doas ln -s /etc/sv/tlp/ /var/service
 
