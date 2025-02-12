@@ -22,6 +22,9 @@ doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,opti
 # checking updates & syncing repos
 doas pacman -Syu --needed --noconfirm
 
+# clone madand's runit-services
+git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/git/runit-services
+
 # create folder for screenshooting, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
 
@@ -50,7 +53,10 @@ doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions ufw-runit acpi backlight-runit && doas ln -s /etc/runit/sv/backlight/ /run/runit/service
+paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions ufw-runit acpi backlight-runit
+
+# enabling services
+doas ln -s /etc/runit/sv/backlight/ /run/runit/service
 
 # removing acpid and its service as it conflicts elogind
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
@@ -61,12 +67,8 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 # 32bit vulkan dependencies [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
 
-# clone madand's runit-services
-git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/git/runit-services
-
 
 ###### DRIVERS ######
-
 
 # modern_intel [NEEDS ARCH REPO ENABLED]
 #paru -S --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl intel-media-driver xf86-video-intel && doas cp $HOME/stuffs/git/dotfiles/artix/20-intel.conf /etc/X11/xorg.conf.d/
@@ -115,7 +117,6 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 
 # 32-bit old_nvidia nouveau [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-mesa lib32-vulkan-nouveau
-
 
 ###### DRIVERS ######
 
