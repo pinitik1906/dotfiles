@@ -23,8 +23,8 @@ wlr-randr --output DP-1 --preferred
 # tty-like keyboard config
 riverctl set-repeat 50 300
 
-# tearfree
-riverctl allow-tearing enabled
+# tearfree support
+riverctl allow-tearing disabled
 
 # xorg-like idle
 swayidle -w \

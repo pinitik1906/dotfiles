@@ -78,13 +78,13 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 
 
 # modern_intel [NEEDS NONFREE REPO ENABLED]
-#doas xbps-install -vy mesa-dri mesa-vulkan-intel libvdpau libvdpau-va-gl intel-media-driver xf86-video-intel linux-firmware-intel
+#doas xbps-install -vy mesa-dri mesa-vulkan-intel libvdpau libvdpau-va-gl intel-media-driver xf86-video-intel linux-firmware-intel && doas cp $HOME/stuffs/git/dotfiles/void/20-intel.conf /etc/X11/xorg.conf.d/
 
 # 32-bit modern_intel [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy mesa-dri-32bit mesa-vulkan-intel-32bit libvdpau-32bit libvdpau-va-gl-32bit
 
 # old_intel [NEEDS NONFREE REPO ENABLED]
-#doas xbps-install -vy mesa-dri mesa-vulkan-intel libvdpau libvdpau-va-gl libva-intel-driver xf86-video-intel linux-firmware-intel
+#doas xbps-install -vy mesa-dri mesa-vulkan-intel libvdpau libvdpau-va-gl libva-intel-driver xf86-video-intel linux-firmware-intel && doas cp $HOME/stuffs/git/dotfiles/void/20-intel.conf /etc/X11/xorg.conf.d/
 
 # 32-bit old_intel [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy mesa-dri-32bit mesa-vulkan-intel-32bit libvdpau-32bit libvdpau-va-gl-32bit libva-intel-driver-32bit
@@ -93,13 +93,13 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 #doas xbps-install -vy intel-ucode
 
 # modern_amd [NEEDS NONFREE REPO ENABLED]
-#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau mesa-vulkan-radeon xf86-video-amdgpu linux-firmware-amd
+#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau mesa-vulkan-radeon xf86-video-amdgpu linux-firmware-amd && doas cp $HOME/stuffs/git/dotfiles/void/20-amdgpu.conf /etc/X11/xorg.conf.d/
 
 # 32-bit modern_amd [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy mesa-dri-32bit mesa-vaapi-32bit mesa-vdpau-32bit mesa-vulkan-radeon-32bit
 
 # old_amd [NEEDS NONFREE REPO ENABLED]
-#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau amdvlk xf86-video-ati linux-firmware-amd
+#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau amdvlk xf86-video-ati linux-firmware-amd && doas cp $HOME/stuffs/git/dotfiles/void/20-radeon.conf /etc/X11/xorg.conf.d/
 
 # 32-bit old_amd [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy mesa-dri-32bit mesa-vaapi-32bit mesa-vdpau-32bit amdvlk-32bit
@@ -115,6 +115,7 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 
 # 32-bit old_nvidia nouveau [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy mesa-dri-32bit mesa-vdpau-32bit
+
 
 ###### DRIVERS ######
 

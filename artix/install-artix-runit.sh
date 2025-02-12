@@ -69,13 +69,13 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 
 
 # modern_intel [NEEDS ARCH REPO ENABLED]
-#paru -S --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl intel-media-driver xf86-video-intel
+#paru -S --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl intel-media-driver xf86-video-intel && doas cp $HOME/stuffs/git/dotfiles/artix/20-intel.conf /etc/X11/xorg.conf.d/
 
 # 32-bit modern_intel [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libvdpau lib32-libvdpau-va-gl
 
 # old_intel [NEEDS ARCH REPO ENABLED]
-#paru -S --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl libva-intel-driver-git xf86-video-intel
+#paru -S --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl libva-intel-driver-git xf86-video-intel && doas cp $HOME/stuffs/git/dotfiles/artix/20-intel.conf /etc/X11/xorg.conf.d/
 
 # 32-bit old_intel [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libvdpau lib32-libvdpau-va-gl lib32-libva-intel-driver
@@ -84,13 +84,13 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 #paru -S --needed --noconfirm intel-ucode
 
 # modern_amd
-#paru -S --needed --noconfirm mesa vulkan-radeon xf86-video-amdgpu
+#paru -S --needed --noconfirm mesa vulkan-radeon xf86-video-amdgpu && doas cp $HOME/stuffs/git/dotfiles/artix/20-amdgpu.conf /etc/X11/xorg.conf.d/
 
 # 32-bit modern_amd [NEEDS MULTILIB  ENABLED]
 #paru -S --needed --noconfirm lib32-mesa lib32-vulkan-radeon
 
 # old_amd
-#paru -S --needed --noconfirm mesa amdvlk xf86-video-ati
+#paru -S --needed --noconfirm mesa amdvlk xf86-video-ati && doas cp $HOME/stuffs/git/dotfiles/artix/20-radeon.conf /etc/X11/xorg.conf.d/
 
 # 32-bit old_amd [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-mesa lib32-amdvlk
@@ -115,6 +115,7 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 
 # 32-bit old_nvidia nouveau [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-mesa lib32-vulkan-nouveau
+
 
 ###### DRIVERS ######
 
