@@ -1,4 +1,5 @@
 [Desktop Entry]
 Type=Application
 Name=PDF Viewer
+Hidden=true
 Exec=zathura %u

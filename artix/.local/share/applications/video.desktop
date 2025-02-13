@@ -1,4 +1,5 @@
 [Desktop Entry]
 Type=Application
 Name=Video Viewer
+Hidden=true
 Exec=mpv --quiet %f
