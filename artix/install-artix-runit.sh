@@ -65,7 +65,7 @@ doas ln -s /etc/runit/sv/ufw/ /run/runit/service && doas ufw limit 22/tcp && doa
 doas ln -s /etc/runit/sv/dbus/ /run/runit/service
 
 # removing acpid and its service as it conflicts elogind
-paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
+paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid && doas rm -rf /run/runit/service/acpid
 
 # installing additional vulkan dependencies
 paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers

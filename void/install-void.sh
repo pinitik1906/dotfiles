@@ -71,7 +71,7 @@ doas ln -s /etc/sv/ufw/ /var/service && doas ufw limit 22/tcp && doas ufw allow 
 doas ln -s /etc/sv/dbus/ /var/service
 
 # removing acpid and its service as it conflicts elogind
-doas xbps-remove -RFfvy acpid && doas rm -rf /var/service/acpid
+doas xbps-remove -RFfvy acpid && doas rm -rf /etc/sv/acpid && doas rm -rf /var/service/acpid
 
 # installing additional vulkan dependencies
 doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
