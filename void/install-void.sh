@@ -59,7 +59,7 @@ sudo cp $HOME/stuffs/git/dotfiles/void/90-touchpad.conf /etc/X11/xorg.conf.d/
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy base-devel elogind polkit dbus xhost inih opendoas linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl dunst libnotify bash-completion ufw acpi
+doas xbps-install -vy base-devel elogind polkit dbus xhost inih opendoas linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion ufw acpi
 
 # enabling services
 doas cp -r $HOME/stuffs/git/runit-services/backlight /etc/sv/ && doas ln -s /etc/sv/backlight/ /var/service && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
@@ -166,6 +166,9 @@ doas xbps-install -vy sxhkd bspwm polybar i3lock-color xorg-server xf86-input-li
 
 # install your programs here
 doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm xarchiver pavucontrol brightnessctl imv gammastep
+
+# fix mdocml
+doas makewhatis -a
 
 # fix bad font rendering
 doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/

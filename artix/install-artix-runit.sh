@@ -159,6 +159,9 @@ paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-server xf86-i
 # install your programs here
 paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver pavucontrol brightnessctl imv-git gammastep
 
+# fix mandoc
+doas makewhatis -a
+
 # remove any orphaned packages
 paru -Qqtd | paru -Rns --noconfirm - && paru -Sc --noconfirm
 
