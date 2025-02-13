@@ -58,6 +58,12 @@ paru -S --needed --noconfirm base-devel elogind-runit polkit dbus xorg-xhost lib
 # enabling services
 doas ln -s /etc/runit/sv/backlight/ /run/runit/service
 
+# enabling ufw with recommended settings by chris_titus
+doas ln -s /etc/runit/sv/ufw/ /run/runit/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
+
+# enabling dbus for elogind and others
+doas ln -s /etc/runit/sv/dbus/ /run/runit/service
+
 # removing acpid and its service as it conflicts elogind
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid
 
@@ -126,8 +132,9 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 # ttf-ms-fonts [LEGACY]
 #paru -S --needed --noconfirm ttf-ms-fonts
 
-# thinkfan (please enable thinkfan service after you reboot your pc) [THINKPADS ONLY]
-#paru -S --needed --noconfirm thinkfan-runit && doas cp $HOME/stuffs/git/dotfiles/artix/thinkfan.yaml /etc/
+# thinkfan (please enable thinkfan service inside of your home folder at stuffs/git/runit-services/thinkfan after you reboot your pc) [THINKPADS ONLY]
+# command to enable: doas ln -s /etc/runit/sv/thinkfan/ /run/runit/service
+#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && paru -S --needed --noconfirm thinkfan && doas cp $HOME/stuffs/git/dotfiles/artix/thinkfan.yaml /etc/
 
 # tlp
 #paru -S --needed --noconfirm tlp-runit && doas ln -s /etc/runit/sv/tlp/ /run/runit/service
@@ -151,9 +158,6 @@ paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-server xf86-i
 
 # install your programs here
 paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver pavucontrol brightnessctl imv-git gammastep
-
-# enable ufw with recommended settings by chris_titus
-doas ln -s /etc/runit/sv/ufw/ /run/runit/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
 
 # remove any orphaned packages
 paru -Qqtd | paru -Rns --noconfirm - && paru -Sc --noconfirm

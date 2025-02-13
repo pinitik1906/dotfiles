@@ -64,11 +64,14 @@ doas xbps-install -vy base-devel elogind polkit dbus xhost inih opendoas linux-f
 # enabling services
 doas cp -r $HOME/stuffs/git/runit-services/backlight /etc/sv/ && doas ln -s /etc/sv/backlight/ /var/service && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 
-# removing acpid and its service as it conflicts elogind
-doas xbps-remove -RFfvy acpid && doas rm -rf /var/service/acpid
+# enabling ufw with recommended settings by chris_titus
+doas ln -s /etc/sv/ufw/ /var/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
 
 # enabling dbus for elogind and others
 doas ln -s /etc/sv/dbus/ /var/service
+
+# removing acpid and its service as it conflicts elogind
+doas xbps-remove -RFfvy acpid && doas rm -rf /var/service/acpid
 
 # installing additional vulkan dependencies
 doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
@@ -137,7 +140,8 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 # msttcorefonts [NEEDS VOID-SRC ENABLED]
 #cd $HOME/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
-# thinkfan (please enable thinkfan service after you reboot your pc) [THINKPADS ONLY]
+# thinkfan (please enable thinkfan service inside of your home folder at stuffs/git/runit-services/thinkfan after you reboot your pc) [THINKPADS ONLY]
+# command to enable: doas ln -s /etc/sv/thinkfan/ /var/service
 #doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/thinkfan.yaml /etc/
 
 # tlp
@@ -162,9 +166,6 @@ doas xbps-install -vy sxhkd bspwm polybar i3lock-color xorg-server xf86-input-li
 
 # install your programs here
 doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm xarchiver pavucontrol brightnessctl imv gammastep
-
-# enable ufw with recommended settings by chris_titus
-doas ln -s /etc/sv/ufw/ /var/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
 
 # fix bad font rendering
 doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
