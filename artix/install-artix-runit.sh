@@ -163,7 +163,7 @@ paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fas
 doas makewhatis -a
 
 # remove any orphaned packages
-paru -Qqtd | paru -Rns --noconfirm - && paru -Sc --noconfirm
+paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
 
 # rebooting your pc
 doas reboot
