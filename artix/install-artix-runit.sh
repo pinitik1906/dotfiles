@@ -29,11 +29,8 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 mkdir -p $HOME/stuffs/pic/screenshots
 
 # copying all conf to home folder
-rm -rf $HOME/.config
-rm -rf $HOME/.local
-mkdir -p $HOME/.config
-cp -r $HOME/stuffs/git/dotfiles/artix/.config $HOME
-cp -r $HOME/stuffs/git/dotfiles/artix/.local $HOME
+cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME
+cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/
 
 cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile
 cp $HOME/stuffs/git/dotfiles/artix/.Xresources $HOME/.Xresources
