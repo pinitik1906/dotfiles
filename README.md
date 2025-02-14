@@ -12,18 +12,6 @@ to update my dotfiles (either check it weekly or monthly), type
 cd ~/git/dotfiles && git pull
 ```
 
-## my kernel parameters for intel
-for `grub` in /etc/default/grub, copy my kernel parameters
-
-```
-GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 console=tty12 udev.log_level=0 nmi_watchdog=0 nowatchdog modprobe.blacklist=iTCO_wdt modprobe.blacklist=sp5100_tco intel_iommu=igfx_off clocksource=tsc tsc=reliable preempt=full msr.allow_writes=on i915.enable_fbc=1 i915.enable_guc=3 i915.fastboot=1 i915.enable_dc=4 i915.enable_psr=2 cryptomgr.notests initcall_debug kvm-intel.nested=1 no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 mitigations=off"
-```
-
-then do,
-```
-sudo update-grub
-```
-
 ## faq
 
 ### weird yellow/red color on my monitor
@@ -37,19 +25,6 @@ sudo pacman -Rns gammastep
 **void**
 ```
 sudo xbps-remove -R gammastep
-```
-
-### stutters on wayland (AMD)
-add this to your kernel parameters (grub)
-
-```
-GRUB_CMDLINE_LINUX_DEFAULT="amdgpu.dcdebugmask=0x400"
-```
-
-and do not forget to regenerate it
-
-```
-sudo update-grub
 ```
 
 ### proprietary NVIDIA on Wayland for artix
@@ -91,25 +66,7 @@ MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 and then do,
 
 ```
-sudo mkinitcpio -P
-```
-
-next, go to your kernel parameters (i will choose grub)
-
-```
-sudo nvim /etc/default/grub
-```
-
-and then copy & paste this
-
-```
-GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1 nvidia_drm.fbdev=1"
-```
-
-regenerate it
-
-```
-sudo update-grub
+sudo mkinitcpio -P && sudo update-grub
 ```
 
 finally, reboot your pc and check if NVIDIA DRM were set correctly
