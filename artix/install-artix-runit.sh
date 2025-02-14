@@ -37,6 +37,12 @@ cp $HOME/stuffs/git/dotfiles/artix/.Xresources $HOME/.Xresources
 cp $HOME/stuffs/git/dotfiles/artix/.xinitrc $HOME/.xinitrc
 cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
 
+# copying my pre-configured grub
+doas cp $HOME/stuffs/git/dotfiles/artix/grub /etc/default/grub
+
+# applying grub configurations
+doas mkinitcpio -P && doas grub-mkconfig -o /boot/grub/grub.cfg
+
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 doas mkdir -p /etc/X11/xorg.conf.d
 doas cp $HOME/stuffs/git/dotfiles/artix/40-libinput.conf /etc/X11/xorg.conf.d/
