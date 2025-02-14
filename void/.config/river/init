@@ -16,10 +16,6 @@ gammastep -P -x -r -O 2300 &
 # lockscreen with suspend
 riverctl map-switch normal lid open spawn 'swaylock -ec 000000'
 
-# resolution
-#wlr-randr --output eDP-1 --custom-mode 1024x768 @60Hz
-wlr-randr --output DP-1 --preferred
-
 # tty-like keyboard config
 riverctl set-repeat 50 300
 
