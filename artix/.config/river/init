@@ -71,6 +71,7 @@ riverctl rule-add -title "Firefox - Sharing Indicator" float
 riverctl rule-add -title "Welcome to Audacity!" float
 riverctl rule-add -title "Welcome to Tenacity!" float
 riverctl rule-add -title "Open File" float
+riverctl rule-add -title "Confirm File Replacing" float
 
 riverctl rule-add -app-id "sober_services" float
 
