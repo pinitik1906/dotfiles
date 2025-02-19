@@ -135,9 +135,8 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 # ttf-ms-fonts [LEGACY]
 #paru -S --needed --noconfirm ttf-ms-fonts
 
-# thinkfan (please enable thinkfan service inside of your home folder at stuffs/git/runit-services/thinkfan after you reboot your pc) [THINKPADS ONLY]
-# command to enable: doas ln -s /etc/runit/sv/thinkfan/ /run/runit/service
-#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && paru -S --needed --noconfirm thinkfan && doas cp $HOME/stuffs/git/dotfiles/artix/thinkfan.yaml /etc/
+# thinkfan [THINKPADS ONLY]
+#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && paru -S --needed --noconfirm thinkfan && doas cp $HOME/stuffs/git/dotfiles/artix/thinkfan.yaml /etc/ && doas ln -s /etc/runit/sv/thinkfan/ /run/runit/service
 
 # tlp
 #paru -S --needed --noconfirm tlp-runit && doas ln -s /etc/runit/sv/tlp/ /run/runit/service

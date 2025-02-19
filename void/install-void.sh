@@ -143,9 +143,8 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 # msttcorefonts [NEEDS VOID-SRC ENABLED]
 #cd $HOME/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
-# thinkfan (please enable thinkfan service inside of your home folder at stuffs/git/runit-services/thinkfan after you reboot your pc) [THINKPADS ONLY]
-# command to enable: doas ln -s /etc/sv/thinkfan/ /var/service
-#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/thinkfan.yaml /etc/
+# thinkfan [THINKPADS ONLY]
+#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/thinkfan.yaml /etc/ && doas ln -s /etc/sv/thinkfan/ /var/service
 
 # tlp
 #doas xbps-install -vy tlp && doas ln -s /etc/sv/tlp/ /var/service
