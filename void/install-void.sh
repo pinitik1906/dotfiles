@@ -39,7 +39,7 @@ git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/gi
 mkdir -p $HOME/stuffs/pic/screenshots
 
 # copying all conf to home folder
-cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME
+cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/
 cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/
 
 cp $HOME/stuffs/git/dotfiles/void/.bash_profile $HOME/.bash_profile
@@ -51,7 +51,7 @@ cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc
 sudo cp $HOME/stuffs/git/dotfiles/void/grub /etc/default/grub
 
 # applying grub configurations
-sudo dracut --force && doas update-grub
+sudo dracut --force && sudo update-grub
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 sudo mkdir -p /etc/X11/xorg.conf.d
