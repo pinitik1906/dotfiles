@@ -101,16 +101,19 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 #doas xbps-install -vy intel-ucode
 
 # modern_amd [NEEDS NONFREE REPO ENABLED]
-#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau mesa-vulkan-radeon xf86-video-amdgpu linux-firmware-amd && doas cp $HOME/stuffs/git/dotfiles/void/20-amdgpu.conf /etc/X11/xorg.conf.d/
+#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau mesa-vulkan-radeon xf86-video-amdgpu && doas cp $HOME/stuffs/git/dotfiles/void/20-amdgpu.conf /etc/X11/xorg.conf.d/
 
 # 32-bit modern_amd [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy mesa-dri-32bit mesa-vaapi-32bit mesa-vdpau-32bit mesa-vulkan-radeon-32bit
 
 # old_amd [NEEDS NONFREE REPO ENABLED]
-#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau amdvlk xf86-video-ati linux-firmware-amd && doas cp $HOME/stuffs/git/dotfiles/void/20-radeon.conf /etc/X11/xorg.conf.d/
+#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau amdvlk xf86-video-ati && doas cp $HOME/stuffs/git/dotfiles/void/20-radeon.conf /etc/X11/xorg.conf.d/
 
 # 32-bit old_amd [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy mesa-dri-32bit mesa-vaapi-32bit mesa-vdpau-32bit amdvlk-32bit
+
+# amd microcode (NEEDS NONFREE REPO ENABLED) [IMPORTANT]
+#doas xbps-install -vy linux-firmware-amd
 
 # modern_nvidia proprietary [NEEDS NONFREE REPO ENABLED]
 #doas xbps-install -vy mesa-dri mesa-vdpau nvidia-libs nvidia nvidia-dkms linux-firmware-nvidia nvidia-firmware nvidia-vaapi-driver
