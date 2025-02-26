@@ -26,8 +26,9 @@ echo ""
 # add important groups
 sudo groupadd plugdev
 sudo groupadd cdrom
+sudo groupadd libvirt
 
-sudo usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical $USER
+sudo usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical,libvirt $USER
 
 # checking updates & syncing repos
 sudo xbps-install -Suvy
@@ -142,6 +143,12 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 
 
 ###### OPTIONAL ######
+
+# virtualbox [VIRTUAL MACHINE / GLIBC ONLY]
+#doas xbps-install -vy virtualbox-ose virtualbox-ose-guest virtualbox-ose-guest-dkms
+
+# qemu/virt-manager (recommended) [VIRTUAL MACHINE]
+#doas xbps-install -vy qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libvirt libguestfs iptables && doas ln -s /etc/sv/libvirtd/ /var/service && doas ln -s /etc/sv/virtlockd/ /var/service && doas ln -s /etc/sv/virtlogd/ /var/service
 
 # msttcorefonts [NEEDS VOID-SRC ENABLED]
 #cd $HOME/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts

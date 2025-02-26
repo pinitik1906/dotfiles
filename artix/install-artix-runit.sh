@@ -16,8 +16,9 @@ echo ""
 # add important groups
 doas groupadd plugdev
 doas groupadd cdrom
+doas groupadd libvirt
 
-doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical $USER
+doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical,libvirt $USER
 
 # checking updates & syncing repos
 doas pacman -Syu --needed --noconfirm
@@ -131,6 +132,12 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 
 
 ###### OPTIONAL ######
+
+# virtualbox [VIRTUAL MACHINE]
+#paru -S --needed --noconfirm virtualbox virtualbox-guest-utils
+
+# qemu/virt-manager (recommended) [VIRTUAL MACHINE]
+#paru -S --needed --noconfirm qemu-full virt-manager virt-viewer dnsmasq-runit vde2 bridge-utils openbsd-netcat libvirt-runit libguestfs iptables-runit && doas ln -s /etc/runit/sv/libvirtd/ /run/runit/service && doas ln -s /etc/runit/sv/virtlockd/ /run/runit/service && doas ln -s /etc/runit/sv/virtlogd/ /run/runit/service
 
 # ttf-ms-fonts [LEGACY]
 #paru -S --needed --noconfirm ttf-ms-fonts
