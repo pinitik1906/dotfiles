@@ -168,11 +168,14 @@ paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-server xf86-i
 # install your programs here
 paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver pavucontrol brightnessctl imv-git gammastep
 
-# fix mandoc
+# fixing mandoc
 doas makewhatis -a
 
-# remove any orphaned packages
+# removing any orphaned packages
 paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
+
+# trimming SSD
+doas fstrim -av
 
 # rebooting your pc
 doas reboot

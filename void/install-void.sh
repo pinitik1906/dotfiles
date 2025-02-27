@@ -179,20 +179,23 @@ doas xbps-install -vy sxhkd bspwm polybar i3lock-color xorg-server xf86-input-li
 # install your programs here
 doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm xarchiver pavucontrol brightnessctl imv gammastep
 
-# fix mdocml
+# fixing mdocml
 doas makewhatis -a
 
-# fix bad font rendering
+# fixing bad font rendering
 doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
 
 # install NetworkManager (optional. if you uncomment it, please use `nmtui` to connect)
 #doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service && doas usermod -aG network $USER
 
-# remove any orphaned packages
+# removing any orphaned packages
 doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
 doas xbps-reconfigure -fa
+
+# trimming SSD
+doas fstrim -av
 
 # rebooting your pc
 doas reboot
