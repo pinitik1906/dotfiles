@@ -63,7 +63,7 @@ sudo cp $HOME/stuffs/git/dotfiles/void/90-touchpad.conf /etc/X11/xorg.conf.d/
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy xtools base-devel elogind polkit dbus xhost inih opendoas linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion ufw acpi
+doas xbps-install -vy xtools iptables base-devel elogind polkit dbus xhost inih opendoas linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion ufw acpi
 
 # enabling services
 doas cp -r $HOME/stuffs/git/runit-services/backlight /etc/sv/ && doas ln -s /etc/sv/backlight/ /var/service && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
@@ -148,7 +148,7 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 #doas xbps-install -vy virtualbox-ose virtualbox-ose-guest virtualbox-ose-guest-dkms
 
 # qemu/virt-manager (recommended) [VIRTUAL MACHINE]
-#doas xbps-install -vy qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libvirt libguestfs iptables && doas ln -s /etc/sv/libvirtd/ /var/service && doas ln -s /etc/sv/virtlockd/ /var/service && doas ln -s /etc/sv/virtlogd/ /var/service
+#doas xbps-install -vy qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libvirt libguestfs && doas ln -s /etc/sv/libvirtd/ /var/service && doas ln -s /etc/sv/virtlockd/ /var/service && doas ln -s /etc/sv/virtlogd/ /var/service
 
 # msttcorefonts [NEEDS VOID-SRC ENABLED]
 #cd $HOME/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts

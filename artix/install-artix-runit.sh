@@ -57,7 +57,7 @@ doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm base-devel elogind-runit polkit dbus-runit xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions ufw-runit acpi backlight-runit
+paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions ufw-runit acpi backlight-runit
 
 # enabling services
 doas ln -s /etc/runit/sv/backlight/ /run/runit/service
@@ -137,7 +137,7 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 #paru -S --needed --noconfirm virtualbox virtualbox-guest-utils
 
 # qemu/virt-manager (recommended) [VIRTUAL MACHINE]
-#paru -S --needed --noconfirm qemu-full virt-manager virt-viewer dnsmasq-runit vde2 bridge-utils openbsd-netcat libvirt-runit libguestfs iptables-runit && doas ln -s /etc/runit/sv/libvirtd/ /run/runit/service && doas ln -s /etc/runit/sv/virtlockd/ /run/runit/service && doas ln -s /etc/runit/sv/virtlogd/ /run/runit/service
+#paru -S --needed --noconfirm qemu-full virt-manager virt-viewer dnsmasq-runit vde2 bridge-utils openbsd-netcat libvirt-runit libguestfs && doas ln -s /etc/runit/sv/libvirtd/ /run/runit/service && doas ln -s /etc/runit/sv/virtlockd/ /run/runit/service && doas ln -s /etc/runit/sv/virtlogd/ /run/runit/service
 
 # ttf-ms-fonts [LEGACY]
 #paru -S --needed --noconfirm ttf-ms-fonts
