@@ -3,7 +3,7 @@
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=2
 GRUB_DISTRIBUTOR="Artix"
-GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 console=tty12 udev.log_level=0 audit=0 nmi_watchdog=0 nowatchdog nomce ec_sys.write_support=1 clocksource=tsc tsc=reliable preempt=full nvidia-drm.modeset=1 nvidia_drm.fbdev=1 nvidia-drm.modeset=1 nvidia_drm.fbdev=1 amdgpu.dcdebugmask=0x400 amdgpu.ppfeaturemask=0xffffffff msr.allow_writes=on intel_iommu=igfx_off kvm-intel.nested=1 i915.enable_fbc=1 i915.enable_guc=3 i915.fastboot=1 i915.enable_dc=4 i915.enable_psr=2 cryptomgr.notests initcall_debug no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1"
+GRUB_CMDLINE_LINUX_DEFAULT="rhgb quiet loglevel=0 console=tty12 udev.log_level=0 rd.systemd.show_status=false rd.udev.log_level=0 audit=0 nmi_watchdog=0 nowatchdog nomce ec_sys.write_support=1 clocksource=tsc tsc=reliable preempt=full nvidia-drm.modeset=1 nvidia_drm.fbdev=1 nvidia-drm.modeset=1 nvidia_drm.fbdev=1 amdgpu.dcdebugmask=0x400 amdgpu.ppfeaturemask=0xffffffff msr.allow_writes=on intel_iommu=igfx_off kvm-intel.nested=1 i915.enable_fbc=1 i915.enable_guc=3 i915.fastboot=1 i915.enable_dc=4 i915.enable_psr=2 cryptomgr.notests initcall_debug no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1"
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
