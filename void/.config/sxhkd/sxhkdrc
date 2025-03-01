@@ -20,7 +20,7 @@ super + control + c
 
 # lockscreen
 super + comma
-	i3lock --nofork -ec 00000000
+	i3lock --nofork -Fei ~/.config/bg/lock.png
 
 # notification details without bars
 super + b

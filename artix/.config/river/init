@@ -3,18 +3,20 @@
 # autokill
 pkill -9 swayidle
 pkill -9 waybar
+pkill -9 swaybg
 pkill -9 dunst
 pkill -9 gammastep
 pkill -9 polkit-mate-authentication-agent-1
 
 # autostart
 waybar &
+swaybg -m fill -i ~/.config/bg/artix-gruvbox.png &
 dunst &
 gammastep -P -x -r -O 2300 &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
 # lockscreen with suspend
-riverctl map-switch normal lid open spawn 'swaylock -ec 000000'
+riverctl map-switch normal lid open spawn 'swaylock -es fill -i ~/.config/bg/lock.png'
 
 # tty-like keyboard config
 riverctl set-repeat 50 300
@@ -24,9 +26,9 @@ riverctl allow-tearing disabled
 
 # xorg-like idle
 swayidle -w \
-  timeout 600 'swaylock -fec 000000' \
-  timeout 600 'wlopm --off \*;swaylock -fec 000000' resume 'wlopm --on \*' \
-  before-sleep 'swaylock -fec 000000' &
+  timeout 600 'swaylock -fes fill -i ~/.config/bg/lock.png' \
+  timeout 600 'wlopm --off \*;swaylock -fes fill -i ~/.config/bg/lock.png' resume 'wlopm --on \*' \
+  before-sleep 'swaylock -fes fill -i ~/.config/bg/lock.png' &
 
 # mouse
 riverctl focus-follows-cursor always
@@ -130,7 +132,7 @@ riverctl rule-add -app-id "ffplay" float
 
 # lockscreen
 riverctl map normal Super Comma spawn \
-	'swaylock -ec 000000'
+	'swaylock -es fill -i ~/.config/bg/lock.png'
 
 # notification details without bars
 riverctl map normal Super B spawn \

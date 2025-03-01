@@ -3,6 +3,7 @@
 # autokill
 pkill -9 -x sxhkd
 pkill -9 polybar
+pkill -9 feh
 pkill -9 dunst
 pkill -9 gammastep
 pkill -9 polkit-mate-authentication-agent-1
@@ -10,13 +11,14 @@ pkill -9 polkit-mate-authentication-agent-1
 # autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
 polybar top &
+feh -pq --bg-fill --no-fehbg ~/.config/bg/artix-gruvbox.png &
 dunst &
 gammastep -P -x -r -O 2300 &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 xrdb -merge ~/.Xresources
 
 # lockscreen with suspend
-xss-lock --transfer-sleep-lock -- i3lock --nofork -ec 00000000 &
+xss-lock --transfer-sleep-lock -- i3lock --nofork -Fei ~/.config/bg/lock.png &
 
 # tty-like keyboard rate
 xset r rate 300 50

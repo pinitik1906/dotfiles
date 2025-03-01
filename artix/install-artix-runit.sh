@@ -54,10 +54,10 @@ doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions ufw-runit acpi backlight-runit
+paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit
 
 # enabling services
-doas ln -s /etc/runit/sv/backlight/ /run/runit/service
+doas ln -s /etc/runit/sv/backlight/ /run/runit/service && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
 
 # enabling ufw with recommended settings by chris_titus
 doas ln -s /etc/runit/sv/ufw/ /run/runit/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
@@ -180,10 +180,10 @@ paru -S --needed --noconfirm ananicy-cpp-runit && git clone --depth 1 https://gi
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xorg-server xf86-input-libinput xorg-xauth xorg-xinit xorg-xrdb xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot rofi lxappearance xcolor rxvt-unicode-truecolor-wide-glyphs bsp-layout
+paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color feh xorg-server xf86-input-libinput xorg-xauth xorg-xinit xorg-xrdb xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot rofi lxappearance xcolor rxvt-unicode-truecolor-wide-glyphs bsp-layout
 
 # river (Wayland)
-#paru -S --needed --noconfirm river waybar swaylock xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct nwg-look foot wl-color-picker
+#paru -S --needed --noconfirm river waybar swaylock swaybg xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct nwg-look foot wl-color-picker
 
 ###### WINDOW MANAGERS ######
 
