@@ -49,15 +49,15 @@ cp $HOME/stuffs/git/dotfiles/void/.xinitrc $HOME/.xinitrc
 cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc
 
 # copying my pre-configured grub
-sudo cp $HOME/stuffs/git/dotfiles/void/grub /etc/default/grub
+sudo cp $HOME/stuffs/git/dotfiles/void/things/grub /etc/default/grub
 
 # applying grub configurations
 sudo dracut --force && sudo update-grub
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 sudo mkdir -p /etc/X11/xorg.conf.d
-sudo cp $HOME/stuffs/git/dotfiles/void/40-libinput.conf /etc/X11/xorg.conf.d/
-sudo cp $HOME/stuffs/git/dotfiles/void/90-touchpad.conf /etc/X11/xorg.conf.d/
+sudo cp $HOME/stuffs/git/dotfiles/void/things/40-libinput.conf /etc/X11/xorg.conf.d/
+sudo cp $HOME/stuffs/git/dotfiles/void/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
 # installing opendoas & removing sudo
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
@@ -87,13 +87,13 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 ###### DRIVERS ######
 
 # modern_intel [NEEDS NONFREE REPO ENABLED]
-#doas xbps-install -vy mesa-dri mesa-vulkan-intel libvdpau libvdpau-va-gl intel-media-driver xf86-video-intel linux-firmware-intel && doas cp $HOME/stuffs/git/dotfiles/void/20-intel.conf /etc/X11/xorg.conf.d/
+#doas xbps-install -vy mesa-dri mesa-vulkan-intel libvdpau libvdpau-va-gl intel-media-driver xf86-video-intel linux-firmware-intel && doas cp $HOME/stuffs/git/dotfiles/void/things/20-intel.conf /etc/X11/xorg.conf.d/
 
 # 32-bit modern_intel [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy mesa-dri-32bit mesa-vulkan-intel-32bit libvdpau-32bit libvdpau-va-gl-32bit
 
 # old_intel [NEEDS NONFREE REPO ENABLED]
-#doas xbps-install -vy mesa-dri mesa-vulkan-intel libvdpau libvdpau-va-gl libva-intel-driver xf86-video-intel linux-firmware-intel && doas cp $HOME/stuffs/git/dotfiles/void/20-intel.conf /etc/X11/xorg.conf.d/
+#doas xbps-install -vy mesa-dri mesa-vulkan-intel libvdpau libvdpau-va-gl libva-intel-driver xf86-video-intel linux-firmware-intel && doas cp $HOME/stuffs/git/dotfiles/void/things/20-intel.conf /etc/X11/xorg.conf.d/
 
 # 32-bit old_intel [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy mesa-dri-32bit mesa-vulkan-intel-32bit libvdpau-32bit libvdpau-va-gl-32bit libva-intel-driver-32bit
@@ -102,13 +102,13 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 #doas xbps-install -vy intel-ucode
 
 # modern_amd [NEEDS NONFREE REPO ENABLED]
-#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau mesa-vulkan-radeon xf86-video-amdgpu && doas cp $HOME/stuffs/git/dotfiles/void/20-amdgpu.conf /etc/X11/xorg.conf.d/
+#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau mesa-vulkan-radeon xf86-video-amdgpu && doas cp $HOME/stuffs/git/dotfiles/void/things/20-amdgpu.conf /etc/X11/xorg.conf.d/
 
 # 32-bit modern_amd [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy mesa-dri-32bit mesa-vaapi-32bit mesa-vdpau-32bit mesa-vulkan-radeon-32bit
 
 # old_amd [NEEDS NONFREE REPO ENABLED]
-#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau amdvlk xf86-video-ati && doas cp $HOME/stuffs/git/dotfiles/void/20-radeon.conf /etc/X11/xorg.conf.d/
+#doas xbps-install -vy mesa-dri mesa-vaapi mesa-vdpau amdvlk xf86-video-ati && doas cp $HOME/stuffs/git/dotfiles/void/things/20-radeon.conf /etc/X11/xorg.conf.d/
 
 # 32-bit old_amd [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy mesa-dri-32bit mesa-vaapi-32bit mesa-vdpau-32bit amdvlk-32bit
@@ -154,7 +154,7 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 #cd $HOME/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
 # thinkfan [THINKPADS ONLY]
-#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/thinkfan.yaml /etc/ && doas ln -s /etc/sv/thinkfan/ /var/service
+#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/things/thinkfan.yaml /etc/ && doas ln -s /etc/sv/thinkfan/ /var/service
 
 # tlp
 #doas xbps-install -vy tlp && doas ln -s /etc/sv/tlp/ /var/service
