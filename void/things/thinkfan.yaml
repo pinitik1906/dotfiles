@@ -1,0 +1,13 @@
+﻿sensors:
+  - hwmon: /sys/devices/platform/coretemp.0/hwmon
+    indices: [1, 2, 3]
+    correction: [0, 0, 0]
+
+fans:
+  - tpacpi: /proc/acpi/ibm/fan
+
+levels:
+  - [4, 0, 60]
+  - [5, 55, 70]
+  - [7, 65, 79]
+  - ["level disengaged", 74, 255]
