@@ -33,9 +33,6 @@ sudo usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,opti
 # checking updates & syncing repos
 sudo xbps-install -Suvy
 
-# clone madand's runit-services
-git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/git/runit-services
-
 # create folder for screenshooting, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
 
@@ -66,7 +63,7 @@ sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doa
 doas xbps-install -vy xtools iptables base-devel elogind polkit dbus xhost inih opendoas linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion ufw acpi
 
 # enabling services
-doas cp -r $HOME/stuffs/git/runit-services/backlight /etc/sv/ && doas ln -s /etc/sv/backlight/ /var/service && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+doas cp -r $HOME/stuffs/git/dotfiles/void/services/backlight /etc/sv/ && doas ln -s /etc/sv/backlight/ /var/service && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 
 # enabling ufw with recommended settings by chris_titus
 doas ln -s /etc/sv/ufw/ /var/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
@@ -154,15 +151,41 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 #cd $HOME/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
 # thinkfan [THINKPADS ONLY]
-#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/things/thinkfan.yaml /etc/ && doas ln -s /etc/sv/thinkfan/ /var/service
+#doas cp -r $HOME/stuffs/git/dotfiles/void/services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/things/thinkfan.yaml /etc/ && doas ln -s /etc/sv/thinkfan/ /var/service
 
 # tlp
 #doas xbps-install -vy tlp && doas ln -s /etc/sv/tlp/ /var/service
+
+# thermald [INTEL ONLY]
+#doas xbps-install -vy thermald && doas ln -s /etc/sv/thermald/ /var/service
+
+# intel-undervolt [INTEL ONLY]
+#doas xbps-install -vy intel-undervolt && doas cp $HOME/stuffs/git/dotfiles/void/things/intel-undervolt.conf /etc/intel-undervolt.conf && doas cp -r $HOME/stuffs/git/dotfiles/void/services/intel-undervolt/ /etc/sv/ && doas ln -s /etc/sv/intel-undervolt/ /var/service
 
 # bluetooth with pipewire and alsa
 #doas xbps-install -vy bluez bluez-alsa libspa-bluetooth && doas ln -s /etc/sv/bluetoothd/ /var/service
 
 ###### OPTIONAL ######
+
+
+###### OPTIMIZATIONS ######
+
+# earlyoom (recommended)
+doas xbps-install -vy earlyoom && doas ln -s /etc/sv/earlyoom/ /var/service
+
+# zram (recommended)
+doas xbps-install -vy zramen && doas ln -s /etc/sv/zramen/ /var/service
+
+# profile-sync-daemon (recommended)
+git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git $HOME/stuffs/git/psd && cd $HOME/stuffs/git/psd/ && make clean && doas make clean install && doas rm -rf /usr/lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/psd/ /etc/sv/ && doas ln -s /etc/sv/psd/ /var/service && psd && cp $HOME/stuffs/git/dotfiles/void/.config/psd/psd.conf $HOME/.config/psd/psd.conf
+
+# ananicy (recommended)
+#git clone --depth 1 https://github.com/kuche1/minq-ananicy.git $HOME/stuffs/git/ananicy && cd $HOME/stuffs/git/ananicy && doas make install && doas rm -rf /lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy/ /etc/sv/ && doas ln -s /etc/sv/ananicy/ /var/service
+
+# preload [HDD ONLY]
+#doas xbps-install -vy preload && doas ln -s /etc/sv/preload/ /var/service
+
+###### OPTIMIZATIONS ######
 
 
 ###### WINDOW MANAGERS ######

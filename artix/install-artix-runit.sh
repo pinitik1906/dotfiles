@@ -23,9 +23,6 @@ doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,opti
 # checking updates & syncing repos
 doas pacman -Syu --needed --noconfirm
 
-# clone madand's runit-services
-git clone --depth 1 https://github.com/madand/runit-services.git $HOME/stuffs/git/runit-services
-
 # create folder for screenshooting, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
 
@@ -143,15 +140,41 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 #paru -S --needed --noconfirm ttf-ms-fonts
 
 # thinkfan [THINKPADS ONLY]
-#doas cp -r $HOME/stuffs/git/runit-services/thinkfan /etc/sv/ && paru -S --needed --noconfirm thinkfan && doas cp $HOME/stuffs/git/dotfiles/artix/things/thinkfan.yaml /etc/ && doas ln -s /etc/runit/sv/thinkfan/ /run/runit/service
+#doas cp -r $HOME/stuffs/git/dotfiles/artix/services/thinkfan/ /etc/sv/ && paru -S --needed --noconfirm thinkfan && doas cp $HOME/stuffs/git/dotfiles/artix/things/thinkfan.yaml /etc/ && doas ln -s /etc/runit/sv/thinkfan/ /run/runit/service
 
 # tlp
 #paru -S --needed --noconfirm tlp-runit && doas ln -s /etc/runit/sv/tlp/ /run/runit/service
+
+# thermald [INTEL ONLY]
+#paru -S --needed --noconfirm thermald-runit && doas ln -s /etc/runit/sv/thermald/ /run/runit/service
+
+# intel-undervolt [INTEL ONLY]
+#paru -S --needed --noconfirm intel-undervolt-runit && doas cp $HOME/stuffs/git/dotfiles/artix/things/intel-undervolt.conf /etc/intel-undervolt.conf && doas ln -s /etc/runit/sv/intel-undervolt/ /run/runit/service
 
 # bluetooth
 #paru -S --needed --noconfirm bluez-runit bluez-utils && doas ln -s /etc/runit/sv/bluetoothd/ /run/runit/service
 
 ###### OPTIONAL ######
+
+
+###### OPTIMIZATIONS ######
+
+# earlyoom (recommended)
+paru -S --needed --noconfirm earlyoom-runit && doas ln -s /etc/runit/sv/earlyoom/ /run/runit/service
+
+# zram (recommended)
+paru -S --needed --noconfirm zramen-runit && doas ln -s /etc/runit/sv/zramen/ /run/runit/service
+
+# profile-sync-daemon (recommended)
+paru -S --needed --noconfirm profile-sync-daemon && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/artix/services/psd/ /etc/sv/ && doas ln -s /etc/runit/sv/psd/ /run/runit/service && psd && cp $HOME/stuffs/git/dotfiles/artix/.config/psd/psd.conf $HOME/.config/psd/psd.conf
+
+# ananicy-cpp (recommended)
+paru -S --needed --noconfirm ananicy-cpp-runit && git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas ln -s /etc/runit/sv/ananicy-cpp/ /run/runit/service
+
+# preload [HDD ONLY]
+#paru -S --needed --noconfirm preload && doas cp -r $HOME/stuffs/git/dotfiles/artix/services/preload/ /etc/runit/sv/ && doas ln -s /etc/runit/sv/preload/ /run/runit/service
+
+###### OPTIMIZATIONS ######
 
 
 ###### WINDOW MANAGERS ######
