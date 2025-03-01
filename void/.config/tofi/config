@@ -22,3 +22,4 @@ result-spacing = 10
 
 text-cursor = true
 history = false
+drun-launch = true
