@@ -30,36 +30,36 @@ URxvt.keysym.Control-Meta-v: builtin-string:
 URxvt.intensityStyles: false
 
 *background: #282828
-*foreground: #ebdbb2
+*foreground: #EBDBB2
 
 ! black
-*color0: #3c3836
+*color0: #3C3836
 *color8: #504945
 
 ! red
-*color1: #cc241d
-*color9: #fb4934
+*color1: #CC241D
+*color9: #FB4934
 
 ! green
-*color2: #98971a
-*color10: #b8bb26
+*color2: #98971A
+*color10: #B8BB26
 
 ! yellow
-*color3: #d79921
-*color11: #fabd2f
+*color3: #D79921
+*color11: #FABD2F
 
 ! blue
 *color4: #458588
-*color12: #83a598
+*color12: #83A598
 
 ! magenta
-*color5: #b16286
-*color13: #d3869b
+*color5: #B16286
+*color13: #D3869B
 
 ! cyan
-*color6: #689d6a
-*color14: #8ec07c
+*color6: #689D6A
+*color14: #8EC07C
 
 ! white
-*color7: #ebdbb2
-*color15: #fbf1c7
+*color7: #EBDBB2
+*color15: #FBF1C7

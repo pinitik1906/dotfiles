@@ -8,7 +8,7 @@
 
 #waybar {
   background: #272727;
-  color: #ebdbb2;
+  color: #EBDBB2;
 }
 #window {
   padding: 0 3px;
@@ -21,7 +21,7 @@
 }
 #tags button.focused {
   color: #ebdbb2;
-  border-bottom: 2px solid #d79921;
+  border-bottom: 2px solid #D79921;
 }
 #tags button.occupied {
   color: #ebdbb2;
@@ -29,11 +29,11 @@
 #tags button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
-    background: #1a1a1a;
+    background: #272727;
     padding: 0 0px;
 }
 #network.disconnected {
-    color: #cc241d
+    color: #CC241D
 }
 
 #pulseaudio.muted {
@@ -44,10 +44,10 @@
   color: #458588;
 }
 #temperature {
-  color: #d79921;
+  color: #D79921;
 }
 #temperature.critical {
-  color: #cc241d;
+  color: #CC241D;
 }
 
 #clock,

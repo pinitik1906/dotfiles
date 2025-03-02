@@ -16,7 +16,7 @@ gammastep -P -x -r -O 2300 &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
 # lockscreen with suspend
-riverctl map-switch normal lid open spawn 'swaylock -es fill -i ~/.config/bg/lock.png'
+riverctl map-switch normal lid open spawn 'swaylock --indicator-thickness 7 --inside-color 00000000 --font-size 16 -nes fill -i ~/.config/bg/lock.png''
 
 # tty-like keyboard config
 riverctl set-repeat 50 300
@@ -26,9 +26,8 @@ riverctl allow-tearing disabled
 
 # xorg-like idle
 swayidle -w \
-  timeout 600 'swaylock -fes fill -i ~/.config/bg/lock.png' \
-  timeout 600 'wlopm --off \*;swaylock -fes fill -i ~/.config/bg/lock.png' resume 'wlopm --on \*' \
-  before-sleep 'swaylock -fes fill -i ~/.config/bg/lock.png' &
+  timeout 600 'swaylock --indicator-thickness 7 --inside-color 00000000 --font-size 16 -fnes fill -i ~/.config/bg/lock.png' \
+  timeout 600 'wlopm --off \*;swaylock --indicator-thickness 7 --inside-color 00000000 --font-size 16 -fnes fill -i ~/.config/bg/lock.png' resume 'wlopm --on \*' &
 
 # mouse
 riverctl focus-follows-cursor always
@@ -60,7 +59,7 @@ done
 rivertile -view-padding 3 -outer-padding 2 -main-ratio 0.5 &
 riverctl border-width 2
 riverctl background-color 0x000000
-riverctl border-color-unfocused 0x7b6e63
+riverctl border-color-unfocused 0x7B6E63
 riverctl border-color-focused 0x458588
 
 riverctl default-attach-mode bottom
@@ -132,7 +131,7 @@ riverctl rule-add -app-id "ffplay" float
 
 # lockscreen
 riverctl map normal Super Comma spawn \
-	'swaylock -es fill -i ~/.config/bg/lock.png'
+	'swaylock --indicator-thickness 7 --inside-color 00000000 --font-size 16 -nes fill -i ~/.config/bg/lock.png'
 
 # notification details without bars
 riverctl map normal Super B spawn \

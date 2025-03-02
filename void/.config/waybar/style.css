@@ -7,8 +7,8 @@
 }
 
 #waybar {
-  background: #3b3735;
-  color: #ebdbb2;
+  background: #3B3735;
+  color: #EBDBB2;
 }
 #window {
   padding: 0 3px;
@@ -20,20 +20,20 @@
   color: #707880;
 }
 #tags button.focused {
-  color: #ebdbb2;
-  border-bottom: 2px solid #d79921;
+  color: #EBDBB2;
+  border-bottom: 2px solid #D79921;
 }
 #tags button.occupied {
-  color: #ebdbb2;
+  color: #EBDBB2;
 }
 #tags button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
-    background: #1a1a1a;
+    background: #3B3735;
     padding: 0 0px;
 }
 #network.disconnected {
-    color: #cc241d
+    color: #CC241D
 }
 
 #pulseaudio.muted {
@@ -41,13 +41,13 @@
 }
 
 #battery {
-  color: #98971a;
+  color: #98971A;
 }
 #temperature {
-  color: #d79921;
+  color: #D79921;
 }
 #temperature.critical {
-  color: #cc241d;
+  color: #CC241D;
 }
 
 #clock,

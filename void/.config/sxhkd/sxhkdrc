@@ -20,7 +20,7 @@ super + control + c
 
 # lockscreen
 super + comma
-	i3lock --nofork -Fei ~/.config/bg/lock.png
+	i3lock --nofork --radius 50 --inside-color=00000000 --line-uses-inside --verif-size=16 --verif-text="Verifying" --wrong-size=16 --wrong-text="Wrong" -Fei ~/.config/bg/lock.png
 
 # notification details without bars
 super + b

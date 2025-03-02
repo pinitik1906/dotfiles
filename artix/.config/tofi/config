@@ -2,7 +2,7 @@ prompt-text = "drun:"
 font = Noto Sans
 font-size = 9
 
-background-color = #282828
+background-color = #3C3836
 prompt-color = #EBDBB2
 selection-color = #458588
 text-color = #EBDBB2

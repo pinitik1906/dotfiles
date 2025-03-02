@@ -19,7 +19,7 @@ horizontal_padding = 8
 text_icon_padding = 8
 
 frame_width = 2
-frame_color = "#7b6e63"
+frame_color = "#7B6E63"
 gap_size = 0
 
 sort = yes
@@ -44,17 +44,17 @@ mouse_middle_click = close_all
 mouse_right_click = close_current
 
 [urgency_low]
-background = "#282828"
-foreground = "#ebdbb2"
+background = "#3C3836"
+foreground = "#EBDBB2"
 timeout = 5
 
 [urgency_normal]
-background = "#282828"
-foreground = "#ebdbb2"
+background = "#3C3836"
+foreground = "#EBDBB2"
 timeout = 5
 
 [urgency_critical]
-background = "#900000"
-foreground = "#ebdbb2"
-frame_color = "#ff0000"
+background = "#CC241D"
+foreground = "#EBDBB2"
+frame_color = "#FB4934"
 timeout = 0
