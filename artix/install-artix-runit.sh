@@ -54,7 +54,7 @@ doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit
+paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit bc xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit
 
 # enabling services
 doas ln -s /etc/runit/sv/backlight/ /run/runit/service && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
@@ -191,10 +191,11 @@ paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color feh xorg-server xf
 # install your programs here
 paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver pavucontrol brightnessctl imv-git gammastep
 
-# fixing mandoc
+# fixing mandoc (temporary)
 doas makewhatis -a
 
-# removing any orphaned packages
+# removing any orphaned git and packages
+rm -rf $HOME/stuffs/git/paru-bin
 paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
 
 # trimming SSD

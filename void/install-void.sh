@@ -60,7 +60,7 @@ sudo cp $HOME/stuffs/git/dotfiles/void/things/90-touchpad.conf /etc/X11/xorg.con
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy xtools iptables base-devel elogind polkit dbus xhost inih opendoas linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion rsync ufw acpi
+doas xbps-install -vy xtools iptables base-devel elogind polkit dbus bc xhost inih opendoas linux-firmware pipewire alsa-pipewire mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion rsync ufw acpi
 
 # enabling services
 doas cp -r $HOME/stuffs/git/dotfiles/void/services/backlight /etc/sv/ && doas ln -s /etc/sv/rsyncd/ /var/servcie && doas ln -s /etc/sv/backlight/ /var/service && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
@@ -180,7 +180,7 @@ doas xbps-install -vy zramen && doas ln -s /etc/sv/zramen/ /var/service
 git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git $HOME/stuffs/git/psd && cd $HOME/stuffs/git/psd/ && make clean && doas make clean install && doas rm -rf /usr/lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/psd/ /etc/sv/ && doas ln -s /etc/sv/psd/ /var/service && psd && cp $HOME/stuffs/git/dotfiles/void/.config/psd/psd.conf $HOME/.config/psd/psd.conf
 
 # ananicy (recommended)
-#git clone --depth 1 https://github.com/kuche1/minq-ananicy.git $HOME/stuffs/git/ananicy && cd $HOME/stuffs/git/ananicy && doas make install && doas rm -rf /lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy/ /etc/sv/ && doas ln -s /etc/sv/ananicy/ /var/service
+git clone --depth 1 https://github.com/kuche1/minq-ananicy.git $HOME/stuffs/git/ananicy && cd $HOME/stuffs/git/ananicy && doas make install && doas rm -rf /lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy/ /etc/sv/ && doas ln -s /etc/sv/ananicy/ /var/service
 
 # preload [HDD ONLY]
 #doas xbps-install -vy preload && doas ln -s /etc/sv/preload/ /var/service
@@ -191,7 +191,7 @@ git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git $HOME/st
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-doas xbps-install -vy sxhkd bspwm polybar i3lock-color feh xorg-server xf86-input-libinput xauth xinit xrdb xss-lock xset xsel xclip xdotool xrandr scrot rofi lxappearance xcolor rxvt-unicode & doas xbps-install -vy bc && git clone --depth 1 https://github.com/phenax/bsp-layout.git $HOME/stuffs/git/bsp-layout && cd $HOME/stuffs/git/bsp-layout && doas make install
+doas xbps-install -vy sxhkd bspwm polybar i3lock-color feh xorg-server xf86-input-libinput xauth xinit xrdb xss-lock xset xsel xclip xdotool xrandr scrot rofi lxappearance xcolor rxvt-unicode && git clone --depth 1 https://github.com/phenax/bsp-layout.git $HOME/stuffs/git/bsp-layout && cd $HOME/stuffs/git/bsp-layout && doas make install
 
 # river (Wayland)
 #doas xbps-install -vy river Waybar swaylock swaybg xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct zenity ImageMagick nwg-look foot && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker && cd $HOME/stuffs/git/wl-color-picker && doas make install
@@ -202,7 +202,7 @@ doas xbps-install -vy sxhkd bspwm polybar i3lock-color feh xorg-server xf86-inpu
 # install your programs here
 doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm xarchiver pavucontrol brightnessctl imv gammastep
 
-# fixing mdocml
+# fixing mdocml (temporary)
 doas makewhatis -a
 
 # fixing bad font rendering
@@ -211,7 +211,11 @@ doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 # install NetworkManager (optional. if you uncomment it, please use `nmtui` to connect)
 #doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service && doas usermod -aG network $USER
 
-# removing any orphaned packages
+# removing any orphaned git and packages
+rm -rf $HOME/stuffs/git/psd
+rm -rf $HOME/stuffs/git/ananicy
+rm -rf $HOME/stuffs/git/bsp-layout
+rm -rf $HOME/stuffs/git/wl-color-picker
 doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
