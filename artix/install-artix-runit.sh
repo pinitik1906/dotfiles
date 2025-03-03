@@ -23,8 +23,11 @@ doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,opti
 # checking updates & syncing repos
 doas pacman -Syu --needed --noconfirm
 
-# create folder for screenshooting, otherwise it won't work
+# create folder for screenshooting and for music player, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
+mkdir -p $HOME/stuffs/mus
+mkdir -p $HOME/.local/share/playlists
+mkdir -p $HOME/.local/share/lyrics
 
 # copying all conf to home folder
 cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/
@@ -189,7 +192,7 @@ paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color feh xorg-server xf
 
 
 # install your programs here
-paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver pavucontrol brightnessctl imv-git gammastep
+paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm-gtk3 xarchiver pavucontrol brightnessctl imv-git gammastep mpd mpc ncmpcpp
 
 # fixing mandoc (temporary)
 doas makewhatis -a

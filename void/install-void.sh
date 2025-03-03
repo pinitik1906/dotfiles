@@ -33,8 +33,11 @@ sudo usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,opti
 # checking updates & syncing repos
 sudo xbps-install -Suvy
 
-# create folder for screenshooting, otherwise it won't work
+# create folder for screenshooting and for music player, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
+mkdir -p $HOME/stuffs/mus
+mkdir -p $HOME/.local/share/playlists
+mkdir -p $HOME/.local/share/lyrics
 
 # copying all conf to home folder
 cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/
@@ -200,7 +203,7 @@ doas xbps-install -vy sxhkd bspwm polybar i3lock-color feh xorg-server xf86-inpu
 
 
 # install your programs here
-doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm xarchiver pavucontrol brightnessctl imv gammastep
+doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv pcmanfm xarchiver pavucontrol brightnessctl imv gammastep mpd mpc ncmpcpp
 
 # fixing mdocml (temporary)
 doas makewhatis -a

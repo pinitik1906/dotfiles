@@ -11,6 +11,7 @@ pkill -9 polkit-mate-authentication-agent-1
 # autostart
 waybar &
 swaybg -m fill -i ~/.config/bg/pacman.png &
+mpd --no-daemon ~/.config/mpd/mpd.conf &
 dunst &
 gammastep -P -x -r -O 2300 &
 /usr/libexec/polkit-mate-authentication-agent-1 &
@@ -122,6 +123,9 @@ riverctl map normal Super E spawn \
 
 riverctl map normal Super W spawn \
 	'firefox'
+
+riverctl map normal Super S spawn \
+	'foot -e ncmpcpp'
 
 # camera
 riverctl map normal Super+Control C spawn \
