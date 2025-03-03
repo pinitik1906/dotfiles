@@ -203,7 +203,7 @@ doas xbps-install -vy sxhkd bspwm polybar i3lock-color feh xorg-server xf86-inpu
 
 
 # install your programs here
-doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf xarchiver pavucontrol brightnessctl imv gammastep mpd mpc ncmpcpp
+doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf xarchiver pavucontrol brightnessctl imv gammastep mpd mpc ncmpcpp newsboat
 
 # fixing mdocml (temporary)
 doas makewhatis -a

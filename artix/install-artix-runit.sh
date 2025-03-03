@@ -192,7 +192,7 @@ paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color feh xorg-server xf
 
 
 # install your programs here
-paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf xarchiver pavucontrol brightnessctl imv-git gammastep mpd mpc ncmpcpp
+paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf xarchiver pavucontrol brightnessctl imv-git gammastep mpd mpc ncmpcpp newsboat
 
 # fixing mandoc (temporary)
 doas makewhatis -a
