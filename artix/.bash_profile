@@ -6,6 +6,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
 export TERMINAL='urxvt'
+export TERMINAL_PROG='urxvt'
 export BROWSER='firefox'
 export MAIL='thunderbird'
 

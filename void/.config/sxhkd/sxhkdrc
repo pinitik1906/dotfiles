@@ -5,6 +5,12 @@ super + Return
 super + r
 	$TERMINAL -e lf
 
+super + s
+	$TERMINAL -e ncmpcpp
+
+super + a
+	$TERMINAL -e newsboat
+
 super + d
 	rofi -terminal $TERMINAL -show drun
 
@@ -13,9 +19,6 @@ super + e
 
 super + w
 	$BROWSER
-
-super + s
-	$TERMINAL -e ncmpcpp
 
 # camera
 super + control + c

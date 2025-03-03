@@ -115,6 +115,12 @@ riverctl map normal Super Return spawn \
 riverctl map normal Super R spawn \
 	'foot -e lf'
 
+riverctl map normal Super S spawn \
+	'foot -e ncmpcpp'
+
+riverctl map normal Super A spawn \
+	'foot -e newsboat'
+
 riverctl map normal Super D spawn \
 	'tofi-drun'
 
