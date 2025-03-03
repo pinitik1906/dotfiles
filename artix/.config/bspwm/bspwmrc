@@ -3,7 +3,7 @@
 # autokill
 pkill -9 -x sxhkd
 pkill -9 polybar
-pkill -9 feh
+pkill -9 xwallpaper
 pkill -9 dunst
 pkill -9 gammastep
 pkill -9 polkit-mate-authentication-agent-1
@@ -11,7 +11,7 @@ pkill -9 polkit-mate-authentication-agent-1
 # autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
 polybar top &
-feh -pq --bg-fill --no-fehbg ~/.config/bg/pacman.png &
+xwallpaper --zoom ~/.config/bg/pacman.png &
 mpd --no-daemon ~/.config/mpd/mpd.conf &
 dunst &
 gammastep -P -x -r -O 2300 &
