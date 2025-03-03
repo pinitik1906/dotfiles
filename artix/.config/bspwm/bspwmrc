@@ -11,7 +11,7 @@ pkill -9 polkit-mate-authentication-agent-1
 # autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
 polybar top &
-feh -pq --bg-fill --no-fehbg ~/.config/bg/artix-gruvbox.png &
+feh -pq --bg-fill --no-fehbg ~/.config/bg/pacman.png &
 dunst &
 gammastep -P -x -r -O 2300 &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &

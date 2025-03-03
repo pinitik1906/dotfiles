@@ -10,7 +10,7 @@ pkill -9 polkit-mate-authentication-agent-1
 
 # autostart
 waybar &
-swaybg -m fill -i ~/.config/bg/void-gruvbox.png &
+swaybg -m fill -i ~/.config/bg/pacman.png &
 dunst &
 gammastep -P -x -r -O 2300 &
 /usr/libexec/polkit-mate-authentication-agent-1 &
