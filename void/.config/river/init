@@ -113,7 +113,7 @@ riverctl map normal Super Return spawn \
 	'foot'
 
 riverctl map normal Super R spawn \
-	'pcmanfm'
+	'foot -e lf'
 
 riverctl map normal Super D spawn \
 	'tofi-drun'

@@ -3,7 +3,7 @@ super + Return
 	$TERMINAL
 
 super + r
-	pcmanfm
+	$TERMINAL -e lf
 
 super + d
 	rofi -terminal $TERMINAL -show drun
