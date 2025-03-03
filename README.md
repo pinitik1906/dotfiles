@@ -76,7 +76,7 @@ sudo cat /sys/module/nvidia_drm/parameters/modeset
 ```
 
 ### unofficial repos for artix
-a list from [arch](https://wiki.archlinux.org/title/Unofficial.user.repositories#Signed) and [artix](https://wiki.artixlinux.org/Main/UnofficialUserRepositories)
+a list from [arch](https://wiki.archlinux.org/title/User_repo#Signed) and [artix](https://wiki.artixlinux.org/Main/UnofficialUserRepositories)
 
 ### autostart on either X11 or Wayland without a display manager
 edit in `.bash_profile` from your home directory
