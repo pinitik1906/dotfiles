@@ -44,8 +44,6 @@ cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/
 cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/
 
 cp $HOME/stuffs/git/dotfiles/void/.bash_profile $HOME/.bash_profile
-cp $HOME/stuffs/git/dotfiles/void/.Xresources $HOME/.Xresources
-cp $HOME/stuffs/git/dotfiles/void/.xinitrc $HOME/.xinitrc
 cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc
 
 # copying my pre-configured grub

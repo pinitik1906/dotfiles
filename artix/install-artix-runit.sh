@@ -34,8 +34,6 @@ cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/
 cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/
 
 cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile
-cp $HOME/stuffs/git/dotfiles/artix/.Xresources $HOME/.Xresources
-cp $HOME/stuffs/git/dotfiles/artix/.xinitrc $HOME/.xinitrc
 cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
 
 # copying my pre-configured grub
