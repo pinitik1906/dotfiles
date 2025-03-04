@@ -83,6 +83,8 @@ export XDG_CURRENT_DESKTOP=river
 
 # autostart for audio/video
 pipewire &
+pipewire-pulse &
+wireplumber &
 
 # autostart your WM here
 if [[ "$(tty)" = "/dev/tty1" ]]; then

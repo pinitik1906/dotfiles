@@ -55,7 +55,7 @@ doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-
 
 # installing important dependencies
 paru -Rnsdd --noconfirm jack2
-paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit bc xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit
+paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit rtkit sof-firmware bc xorg-xhost libinih linux-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit
 
 # enabling services
 doas ln -s /etc/runit/sv/backlight/ /run/runit/service && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
