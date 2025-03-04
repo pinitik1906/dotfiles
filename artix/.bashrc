@@ -10,9 +10,9 @@ alias ccat="highlight --out-format=ansi"
 alias ip="ip -color=auto"
 
 # verbose outputs
-alias cp="cp -iv"
+alias cp="cp -riv"
 alias mv="mv -iv"
-alias rm="rm -Iv"
+alias rm="rm -Irv"
 alias bc="bc -ql"
 alias rsync="rsync -Pvrlu"
 alias mkdir="mkdir -pv"
