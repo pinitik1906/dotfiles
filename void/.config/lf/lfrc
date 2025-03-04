@@ -110,6 +110,7 @@ map o &mimeopen "$f"
 map O $mimeopen --ask "$f"
 
 map gh cd ~
+map gg cd ~/stuffs/git
 map ge cd /etc
 map gu cd /usr
 map gd cd /dev
