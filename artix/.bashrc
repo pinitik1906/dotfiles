@@ -9,6 +9,11 @@ stty -ixon
 shopt -s autocd
 shopt -s direxpand
 
+# unlimited history
+HISTSIZE=10000000
+HISTFILESIZE=10000000
+
+# colored outputs
 # colored outputs
 # colored outputs
 alias ls="ls -hN --color=auto --group-directories-first"
