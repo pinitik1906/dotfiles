@@ -4,8 +4,8 @@ monitor = 0
 follow = mouse
 transparency = 0
 
-#width = 250
-#height = 300
+width = 250
+height = 300
 origin = bottom-right
 offset = 5x5
 
