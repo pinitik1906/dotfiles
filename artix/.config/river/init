@@ -13,11 +13,11 @@ waybar &
 swaybg -m fill -i ~/.config/bg/pacman.png &
 mpd --no-daemon ~/.config/mpd/mpd.conf &
 dunst &
-gammastep -P -x -r -O 2300 &
+gammastep -Pxr -O 2300 &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
 # lockscreen with suspend
-riverctl map-switch normal lid open spawn 'swaylock --indicator-thickness 7 --inside-color 00000000 --font-size 16 -nes fill -i ~/.config/bg/lock.png''
+riverctl map-switch normal lid open spawn 'swaylock --indicator-thickness 7 --inside-color 00000000 --font-size 16 -nes fill -i ~/.config/bg/lock.png'
 
 # tty-like keyboard config
 riverctl set-repeat 50 300
@@ -116,10 +116,10 @@ riverctl map normal Super R spawn \
 	'foot -e lf'
 
 riverctl map normal Super S spawn \
-	'foot -e ncmpcpp'
+	'foot -e ncmpcpp -q'
 
 riverctl map normal Super A spawn \
-	'foot -e newsboat'
+	'foot -e newsboat -q'
 
 riverctl map normal Super D spawn \
 	'tofi-drun'
@@ -132,7 +132,7 @@ riverctl map normal Super W spawn \
 
 # camera
 riverctl map normal Super+Control C spawn \
-	'ffplay -fast /dev/video0'
+	'ffplay -loglevel -8 -fast /dev/video0'
 
 riverctl rule-add -app-id "ffplay" float
 

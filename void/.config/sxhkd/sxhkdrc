@@ -6,10 +6,10 @@ super + r
 	$TERMINAL -e lf
 
 super + s
-	$TERMINAL -e ncmpcpp
+	$TERMINAL -e ncmpcpp -q
 
 super + a
-	$TERMINAL -e newsboat
+	$TERMINAL -e newsboat -q
 
 super + d
 	rofi -terminal $TERMINAL -show drun
@@ -22,7 +22,7 @@ super + w
 
 # camera
 super + control + c
-	ffplay -fast /dev/video0
+	ffplay -loglevel -8 -fast /dev/video0
 
 # lockscreen
 super + comma
