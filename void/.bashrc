@@ -2,6 +2,14 @@
 
 PS1='\[\e[1;31m\][\[\e[1;33m\]\u\[\e[1;32m\]@\[\e[1;34m\]\h \[\e[1;35m\]\w\[\e[1;31m\]]\[\e[1;00m\]\$\[\e[0;00m\] '
 
+# shows search instead of freezing your terminal by doing ctrl + s
+stty -ixon
+
+# zsh-autocomplete like
+shopt -s autocd
+shopt -s direxpand
+
+# colored outputs
 # colored outputs
 alias ls="ls -hN --color=auto --group-directories-first"
 alias grep="grep --color=auto"
