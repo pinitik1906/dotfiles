@@ -14,27 +14,16 @@ echo ""
 
 
 # add important groups
-doas groupadd plugdev
-doas groupadd cdrom
-doas groupadd libvirt
-
-doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical,libvirt $USER
+doas groupadd plugdev && doas groupadd cdrom && doas groupadd libvirt && doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical,libvirt $USER
 
 # checking updates & syncing repos
 doas pacman -Syu --needed --noconfirm
 
 # create folder for screenshooting and for music player, otherwise it won't work
-mkdir -p $HOME/stuffs/pic/screenshots
-mkdir -p $HOME/stuffs/mus
-mkdir -p $HOME/.local/share/playlists
-mkdir -p $HOME/.local/share/lyrics
+mkdir -p $HOME/stuffs/pic/screenshots && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/.local/share/playlists && mkdir -p $HOME/.local/share/lyrics
 
 # copying all conf to home folder
-cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/
-cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/
-
-cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile
-cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
+cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/ && cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/ && cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile && cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
 
 # copying my pre-configured grub
 doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
@@ -43,9 +32,7 @@ doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
 doas mkinitcpio -P && doas grub-mkconfig -o /boot/grub/grub.cfg
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
-doas mkdir -p /etc/X11/xorg.conf.d
-doas cp $HOME/stuffs/git/dotfiles/artix/things/40-libinput.conf /etc/X11/xorg.conf.d/
-doas cp $HOME/stuffs/git/dotfiles/artix/things/90-touchpad.conf /etc/X11/xorg.conf.d/
+doas mkdir -p /etc/X11/xorg.conf.d && doas cp $HOME/stuffs/git/dotfiles/artix/things/40-libinput.conf /etc/X11/xorg.conf.d/ && doas cp $HOME/stuffs/git/dotfiles/artix/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
 # copying preconfigured pacman.conf and paru.conf
 doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/paru.conf /etc/paru.conf
@@ -201,9 +188,7 @@ paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fas
 doas makewhatis -a
 
 # removing any orphaned git and packages
-rm -rf $HOME/stuffs/git/paru-bin
-rm -rf $HOME/stuffs/git/ananicy-cpp-rules
-paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
+rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/ananicy-cpp-rules && paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
 
 # trimming SSD
 doas fstrim -av

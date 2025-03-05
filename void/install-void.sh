@@ -24,27 +24,16 @@ echo ""
 
 
 # add important groups
-sudo groupadd plugdev
-sudo groupadd cdrom
-sudo groupadd libvirt
-
-sudo usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical,libvirt $USER
+sudo groupadd plugdev && sudo groupadd cdrom && sudo groupadd libvirt && sudo usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical,libvirt $USER
 
 # checking updates & syncing repos
 sudo xbps-install -Suvy
 
 # create folder for screenshooting and for music player, otherwise it won't work
-mkdir -p $HOME/stuffs/pic/screenshots
-mkdir -p $HOME/stuffs/mus
-mkdir -p $HOME/.local/share/playlists
-mkdir -p $HOME/.local/share/lyrics
+mkdir -p $HOME/stuffs/pic/screenshots && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/.local/share/playlists && mkdir -p $HOME/.local/share/lyrics
 
 # copying all conf to home folder
-cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/
-cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/
-
-cp $HOME/stuffs/git/dotfiles/void/.bash_profile $HOME/.bash_profile
-cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc
+cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/ && cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/ && cp $HOME/stuffs/git/dotfiles/void/.bash_profile $HOME/.bash_profile && cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc
 
 # copying my pre-configured grub
 sudo cp $HOME/stuffs/git/dotfiles/void/things/grub /etc/default/grub
@@ -53,9 +42,7 @@ sudo cp $HOME/stuffs/git/dotfiles/void/things/grub /etc/default/grub
 sudo dracut --force && sudo update-grub
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
-sudo mkdir -p /etc/X11/xorg.conf.d
-sudo cp $HOME/stuffs/git/dotfiles/void/things/40-libinput.conf /etc/X11/xorg.conf.d/
-sudo cp $HOME/stuffs/git/dotfiles/void/things/90-touchpad.conf /etc/X11/xorg.conf.d/
+sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/void/things/40-libinput.conf /etc/X11/xorg.conf.d/ && sudo cp $HOME/stuffs/git/dotfiles/void/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
 # installing opendoas & removing sudo
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
@@ -188,17 +175,7 @@ git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git $HOME/st
 
 # ananicy-cpp (recommended)
 doas xbps-install -vy wget cmake fmt spdlog json-c++ && wget https://gitlab.com/ananicy-cpp/ananicy-cpp/-/archive/v1.1.1/ananicy-cpp-v1.1.1.tar.gz && tar -xvf ananicy-cpp-v1.1.1.tar.gz && cd ananicy-cpp-v1.1.1
-cmake -B "build" . \
-	-DCMAKE_BUILD_TYPE=Release \
-	-DCMAKE_INSTALL_PREFIX=/usr \
-	-DUSE_EXTERNAL_SPDLOG=ON \
-	-DUSE_EXTERNAL_JSON=ON \
-	-DUSE_EXTERNAL_FMTLIB=ON \
-	-DENABLE_SYSTEMD=OFF \
-	-DVERSION=1.1.1
-cmake --build build
-sudo cmake --install build --component Runtime
-git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy-cpp/ /etc/sv/ && doas ln -s /etc/sv/ananicy-cpp/ /var/service && doas xbps-remove -RFfvy wget cmake && rm -rf $HOME/ananicy-cpp-v1.1.1.tar.gz && rm -rf $HOME/ananicy-cpp-v1.1.1
+cmake -B "build" . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DUSE_EXTERNAL_SPDLOG=ON -DUSE_EXTERNAL_JSON=ON -DUSE_EXTERNAL_FMTLIB=ON -DENABLE_SYSTEMD=OFF -DVERSION=1.1.1 && cmake --build build && sudo cmake --install build --component Runtime && git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy-cpp/ /etc/sv/ && doas ln -s /etc/sv/ananicy-cpp/ /var/service && doas xbps-remove -RFfvy wget cmake && rm -rf $HOME/ananicy-cpp-v1.1.1.tar.gz && rm -rf $HOME/ananicy-cpp-v1.1.1
 
 # preload [HDD ONLY]
 #doas xbps-install -vy preload && doas ln -s /etc/sv/preload/ /var/service
@@ -230,12 +207,7 @@ doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 #doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service && doas usermod -aG network $USER
 
 # removing any orphaned git and packages
-rm -rf $HOME/stuffs/git/psd
-rm -rf $HOME/stuffs/git/ananicy-cpp
-rm -rf $HOME/stuffs/git/ananicy-cpp-rules
-rm -rf $HOME/stuffs/git/bsp-layout
-rm -rf $HOME/stuffs/git/wl-color-picker
-doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
+rm -rf $HOME/stuffs/git/psd && rm -rf $HOME/stuffs/git/ananicy-cpp && rm -rf $HOME/stuffs/git/ananicy-cpp-rules && rm -rf $HOME/stuffs/git/bsp-layout && rm -rf $HOME/stuffs/git/wl-color-picker && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
 doas xbps-reconfigure -fa
