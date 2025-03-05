@@ -180,8 +180,18 @@ doas xbps-install -vy zramen && doas ln -s /etc/sv/zramen/ /var/service
 # profile-sync-daemon (recommended)
 git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git $HOME/stuffs/git/psd && cd $HOME/stuffs/git/psd/ && make clean && doas make clean install && doas rm -rf /usr/lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/psd/ /etc/sv/ && doas ln -s /etc/sv/psd/ /var/service && psd && cp $HOME/stuffs/git/dotfiles/void/.config/psd/psd.conf $HOME/.config/psd/psd.conf
 
-# ananicy (recommended)
-git clone --depth 1 https://github.com/kuche1/minq-ananicy.git $HOME/stuffs/git/ananicy && cd $HOME/stuffs/git/ananicy && doas make install && doas rm -rf /lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy/ /etc/sv/ && doas ln -s /etc/sv/ananicy/ /var/service
+# ananicy-cpp (recommended)
+doas xbps-install -vy cmake fmt spdlog json-c++ && git clone --depth 1 https://gitlab.com/ananicy-cpp/ananicy-cpp.git $HOME/stuffs/git/ananicy-cpp && cd $HOME/stuffs/git/ananicy-cpp/
+cmake -B "build" . \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DCMAKE_INSTALL_PREFIX=/usr \
+	-DUSE_EXTERNAL_SPDLOG=ON \
+	-DUSE_EXTERNAL_JSON=ON \
+	-DUSE_EXTERNAL_FMTLIB=ON \
+	-DENABLE_SYSTEMD=OFF
+cmake --build build
+sudo cmake --install build --component Runtime
+git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy-cpp/ /etc/sv/ && doas ln -s /etc/sv/ananicy-cpp/ /var/service && doas xbps-remove -RFfvy cmake fmt spdlog json-c++
 
 # preload [HDD ONLY]
 #doas xbps-install -vy preload && doas ln -s /etc/sv/preload/ /var/service
@@ -214,7 +224,8 @@ doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 
 # removing any orphaned git and packages
 rm -rf $HOME/stuffs/git/psd
-rm -rf $HOME/stuffs/git/ananicy
+rm -rf $HOME/stuffs/git/ananicy-cpp
+rm -rf $HOME/stuffs/git/ananicy-cpp-rules
 rm -rf $HOME/stuffs/git/bsp-layout
 rm -rf $HOME/stuffs/git/wl-color-picker
 doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all

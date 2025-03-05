@@ -196,6 +196,7 @@ doas makewhatis -a
 
 # removing any orphaned git and packages
 rm -rf $HOME/stuffs/git/paru-bin
+rm -rf $HOME/stuffs/git/ananicy-cpp-rules
 paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
 
 # trimming SSD
