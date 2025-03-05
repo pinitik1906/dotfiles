@@ -178,20 +178,21 @@ doas xbps-install -vy earlyoom && doas ln -s /etc/sv/earlyoom/ /var/service
 doas xbps-install -vy zramen && doas ln -s /etc/sv/zramen/ /var/service
 
 # profile-sync-daemon (recommended)
-git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git $HOME/stuffs/git/psd && cd $HOME/stuffs/git/psd/ && make clean && doas make clean install && doas rm -rf /usr/lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/psd/ /etc/sv/ && doas ln -s /etc/sv/psd/ /var/service && psd && cp $HOME/stuffs/git/dotfiles/void/.config/psd/psd.conf $HOME/.config/psd/psd.conf
+git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git $HOME/stuffs/git/psd && cd $HOME/stuffs/git/psd/ && make clean && doas make clean install && doas rm -rf /usr/lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/psd/ /etc/sv/ && doas ln -s /etc/sv/psd/ /var/service && psd && cp $HOME/stuffs/git/dotfiles/void/.config/psd/psd.conf $HOME/.config/psd/psd.conf && cd ~
 
 # ananicy-cpp (recommended)
-doas xbps-install -vy cmake fmt spdlog json-c++ && git clone --depth 1 https://gitlab.com/ananicy-cpp/ananicy-cpp.git $HOME/stuffs/git/ananicy-cpp && cd $HOME/stuffs/git/ananicy-cpp/
+doas xbps-install -vy wget cmake fmt spdlog json-c++ && wget https://gitlab.com/ananicy-cpp/ananicy-cpp/-/archive/v1.1.1/ananicy-cpp-v1.1.1.tar.gz && tar -xvf ananicy-cpp-v1.1.1.tar.gz && cd ananicy-cpp-v1.1.1
 cmake -B "build" . \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_PREFIX=/usr \
 	-DUSE_EXTERNAL_SPDLOG=ON \
 	-DUSE_EXTERNAL_JSON=ON \
 	-DUSE_EXTERNAL_FMTLIB=ON \
-	-DENABLE_SYSTEMD=OFF
+	-DENABLE_SYSTEMD=OFF \
+	-DVERSION=1.1.1
 cmake --build build
 sudo cmake --install build --component Runtime
-git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy-cpp/ /etc/sv/ && doas ln -s /etc/sv/ananicy-cpp/ /var/service && doas xbps-remove -RFfvy cmake spdlog json-c++
+git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy-cpp/ /etc/sv/ && doas ln -s /etc/sv/ananicy-cpp/ /var/service && doas xbps-remove -RFfvy wget cmake
 
 # preload [HDD ONLY]
 #doas xbps-install -vy preload && doas ln -s /etc/sv/preload/ /var/service
