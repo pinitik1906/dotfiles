@@ -32,7 +32,7 @@ alias ffmpeg="ffmpeg -hide_banner"
 # shortcuts/abbreviations
 alias ff='fastfetch --logo void2_small --logo-color-2 37 --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1'
 alias xr='doas xbps-remove -ROov'
-alias xi='doas xbps-install -Suv'
+alias xi='xi'
 alias xq='xbps-query -Rs'
 alias xf='xbps-query -f'
 alias xc='doas rm -rf /var/cache/xbps/*'
