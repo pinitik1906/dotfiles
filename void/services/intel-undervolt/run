@@ -1,3 +1,4 @@
 #!/bin/sh
+
 intel-undervolt apply >/dev/null 2>&1
 exec chpst -b intel-undervolt pause
