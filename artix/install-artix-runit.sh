@@ -19,8 +19,8 @@ doas groupadd plugdev && doas groupadd cdrom && doas groupadd libvirt && doas us
 # checking updates & syncing repos
 doas pacman -Syu --needed --noconfirm
 
-# create folder for screenshooting and for music player, otherwise it won't work
-mkdir -p $HOME/stuffs/pic/screenshots && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/.local/share/playlists && mkdir -p $HOME/.local/share/lyrics
+# create folder for screenshooting, music player, and gnupg, otherwise it won't work
+mkdir -p $HOME/stuffs/pic/screenshots && mkdir -p $HOME/.local/share/playlists && mkdir -p $HOME/.local/share/lyrics && mkdir -p $HOME/.local/share/gnupg
 
 # copying all conf to home folder
 cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/ && cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/ && cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile && cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
