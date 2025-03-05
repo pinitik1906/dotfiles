@@ -192,7 +192,7 @@ cmake -B "build" . \
 	-DVERSION=1.1.1
 cmake --build build
 sudo cmake --install build --component Runtime
-git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy-cpp/ /etc/sv/ && doas ln -s /etc/sv/ananicy-cpp/ /var/service && doas xbps-remove -RFfvy wget cmake
+git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy-cpp/ /etc/sv/ && doas ln -s /etc/sv/ananicy-cpp/ /var/service && doas xbps-remove -RFfvy wget cmake && rm -rf $HOME/ananicy-cpp-v1.1.1.tar.gz && rm -rf $HOME/ananicy-cpp-v1.1.1
 
 # preload [HDD ONLY]
 #doas xbps-install -vy preload && doas ln -s /etc/sv/preload/ /var/service
