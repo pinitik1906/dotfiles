@@ -94,6 +94,7 @@ cmd delete ${{
 # keybinds
 map <delete> delete
 map <backspace2> set hidden!
+map q $$SHELL
 map s shell $SHELL
 map <enter> open
 
@@ -111,6 +112,8 @@ map O $mimeopen --ask "$f"
 
 map gh cd ~
 map gg cd ~/stuffs/git
+map gc cd ~/.config/
+map gl cd ~/.local/
 map ge cd /etc
 map gu cd /usr
 map gd cd /dev
