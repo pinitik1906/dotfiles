@@ -61,10 +61,10 @@ sudo cp $HOME/stuffs/git/dotfiles/void/things/90-touchpad.conf /etc/X11/xorg.con
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy xtools iptables base-devel elogind polkit dbus rtkit sof-firmware fmt bc xhost inih opendoas linux-firmware pipewire alsa-pipewire libjack-pipewire jack mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion rsync ufw acpi
+doas xbps-install -vy xtools iptables base-devel elogind polkit dbus rtkit sof-firmware fmt bc xhost inih opendoas linux-firmware pipewire libjack-pipewire jack mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion rsync ufw acpi
 
 # enabling services
-doas cp -r $HOME/stuffs/git/dotfiles/void/services/backlight /etc/sv/ && doas ln -s /etc/sv/rsyncd/ /var/servcie && doas ln -s /etc/sv/backlight/ /var/service && doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/ && doas mkdir -p /etc/pipewire/pipewire.conf.d && doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+doas cp -r $HOME/stuffs/git/dotfiles/void/services/backlight /etc/sv/ && doas ln -s /etc/sv/rsyncd/ /var/service && doas ln -s /etc/sv/backlight/ /var/service
 
 # enabling ufw with recommended settings by chris_titus
 doas ln -s /etc/sv/ufw/ /var/service && doas ufw limit 22/tcp && doas ufw allow 80/tcp && doas ufw allow 443/tcp && doas ufw default deny incoming && doas ufw default allow outgoing && doas ufw enable
@@ -163,8 +163,8 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 # intel-undervolt [INTEL ONLY]
 #doas xbps-install -vy intel-undervolt && doas cp $HOME/stuffs/git/dotfiles/void/things/intel-undervolt.conf /etc/intel-undervolt.conf && doas cp -r $HOME/stuffs/git/dotfiles/void/services/intel-undervolt/ /etc/sv/ && doas ln -s /etc/sv/intel-undervolt/ /var/service
 
-# bluetooth with pipewire and alsa
-#doas xbps-install -vy bluez bluez-alsa libspa-bluetooth && doas ln -s /etc/sv/bluetoothd/ /var/service
+# bluetooth
+#doas xbps-install -vy bluez libspa-bluetooth && doas ln -s /etc/sv/bluetoothd/ /var/service
 
 ###### OPTIONAL ######
 
