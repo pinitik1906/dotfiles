@@ -127,7 +127,7 @@ riverctl map normal Super E spawn \
 	'thunderbird'
 
 riverctl map normal Super W spawn \
-	'firefox'
+	'librewolf'
 
 # camera
 riverctl map normal Super+Control C spawn \

@@ -14,11 +14,11 @@ echo ""
 
 ###### REPO ######
 
-# enable nonfree and multilib [GLIBC]
-#sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/multilib" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/multilib/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
+# enable nonfree and multilib [GLIBC-x86_64]
+#sudo cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-nonfree-32bit.conf /etc/xbps.d/00-repository-main.conf
 
-# enable nonfree [MUSL]
-#sudo rm -rf /etc/xbps.d/00-repository-main.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | sudo tee -a /etc/xbps.d/00-repository-main.conf > /dev/null
+# enable nonfree [MUSL-x86_64]
+#sudo cp $HOME/stuffs/git/dotfiles/void/things/repo/musl-nonfree.conf /etc/xbps.d/00-repository-main.conf
 
 ###### REPO ######
 
@@ -131,16 +131,22 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 
 ###### VOID-SRC ######
 
-# enable nonfree and multilib [GLIBC]
-#git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/void-packages && cd $HOME/stuffs/git/void-packages && echo XBPS_ALLOW_RESTRICTED=yes >> $HOME/stuffs/git/void-packages/etc/conf && rm -rf $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf && rm -rf $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib.conf && echo "repository=https://repo-fastly.voidlinux.org/current" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/bootstrap" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/nonfree" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/debug" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib/bootstrap" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/multilib/nonfree" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-x86_64-multilib > /dev/null && ./xbps-src binary-bootstrap
+# enable nonfree and multilib [GLIBC-x86_64]
+#git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/allow-restricted $HOME/stuffs/git/xbps-src/etc/conf && cd $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote.conf && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote-multilib $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote-x86_64-multilib.conf  && ./xbps-src binary-bootstrap
 
-# enable nonfree [MUSL]
-#git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/void-packages && cd $HOME/stuffs/git/void-packages && echo XBPS_ALLOW_RESTRICTED=yes >> $HOME/stuffs/git/void-packages/etc/conf && rm -rf $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/bootstrap" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/nonfree" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && echo "repository=https://repo-fastly.voidlinux.org/current/musl/debug" | tee -a $HOME/stuffs/git/void-packages/etc/xbps.d/repos-remote-musl.conf > /dev/null && ./xbps-src binary-bootstrap
+# enable nonfree [MUSL-x86_64]
+#git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/allow-restricted $HOME/stuffs/git/xbps-src/etc/conf && cd $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/musl-remote.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote-musl.conf && ./xbps-src binary-bootstrap
 
 ###### VOID-SRC ######
 
 
 ###### OPTIONAL ######
+
+# librewolf (recommended)
+doas cp $HOME/stuffs/git/dotfiles/void/things/repo/librewolf.conf /etc/xbps.d/00-librewolf-void.conf && doas xbps-install librewolf
+
+# flatpak
+#doas xbps-install -vy flatpak && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 # virtualbox [VIRTUAL MACHINE / GLIBC ONLY]
 #doas xbps-install -vy virtualbox-ose virtualbox-ose-guest virtualbox-ose-guest-dkms
@@ -149,7 +155,7 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 #doas xbps-install -vy qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libvirt libguestfs && doas ln -s /etc/sv/libvirtd/ /var/service && doas ln -s /etc/sv/virtlockd/ /var/service && doas ln -s /etc/sv/virtlogd/ /var/service
 
 # msttcorefonts [NEEDS VOID-SRC ENABLED]
-#cd $HOME/stuffs/git/void-packages && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
+#cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
 
 # thinkfan [THINKPADS ONLY]
 #doas cp -r $HOME/stuffs/git/dotfiles/void/services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/things/thinkfan.yaml /etc/ && doas ln -s /etc/sv/thinkfan/ /var/service
@@ -178,7 +184,7 @@ doas xbps-install -vy earlyoom && doas ln -s /etc/sv/earlyoom/ /var/service
 doas xbps-install -vy zramen && doas ln -s /etc/sv/zramen/ /var/service
 
 # profile-sync-daemon (recommended)
-git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git $HOME/stuffs/git/psd && cd $HOME/stuffs/git/psd/ && make clean && doas make clean install && doas rm -rf /usr/lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/psd/ /etc/sv/ && doas ln -s /etc/sv/psd/ /var/service && psd && cp $HOME/stuffs/git/dotfiles/void/.config/psd/psd.conf $HOME/.config/psd/psd.conf && cd ~
+git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git $HOME/stuffs/git/psd && cd $HOME/stuffs/git/psd/ && make clean && doas make clean install && doas rm -rf /usr/lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/psd/ /etc/sv/ && doas ln -s /etc/sv/psd/ /var/service && psd && cp $HOME/stuffs/git/dotfiles/void/.config/psd/psd.conf $HOME/.config/psd/psd.conf && cd $HOME
 
 # ananicy-cpp (recommended)
 doas xbps-install -vy wget cmake fmt spdlog json-c++ && wget https://gitlab.com/ananicy-cpp/ananicy-cpp/-/archive/v1.1.1/ananicy-cpp-v1.1.1.tar.gz && tar -xvf ananicy-cpp-v1.1.1.tar.gz && cd ananicy-cpp-v1.1.1

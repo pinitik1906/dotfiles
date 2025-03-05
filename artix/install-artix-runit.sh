@@ -48,7 +48,7 @@ doas cp $HOME/stuffs/git/dotfiles/artix/things/40-libinput.conf /etc/X11/xorg.co
 doas cp $HOME/stuffs/git/dotfiles/artix/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
 # copying preconfigured pacman.conf and paru.conf
-doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/paru.conf /etc/paru.conf
+doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/paru.conf /etc/paru.conf
 
 # installing paru as a default AUR HELPER
 doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm
@@ -129,6 +129,12 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 
 
 ###### OPTIONAL ######
+
+# librewolf (recommended)
+paru -S --needed --noconfirm librewolf
+
+# flatpak
+#paru -S --needed --noconfirm flatpak
 
 # virtualbox [VIRTUAL MACHINE]
 #paru -S --needed --noconfirm virtualbox virtualbox-guest-utils
