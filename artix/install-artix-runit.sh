@@ -23,7 +23,7 @@ doas pacman -Syu --needed --noconfirm
 mkdir -p $HOME/stuffs/pic/screenshots && mkdir -p $HOME/.local/share/playlists && mkdir -p $HOME/.local/share/lyrics && mkdir -p $HOME/.local/share/gnupg
 
 # copying all conf to home folder
-cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/ && cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/ && cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile && cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
+mkdir -p $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/ && mkdir -p $HOME/.local/share/applications && cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/ && cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile && cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
 
 # copying my pre-configured grub
 doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
@@ -188,7 +188,7 @@ paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fas
 doas makewhatis -a
 
 # removing any orphaned git and packages
-rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/ananicy-cpp-rules && paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
+rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/ananicy-cpp-rules && paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
 
 # trimming SSD
 doas fstrim -av
