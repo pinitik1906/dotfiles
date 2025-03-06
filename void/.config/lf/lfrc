@@ -94,7 +94,6 @@ cmd delete ${{
 # keybinds
 map <delete> delete
 map <backspace2> set hidden!
-map q $$SHELL
 map s shell $SHELL
 map <enter> open
 
