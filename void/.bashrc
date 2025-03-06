@@ -50,3 +50,7 @@ alias sudo='doas'
 alias update-mdocml='doas makewhatis -a'
 alias update-grub='doas update-grub'
 alias update-rules='cd /etc/ananicy.d/ && sudo git pull && cd'
+
+# xbps-src
+alias xbps-src='./stuffs/git/xbps-src/xbps-src'
+alias xbps-src-update='cd ~/stuffs/git/xbps-src && git pull && cd ~'

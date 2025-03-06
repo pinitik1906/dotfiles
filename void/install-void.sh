@@ -122,7 +122,7 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 ###### VOID-SRC ######
 
 # enable nonfree and multilib [GLIBC-x86_64]
-#git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/allow-restricted.conf $HOME/stuffs/git/xbps-src/etc/conf && cd $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote.conf && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote-multilib $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote-x86_64-multilib.conf && ./xbps-src binary-bootstrap
+#git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/allow-restricted.conf $HOME/stuffs/git/xbps-src/etc/conf && cd $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote.conf && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote-multilib.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote-x86_64-multilib.conf && ./xbps-src binary-bootstrap
 
 # enable nonfree [MUSL-x86_64]
 #git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/allow-restricted.conf $HOME/stuffs/git/xbps-src/etc/conf && cd $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/musl-remote.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote-musl.conf && ./xbps-src binary-bootstrap
@@ -145,7 +145,7 @@ doas cp $HOME/stuffs/git/dotfiles/void/things/repo/librewolf.conf /etc/xbps.d/00
 #doas xbps-install -vy qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libvirt libguestfs && doas ln -s /etc/sv/libvirtd/ /var/service && doas ln -s /etc/sv/virtlockd/ /var/service && doas ln -s /etc/sv/virtlogd/ /var/service
 
 # msttcorefonts [NEEDS VOID-SRC ENABLED]
-#cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg msttcorefonts && doas xbps-install -Suvy --repository hostdir/binpkgs/nonfree/ msttcorefonts
+#cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg msttcorefonts && xi msttcorefonts
 
 # thinkfan [THINKPADS ONLY]
 #doas cp -r $HOME/stuffs/git/dotfiles/void/services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/things/thinkfan.yaml /etc/ && doas ln -s /etc/sv/thinkfan/ /var/service
@@ -210,7 +210,7 @@ doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 #doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service && doas usermod -aG network $USER
 
 # removing any orphaned git and packages
-rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/.wget-hsts && rm -rf $HOME/stuffs/git/psd && rm -rf $HOME/stuffs/git/ananicy-cpp && rm -rf $HOME/stuffs/git/bsp-layout && rm -rf $HOME/stuffs/git/wl-color-picker && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
+rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/.wget-hsts && rm -rf $HOME/stuffs/git/psd && rm -rf $HOME/stuffs/git/ananicy-cpp && rm -rf $HOME/stuffs/git/bsp-layout && rm -rf $HOME/stuffs/git/wl-color-picker && rm -rf $HOME/stuffs/git/ananicy.d && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
 doas xbps-reconfigure -fa
