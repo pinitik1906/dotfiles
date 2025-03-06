@@ -1,11 +1,34 @@
-## install
+# content
+
+- [programs i use](https://github.com/pinitik1906/dotfiles#programs-i-use)
+- [faq](https://github.com/pinitik1906/dotfiles#faq)
+- [quick links](https://github.com/pinitik1906/dotfiles#quick-links)
+
+## programs i use
+
+- bspwm / river
+- polybar / waybar
+- urxvt / foot
+- rofi / tofi
+- dunst
+- fastfetch
+- htop
+- neovim
+- lf
+- mpv
+- mpd w/ ncmpcpp
+- newsboat
+- zathura
+- pipewire
+
+### install
 to get my dotfiles, type
 
 ```
 git clone --depth 1 https://github.com/pinitik1906/dotfiles.git ~/git/dotfiles
 ```
 
-## update
+### update
 to update my dotfiles (either check it weekly or monthly), type
 
 ```
@@ -95,7 +118,7 @@ taken from the [void-xmirror](https://xmirror.voidlinux.org)
 
 "The **tier 1 mirrors** sync directly from the build servers and will always have the latest packages available. While **tier 2 mirrors** are not managed by Void and do not have any guarantees of freshness or completeness of packages, nor are they required to sync every available architecture or sub-repository."
 
-### quick links (huge thanks <3)
+## quick links
 - Native Wayland App Lists: [1,](https://wearewaylandnow.com/) [2,](https://github.com/rcalixte/awesome-wayland) [3,](https://wiki.gentoo.org/wiki/List_of_software_for_Wayland) [4](https://codeberg.org/river/wiki/src/branch/master/pages/Recommended-Software.md)
 - [Are We Sixel Yet?](https://www.arewesixelyet.com/)
 - [gruvbox-wallpapers](https://github.com/AngelJumbo/gruvbox-wallpapers)
