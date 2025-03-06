@@ -190,7 +190,7 @@ doas makewhatis -a
 # removing any orphaned git and packages
 rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/ananicy-cpp-rules && paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
 
-# trimming SSD
+# trimming SSD if available
 doas fstrim -av
 
 # rebooting your pc
