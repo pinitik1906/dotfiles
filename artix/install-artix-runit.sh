@@ -173,16 +173,16 @@ paru -S --needed --noconfirm ananicy-cpp-runit && git clone --depth 1 https://gi
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xwallpaper xorg-server xf86-input-libinput xorg-xauth xorg-xinit xorg-xrdb xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot rofi lxappearance xcolor rxvt-unicode-truecolor-wide-glyphs bsp-layout
+paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xwallpaper xorg-server xf86-input-libinput xorg-xauth xorg-xinit xorg-xrdb xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot rofi xcolor rxvt-unicode-truecolor-wide-glyphs bsp-layout
 
 # river (Wayland)
-#paru -S --needed --noconfirm river waybar swaylock swaybg xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct nwg-look foot wl-color-picker
+#paru -S --needed --noconfirm river waybar swaylock swaybg xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct foot wl-color-picker
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf xarchiver pavucontrol brightnessctl imv-git gammastep yt-dlp mpd mpc ncmpcpp newsboat
+paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol brightnessctl imv-git gammastep yt-dlp mpd mpc ncmpcpp newsboat
 
 # fixing mandoc (temporary)
 doas makewhatis -a

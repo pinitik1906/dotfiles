@@ -186,16 +186,16 @@ cmake -B "build" . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DUSE_
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-doas xbps-install -vy sxhkd bspwm polybar i3lock-color xwallpaper xorg-server xf86-input-libinput xauth xinit xrdb xss-lock xset xsel xclip xdotool xrandr scrot rofi lxappearance xcolor rxvt-unicode && git clone --depth 1 https://github.com/phenax/bsp-layout.git $HOME/stuffs/git/bsp-layout && cd $HOME/stuffs/git/bsp-layout && doas make install
+doas xbps-install -vy sxhkd bspwm polybar i3lock-color xwallpaper xorg-server xf86-input-libinput xauth xinit xrdb xss-lock xset xsel xclip xdotool xrandr scrot rofi xcolor rxvt-unicode && git clone --depth 1 https://github.com/phenax/bsp-layout.git $HOME/stuffs/git/bsp-layout && cd $HOME/stuffs/git/bsp-layout && doas make install
 
 # river (Wayland)
-#doas xbps-install -vy river Waybar swaylock swaybg xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct zenity ImageMagick nwg-look foot && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker && cd $HOME/stuffs/git/wl-color-picker && doas make install
+#doas xbps-install -vy river Waybar swaylock swaybg xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct zenity ImageMagick foot && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker && cd $HOME/stuffs/git/wl-color-picker && doas make install
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf xarchiver pavucontrol brightnessctl imv gammastep yt-dlp mpd mpc ncmpcpp newsboat
+doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol brightnessctl imv gammastep yt-dlp mpd mpc ncmpcpp newsboat
 
 # fixing mdocml (temporary)
 doas makewhatis -a
