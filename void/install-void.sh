@@ -177,8 +177,7 @@ doas xbps-install -vy zramen && doas ln -s /etc/sv/zramen/ /var/service
 git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git $HOME/stuffs/git/psd && cd $HOME/stuffs/git/psd/ && make && doas make install && doas rm -rf /usr/lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/psd/ /etc/sv/ && doas ln -s /etc/sv/psd/ /var/service && psd && cp $HOME/stuffs/git/dotfiles/void/.config/psd/psd.conf $HOME/.config/psd/psd.conf && cd $HOME
 
 # ananicy-cpp (recommended)
-doas xbps-install -vy wget cmake fmt spdlog json-c++ && wget https://gitlab.com/ananicy-cpp/ananicy-cpp/-/archive/v1.1.1/ananicy-cpp-v1.1.1.tar.gz && tar -xvf ananicy-cpp-v1.1.1.tar.gz && cd ananicy-cpp-v1.1.1
-cmake -B "build" . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DUSE_EXTERNAL_SPDLOG=ON -DUSE_EXTERNAL_JSON=ON -DUSE_EXTERNAL_FMTLIB=ON -DENABLE_SYSTEMD=OFF -DVERSION=1.1.1 && cmake --build build && doas cmake --install build --component Runtime && git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy.d && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy.d /etc/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy-cpp/ /etc/sv/ && doas ln -s /etc/sv/ananicy-cpp/ /var/service && doas xbps-remove -RFfvy wget cmake && rm -rf $HOME/ananicy-cpp-v1.1.1.tar.gz && rm -rf $HOME/ananicy-cpp-v1.1.1
+doas xbps-install -vy wget cmake fmt spdlog json-c++ && wget https://gitlab.com/ananicy-cpp/ananicy-cpp/-/archive/v1.1.1/ananicy-cpp-v1.1.1.tar.gz && tar -xvf ananicy-cpp-v1.1.1.tar.gz && cd ananicy-cpp-v1.1.1 && cmake -B "build" . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DUSE_EXTERNAL_SPDLOG=ON -DUSE_EXTERNAL_JSON=ON -DUSE_EXTERNAL_FMTLIB=ON -DENABLE_SYSTEMD=OFF -DVERSION=1.1.1 && cmake --build build && doas cmake --install build --component Runtime && git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy.d && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy.d /etc/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy-cpp/ /etc/sv/ && doas ln -s /etc/sv/ananicy-cpp/ /var/service && doas xbps-remove -RFfvy wget cmake spdlog json-c++ && rm -rf $HOME/ananicy-cpp-v1.1.1.tar.gz && rm -rf $HOME/ananicy-cpp-v1.1.1
 
 # preload [HDD ONLY]
 #doas xbps-install -vy preload && doas ln -s /etc/sv/preload/ /var/service
@@ -210,7 +209,7 @@ doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 #doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service && doas usermod -aG network $USER
 
 # removing any orphaned git and packages
-rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/.wget-hsts && rm -rf $HOME/stuffs/git/psd && rm -rf $HOME/stuffs/git/ananicy-cpp && rm -rf $HOME/stuffs/git/bsp-layout && rm -rf $HOME/stuffs/git/wl-color-picker && rm -rf $HOME/stuffs/git/ananicy.d && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
+rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/psd && rm -rf $HOME/stuffs/git/ananicy-cpp && rm -rf $HOME/stuffs/git/bsp-layout && rm -rf $HOME/stuffs/git/wl-color-picker && rm -rf $HOME/stuffs/git/ananicy.d && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
 doas xbps-reconfigure -fa
