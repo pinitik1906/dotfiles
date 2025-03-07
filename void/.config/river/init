@@ -154,7 +154,7 @@ riverctl map normal Super Space spawn \
 
 # color-picker
 riverctl map normal Super P spawn \
-	'wl-color-picker clipboard'
+	'wl-color-picker --no-notify clipboard'
 
 # screenshot
 riverctl map normal None Print spawn \
