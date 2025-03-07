@@ -43,6 +43,7 @@ cmd open ${{
         text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx;;
 	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
 	image/svg+xml) display -- $f ;;
+	image/*|png|jpg|jpeg|gif|webp|avif|tif|ico) setsid -f imv-dir $fx >/dev/null 2>&1 ;;
 	audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
 	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
 	application/pdf|application/vnd.djvu|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
@@ -96,6 +97,8 @@ map <delete> delete
 map <backspace2> set hidden!
 map s shell $SHELL
 map <enter> open
+map V push :nvim<space>
+map <c-n> push :mkdir<space>""<left>
 
 map <esc> quit
 map dd cut
@@ -103,11 +106,9 @@ map dD delete
 map yy copy
 map pp paste
 map po paste-overwrite
-map a rename
+map a :rename
 map <f-2> rename
 map e extract
-map o &mimeopen "$f"
-map O $mimeopen --ask "$f"
 
 map gh cd ~
 map gg cd ~/stuffs/git
