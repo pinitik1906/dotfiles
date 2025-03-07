@@ -32,7 +32,7 @@ alias ffmpeg="ffmpeg -hide_banner"
 # shortcuts/abbreviations
 alias ff='fastfetch --logo void2_small --logo-color-2 37 --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1'
 alias xr='doas xbps-remove -ROov'
-alias xi='xi'
+alias xi='doas xbps-install -Suv'
 alias xq='xbps-query -Rs'
 alias xf='xbps-query -f'
 alias xc='doas rm -rf /var/cache/xbps/*'
@@ -52,5 +52,6 @@ alias update-grub='doas update-grub'
 alias update-rules='cd /etc/ananicy.d/ && sudo git pull && cd'
 
 # xbps-src
+alias xii='cd $HOME/stuffs/git/xbps-src && xi && cd'
 alias xbps-src='$HOME/stuffs/git/xbps-src/xbps-src'
 alias xbps-src-update='cd $HOME/stuffs/git/xbps-src && git pull && cd'

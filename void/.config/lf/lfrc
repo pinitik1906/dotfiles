@@ -8,9 +8,6 @@ set hidden
 set drawbox
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
-#set sixel
-#set previewer ~/.config/lf/previewer
-#set cleaner ~/.config/lf/cleaner
 
 # custom commands
 cmd mkdir $mkdir -p "$@"
@@ -98,7 +95,7 @@ map <backspace2> set hidden!
 map s shell $SHELL
 map <enter> open
 map V push :nvim<space>
-map <c-n> push :mkdir<space>""<left>
+map n push :mkdir<space>""<left>
 
 map <esc> quit
 map dd cut
@@ -107,7 +104,8 @@ map yy copy
 map pp paste
 map po paste-overwrite
 map a :rename
-map <f-2> rename
+map r :rename
+map <f-2> :rename
 map e extract
 
 map gh cd ~

@@ -212,7 +212,7 @@ doas makewhatis -a
 doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
 
 # install NetworkManager (optional. if you uncomment it, please use `nmtui` to connect)
-#doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service && doas usermod -aG network $USER
+#doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service
 
 # removing any orphaned git and packages
 rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/psd && rm -rf $HOME/stuffs/git/ananicy-cpp && rm -rf $HOME/stuffs/git/bsp-layout && rm -rf $HOME/stuffs/git/wl-color-picker && rm -rf $HOME/stuffs/git/ananicy.d && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
