@@ -51,7 +51,13 @@ sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/void/thi
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy xtools iptables base-devel elogind polkit dbus rtkit sof-firmware fmt bc xhost inih opendoas linux-firmware pipewire libjack-pipewire jack mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion rsync ufw acpi
+doas xbps-install -vy xtools iptables base-devel elogind polkit dbus rtkit sof-firmware fmt bc xhost inih opendoas linux-firmware pipewire alsa-pipewire libjack-pipewire jack mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion rsync ufw acpi
+
+# enable alsa with pipewire
+doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
+
+# make jack works well
+doas mkdir -p /etc/ld.so.conf.d && doas cp -r $HOME/stuffs/git/dotfiles/void/things/jack.conf /etc/ld.so.conf.d/pipewire-jack.conf && doas ldconfig
 
 # enabling services
 doas cp -r $HOME/stuffs/git/dotfiles/void/services/backlight /etc/sv/ && doas ln -s /etc/sv/rsyncd/ /var/service && doas ln -s /etc/sv/backlight/ /var/service
@@ -160,7 +166,7 @@ doas cp $HOME/stuffs/git/dotfiles/void/things/repo/librewolf.conf /etc/xbps.d/00
 #doas xbps-install -vy intel-undervolt && doas cp $HOME/stuffs/git/dotfiles/void/things/intel-undervolt.conf /etc/intel-undervolt.conf && doas cp -r $HOME/stuffs/git/dotfiles/void/services/intel-undervolt/ /etc/sv/ && doas ln -s /etc/sv/intel-undervolt/ /var/service
 
 # bluetooth
-#doas xbps-install -vy bluez libspa-bluetooth && doas ln -s /etc/sv/bluetoothd/ /var/service
+#doas xbps-install -vy bluez bluez-alsa libspa-bluetooth && doas ln -s /etc/sv/bluetoothd/ /var/service
 
 ###### OPTIONAL ######
 
