@@ -10,6 +10,7 @@
 - polybar / waybar
 - urxvt / foot
 - rofi / tofi
+- bash
 - dunst
 - fastfetch
 - htop
@@ -47,7 +48,7 @@ sudo pacman -Rns gammastep
 
 **void**
 ```
-sudo xbps-remove -R gammastep
+sudo xbps-remove -ROo gammastep
 ```
 
 ### proprietary NVIDIA on Wayland for artix
@@ -112,11 +113,6 @@ if [ "$(tty)" = "/dev/tty1" ]; then
 startx &>/dev/null
 fi
 ```
-
-### why use a tier 1 mirror for void?
-taken from the [void-xmirror](https://xmirror.voidlinux.org) 
-
-"The **tier 1 mirrors** sync directly from the build servers and will always have the latest packages available. While **tier 2 mirrors** are not managed by Void and do not have any guarantees of freshness or completeness of packages, nor are they required to sync every available architecture or sub-repository."
 
 ## quick links
 - Native Wayland App Lists: [1,](https://wearewaylandnow.com/) [2,](https://github.com/rcalixte/awesome-wayland) [3,](https://wiki.gentoo.org/wiki/List_of_software_for_Wayland) [4](https://codeberg.org/river/wiki/src/branch/master/pages/Recommended-Software.md)
