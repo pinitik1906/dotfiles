@@ -28,9 +28,6 @@ mkdir -p $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/
 # xdg-user-dirs
 mkdir -p $HOME/stuffs/dls && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
 
-# apply .bash_profile and .bashrc configuration
-source $HOME/.bash_profile && source $HOME/.bashrc
-
 # copying my pre-configured grub
 doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
 
@@ -47,7 +44,10 @@ doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/
 doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm
 
 # installing important dependencies
-paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit rtkit sof-firmware bc xorg-xhost libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack jack2 mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit bat mediainfo atool tar unzip unrar 7zip
+paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit rtkit sof-firmware bc xorg-xhost libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit bat mediainfo atool tar unzip unrar 7zip
+
+# apply .bash_profile and .bashrc configuration
+source $HOME/.bash_profile && source $HOME/.bashrc
 
 # enabling services
 doas ln -s /etc/runit/sv/backlight/ /run/runit/service && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
@@ -168,7 +168,7 @@ paru -S --needed --noconfirm zramen-runit && doas ln -s /etc/runit/sv/zramen/ /r
 paru -S --needed --noconfirm profile-sync-daemon && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/artix/services/psd/ /etc/sv/ && doas ln -s /etc/runit/sv/psd/ /run/runit/service && psd && cp $HOME/stuffs/git/dotfiles/artix/.config/psd/psd.conf $HOME/.config/psd/psd.conf
 
 # ananicy-cpp (recommended)
-paru -S --needed --noconfirm ananicy-cpp-runit && git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas ln -s /etc/runit/sv/ananicy-cpp/ /run/runit/service
+paru -S --needed --noconfirm ananicy-cpp && doas cp $HOME/stuffs/git/dotfiles/artix/services/ananicy-cpp /etc/runit/sv && doas ln -s /etc/runit/sv/ananicy-cpp /run/runit/service && git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas rm -rf /lib/systemd && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas ln -s /etc/runit/sv/ananicy-cpp/ /run/runit/service
 
 # preload [HDD ONLY]
 #paru -S --needed --noconfirm preload && doas cp -r $HOME/stuffs/git/dotfiles/artix/services/preload/ /etc/runit/sv/ && doas ln -s /etc/runit/sv/preload/ /run/runit/service
@@ -188,7 +188,7 @@ paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xwallpaper xorg-se
 
 
 # install your programs here
-paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol brightnessctl imv-git gammastep yt-dlp mpd mpc ncmpcpp newsboat
+paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol brightnessctl imv gammastep yt-dlp mpd mpc ncmpcpp newsboat
 
 # fixing mandoc (temporary)
 doas makewhatis -a
