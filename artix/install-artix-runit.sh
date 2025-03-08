@@ -28,6 +28,9 @@ mkdir -p $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/
 # xdg-user-dirs
 mkdir -p $HOME/stuffs/dls && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
 
+# apply .bash_profile and .bashrc configuration
+source $HOME/.bash_profile && source $HOME/.bashrc
+
 # copying my pre-configured grub
 doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
 

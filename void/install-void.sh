@@ -38,6 +38,9 @@ mkdir $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.con
 # xdg-user-dirs
 mkdir -p $HOME/stuffs/dls && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
 
+# apply .bash_profile and .bashrc configuration
+source $HOME/.bash_profile && source $HOME/.bashrc
+
 # copying my pre-configured grub
 sudo cp $HOME/stuffs/git/dotfiles/void/things/grub /etc/default/grub
 
@@ -151,7 +154,7 @@ doas cp $HOME/stuffs/git/dotfiles/void/things/repo/librewolf.conf /etc/xbps.d/00
 #doas xbps-install -vy qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libvirt libguestfs && doas ln -s /etc/sv/libvirtd/ /var/service && doas ln -s /etc/sv/virtlockd/ /var/service && doas ln -s /etc/sv/virtlogd/ /var/service
 
 # msttcorefonts [NEEDS VOID-SRC ENABLED]
-#cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg msttcorefonts && xi msttcorefonts
+#cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg msttcorefonts && xbps-install -vy --repository hostdir/binpkgs msttcorefonts
 
 # thinkfan [THINKPADS ONLY]
 #doas cp -r $HOME/stuffs/git/dotfiles/void/services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/things/thinkfan.yaml /etc/ && doas ln -s /etc/sv/thinkfan/ /var/service
@@ -217,7 +220,7 @@ doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 # removing any orphaned git and packages
 rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/psd && rm -rf $HOME/stuffs/git/ananicy-cpp && rm -rf $HOME/stuffs/git/bsp-layout && rm -rf $HOME/stuffs/git/wl-color-picker && rm -rf $HOME/stuffs/git/ananicy.d && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
 
-# some packages might not configured properly, consider fix this with xbps-reconfigure to all packages.
+# some packages might not configured properly, consider fix this with xbps-reconfigure to all packages
 doas xbps-reconfigure -fa
 
 # trimming SSD if available
