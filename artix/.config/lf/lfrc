@@ -8,6 +8,7 @@ set hidden
 set drawbox
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
+set previewer ~/.config/lf/scope
 
 # custom commands
 cmd mkdir $mkdir -p "$@"
