@@ -66,17 +66,17 @@ cmd extract ${{
 	[ $ans = "y" ] && {
 		case $fx in
 			*.tar.bz2)   tar xjfv $fx     ;;
-			*.tar.gz)    tar xzfv $fx     ;;
-			*.bz2)       bunzip2 -v $fx   ;;
-			*.rar)       unrar e $fx      ;;
-			*.gz)        gunzip -v $fx    ;;
-			*.tar)       tar xfv $fx      ;;
 			*.tbz2)      tar xjfv $fx     ;;
+			*.bz2)       bunzip2 -v $fx   ;;
+			*.tar.gz)    tar xzfv $fx     ;;
 			*.tgz)       tar xzfv $fx     ;;
-			*.zip)       unzip $fx        ;;
-			*.Z)         uncompress $fx   ;;
-			*.7z)        7z x $fx         ;;
+			*.gz)        gunzip -v $fx    ;;
 			*.tar.xz)    tar xfv $fx      ;;
+			*.tar)       tar xfv $fx      ;;
+			*.rar)       unrar e $fx      ;;
+			*.zip)       unzip $fx        ;;
+			*.7z)        7z x $fx         ;;
+			*.Z)         uncompress $fx   ;;
 		esac
 	}
 }}
@@ -95,7 +95,7 @@ map <delete> delete
 map <backspace2> set hidden!
 map s shell $SHELL
 map <enter> open
-map V push :nvim<space>
+map E push :nvim<space>
 map n push :mkdir<space>""<left>
 
 map <esc> quit
