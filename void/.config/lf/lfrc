@@ -73,6 +73,8 @@ cmd extract ${{
 			*.gz)        gunzip -v $fx    ;;
 			*.tar.xz)    tar xfv $fx      ;;
 			*.tar)       tar xfv $fx      ;;
+			*.tar.zst)   zstd -d $fx      ;;
+			*.zst)       zstd -d $fx      ;;
 			*.rar)       unrar e $fx      ;;
 			*.zip)       unzip $fx        ;;
 			*.7z)        7z x $fx         ;;
