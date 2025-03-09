@@ -128,7 +128,7 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 ###### DRIVERS ######
 
 
-###### VOID-SRC ######
+###### XBPS-SRC ######
 
 # enable nonfree and multilib [GLIBC-x86_64]
 #git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/allow-restricted.conf $HOME/stuffs/git/xbps-src/etc/conf && cd $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote.conf && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote-multilib.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote-x86_64-multilib.conf && ./xbps-src binary-bootstrap
@@ -153,7 +153,7 @@ doas cp $HOME/stuffs/git/dotfiles/void/things/repo/librewolf.conf /etc/xbps.d/00
 # qemu/virt-manager (recommended) [VIRTUAL MACHINE]
 #doas xbps-install -vy qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat libvirt libguestfs && doas ln -s /etc/sv/libvirtd/ /var/service && doas ln -s /etc/sv/virtlockd/ /var/service && doas ln -s /etc/sv/virtlogd/ /var/service
 
-# msttcorefonts [NEEDS VOID-SRC ENABLED]
+# msttcorefonts [NEEDS VOID-SRC ENABLED / LEGACY]
 #cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg msttcorefonts && xbps-install -vy --repository hostdir/binpkgs msttcorefonts
 
 # thinkfan [THINKPADS ONLY]

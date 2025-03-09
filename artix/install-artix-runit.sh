@@ -168,7 +168,7 @@ paru -S --needed --noconfirm zramen-runit && doas ln -s /etc/runit/sv/zramen/ /r
 paru -S --needed --noconfirm profile-sync-daemon && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/artix/services/psd/ /etc/sv/ && doas ln -s /etc/runit/sv/psd/ /run/runit/service && psd && cp $HOME/stuffs/git/dotfiles/artix/.config/psd/psd.conf $HOME/.config/psd/psd.conf
 
 # ananicy-cpp (recommended)
-paru -S --needed --noconfirm ananicy-cpp && doas cp -r $HOME/stuffs/git/dotfiles/artix/services/ananicy-cpp/ /etc/runit/sv/ && git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas rm -rf /lib/systemd && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas ln -s /etc/runit/sv/ananicy-cpp/ /run/runit/service
+paru -S --needed --noconfirm ananicy-cpp-runit && git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas ln -s /etc/runit/sv/ananicy-cpp/ /run/runit/service
 
 # preload [HDD ONLY]
 #paru -S --needed --noconfirm preload && doas cp -r $HOME/stuffs/git/dotfiles/artix/services/preload/ /etc/runit/sv/ && doas ln -s /etc/runit/sv/preload/ /run/runit/service
