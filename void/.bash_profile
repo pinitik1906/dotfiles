@@ -9,8 +9,8 @@ export PATH=$PATH:$HOME/.local/bin
 export EDITOR='nvim'
 export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
-export TERMINAL='urxvt'
-export TERMINAL_PROG='urxvt'
+export TERMINAL='st'
+export TERMINAL_PROG='st'
 export BROWSER='librewolf'
 export MAIL='thunderbird'
 

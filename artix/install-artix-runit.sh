@@ -44,7 +44,7 @@ doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/
 doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm
 
 # installing important dependencies
-paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit rtkit sof-firmware bc xorg-xhost libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit bat mediainfo atool tar unzip unrar 7zip zstd
+paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit rtkit sof-firmware bc xorg-xhost libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit bat mediainfo atool tar unzip unrar 7zip zstd fontconfig libx11 libxft harfbuzz
 
 # apply .bash_profile and .bashrc configuration
 source $HOME/.bash_profile && source $HOME/.bashrc
@@ -179,7 +179,7 @@ paru -S --needed --noconfirm ananicy-cpp-runit && git clone --depth 1 https://gi
 ###### WINDOW MANAGERS ######
 
 # bspwm (X11)
-paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xwallpaper xorg-server xf86-input-libinput xorg-xauth xorg-xinit xorg-xrdb xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot rofi xcolor rxvt-unicode-truecolor-wide-glyphs bsp-layout
+paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xwallpaper xorg-server xf86-input-libinput xorg-xauth xorg-xinit xorg-xrdb xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot rofi xcolor && git clone --depth 1 https://github.com/pinitik1906/st.git $HOME/stuffs/git/st && cd $HOME/stuffs/git/st && make && doas make install
 
 # river (Wayland)
 #paru -S --needed --noconfirm river waybar wayland-protocols swaylock swaybg xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct foot wl-color-picker

@@ -16,7 +16,6 @@ mpd --no-daemon ~/.config/mpd/mpd.conf &
 dunst &
 gammastep -Pxr -O 2300 &
 /usr/libexec/polkit-mate-authentication-agent-1 &
-xrdb -quiet -merge ~/.config/x11/xresources &
 
 # lockscreen with suspend
 xss-lock --quiet -l -- i3lock --nofork --radius 50 --inside-color=00000000 --line-uses-inside --verif-size=16 --verif-text="Verifying" --wrong-size=16 --wrong-text="Wrong" -Fei ~/.config/bg/lock.png
