@@ -2,4 +2,4 @@
 Type=Application
 Name=Text Editor
 Hidden=true
-Exec=urxvt -e nvim %u
+Exec=st -e nvim %u

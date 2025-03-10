@@ -2,4 +2,4 @@
 Type=Application
 Name=File Manager
 Hidden=true
-Exec=urxvt -e lf %u
+Exec=st -e lf %u

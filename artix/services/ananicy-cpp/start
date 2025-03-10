@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec /sbin/sysctl -qe kernel.sched_autogroup_enabled=0
