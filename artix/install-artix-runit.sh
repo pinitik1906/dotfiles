@@ -44,7 +44,7 @@ doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/
 doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm
 
 # installing important dependencies
-paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit rtkit sof-firmware bc xorg-xhost libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit bat mediainfo atool tar unzip unrar 7zip zstd fontconfig libx11 libxft harfbuzz
+paru -S --needed --noconfirm iptables-runit base-devel elogind-runit polkit dbus-runit rtkit sof-firmware bc xorg-xhost libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit bat lynx odt2txt exiftool atool tar unzip unrar 7zip zstd fontconfig libx11 libxft harfbuzz
 
 # enabling services
 doas ln -s /etc/runit/sv/backlight/ /run/runit/service && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
