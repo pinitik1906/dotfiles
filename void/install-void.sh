@@ -154,7 +154,7 @@ doas cp $HOME/stuffs/git/dotfiles/void/things/repo/librewolf.conf /etc/xbps.d/00
 #cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg msttcorefonts && doas xbps-install -vy --repository hostdir/binpkgs msttcorefonts
 
 # ueberzugpp [NEEDS XBPS-SRC ENABLED]
-#cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg cli11 && doas xbps-install -vy --repository hostdir/binpkgs cli11 && ./xbps-src -f pkg ueberzugpp && doas xbps-install -vy --repository hostdir/binpkgs ueberzugpp
+#cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg cli11 && doas xbps-install -vy --repository hostdir/binpkgs cli11 && ./xbps-src -f pkg ueberzugpp && doas xbps-install -vy --repository hostdir/binpkgs ueberzugpp && doas xbps-install -vy ffmpegthumbnailer
 
 # thinkfan [THINKPADS ONLY]
 #doas cp -r $HOME/stuffs/git/dotfiles/void/services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/things/thinkfan.yaml /etc/ && doas ln -s /etc/sv/thinkfan/ /var/service
