@@ -3,7 +3,7 @@ super + Return
 	$TERMINAL
 
 super + r
-	$TERMINAL -e lf
+	$TERMINAL -e lfub
 
 super + s
 	$TERMINAL -e ncmpcpp -q

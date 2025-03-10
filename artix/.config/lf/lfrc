@@ -8,6 +8,8 @@ set hidden
 set drawbox
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
+set sixel
+set cleaner ~/.config/lf/cleaner
 set previewer ~/.config/lf/scope
 
 # custom commands

@@ -112,7 +112,7 @@ riverctl map normal Super Return spawn \
 	'foot'
 
 riverctl map normal Super R spawn \
-	'foot -e lf'
+	'foot -e lfub'
 
 riverctl map normal Super S spawn \
 	'foot -e ncmpcpp -q'

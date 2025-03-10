@@ -52,6 +52,6 @@ alias update-grub='doas update-grub'
 alias update-rules='cd /etc/ananicy.d/ && sudo git pull && cd'
 
 # xbps-src
-alias xii='cd $HOME/stuffs/git/xbps-src && xi && cd'
+alias xib='cd $HOME/stuffs/git/xbps-src && doas xbps-install --repository hostdir/binpkgs && cd'
 alias xbps-src='$HOME/stuffs/git/xbps-src/xbps-src'
 alias xbps-src-update='cd $HOME/stuffs/git/xbps-src && git pull && cd'
