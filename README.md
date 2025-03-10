@@ -9,34 +9,34 @@
 
 ## programs i use
 
-- bspwm / river
-- polybar / waybar
-- st / foot
-- rofi / tofi
-- bash
-- dunst
-- fastfetch
-- htop
-- neovim
-- lf
-- mpv
-- mpd w/ ncmpcpp
-- newsboat
-- zathura
-- pipewire
+- `bspwm` / `river`
+- `polybar` / `waybar`
+- `st` / `foot`
+- `rofi` / `tofi`
+- `bash`
+- `dunst`
+- `fastfetch`
+- `htop`
+- `neovim`
+- `lf`
+- `mpv`
+- `mpd` w/ `ncmpcpp`
+- `newsboat`
+- `zathura`
+- `pipewire`
 
 ### install
 to get my dotfiles, type
 
 ```
-git clone --depth 1 https://github.com/pinitik1906/dotfiles.git ~/git/dotfiles
+git clone --depth 1 https://github.com/pinitik1906/dotfiles.git $HOME/stuffs/git/dotfiles
 ```
 
 ### update
 to update my dotfiles (either check it weekly or monthly), type
 
 ```
-cd ~/git/dotfiles && git pull
+cd $HOME/stuffs/git/dotfiles && git pull
 ```
 
 ## faq
