@@ -8,7 +8,7 @@
 
 - bspwm / river
 - polybar / waybar
-- urxvt / foot
+- st / foot
 - rofi / tofi
 - bash
 - dunst
