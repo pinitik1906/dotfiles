@@ -2,4 +2,4 @@
 Type=Application
 Name=Video Viewer
 Hidden=true
-Exec=mpv --quiet %f
+Exec=mpv --really-quiet %f

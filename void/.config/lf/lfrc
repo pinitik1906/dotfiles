@@ -61,7 +61,7 @@ cmd open ${{
 		mpv --audio-display=no $f ;;
 
 	video/*)
-		setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+		setsid -f mpv --really-quiet $f >/dev/null 2>&1 ;;
 
 	application/pdf|application/vnd.djvu|application/epub*)
 		setsid -f zathura $fx >/dev/null 2>&1 ;;
@@ -145,20 +145,17 @@ map <f-2> :rename
 map e extract
 
 map gh cd ~
-map gg cd ~/stuffs/git
 map gc cd ~/.config/
+map go cd ~/.config/lf
 map gl cd ~/.local/
-map ge cd /etc
-map gu cd /usr
-map gd cd /dev
-map go cd /opt
-map gv cd /var
-map gm cd /media
+map gd cd ~/stuffs/dls
+map gD cd ~/stuffs/doc
+map gG cd ~/stuffs/gam
+map gg cd ~/stuffs/git
+map gm cd ~/stuffs/mus
+map gp cd ~/stuffs/pic
+map gv cd ~/stuffs/vid
 map gi cd /run/media/
-map gM cd /mnt
-map gs cd /srv
-map gp cd /tmp
-map gr cd /
 
 # disabled/unmapped binds
 map d
