@@ -125,6 +125,8 @@ cmd delete ${{
 	[ $ans = "y" ] && rm -rf -- $fx
 }}
 
+cmd dragon $dragon-drop -T -a -k $fx
+
 # keybinds
 map <delete> delete
 map <backspace2> set hidden!
@@ -136,6 +138,7 @@ map n push :mkdir<space>""<left>
 map <esc> quit
 map dd cut
 map dD delete
+map dr dragon
 map yy copy
 map pp paste
 map po paste-overwrite
