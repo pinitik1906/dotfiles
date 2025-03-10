@@ -1,5 +1,5 @@
-![ss-1](screenshot/ss-1.png)
-![ss-2](screenshot/ss-2.png)
+![ss-1](https://github.com/user-attachments/assets/97b3aca3-b7d6-4bfe-b51e-11cc1225fd88)
+![ss-2](https://github.com/user-attachments/assets/1174c3de-53cd-4724-aff2-db687bf37c5e)
 
 # content
 
