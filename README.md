@@ -1,3 +1,6 @@
+![ss-1](screenshot/ss-1.png)
+![ss-2](screenshot/ss-2.png)
+
 # content
 
 - [programs i use](https://github.com/pinitik1906/dotfiles#programs-i-use)
