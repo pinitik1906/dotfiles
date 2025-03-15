@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo ""
 echo ""
@@ -51,7 +51,7 @@ sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/void/thi
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy xtools iptables base-devel elogind polkit dbus rtkit sof-firmware fmt bc xhost inih opendoas linux-firmware pipewire alsa-pipewire libjack-pipewire mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion rsync ufw acpi dragon bat odt2txt poppler exiftool atool tar unzip unrar 7zip zstd fontconfig libX11 libXft harfbuzz
+doas xbps-install -vy dash xtools iptables base-devel elogind polkit dbus rtkit sof-firmware fmt bc xhost inih opendoas linux-firmware pipewire alsa-pipewire libjack-pipewire mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion rsync ufw acpi dragon bat odt2txt poppler exiftool atool tar unzip unrar 7zip zstd fontconfig libX11 libXft harfbuzz
 
 # enable alsa with pipewire
 doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
@@ -216,6 +216,9 @@ doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 
 # install NetworkManager (optional. if you uncomment it, please use `nmtui` to connect)
 #doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service
+
+# make dash as the default in /bin/sh
+doas ln -sf /bin/dash /bin/sh
 
 # removing any orphaned git and packages
 rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/psd && rm -rf $HOME/stuffs/git/ananicy-cpp && rm -rf $HOME/stuffs/git/bsp-layout && rm -rf $HOME/stuffs/git/wl-color-picker && rm -rf $HOME/stuffs/git/ananicy.d && rm -rf $HOME/stuffs/git/st && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
