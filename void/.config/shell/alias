@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# colored outputs
+alias ls="ls -hN --color=auto --group-directories-first"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+alias ccat="highlight --out-format=ansi"
+alias ip="ip -color=auto"
+
+# verbose outputs
+alias cp="cp -riv"
+alias mv="mv -iv"
+alias rm="rm -Irv"
+alias bc="bc -ql"
+alias rsync="rsync -Pvrlu"
+alias mkdir="mkdir -pv"
+alias ffmpeg="ffmpeg -hide_banner"
+
+# shortcuts/abbreviations
+alias ff='fastfetch --logo void2_small --logo-color-2 37 --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1'
+alias xr='doas xbps-remove -ROov'
+alias xi='doas xbps-install -Suv'
+alias xq='xbps-query -Rs'
+alias xf='xbps-query -f'
+alias xc='doas rm -rf /var/cache/xbps/*'
+alias lf='lfub'
+alias fstrim='doas fstrim -av'
+alias yt-dlp='cd $HOME/stuffs/dls && yt-dlp -S res:1080 -S vcodec:h264 --restrict-filenames -o "%(title)s.%(ext)s" --sponsorblock-remove all --audio-format mp3'
+alias reboot='loginctl reboot'
+alias poweroff='loginctl poweroff'
+alias reload='loginctl reload'
+alias suspend='loginctl suspend'
+alias hibernate='loginctl hibernate'
+alias hybrid-sleep='loginctl hybrid-sleep'
+alias suspend-then-hibernate='loginctl suspend-then-hibernate'
+alias bctl='bluetoothctl'
+alias sudo='doas'
+alias update-mdocml='doas makewhatis -a'
+alias update-grub='doas update-grub'
+
+# xbps-src
+alias xib='cd $HOME/stuffs/git/xbps-src/ && doas xbps-install --repository hostdir/binpkgs'
+alias xbps-src='$HOME/stuffs/git/xbps-src/xbps-src'
+alias xbps-src-update='cd $HOME/stuffs/git/xbps-src && git pull'
