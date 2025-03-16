@@ -23,7 +23,7 @@ doas pacman -Syu --needed --noconfirm
 mkdir -p $HOME/stuffs/pic/screenshots && mkdir -p $HOME/.local/share/playlists && mkdir -p $HOME/.local/share/lyrics && mkdir -p $HOME/.local/share/gnupg
 
 # copying all conf to home folder
-mkdir -p $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/ && mkdir -p $HOME/.local/share/applications && cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/ && cp $HOME/stuffs/git/dotfiles/artix/.bash_profile $HOME/.bash_profile && cp $HOME/stuffs/git/dotfiles/artix/.bashrc $HOME/.bashrc
+mkdir -p $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/ && mkdir -p $HOME/.local/share/applications && cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/ && mkdir -p $HOME/.local/bin && cp -r $HOME/stuffs/git/dotfiles/artix/.local/bin/* $HOME/.local/bin/ && cp $HOME/stuffs/git/dotfiles/artix/.zprofile $HOME/.zprofile
 
 # xdg-user-dirs
 mkdir -p $HOME/stuffs/dls && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
@@ -44,7 +44,7 @@ doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/
 doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm
 
 # installing important dependencies
-paru -S --needed --noconfirm dash iptables-runit base-devel elogind-runit polkit dbus-runit rtkit sof-firmware bc xorg-xhost libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg playerctl less mandoc dunst libnotify runit-bash-completions rsync-runit ufw-runit acpi backlight-runit dragon-drop bat odt2txt poppler exiftool atool tar unzip unrar 7zip zstd fontconfig libx11 libxft harfbuzz
+paru -S --needed --noconfirm dash iptables-runit base-devel elogind-runit polkit dbus-runit xorg-xhost libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg less mandoc dunst libnotify zsh zsh-syntax-highlighting rsync-runit ufw-runit backlight-runit dragon-drop bat odt2txt poppler exiftool atool tar unzip unrar 7zip zstd
 
 # enabling services
 doas ln -s /etc/runit/sv/backlight/ /run/runit/service && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
@@ -64,6 +64,8 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 # 32bit vulkan dependencies [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
 
+# getting all of the git packages
+git clone --depth 1 https://github.com/pinitik1906/st $HOME/stuffs/git/st && git clone --depth 1 https://github.com/pinitik1906/dwl $HOME/stuffs/git/dwl && git clone --depth 1 https://github.com/pinitik1906/dwm $HOME/stuffs/git/dwm && git clone --depth 1 https://github.com/pinitik1906/dmenu $HOME/stuffs/git/dmenu && git clone --depth 1 https://github.com/pinitik1906/slstatus $HOME/stuffs/git/slstatus
 
 ###### DRIVERS ######
 
@@ -156,48 +158,32 @@ paru -S --needed --noconfirm librewolf
 ###### OPTIONAL ######
 
 
-###### OPTIMIZATIONS ######
-
-# earlyoom (recommended)
-paru -S --needed --noconfirm earlyoom-runit && doas ln -s /etc/runit/sv/earlyoom/ /run/runit/service
-
-# zram (recommended)
-paru -S --needed --noconfirm zramen-runit && doas ln -s /etc/runit/sv/zramen/ /run/runit/service
-
-# profile-sync-daemon (recommended)
-paru -S --needed --noconfirm profile-sync-daemon && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/artix/services/psd/ /etc/sv/ && doas ln -s /etc/runit/sv/psd/ /run/runit/service && psd && cp $HOME/stuffs/git/dotfiles/artix/.config/psd/psd.conf $HOME/.config/psd/psd.conf
-
-# ananicy-cpp (recommended)
-paru -S --needed --noconfirm ananicy-cpp-runit && git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy-cpp-rules && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy-cpp-rules/ /etc/ananicy.d && doas ln -s /etc/runit/sv/ananicy-cpp/ /run/runit/service
-
-# preload [HDD ONLY]
-#paru -S --needed --noconfirm preload && doas cp -r $HOME/stuffs/git/dotfiles/artix/services/preload/ /etc/runit/sv/ && doas ln -s /etc/runit/sv/preload/ /run/runit/service
-
-###### OPTIMIZATIONS ######
-
-
 ###### WINDOW MANAGERS ######
 
-# bspwm (X11)
-paru -S --needed --noconfirm sxhkd bspwm polybar i3lock-color xwallpaper xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot rofi xcolor && git clone --depth 1 https://github.com/pinitik1906/st.git $HOME/stuffs/git/st && cd $HOME/stuffs/git/st && make && doas make install
+# dwm (X11)
+paru -S --needed --noconfirm xbacklight i3lock-color xwallpaper xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dmenu && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
 
-# river (Wayland)
-#paru -S --needed --noconfirm river waybar wayland-protocols swaylock swaybg xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct foot wl-color-picker
+# dwl (Wayland)
+#paru -S --needed --noconfirm wmenu foot brightnessctl swaylock swaybg xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp swayidle wlopm qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland fcft libx11 libxft libxinerama && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol brightnessctl imv gammastep yt-dlp mpd mpc ncmpcpp newsboat
+paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol imv gammastep yt-dlp mpd mpc ncmpcpp newsboat
 
 # fixing mandoc (temporary)
 doas makewhatis -a
+
+# replace bash with zsh
+doas chsh -s /bin/zsh
+chsh -s /bin/zsh
 
 # make dash as the default in /bin/sh
 doas ln -sf dash /bin/sh
 
 # removing any orphaned git and packages
-rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/ananicy-cpp-rules && rm -rf $HOME/stuffs/git/st && paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
+rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dmenu && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
 
 # trimming SSD if available
 doas fstrim -av

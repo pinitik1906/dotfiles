@@ -1,5 +1,13 @@
 # activate all dbus variables
 dbus-update-activation-environment --all
 
-# autostart bspwm
-dbus-launch bspwm
+# autostart dwm
+xwallpaper --zoom ~/.config/bg/pacman.png &
+mpd --no-daemon ~/.config/mpd/mpd.conf &
+dunst &
+gammastep -Pxr -O 2300 &
+/usr/libexec/polkit-mate-authentication-agent-1 &
+xss-lock --quiet -l -- i3lock --nofork --radius 50 --inside-color=00000000 --line-uses-inside --verif-size=16 --verif-text="Verifying" --wrong-size=16 --wrong-text="Wrong" -Fei ~/.config/bg/lock.png &
+xset r rate 300 50 &
+slstatus &
+dbus-launch dwm

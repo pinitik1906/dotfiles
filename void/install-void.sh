@@ -33,7 +33,7 @@ sudo xbps-install -Suvy
 mkdir -p $HOME/stuffs/pic/screenshots && mkdir -p $HOME/.local/share/playlists && mkdir -p $HOME/.local/share/lyrics && mkdir -p $HOME/.local/share/gnupg
 
 # copying all conf to home folder
-mkdir $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/ && mkdir -p $HOME/.local/share/applications && cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/ && cp $HOME/stuffs/git/dotfiles/void/.bash_profile $HOME/.bash_profile && cp $HOME/stuffs/git/dotfiles/void/.bashrc $HOME/.bashrc
+mkdir $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/ && mkdir -p $HOME/.local/share/applications && cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/ && mkdir -p $HOME/.local/bin && cp -r $HOME/stuffs/git/dotfiles/void/.local/bin/* $HOME/.local/bin/ && cp $HOME/stuffs/git/dotfiles/void/.zprofile $HOME/.zprofile
 
 # xdg-user-dirs
 mkdir -p $HOME/stuffs/dls && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
@@ -51,7 +51,7 @@ sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/void/thi
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy dash xtools iptables base-devel elogind polkit dbus rtkit sof-firmware fmt bc xhost inih opendoas linux-firmware pipewire alsa-pipewire libjack-pipewire mate-polkit ffmpeg playerctl less mdocml dunst libnotify bash-completion rsync ufw acpi dragon bat odt2txt poppler exiftool atool tar unzip unrar 7zip zstd fontconfig libX11 libXft harfbuzz
+doas xbps-install -vy dash xtools iptables base-devel elogind polkit dbus fmt xhost inih opendoas linux-firmware pipewire alsa-pipewire libjack-pipewire mate-polkit ffmpeg less mdocml dunst libnotify zsh zsh-syntax-highlighting rsync ufw acpi dragon bat odt2txt poppler exiftool atool tar unzip unrar 7zip zstd
 
 # enable alsa with pipewire
 doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
@@ -77,6 +77,8 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 # 32-bit vulkan dependencies [NEEDS MULTILIB REPO ENABLED, GLIBC ONLY]
 #doas xbps-install -vy vulkan-loader-32bit mesa-vulkan-lavapipe-32bit
 
+# preparing all of the git packages
+git clone --depth 1 https://github.com/pinitik1906/st $HOME/stuffs/git/st && git clone --depth 1 https://github.com/pinitik1906/dwl $HOME/stuffs/git/dwl && git clone --depth 1 https://github.com/pinitik1906/dwm $HOME/stuffs/git/dwm && git clone --depth 1 https://github.com/pinitik1906/dmenu $HOME/stuffs/git/dmenu && git clone --depth 1 https://github.com/pinitik1906/slstatus $HOME/stuffs/git/slstatus && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker 
 
 ###### DRIVERS ######
 
@@ -174,39 +176,19 @@ doas cp $HOME/stuffs/git/dotfiles/void/things/repo/librewolf.conf /etc/xbps.d/00
 ###### OPTIONAL ######
 
 
-###### OPTIMIZATIONS ######
-
-# earlyoom (recommended)
-doas xbps-install -vy earlyoom && doas ln -s /etc/sv/earlyoom/ /var/service
-
-# zram (recommended)
-doas xbps-install -vy zramen && doas ln -s /etc/sv/zramen/ /var/service
-
-# profile-sync-daemon (recommended)
-git clone --depth 1 https://github.com/graysky2/profile-sync-daemon.git $HOME/stuffs/git/psd && cd $HOME/stuffs/git/psd/ && make && doas make install && doas rm -rf /usr/lib/systemd/ && doas cp -r $HOME/stuffs/git/dotfiles/void/things/psd/* /usr/share/psd/browsers/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/psd/ /etc/sv/ && doas ln -s /etc/sv/psd/ /var/service && psd && cp $HOME/stuffs/git/dotfiles/void/.config/psd/psd.conf $HOME/.config/psd/psd.conf && cd $HOME
-
-# ananicy-cpp (recommended)
-doas xbps-install -vy wget cmake fmt spdlog json-c++ && wget https://gitlab.com/ananicy-cpp/ananicy-cpp/-/archive/v1.1.1/ananicy-cpp-v1.1.1.tar.gz && tar -xvf ananicy-cpp-v1.1.1.tar.gz && cd ananicy-cpp-v1.1.1 && cmake -B "build" . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DUSE_EXTERNAL_SPDLOG=ON -DUSE_EXTERNAL_JSON=ON -DUSE_EXTERNAL_FMTLIB=ON -DENABLE_SYSTEMD=OFF -DVERSION=1.1.1 && cmake --build build && doas cmake --install build --component Runtime && git clone --depth 1 https://github.com/CachyOS/ananicy-rules.git $HOME/stuffs/git/ananicy.d && doas rm -rf /etc/ananicy.d/ && doas cp -r $HOME/stuffs/git/ananicy.d /etc/ && doas cp -r $HOME/stuffs/git/dotfiles/void/services/ananicy-cpp/ /etc/sv/ && doas ln -s /etc/sv/ananicy-cpp/ /var/service && doas xbps-remove -RFfvy wget cmake json-c++ && rm -rf $HOME/ananicy-cpp-v1.1.1.tar.gz && rm -rf $HOME/ananicy-cpp-v1.1.1 && rm -rf $HOME/.wget-hsts
-
-# preload [HDD ONLY]
-#doas xbps-install -vy preload && doas ln -s /etc/sv/preload/ /var/service
-
-###### OPTIMIZATIONS ######
-
-
 ###### WINDOW MANAGERS ######
 
-# bspwm (X11)
-doas xbps-install -vy sxhkd bspwm polybar i3lock-color xwallpaper xorg-server xf86-input-libinput xauth xinit xss-lock xset xsel xclip xdotool xrandr scrot rofi xcolor fontconfig-devel libX11-devel libXft-devel harfbuzz-devel && git clone --depth 1 https://github.com/phenax/bsp-layout.git $HOME/stuffs/git/bsp-layout && cd $HOME/stuffs/git/bsp-layout && doas make install && git clone --depth 1 https://github.com/pinitik1906/st.git $HOME/stuffs/git/st && cd $HOME/stuffs/git/st && make && doas make install && doas xbps-remove -ROoFfvy fontconfig-devel libX11-devel libXft-devel harfbuzz-devel
+# dwm (X11)
+doas xbps-install -vy xbacklight i3lock-color xwallpaper xorg-server xf86-input-libinput libinput xauth xinit xss-lock xset xsel xclip xdotool xrandr scrot xcolor libX11 libXft libXinerama fontconfig freetype && doas xbps-install -vy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dmenu && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && doas xbps-remove -ROoFfvy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel
 
-# river (Wayland)
-#doas xbps-install -vy river Waybar wayland-protocols swaylock swaybg xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp tofi swayidle wlopm qt5-wayland qt6-wayland qt5ct qt6ct zenity ImageMagick foot && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker && cd $HOME/stuffs/git/wl-color-picker && doas make install
+# dwl (Wayland)
+#doas xbps-install -vy wmenu foot brightnessctl swaylock swaybg xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp swayidle wlopm qt5-wayland qt6-wayland zenity ImageMagick xf86-input-libinput libinput wayland wayland-protocols wlroots0.18 libxkbcommon fcft && doas xbps-install -vy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel fcft-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/wl-color-picker && doas make clean install && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && doas xbps-remove -ROoFfvy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel fcft-devel libX11-devel libXft-devel libXinerama-devel
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol brightnessctl imv gammastep yt-dlp mpd mpc ncmpcpp newsboat
+doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol imv gammastep yt-dlp mpd mpc ncmpcpp newsboat
 
 # fixing mdocml (temporary)
 doas makewhatis -a
@@ -217,11 +199,15 @@ doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 # install NetworkManager (optional. if you uncomment it, please use `nmtui` to connect)
 #doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service
 
+# replace bash with zsh
+doas chsh -s /bin/zsh
+chsh -s /bin/zsh
+
 # make dash as the default in /bin/sh
 doas ln -sf dash /bin/sh
 
 # removing any orphaned git and packages
-rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/psd && rm -rf $HOME/stuffs/git/ananicy-cpp && rm -rf $HOME/stuffs/git/bsp-layout && rm -rf $HOME/stuffs/git/wl-color-picker && rm -rf $HOME/stuffs/git/ananicy.d && rm -rf $HOME/stuffs/git/st && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
+rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dmenu && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && rm -rf $HOME/stuffs/git/wl-color-picker && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages
 doas xbps-reconfigure -fa
