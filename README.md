@@ -53,10 +53,10 @@ sudo xbps-remove -ROo gammastep
 ### proprietary NVIDIA on Wayland for artix
 this is needed to make wayland compositors to function properly, referencing this [website](https://linuxiac.com/nvidia-with-wayland-on-arch-setup-guide/) but friendly since I did some preconfiguration. (i will choose neovim for this tutorial)
 
-uncomment inside my `.bash_profile` in `nvidia tweaks` and `direct backend for nvidia` by removing a hashtag and rename in `vaapi & vdpau env` from both `i965,va_gl` to `nvidia`, so it will look like this
+uncomment inside my `.zprofile` in `nvidia tweaks` and `direct backend for nvidia` by removing a hashtag and rename in `vaapi & vdpau env` from both `i965,va_gl` to `nvidia`, so it will look like this
 
 ```
-nvim $HOME/.bash_profile
+nvim $HOME/.zprofile
 ```
 
 ex.
@@ -102,7 +102,7 @@ sudo cat /sys/module/nvidia_drm/parameters/modeset
 a list from [arch](https://wiki.archlinux.org/title/User_repo#Signed) and [artix](https://wiki.artixlinux.org/Main/UnofficialUserRepositories)
 
 ### autostart on either X11 or Wayland without a display manager
-edit in `.bash_profile` from your home directory
+edit in `.zprofile` from your home directory
 
 find a line below and replace it from `startx` to `startw` or vice-versa
 
