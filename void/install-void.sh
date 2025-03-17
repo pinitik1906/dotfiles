@@ -203,8 +203,9 @@ doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 doas chsh -s /bin/zsh
 chsh -s /bin/zsh
 
-# make dash as the default in /bin/sh
-doas ln -sf dash /bin/sh
+# make dash as the default in /bin/sh and /usr/bin/sh
+doas ln -sfT dash /bin/sh
+doas ln -sfT dash /usr/bin/sh
 
 # removing any orphaned git and packages
 rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dmenu && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && rm -rf $HOME/stuffs/git/wl-color-picker && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
