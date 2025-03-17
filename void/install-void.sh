@@ -51,7 +51,7 @@ sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/void/thi
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy dash xtools iptables base-devel elogind polkit dbus fmt xhost inih opendoas linux-firmware pipewire alsa-pipewire libjack-pipewire mate-polkit ffmpeg less mdocml dunst libnotify zsh zsh-syntax-highlighting rsync ufw acpi dragon bat odt2txt poppler exiftool atool tar unzip 7zip zstd
+doas xbps-install -vy dash xtools iptables base-devel elogind polkit dbus brillo fmt xhost inih opendoas linux-firmware pipewire alsa-pipewire libjack-pipewire mate-polkit ffmpeg less mdocml dunst libnotify zsh zsh-syntax-highlighting rsync ufw acpi dragon bat odt2txt poppler exiftool atool tar unzip 7zip zstd
 
 # enable alsa with pipewire
 doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
@@ -179,10 +179,10 @@ doas cp $HOME/stuffs/git/dotfiles/void/things/repo/librewolf.conf /etc/xbps.d/00
 ###### WINDOW MANAGERS ######
 
 # dwm (X11)
-doas xbps-install -vy xbacklight i3lock-color xwallpaper xorg-server xf86-input-libinput libinput xauth xinit xss-lock xset xsel xclip xdotool xrandr scrot xcolor libX11 libXft libXinerama fontconfig freetype && doas xbps-install -vy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dmenu && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && doas xbps-remove -ROoFfvy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel
+doas xbps-install -vy i3lock-color xwallpaper xorg-server xf86-input-libinput libinput xauth xinit xss-lock xset xsel xclip xdotool xrandr scrot xcolor libX11 libXft libXinerama fontconfig freetype && doas xbps-install -vy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dmenu && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && doas xbps-remove -ROoFfvy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel
 
 # dwl (Wayland)
-#doas xbps-install -vy wmenu foot brightnessctl swaylock swaybg xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp swayidle wlopm qt5-wayland qt6-wayland zenity ImageMagick xf86-input-libinput libinput wayland wayland-protocols wlroots0.18 libxkbcommon fcft && doas xbps-install -vy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel fcft-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/wl-color-picker && doas make clean install && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && doas xbps-remove -ROoFfvy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel fcft-devel libX11-devel libXft-devel libXinerama-devel
+#doas xbps-install -vy wmenu foot swaylock swaybg xorg-server-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp swayidle wlopm qt5-wayland qt6-wayland zenity ImageMagick xf86-input-libinput libinput wayland wayland-protocols wlroots0.18 libxkbcommon fcft && doas xbps-install -vy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel fcft-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/wl-color-picker && doas make clean install && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && doas xbps-remove -ROoFfvy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel fcft-devel libX11-devel libXft-devel libXinerama-devel
 
 ###### WINDOW MANAGERS ######
 
