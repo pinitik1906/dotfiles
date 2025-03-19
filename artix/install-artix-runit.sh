@@ -161,7 +161,7 @@ paru -S --needed --noconfirm librewolf
 ###### WINDOW MANAGERS ######
 
 # dwm (X11)
-paru -S --needed --noconfirm i3lock-color xwallpaper xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dmenu && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
+paru -S --needed --noconfirm i3lock-color xwallpaper xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 pkgconf && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dmenu && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
 
 # dwl (Wayland)
 #paru -S --needed --noconfirm wmenu foot swaylock swaybg xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp swayidle wlopm qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland fcft libx11 libxft libxinerama && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
