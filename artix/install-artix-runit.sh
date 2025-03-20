@@ -170,7 +170,7 @@ paru -S --needed --noconfirm i3lock-color xwallpaper xorg-server xf86-input-libi
 
 
 # install your programs here
-paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol imv gammastep yt-dlp mpd mpc ncmpcpp newsboat
+paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol imv gammastep yt-dlp mpd ncmpcpp newsboat
 
 # fixing mandoc (temporary)
 doas makewhatis -a
