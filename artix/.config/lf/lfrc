@@ -5,6 +5,8 @@ set ifs "\n"
 set mouse
 set scrolloff 10
 set hidden
+set info size
+set dircounts
 set drawbox
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
@@ -125,7 +127,7 @@ cmd delete ${{
 	[ $ans = "y" ] && rm -rf -- $fx
 }}
 
-cmd dragon $dragon-drop -T -a -k $fx
+cmd dragon $dragon-drop -T -a -x $fx
 
 # keybinds
 map <delete> delete
