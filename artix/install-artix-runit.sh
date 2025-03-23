@@ -44,7 +44,7 @@ doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/
 doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm && paru -Syu --needed --noconfirm
 
 # installing important dependencies
-paru -S --needed --noconfirm dash dashbinsh iptables-runit base-devel elogind-runit polkit dbus-runit brillo xorg-xhost xdg-utils libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg less mandoc dunst libnotify zsh zsh-syntax-highlighting rsync-runit ufw-runit backlight-runit dragon-drop bat odt2txt poppler mediainfo atool tar unzip 7zip zstd
+paru -S --needed --noconfirm dash dashbinsh iptables-runit base-devel elogind-runit polkit dbus-runit brillo xorg-xhost xdg-utils libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg less mandoc dunst libnotify zsh zsh-syntax-highlighting rsync-runit ufw-runit backlight-runit fzf udisks2 udiskie dragon-drop bat odt2txt poppler mediainfo atool tar unzip 7zip zstd
 
 # enabling services
 doas ln -s /etc/runit/sv/backlight/ /run/runit/service && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
@@ -65,7 +65,7 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 #paru -S --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
 
 # getting all of the git packages
-git clone --depth 1 https://github.com/pinitik1906/st $HOME/stuffs/git/st && git clone --depth 1 https://github.com/pinitik1906/dwl $HOME/stuffs/git/dwl && git clone --depth 1 https://github.com/pinitik1906/dwm $HOME/stuffs/git/dwm && git clone --depth 1 https://github.com/pinitik1906/dmenu $HOME/stuffs/git/dmenu && git clone --depth 1 https://github.com/pinitik1906/slstatus $HOME/stuffs/git/slstatus
+git clone --depth 1 https://github.com/pinitik1906/st $HOME/stuffs/git/st && git clone --depth 1 https://github.com/pinitik1906/dwl $HOME/stuffs/git/dwl && git clone --depth 1 https://github.com/pinitik1906/dwm $HOME/stuffs/git/dwm && git clone --depth 1 https://github.com/pinitik1906/slstatus $HOME/stuffs/git/slstatus
 
 ###### DRIVERS ######
 
@@ -161,10 +161,10 @@ paru -S --needed --noconfirm librewolf
 ###### WINDOW MANAGERS ######
 
 # dwm (X11)
-paru -S --needed --noconfirm i3lock-color xwallpaper xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 pkgconf && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dmenu && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
+paru -S --needed --noconfirm rofi i3lock-color xwallpaper xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 pkgconf && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
 
 # dwl (Wayland)
-#paru -S --needed --noconfirm wmenu foot swaylock swaybg xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp swayidle wlopm qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland tllist fcft libx11 libxft libxinerama && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
+#paru -S --needed --noconfirm tofi foot swaylock swaybg xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp swayidle wlopm qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland tllist fcft libx11 libxft libxinerama && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
 
 ###### WINDOW MANAGERS ######
 
@@ -185,7 +185,7 @@ doas ln -sfT dash /usr/bin/sh
 doas ln -sfT dash /usr/sbin/sh
 
 # removing any orphaned git and packages
-rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dmenu && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && paru -Qqtd | paru -Rnsdd --noconfirm - && doas rm -rf /var/cache/pacman/pkg/* && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
+rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && paru -Qqtd | paru -Rnsdd --noconfirm - && doas rm -rf /var/cache/pacman/pkg/* && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
 
 # trimming SSD if available
 doas fstrim -av

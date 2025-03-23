@@ -1,0 +1,25 @@
+prompt-text = "drun:"
+font = Noto Sans
+font-size = 9
+
+background-color = #3C3836
+prompt-color = #EBDBB2
+selection-color = #98971A
+text-color = #EBDBB2
+
+padding-top = 10
+padding-bottom = 10
+padding-left = 10
+padding-right = 10
+
+border-width = 0
+outline-width = 0
+height = 40%
+width = 40%
+prompt-padding = 10
+num-results = 10
+result-spacing = 10
+
+text-cursor = true
+history = false
+drun-launch = true

@@ -8,7 +8,8 @@
 
 - `dwm` / `dwl`
 - `st` / `foot`
-- `dmenu` / `wmenu`
+- `rofi` / `tofi`
+- `slstatus`
 - `zsh`
 - `dunst`
 - `fastfetch`

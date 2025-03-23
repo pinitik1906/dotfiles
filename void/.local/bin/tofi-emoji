@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# get user selection via tofi from emoji file
+chosen=$(cut -d ';' -f1 ~/.local/share/emoji | tofi | sed "s/ .*//")
+
+# exit if none chosen
+[ -z "$chosen" ] && exit
+
+# if you run this command with an argument, it will automatically insert the
+# character. otherwise, show a message that the emoji has been copied
+if [ -n "$1" ]; then
+	wtype "$chosen"
+else
+	printf "%s" "$chosen" | wl-copy
+	notify-send -t 2000 "$chosen copied to clipboard" &
+fi

@@ -1,4 +1,5 @@
 #!/bin/sh
+
 set -euf
 
 if [ -n "${DISPLAY-}" ] && [ -z "${FIFO_UEBERZUG-}" ]; then
