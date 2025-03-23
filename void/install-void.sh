@@ -33,7 +33,7 @@ sudo xbps-install -Suvy
 mkdir -p $HOME/stuffs/pic/screenshots && mkdir -p $HOME/.local/share/playlists && mkdir -p $HOME/.local/share/lyrics && mkdir -p $HOME/.local/share/gnupg
 
 # copying all conf to home folder
-mkdir $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/ && mkdir -p $HOME/.local/share/applications && cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/ && mkdir -p $HOME/.local/bin && cp -r $HOME/stuffs/git/dotfiles/void/.local/bin/* $HOME/.local/bin/ && cp $HOME/stuffs/git/dotfiles/void/.zprofile $HOME/.zprofile
+mkdir $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/ && mkdir -p $HOME/.local/share/applications && cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/ && mkdir -p $HOME/.local/bin && cp -r $HOME/stuffs/git/dotfiles/void/.local/bin/* $HOME/.local/bin/ && cp $HOME/stuffs/git/dotfiles/void/.local/emoji $HOME/.local/ && cp $HOME/stuffs/git/dotfiles/void/.zprofile $HOME/.zprofile
 
 # xdg-user-dirs
 mkdir -p $HOME/stuffs/dls && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
@@ -182,7 +182,7 @@ doas cp $HOME/stuffs/git/dotfiles/void/things/repo/librewolf.conf /etc/xbps.d/00
 doas xbps-install -vy rofi i3lock-color xwallpaper xorg-server xf86-input-libinput libinput xauth xinit xss-lock xset xsel xclip xdotool xrandr scrot xcolor libX11 libXft libXinerama fontconfig freetype pkg-config && doas xbps-install -vy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && doas xbps-remove -RFfvy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel
 
 # dwl (Wayland)
-#doas xbps-install -vy tofi foot swaylock swaybg xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp swayidle wlopm qt5-wayland qt6-wayland zenity ImageMagick xf86-input-libinput libinput wayland wayland-protocols wlroots0.18 libxkbcommon pkg-config libxcb xorg-server-xwayland tllist fcft && doas xbps-install -vy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/wl-color-picker && doas make install && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && doas xbps-remove -RFfvy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel libX11-devel libXft-devel libXinerama-devel
+#doas xbps-install -vy rofi tofi foot swaylock swaybg xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp swayidle wlopm qt5-wayland qt6-wayland zenity ImageMagick xf86-input-libinput libinput wayland wayland-protocols wlroots0.18 libxkbcommon pkg-config libxcb xorg-server-xwayland tllist fcft && doas xbps-install -vy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/wl-color-picker && doas make install && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && doas xbps-remove -RFfvy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel libX11-devel libXft-devel libXinerama-devel
 
 ###### WINDOW MANAGERS ######
 

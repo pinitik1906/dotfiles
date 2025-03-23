@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# DISCLAIMER: this script has been started solely by me (sayan01)
+# DISCLAIMER: this script has been started solely by sayan01
 # and has had contributions from others like Nicholas-Baron,
 # juanCortelezzi, and mfoep (refer to contributors on Github)
 # this script is not based off of any other work by anyone else,
 # nor is it made in association with anyone else, regardless of
-# their claims.
+# their claims
 
-# dependencies: mpv yt-dlp fzf rofi grep (GNU grep)
-# NOTE:  if you do not have GNU grep you can replace grep with ripgrep
+# dependencies: bash mpv yt-dlp fzf rofi grep (GNU grep)
+# NOTE: if you do not have GNU grep you can replace grep with ripgrep
 
 # explain usage
 function usage () {
@@ -65,15 +65,15 @@ ignore_codec=""
 ytdlformats="bestvideo"
 
 if [ -n "$max_resolution" ] ; then
-  ytdlformats+="[height<=?$max_resolution]"
+	ytdlformats+="[height<=?$max_resolution]"
 fi
 
 if [ -n "$max_fps" ] ; then
-  ytdlformats+="[fps<=?$max_fps]"
+	ytdlformats+="[fps<=?$max_fps]"
 fi
 
 if [ -n "$ignore_codec" ] ; then
-  ytdlformats+="[vcodec!=$ignore_codec]"
+	ytdlformats+="[vcodec!=$ignore_codec]"
 fi
 
 ytdlformats+="+bestaudio/best"
@@ -121,13 +121,13 @@ if [[ $useDefaults = "f" ]]; then
     done
 fi
 
-# if no query is set with flags then ask for one
+# if no query is set with flags, then ask for one
 if [ -z "$query" ]; then
     
-    # ask for a channel
-    if [[ $action = "c" ]]; then
+	# ask for a channel
+	if [[ $action = "c" ]]; then
         
-	# if in gui mode use gui prompt
+	# if in gui mode, use gui prompt
         if [[ $isGui = "t" ]]; then
 		query=$($promptcmd -p "channel: " <<< "$sublist")
 			promptcmd="$promptcmd -p video: "
@@ -138,12 +138,12 @@ if [ -z "$query" ]; then
     else
         
 	# ask for a query
-        # if in gui mode use gui prompt
+        # if in gui mode, use gui prompt
         if [[ $isGui = "t" ]]; then
 		query=$(echo | $promptcmd -p "search: ")
 			promptcmd="$promptcmd -p video: "
         else
-            echo -n "Search: "
+            echo -n "search: "
             read -r query
         fi
     fi
@@ -160,7 +160,7 @@ query=$(sed \
   -e 's| |+|g' <<< "$query")
 
 
-# if channel look for channel vids
+# if channel, look for channel vids
 if [[ $action = "c" ]]; then
     response=$(curl -s "https://www.youtube.com/c/$query/videos" |\
       sed "s/{\"videoRenderer/\n\n&/g" |\
@@ -190,7 +190,7 @@ if [[ $action = "c" ]]; then
     done
 else
     
-    # if in search show query result vids
+    # if in search, show query result vids
     response="$(curl -s "https://www.youtube.com/results?search_query=$query" |\
       sed 's|\\.||g')"
     
