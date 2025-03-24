@@ -188,7 +188,7 @@ doas xbps-install -vy rofi i3lock-color xwallpaper xorg-server xf86-input-libinp
 
 
 # install your programs here
-doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol imv gammastep yt-dlp mpd ncmpcpp newsboat
+doas xbps-install -vy noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol imv gammastep yt-dlp mpd ncmpcpp calcurse newsboat
 
 # fixing mdocml (temporary)
 doas makewhatis -a

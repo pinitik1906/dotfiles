@@ -64,6 +64,7 @@ export QT_SCALE_FACTOR_ROUNDING_POLICY=RoundPreferFloor
 export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER='wayland,x11'
 export XDG_SESSION_TYPE=wayland
+export WLR_DRM_NO_ATOMIC=1
 export ELM_DISPLAY=wl
 
 # nvidia tweaks
