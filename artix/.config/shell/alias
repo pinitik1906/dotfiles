@@ -4,20 +4,20 @@
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
 # colored outputs
-alias ls="ls -hN --color=auto --group-directories-first"
-alias grep="grep --color=auto"
-alias diff="diff --color=auto"
-alias ccat="highlight --out-format=ansi"
-alias ip="ip -color=auto"
+alias ls='ls -hN --color=auto --group-directories-first'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ccat='highlight --out-format=ansi'
+alias ip='ip -color=auto'
 
 # verbose outputs
-alias cp="cp -riv"
-alias mv="mv -iv"
-alias rm="rm -Irv"
-alias bc="bc -ql"
-alias rsync="rsync -Pvrlu"
-alias mkdir="mkdir -pv"
-alias ffmpeg="ffmpeg -hide_banner"
+alias cp='cp -riv'
+alias mv='mv -iv'
+alias rm='rm -Irv'
+alias bc='bc -ql'
+alias rsync='rsync -Pvrlu'
+alias mkdir='mkdir -pv'
+alias ffmpeg='ffmpeg -hide_banner'
 
 # shortcuts/abbreviations
 alias ff='fastfetch --logo artix2_small --logo-padding-left 2 --logo-padding-right 2 --logo-padding-top 1'
@@ -28,7 +28,7 @@ alias xf='paru -Ql'
 alias xc='paru -Scc'
 alias lf='lfub'
 alias fstrim='doas fstrim -av'
-alias yt-dlp='cd $HOME/stuffs/dls && yt-dlp -S res:1080 -S vcodec:h264 --restrict-filenames -o "%(title)s.%(ext)s" --sponsorblock-remove all --audio-format mp3'
+alias yt-dlp='cd $HOME/stuffs/dls/yt-vid/ && yt-dlp -S res:1080 -S vcodec:h264 --restrict-filenames -o "%(title)s.%(ext)s" --sponsorblock-remove all --audio-format mp3 --write-sub --write-auto-sub --sub-lang "en.*"'
 alias reboot='loginctl reboot'
 alias poweroff='loginctl poweroff'
 alias reload='loginctl reload'
