@@ -6,10 +6,10 @@
 
 ## programs i use
 
-- `dwm` / `dwl`
-- `st` / `foot`
+- [`dwm`](https://github.com/pinitik1906/dwm) / [`dwl`](https://github.com/pinitik1906/dwl)
+- [`st`](https://github.com/pinitik1906/st) / `foot`
 - `rofi` / `tofi`
-- `slstatus`
+- [`slstatus`](https://github.com/pinitik1906/slstatus)
 - `zsh`
 - `dunst`
 - `fastfetch`
