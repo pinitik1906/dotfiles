@@ -22,14 +22,14 @@
 - `zathura`
 - `pipewire`
 
-### install
+## install
 to get my dotfiles, type
 
 ```
 git clone --depth 1 https://github.com/pinitik1906/dotfiles.git $HOME/stuffs/git/dotfiles
 ```
 
-### update
+## update
 to update my dotfiles (either check it weekly or monthly), type
 
 ```
