@@ -36,7 +36,7 @@ mkdir -p $HOME/stuffs/pic/screenshots && mkdir -p $HOME/.local/share/playlists &
 mkdir $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/ && mkdir -p $HOME/.local/share/applications && cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/ && mkdir -p $HOME/.local/bin && cp -r $HOME/stuffs/git/dotfiles/void/.local/bin/* $HOME/.local/bin/ && cp $HOME/stuffs/git/dotfiles/void/.local/emoji $HOME/.local/ && cp $HOME/stuffs/git/dotfiles/void/.zprofile $HOME/.zprofile
 
 # xdg-user-dirs
-mkdir -p $HOME/stuffs/dls/yt-vid && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
+mkdir -p $HOME/stuffs/dls/yt-vid && mkdir -p $HOME/stuffs/dls/yt-aud && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
 
 # copying my pre-configured grub
 sudo cp $HOME/stuffs/git/dotfiles/void/things/grub /etc/default/grub
