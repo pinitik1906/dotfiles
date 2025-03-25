@@ -51,6 +51,20 @@ sudo pacman -Rns gammastep
 sudo xbps-remove -ROo gammastep
 ```
 
+### image previews in either X11/Wayland
+go to `$HOME/.config/ueberzugpp/config.json` and change `x11` to `sixel` or vice-versa
+
+```
+{
+  "layer": {
+    "silent": true,
+    "use-escape-codes": false,
+    "no-stdin": false,
+    "output": "x11"
+  }
+}
+```
+
 ### proprietary NVIDIA on Wayland for artix
 this is needed to make wayland compositors to function properly, referencing this [website](https://linuxiac.com/nvidia-with-wayland-on-arch-setup-guide/) but friendly since I did some preconfiguration. (i will choose neovim for this tutorial)
 
