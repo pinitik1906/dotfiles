@@ -1,5 +1,5 @@
 prompt-text = "drun:"
-font = Noto Sans
+font = monospace
 font-size = 9
 
 background-color = #3C3836

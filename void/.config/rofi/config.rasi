@@ -2,7 +2,7 @@ configuration {
   display-drun: "drun:";
   display-window: "window:";
   drun-display-format: "{name}";
-  font: "Noto Sans 9";
+  font: "monospace 9";
   modi: "window,run,drun";
 }
 
@@ -28,7 +28,7 @@ window {
 }
 
 element {
-  padding: 5 50;
+  padding: 5 55;
   background-color: transparent;
   text-color: @fg;
 }

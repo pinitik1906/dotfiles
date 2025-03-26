@@ -2,7 +2,7 @@ configuration {
   display-drun: "drun:";
   display-window: "window:";
   drun-display-format: "{name}";
-  font: "Noto Sans 9";
+  font: "monospace 9";
   modi: "window,run,drun";
 }
 

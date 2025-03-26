@@ -130,7 +130,7 @@ if [ -z "$query" ]; then
 	# if in gui mode, use gui prompt
         if [[ $isGui = "t" ]]; then
 		query=$($promptcmd -p "channel: " <<< "$sublist")
-			promptcmd="$promptcmd -p video: "
+			promptcmd="$promptcmd -p videos: "
         else
 		query=$($promptcmd --print-query <<< "$sublist" | tail -n1)
         fi
@@ -141,7 +141,7 @@ if [ -z "$query" ]; then
         # if in gui mode, use gui prompt
         if [[ $isGui = "t" ]]; then
 		query=$(echo | $promptcmd -p "search: ")
-			promptcmd="$promptcmd -p video: "
+			promptcmd="$promptcmd -p videos: "
         else
             echo -n "search: "
             read -r query
