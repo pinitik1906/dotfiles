@@ -40,4 +40,4 @@ bind-key U show-urls
 bind-key x pb-delete
 
 macro , open-in-browser
-macro v set browser "setsid -f mpv --really-quiet --no-terminal" ; open-in-browser
+macro v set browser "setsid -f mpv --terminal=no" ; open-in-browser

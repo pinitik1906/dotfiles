@@ -82,7 +82,7 @@ cmd open ${{
 		setsid -f gtkwave $f >/dev/null 2>&1 ;;
 
 	ts)
-		setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+		setsid -f mpv --terminal=no $f >/dev/null 2>&1 ;;
 
 	*)
 		setsid -f zathura $fx >/dev/null 2>&1 ;;
