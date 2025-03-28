@@ -38,12 +38,6 @@ mkdir $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.con
 # xdg-user-dirs
 mkdir -p $HOME/stuffs/dls/yt-vid && mkdir -p $HOME/stuffs/dls/yt-aud && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
 
-# copying my pre-configured grub
-sudo cp $HOME/stuffs/git/dotfiles/void/things/grub /etc/default/grub
-
-# applying grub configurations
-sudo dracut --force && sudo update-grub
-
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/void/things/40-libinput.conf /etc/X11/xorg.conf.d/ && sudo cp $HOME/stuffs/git/dotfiles/void/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
@@ -210,6 +204,12 @@ doas ln -sfT dash /usr/sbin/sh
 
 # removing any orphaned git and packages
 rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && rm -rf $HOME/stuffs/git/wl-color-picker && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
+
+# copying my pre-configured grub
+sudo cp $HOME/stuffs/git/dotfiles/void/things/grub /etc/default/grub
+
+# applying grub configurations
+sudo dracut --force && sudo update-grub
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages
 doas xbps-reconfigure -fa

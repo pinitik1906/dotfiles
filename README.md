@@ -104,7 +104,7 @@ MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 and then do,
 
 ```
-sudo mkinitcpio -P && sudo update-grub
+sudo mkinitcpio -P && sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 finally, reboot your pc and check if NVIDIA DRM were set correctly

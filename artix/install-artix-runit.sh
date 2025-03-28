@@ -28,12 +28,6 @@ mkdir -p $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/
 # xdg-user-dirs
 mkdir -p $HOME/stuffs/dls/yt-vid && mkdir -p $HOME/stuffs/dls/yt-aud && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
 
-# copying my pre-configured grub
-doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
-
-# applying grub configurations
-doas mkinitcpio -P && doas grub-mkconfig -o /boot/grub/grub.cfg
-
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 doas mkdir -p /etc/X11/xorg.conf.d && doas cp $HOME/stuffs/git/dotfiles/artix/things/40-libinput.conf /etc/X11/xorg.conf.d/ && doas cp $HOME/stuffs/git/dotfiles/artix/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
@@ -186,6 +180,12 @@ doas ln -sfT dash /usr/sbin/sh
 
 # removing any orphaned git and packages
 rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && paru -Qqtd | paru -Rnsdd --noconfirm - && doas rm -rf /var/cache/pacman/pkg/* && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
+
+# copying my pre-configured grub
+doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
+
+# applying grub configurations
+doas mkinitcpio -P && doas grub-mkconfig -o /boot/grub/grub.cfg
 
 # trimming SSD if available
 doas fstrim -av
