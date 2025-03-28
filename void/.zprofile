@@ -90,6 +90,7 @@ export XDG_CURRENT_DESKTOP=dwl
 
 # autostart for audio/video
 pipewire &
+mpd --no-daemon ~/.config/mpd/mpd.conf &
 
 # autostart your WM here
 if [[ "$(tty)" = "/dev/tty1" ]]; then
