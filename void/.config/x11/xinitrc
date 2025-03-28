@@ -1,7 +1,7 @@
 dunst &
 gammastep -Pxr -O 2300 &
 /usr/libexec/polkit-mate-authentication-agent-1 &
-xss-lock --quiet -l -- i3lock --nofork --radius 50 --inside-color=00000000 --line-uses-inside --verif-size=16 --verif-text="Verifying" --wrong-size=16 --wrong-text="Wrong" -Fe &
+xss-lock --quiet -l -- i3lock --nofork --radius 50 --inside-color=00000000 --line-uses-inside --verif-size=16 --verif-text="Verifying" --wrong-size=16 --wrong-text="Wrong" -Fec 00000000 &
 xset -dpms r rate 300 50 s off &
 slstatus &
 dwm
