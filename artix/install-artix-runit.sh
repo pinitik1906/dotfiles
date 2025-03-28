@@ -179,7 +179,7 @@ doas ln -sfT dash /usr/bin/sh
 doas ln -sfT dash /usr/sbin/sh
 
 # removing any orphaned git and packages
-rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && paru -Qqtd | paru -Rnsdd --noconfirm - && doas rm -rf /var/cache/pacman/pkg/* && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
+rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
 
 # copying my pre-configured grub
 doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
