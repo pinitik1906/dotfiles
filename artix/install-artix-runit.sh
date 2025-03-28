@@ -76,7 +76,7 @@ git clone --depth 1 https://github.com/pinitik1906/st $HOME/stuffs/git/st && git
 #paru -S --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libvdpau lib32-libvdpau-va-gl
 
 # old_intel [NEEDS ARCH REPO ENABLED]
-#paru -S --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl libva-intel-driver xf86-video-intel && doas cp $HOME/stuffs/git/dotfiles/artix/things/20-intel.conf /etc/X11/xorg.conf.d/
+#paru -S --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl libva-intel-driver-git xf86-video-intel && doas cp $HOME/stuffs/git/dotfiles/artix/things/20-intel.conf /etc/X11/xorg.conf.d/
 
 # 32-bit old_intel [NEEDS MULTILIB REPO ENABLED]
 #paru -S --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libvdpau lib32-libvdpau-va-gl lib32-libva-intel-driver
