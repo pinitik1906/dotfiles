@@ -124,7 +124,7 @@ git clone --depth 1 https://github.com/pinitik1906/st $HOME/stuffs/git/st && git
 ###### XBPS-SRC ######
 
 # enable nonfree and multilib [GLIBC-x86_64]
-#git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/allow-restricted.conf $HOME/stuffs/git/xbps-src/etc/conf && cd $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote.conf && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote-multilib.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote-x86_64-multilib.conf && ./xbps-src binary-bootstrap && cp -r $HOME/stuffs/git/dotfiles/void/things/xbps-src/* $HOME/stuffs/git/xbps-src/srcpkgs/
+git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/allow-restricted.conf $HOME/stuffs/git/xbps-src/etc/conf && cd $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote.conf && cp $HOME/stuffs/git/dotfiles/void/things/repo/glibc-remote-multilib.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote-x86_64-multilib.conf && ./xbps-src binary-bootstrap && cp -r $HOME/stuffs/git/dotfiles/void/things/xbps-src/* $HOME/stuffs/git/xbps-src/srcpkgs/
 
 # enable nonfree [MUSL-x86_64]
 #git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/allow-restricted.conf $HOME/stuffs/git/xbps-src/etc/conf && cd $HOME/stuffs/git/xbps-src && cp $HOME/stuffs/git/dotfiles/void/things/repo/musl-remote.conf $HOME/stuffs/git/xbps-src/etc/xbps.d/repos-remote-musl.conf && ./xbps-src binary-bootstrap && cp -r $HOME/stuffs/git/dotfiles/void/things/xbps-src/* $HOME/stuffs/git/xbps-src/srcpkgs/
@@ -149,8 +149,8 @@ doas cp $HOME/stuffs/git/dotfiles/void/things/repo/librewolf.conf /etc/xbps.d/00
 # msttcorefonts [NEEDS XBPS-SRC ENABLED / LEGACY]
 #cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg msttcorefonts && doas xbps-install -vy --repository hostdir/binpkgs/nonfree msttcorefonts
 
-# ueberzugpp [NEEDS XBPS-SRC ENABLED]
-#cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg cli11 && doas xbps-install -vy --repository hostdir/binpkgs cli11 && ./xbps-src -f pkg ueberzugpp && doas xbps-install -vy --repository hostdir/binpkgs ueberzugpp && doas xbps-install -vy ffmpegthumbnailer
+# ueberzugpp (will break if not installed) [NEEDS XBPS-SRC ENABLED]
+cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg cli11 && doas xbps-install -vy --repository hostdir/binpkgs cli11 && ./xbps-src -f pkg ueberzugpp && doas xbps-install -vy --repository hostdir/binpkgs ueberzugpp && doas xbps-install -vy ffmpegthumbnailer
 
 # thinkfan [THINKPADS ONLY]
 #doas cp -r $HOME/stuffs/git/dotfiles/void/services/thinkfan /etc/sv/ && doas xbps-install -Suvy thinkfan && doas cp $HOME/stuffs/git/dotfiles/void/things/thinkfan.yaml /etc/ && doas ln -s /etc/sv/thinkfan/ /var/service
