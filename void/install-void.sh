@@ -48,7 +48,7 @@ sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doa
 doas xbps-install -vy dash xtools iptables base-devel elogind polkit dbus brillo fmt xhost xdg-utils inih opendoas linux-firmware pipewire alsa-pipewire libjack-pipewire mate-polkit ffmpeg less mdocml dunst libnotify zsh zsh-syntax-highlighting rsync ufw fzf udisks2 udiskie dragon bat odt2txt poppler mediainfo atool tar unzip 7zip zstd
 
 # enable alsa with pipewire
-doas mkdir -p /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
+doas mkdir -p /etc/alsa/conf.d && doas ln -sf /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -sf /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 
 # make jack works well
 doas mkdir -p /etc/ld.so.conf.d && doas cp -r $HOME/stuffs/git/dotfiles/void/things/jack.conf /etc/ld.so.conf.d/pipewire-jack.conf && doas ldconfig

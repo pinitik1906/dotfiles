@@ -40,6 +40,9 @@ doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-
 # installing important dependencies
 paru -S --needed --noconfirm dash dashbinsh iptables-runit base-devel elogind-runit polkit dbus-runit brillo xorg-xhost xdg-utils libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg less mandoc dunst libnotify zsh zsh-syntax-highlighting rsync-runit ufw-runit backlight-runit fzf udisks2 udiskie dragon-drop bat odt2txt poppler mediainfo atool tar unzip 7zip zstd
 
+# enable alsa with pipewire
+doas mkdir -p /etc/alsa/conf.d && doas ln -sf /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -sf /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
+
 # enabling services
 doas ln -s /etc/runit/sv/backlight/ /run/runit/service && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
 
