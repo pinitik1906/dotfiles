@@ -40,6 +40,12 @@ doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-
 # installing important dependencies
 paru -S --needed --noconfirm dash dashbinsh iptables-runit base-devel elogind-runit polkit dbus-runit brillo xorg-xhost xdg-utils libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg less mandoc dunst libnotify zsh zsh-syntax-highlighting rsync-runit ufw-runit backlight-runit fzf udisks2 udiskie dragon-drop bat odt2txt poppler mediainfo atool tar unzip 7zip zstd
 
+# copying my pre-configured grub
+doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
+
+# applying grub configurations
+doas mkinitcpio -P && doas grub-mkconfig -o /boot/grub/grub.cfg
+
 # enabling services
 doas ln -s /etc/runit/sv/backlight/ /run/runit/service && doas ln -s /etc/runit/sv/rsyncd/ /run/runit/service
 
@@ -181,12 +187,6 @@ doas ln -sfT dash /usr/sbin/sh
 
 # removing any orphaned git and packages
 rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
-
-# copying my pre-configured grub
-doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
-
-# applying grub configurations
-doas mkinitcpio -P && doas grub-mkconfig -o /boot/grub/grub.cfg
 
 # trimming SSD if available
 doas fstrim -av
