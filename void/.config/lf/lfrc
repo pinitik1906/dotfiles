@@ -60,10 +60,10 @@ cmd open ${{
 		setsid -f imv-dir $fx >/dev/null 2>&1 ;;
 
 	audio/*|video/x-ms-asf)
-		mpv --audio-display=no $f ;;
+		mpv $f ;;
 
 	video/*)
-		setsid -f mpv --terminal=no $f >/dev/null 2>&1 ;;
+		setsid -f mpv --really-quiet $f >/dev/null 2>&1 ;;
 
 	application/pdf|application/vnd.djvu|application/epub*)
 		setsid -f zathura $fx >/dev/null 2>&1 ;;
@@ -82,7 +82,7 @@ cmd open ${{
 		setsid -f gtkwave $f >/dev/null 2>&1 ;;
 
 	ts)
-		setsid -f mpv --terminal=no $f >/dev/null 2>&1 ;;
+		setsid -f mpv --really-quiet $f >/dev/null 2>&1 ;;
 
 	*)
 		setsid -f zathura $fx >/dev/null 2>&1 ;;
