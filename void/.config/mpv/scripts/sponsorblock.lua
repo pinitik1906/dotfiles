@@ -6,10 +6,10 @@ local options = {
     python_path = ON_WINDOWS and "python" or "python3",
 
     -- Categories to fetch (Pick the option/s here -> sponsor,intro,outro,interaction,selfpromo,music_offtopic,filler)
-    categories = "sponsor,intro,outro,interaction,selfpromo,music_offtopic",
+    categories = "sponsor,intro,outro,interaction,selfpromo,music_offtopic,filler",
 
     -- Categories to skip automatically (Pick the option/s here -> sponsor,intro,outro,interaction,selfpromo,music_offtopic,filler)
-    skip_categories = "sponsor,intro,outro,interaction,selfpromo,music_offtopic",
+    skip_categories = "sponsor,intro,outro,interaction,selfpromo,music_offtopic,filler",
 
     -- If true, sponsored segments will only be skipped once
     skip_once = false,
@@ -32,7 +32,7 @@ local options = {
     display_name = "",
 
     -- Tell the server when a skip happens
-    report_views = true,
+    report_views = false,
 
     -- Auto upvote skipped sponsors
     auto_upvote = false,
