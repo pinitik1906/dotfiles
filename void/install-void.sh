@@ -194,6 +194,7 @@ doas ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 #doas xbps-install -vy NetworkManager && doas rm -rf /var/service/wpa_supplicant && doas rm -rf /var/service/dhcpcd && doas ln -s /etc/sv/NetworkManager/ /var/service
 
 # replace bash with zsh
+doas chsh -s /bin/zsh
 chsh -s /bin/zsh
 
 # make dash as the default in /bin/sh, /sbin/sh, /usr/bin/sh and /usr/sbin/sh

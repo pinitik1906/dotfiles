@@ -170,6 +170,7 @@ paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fas
 doas makewhatis -a
 
 # replace bash with zsh
+doas chsh -s /bin/zsh
 chsh -s /bin/zsh
 
 # make dash as the default in /bin/sh, /sbin/sh, /usr/bin/sh and /usr/sbin/sh
