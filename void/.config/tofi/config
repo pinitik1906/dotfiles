@@ -2,7 +2,7 @@ prompt-text = "drun:"
 font = monospace
 font-size = 9
 
-background-color = #3C3836
+background-color = #32302F
 prompt-color = #EBDBB2
 selection-color = #98971A
 text-color = #EBDBB2
