@@ -141,7 +141,7 @@ paru -S --needed --noconfirm librewolf
 paru -S --needed --noconfirm ueberzugpp ffmpegthumbnailer
 
 # thinkfan [THINKPADS ONLY]
-#doas cp -r $HOME/stuffs/git/dotfiles/artix/services/thinkfan/ /etc/sv/ && paru -S --needed --noconfirm thinkfan && doas cp $HOME/stuffs/git/dotfiles/artix/things/thinkfan.yaml /etc/ && doas ln -s /etc/runit/sv/thinkfan/ /run/runit/service
+#doas cp -r $HOME/stuffs/git/dotfiles/artix/services/thinkfan/ /etc/runit/sv/ && paru -S --needed --noconfirm thinkfan && doas cp $HOME/stuffs/git/dotfiles/artix/things/thinkfan.yaml /etc/ && doas ln -s /etc/runit/sv/thinkfan/ /run/runit/service
 
 # tlp
 #paru -S --needed --noconfirm tlp-runit && doas ln -s /etc/runit/sv/tlp/ /run/runit/service
