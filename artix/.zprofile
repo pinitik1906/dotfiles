@@ -86,7 +86,7 @@ export MOZ_DISABLE_RDD_SANDBOX=1
 #export NVD_BACKEND=direct
 
 # screenshare support for wayland
-export XDG_CURRENT_DESKTOP=dwl
+export XDG_CURRENT_DESKTOP=wlr
 
 # autostart for audio/video
 pipewire &
