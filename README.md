@@ -1,8 +1,14 @@
 # content
 
-- [programs i use](https://github.com/pinitik1906/dotfiles#programs-i-use)
-- [faq](https://github.com/pinitik1906/dotfiles#faq)
-- [quick links](https://github.com/pinitik1906/dotfiles#quick-links)
+- [programs i use](#programs-i-use)
+- [faq](#faq)
+  - [custom gtk themes in X11/Wayland](#custom-gtk-themes-in-x11wayland)
+  - [weird yellow/red color on my monitor](#weird-yellowred-color-on-my-monitor)
+  - [image previews in either X11/Wayland](#image-previews-in-either-x11wayland)
+  - [proprietary NVIDIA on Wayland for artix](#proprietary-nvidia-on-wayland-for-artix)
+  - [unofficial repos for artix](#unofficial-repos-for-artix)
+  - [autostart on either X11 or Wayland without a display manager](#autostart-on-either-x11-or-wayland-without-a-display-manager)
+- [quick links](#quick-links)
 
 ## programs i use
 
@@ -37,6 +43,9 @@ cd $HOME/stuffs/git/dotfiles && git pull
 ```
 
 ## faq
+
+### custom gtk themes in X11/Wayland
+install and use `lxappearance` if you are in X11, or `nwg-look` in Wayland
 
 ### weird yellow/red color on my monitor
 it is a program `gammastep` helps your eye with less eye-strains. if you want to remove, use the command below:
