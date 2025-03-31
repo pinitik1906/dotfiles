@@ -45,7 +45,7 @@ sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/void/thi
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
 
 # installing important dependencies
-doas xbps-install -vy dash xtools iptables base-devel elogind polkit dbus brillo fmt xhost xdg-utils inih opendoas linux-firmware pipewire alsa-pipewire libjack-pipewire mate-polkit ffmpeg less mdocml dunst libnotify zsh zsh-syntax-highlighting rsync ufw fzf udisks2 udiskie dragon bat odt2txt poppler mediainfo atool tar unzip 7zip zstd
+doas xbps-install -vy dash xtools iptables base-devel elogind polkit dbus brillo fmt xhost xdg-utils wmname inih opendoas linux-firmware pipewire alsa-pipewire libjack-pipewire mate-polkit ffmpeg less mdocml dunst libnotify zsh zsh-syntax-highlighting rsync ufw fzf udisks2 udiskie dragon bat odt2txt poppler mediainfo atool tar unzip 7zip zstd
 
 # copying my pre-configured grub
 sudo cp $HOME/stuffs/git/dotfiles/void/things/grub /etc/default/grub

@@ -51,7 +51,10 @@ export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export XCOMPOSEFILE="$XDG_CONFIG_HOME/x11/xcompose"
 export XCOMPOSECACHE="$XDG_CACHE_HOME/x11/xcompose"
+
+# dwm fixes
 export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT='MToolkit wmname LG3D'
 
 # force adwaita dark theme
 export GTK_THEME=Adwaita:dark

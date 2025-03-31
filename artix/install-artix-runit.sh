@@ -38,7 +38,7 @@ doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/
 doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm && paru -Syu --needed --noconfirm
 
 # installing important dependencies
-paru -S --needed --noconfirm dash dashbinsh iptables-runit base-devel elogind-runit polkit dbus-runit brillo xorg-xhost xdg-utils libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg less mandoc dunst libnotify zsh zsh-syntax-highlighting rsync-runit ufw-runit backlight-runit fzf udisks2 udiskie dragon-drop bat odt2txt poppler mediainfo atool tar unzip 7zip zstd
+paru -S --needed --noconfirm dash dashbinsh iptables-runit base-devel elogind-runit polkit dbus-runit brillo xorg-xhost xdg-utils wmname libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg less mandoc dunst libnotify zsh zsh-syntax-highlighting rsync-runit ufw-runit backlight-runit fzf udisks2 udiskie dragon-drop bat odt2txt poppler mediainfo atool tar unzip 7zip zstd
 
 # copying my pre-configured grub
 doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
