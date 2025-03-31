@@ -1,0 +1,5 @@
+#!/bin/sh
+
+dunst &
+gammastep -Pxr -O 2300 &
+/usr/libexec/polkit-mate-authentication-agent-1
