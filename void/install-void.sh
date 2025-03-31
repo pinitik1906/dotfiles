@@ -24,22 +24,42 @@ echo ""
 
 
 # add important groups
-sudo groupadd plugdev && sudo groupadd cdrom && sudo groupadd libvirt && sudo usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical,libvirt $USER
+sudo groupadd plugdev
+sudo groupadd cdrom
+sudo groupadd libvirt
+
+sudo usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical,libvirt $USER
 
 # checking updates & syncing repos
 sudo xbps-install -Suvy
 
 # create folders for screenshooting, music player, and gnupg, otherwise it won't work
-mkdir -p $HOME/stuffs/pic/screenshots && mkdir -p $HOME/.local/share/playlists && mkdir -p $HOME/.local/share/lyrics && mkdir -p $HOME/.local/share/gnupg
+mkdir -p $HOME/stuffs/pic/screenshots
+mkdir -p $HOME/.local/share/playlists
+mkdir -p $HOME/.local/share/lyrics
+mkdir -p $HOME/.local/share/gnupg
 
 # copying all conf to home folder
-mkdir $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/ && mkdir -p $HOME/.local/share/applications && cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/ && mkdir -p $HOME/.local/bin && cp -r $HOME/stuffs/git/dotfiles/void/.local/bin/* $HOME/.local/bin/ && cp $HOME/stuffs/git/dotfiles/void/.local/share/emoji $HOME/.local/share/ && cp $HOME/stuffs/git/dotfiles/void/.zprofile $HOME/.zprofile
+mkdir $HOME/.config
+mkdir -p $HOME/.local/share/applications
+mkdir -p $HOME/.local/bin
+cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/
+cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/
+cp -r $HOME/stuffs/git/dotfiles/void/.local/bin/* $HOME/.local/bin/
+cp $HOME/stuffs/git/dotfiles/void/.local/share/emoji $HOME/.local/share/
+cp $HOME/stuffs/git/dotfiles/void/.zprofile $HOME/.zprofile
 
 # xdg-user-dirs
-mkdir -p $HOME/stuffs/dls/yt-vid && mkdir -p $HOME/stuffs/dls/yt-aud && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
+mkdir -p $HOME/stuffs/dls/yt-vid
+mkdir -p $HOME/stuffs/dls/yt-aud
+mkdir -p $HOME/stuffs/doc
+mkdir -p $HOME/stuffs/mus
+mkdir -p $HOME/stuffs/vid
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
-sudo mkdir -p /etc/X11/xorg.conf.d && sudo cp $HOME/stuffs/git/dotfiles/void/things/40-libinput.conf /etc/X11/xorg.conf.d/ && sudo cp $HOME/stuffs/git/dotfiles/void/things/90-touchpad.conf /etc/X11/xorg.conf.d/
+sudo mkdir -p /etc/X11/xorg.conf.d
+sudo cp $HOME/stuffs/git/dotfiles/void/things/40-libinput.conf /etc/X11/xorg.conf.d/
+sudo cp $HOME/stuffs/git/dotfiles/void/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
 # installing opendoas & removing sudo
 sudo rm -f /etc/doas.conf && echo "permit persist :wheel" | sudo tee -a /etc/doas.conf > /dev/null && sudo xbps-install -vy opendoas && doas xbps-remove -RFfvy sudo
@@ -54,10 +74,14 @@ sudo cp $HOME/stuffs/git/dotfiles/void/things/grub /etc/default/grub
 sudo dracut --force && sudo update-grub
 
 # enable alsa with pipewire
-doas mkdir -p /etc/alsa/conf.d && doas ln -sf /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d && doas ln -sf /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
+doas mkdir -p /etc/alsa/conf.d
+doas ln -sf /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d
+doas ln -sf /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 
 # make jack works well
-doas mkdir -p /etc/ld.so.conf.d && doas cp -r $HOME/stuffs/git/dotfiles/void/things/jack.conf /etc/ld.so.conf.d/pipewire-jack.conf && doas ldconfig
+doas mkdir -p /etc/ld.so.conf.d
+doas cp -r $HOME/stuffs/git/dotfiles/void/things/jack.conf /etc/ld.so.conf.d/pipewire-jack.conf
+doas ldconfig
 
 # enabling services
 doas cp -r $HOME/stuffs/git/dotfiles/void/services/backlight /etc/sv/ && doas ln -s /etc/sv/rsyncd/ /var/service && doas ln -s /etc/sv/backlight/ /var/service
@@ -78,7 +102,11 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 #doas xbps-install -vy vulkan-loader-32bit mesa-vulkan-lavapipe-32bit
 
 # preparing all of the git packages
-git clone --depth 1 https://github.com/pinitik1906/st $HOME/stuffs/git/st && git clone --depth 1 https://github.com/pinitik1906/dwl $HOME/stuffs/git/dwl && git clone --depth 1 https://github.com/pinitik1906/dwm $HOME/stuffs/git/dwm && git clone --depth 1 https://github.com/pinitik1906/slstatus $HOME/stuffs/git/slstatus && git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker
+git clone --depth 1 https://github.com/pinitik1906/st.git $HOME/stuffs/git/st
+git clone --depth 1 https://github.com/pinitik1906/dwl.git $HOME/stuffs/git/dwl
+git clone --depth 1 https://github.com/pinitik1906/dwm.git $HOME/stuffs/git/dwm
+git clone --depth 1 https://github.com/pinitik1906/slstatus.git $HOME/stuffs/git/slstatus
+git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker
 
 ###### DRIVERS ######
 
@@ -210,7 +238,16 @@ doas ln -sfT dash /usr/bin/sh
 doas ln -sfT dash /usr/sbin/sh
 
 # removing any orphaned git and packages
-rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && rm -rf $HOME/stuffs/git/wl-color-picker && doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
+rm -rf $HOME/.bash_logout
+rm -rf $HOME/.bash_history
+rm -rf $HOME/.inputrc
+rm -rf $HOME/stuffs/git/st
+rm -rf $HOME/stuffs/git/dwl
+rm -rf $HOME/stuffs/git/dwm
+rm -rf $HOME/stuffs/git/slstatus
+rm -rf $HOME/stuffs/git/wl-color-picker
+
+doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure to all packages
 doas xbps-reconfigure -fa

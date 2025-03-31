@@ -14,25 +14,47 @@ echo ""
 
 
 # add important groups
-doas groupadd plugdev && doas groupadd cdrom && doas groupadd libvirt && doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical,libvirt $USER
+doas groupadd plugdev
+doas groupadd cdrom
+doas groupadd libvirt
+
+doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical,libvirt $USER
 
 # checking updates & syncing repos
 doas pacman -Syu --needed --noconfirm
 
 # create folders for screenshooting, music player, and gnupg, otherwise it won't work
-mkdir -p $HOME/stuffs/pic/screenshots && mkdir -p $HOME/.local/share/playlists && mkdir -p $HOME/.local/share/lyrics && mkdir -p $HOME/.local/share/gnupg
+mkdir -p $HOME/stuffs/pic/screenshots
+mkdir -p $HOME/.local/share/playlists
+mkdir -p $HOME/.local/share/lyrics
+mkdir -p $HOME/.local/share/gnupg
 
 # copying all conf to home folder
-mkdir -p $HOME/.config && cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/ && mkdir -p $HOME/.local/share/applications && cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/ && mkdir -p $HOME/.local/bin && cp -r $HOME/stuffs/git/dotfiles/artix/.local/bin/* $HOME/.local/bin/ && cp $HOME/stuffs/git/dotfiles/artix/.local/share/emoji $HOME/.local/share/ && cp $HOME/stuffs/git/dotfiles/artix/.zprofile $HOME/.zprofile
+mkdir -p $HOME/.config
+mkdir -p $HOME/.local/share/applications
+mkdir -p $HOME/.local/bin
+cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/
+cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/
+cp -r $HOME/stuffs/git/dotfiles/artix/.local/bin/* $HOME/.local/bin/
+cp $HOME/stuffs/git/dotfiles/artix/.local/share/emoji $HOME/.local/share/
+cp $HOME/stuffs/git/dotfiles/artix/.zprofile $HOME/.zprofile
 
 # xdg-user-dirs
-mkdir -p $HOME/stuffs/dls/yt-vid && mkdir -p $HOME/stuffs/dls/yt-aud && mkdir -p $HOME/stuffs/doc && mkdir -p $HOME/stuffs/mus && mkdir -p $HOME/stuffs/vid
+mkdir -p $HOME/stuffs/dls/yt-vid
+mkdir -p $HOME/stuffs/dls/yt-aud
+mkdir -p $HOME/stuffs/doc
+mkdir -p $HOME/stuffs/mus
+mkdir -p $HOME/stuffs/vid
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
-doas mkdir -p /etc/X11/xorg.conf.d && doas cp $HOME/stuffs/git/dotfiles/artix/things/40-libinput.conf /etc/X11/xorg.conf.d/ && doas cp $HOME/stuffs/git/dotfiles/artix/things/90-touchpad.conf /etc/X11/xorg.conf.d/
+doas mkdir -p /etc/X11/xorg.conf.d
+doas cp $HOME/stuffs/git/dotfiles/artix/things/40-libinput.conf /etc/X11/xorg.conf.d/
+doas cp $HOME/stuffs/git/dotfiles/artix/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
 # copying preconfigured pacman.conf and paru.conf
-doas pacman -S --needed --noconfirm artix-archlinux-support && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/pacman.conf /etc/pacman.conf && doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/paru.conf /etc/paru.conf
+doas pacman -S --needed --noconfirm artix-archlinux-support
+doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/pacman.conf /etc/pacman.conf
+doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/paru.conf /etc/paru.conf
 
 # installing paru as a default AUR HELPER
 doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm && paru -Syu --needed --noconfirm
@@ -65,7 +87,10 @@ paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 #paru -S --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
 
 # getting all of the git packages
-git clone --depth 1 https://github.com/pinitik1906/st $HOME/stuffs/git/st && git clone --depth 1 https://github.com/pinitik1906/dwl $HOME/stuffs/git/dwl && git clone --depth 1 https://github.com/pinitik1906/dwm $HOME/stuffs/git/dwm && git clone --depth 1 https://github.com/pinitik1906/slstatus $HOME/stuffs/git/slstatus
+git clone --depth 1 https://github.com/pinitik1906/st.git $HOME/stuffs/git/st
+git clone --depth 1 https://github.com/pinitik1906/dwl.git $HOME/stuffs/git/dwl
+git clone --depth 1 https://github.com/pinitik1906/dwm.git $HOME/stuffs/git/dwm
+git clone --depth 1 https://github.com/pinitik1906/slstatus.git $HOME/stuffs/git/slstatus
 
 ###### DRIVERS ######
 
@@ -186,7 +211,16 @@ doas ln -sfT dash /usr/bin/sh
 doas ln -sfT dash /usr/sbin/sh
 
 # removing any orphaned git and packages
-rm -rf $HOME/.bash_logout && rm -rf $HOME/.bash_history && rm -rf $HOME/.inputrc && rm -rf $HOME/stuffs/git/paru-bin && rm -rf $HOME/stuffs/git/st && rm -rf $HOME/stuffs/git/dwl && rm -rf $HOME/stuffs/git/dwm && rm -rf $HOME/stuffs/git/slstatus && paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
+rm -rf $HOME/.bash_logout
+rm -rf $HOME/.bash_history
+rm -rf $HOME/.inputrc
+rm -rf $HOME/stuffs/git/paru-bin
+rm -rf $HOME/stuffs/git/st
+rm -rf $HOME/stuffs/git/dwl
+rm -rf $HOME/stuffs/git/dwm
+rm -rf $HOME/stuffs/git/slstatus
+
+paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
 
 # trimming SSD if available
 doas fstrim -av
