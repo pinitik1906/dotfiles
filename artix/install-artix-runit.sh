@@ -125,8 +125,8 @@ git clone --depth 1 https://github.com/pinitik1906/st $HOME/stuffs/git/st && git
 # librewolf (recommended)
 paru -S --needed --noconfirm librewolf
 
-# flatpak
-#paru -S --needed --noconfirm flatpak
+# flatpak and enable flathub both on system and user
+#paru -S --needed --noconfirm flatpak && flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 # virtualbox [VIRTUAL MACHINE]
 #paru -S --needed --noconfirm virtualbox virtualbox-guest-utils

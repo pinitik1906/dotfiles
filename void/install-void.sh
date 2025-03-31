@@ -143,8 +143,8 @@ git clone --depth 1 https://github.com/void-linux/void-packages.git $HOME/stuffs
 # librewolf (recommended)
 doas cp $HOME/stuffs/git/dotfiles/void/things/repo/librewolf.conf /etc/xbps.d/00-librewolf-void.conf && doas xbps-install -Suvy librewolf
 
-# flatpak
-#doas xbps-install -vy flatpak && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+# flatpak and enable flathub both on system and user
+#doas xbps-install -vy flatpak && flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo && flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # virtualbox [VIRTUAL MACHINE / GLIBC ONLY]
 #doas xbps-install -vy virtualbox-ose virtualbox-ose-guest virtualbox-ose-guest-dkms
