@@ -43,6 +43,7 @@ mkdir -p $HOME/.local/share/gnupg
 mkdir $HOME/.config
 mkdir -p $HOME/.local/share/applications
 mkdir -p $HOME/.local/bin
+
 cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/
 cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/
 cp -r $HOME/stuffs/git/dotfiles/void/.local/bin/* $HOME/.local/bin/
@@ -58,6 +59,7 @@ mkdir -p $HOME/stuffs/vid
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 sudo mkdir -p /etc/X11/xorg.conf.d
+
 sudo cp $HOME/stuffs/git/dotfiles/void/things/40-libinput.conf /etc/X11/xorg.conf.d/
 sudo cp $HOME/stuffs/git/dotfiles/void/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
@@ -75,11 +77,13 @@ sudo dracut --force && sudo update-grub
 
 # enable alsa with pipewire
 doas mkdir -p /etc/alsa/conf.d
+
 doas ln -sf /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d
 doas ln -sf /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 
 # make jack works well
 doas mkdir -p /etc/ld.so.conf.d
+
 doas cp -r $HOME/stuffs/git/dotfiles/void/things/jack.conf /etc/ld.so.conf.d/pipewire-jack.conf
 doas ldconfig
 
@@ -247,10 +251,13 @@ rm -rf $HOME/stuffs/git/dwm
 rm -rf $HOME/stuffs/git/slstatus
 rm -rf $HOME/stuffs/git/wl-color-picker
 
-doas xbps-remove -ROoFfvy && doas rm -rf /var/cache/xbps/* && doas rm -rf $HOME/.cache && doas vkpurge rm all
+doas xbps-remove -ROoFfvy
+doas rm -rf $HOME/.cache
+doas vkpurge rm all
 
-# some packages might not configured properly, consider fix this with xbps-reconfigure to all packages
+# some packages might not configured properly, consider fix this with xbps-reconfigure and xcheckrestart to all packages
 doas xbps-reconfigure -fa
+xcheckrestart
 
 # trimming SSD if available
 doas fstrim -av

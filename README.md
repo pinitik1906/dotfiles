@@ -57,7 +57,7 @@ sudo pacman -Rns gammastep
 
 **void**
 ```
-sudo xbps-remove -ROo gammastep
+sudo xbps-remove -Ro gammastep
 ```
 
 ### image previews in either X11/Wayland

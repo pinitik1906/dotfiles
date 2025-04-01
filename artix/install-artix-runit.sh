@@ -220,7 +220,9 @@ rm -rf $HOME/stuffs/git/dwl
 rm -rf $HOME/stuffs/git/dwm
 rm -rf $HOME/stuffs/git/slstatus
 
-paru -Qqtd | paru -Rnsdd --noconfirm - && paru -Sc --noconfirm && doas rm -rf $HOME/.cache
+paru -Qtd | paru -Rnsdd --noconfirm -
+paru -Sc --noconfirm
+doas rm -rf $HOME/.cache
 
 # trimming SSD if available
 doas fstrim -av
