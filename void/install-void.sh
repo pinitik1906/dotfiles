@@ -257,7 +257,7 @@ doas vkpurge rm all
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure and xcheckrestart to all packages
 doas xbps-reconfigure -fa
-xcheckrestart
+xcheckrestart -v
 
 # trimming SSD if available
 doas fstrim -av

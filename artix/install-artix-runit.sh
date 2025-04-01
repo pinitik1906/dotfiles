@@ -21,7 +21,7 @@ doas groupadd libvirt
 doas usermod -aG video,audio,wheel,network,storage,kvm,plugdev,floppy,cdrom,optical,libvirt $USER
 
 # checking updates & syncing repos
-doas pacman -Syu --needed --noconfirm
+doas pacman -Syuq --needed --noconfirm
 
 # create folders for screenshooting, music player, and gnupg, otherwise it won't work
 mkdir -p $HOME/stuffs/pic/screenshots
@@ -52,15 +52,15 @@ doas cp $HOME/stuffs/git/dotfiles/artix/things/40-libinput.conf /etc/X11/xorg.co
 doas cp $HOME/stuffs/git/dotfiles/artix/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
 # copying preconfigured pacman.conf and paru.conf
-doas pacman -S --needed --noconfirm artix-archlinux-support
+doas pacman -Sq --needed --noconfirm artix-archlinux-support
 doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/pacman.conf /etc/pacman.conf
 doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/paru.conf /etc/paru.conf
 
 # installing paru as a default AUR HELPER
-doas pacman -Rnsdd --noconfirm sudo && doas pacman -S --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm && paru -Syu --needed --noconfirm
+doas pacman -Rnsdd --noconfirm sudo && doas pacman -Sq --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm && paru -Syuq --needed --noconfirm
 
 # installing important dependencies
-paru -S --needed --noconfirm dash dashbinsh iptables-runit base-devel elogind-runit polkit dbus-runit brillo xorg-xhost xdg-utils wmname libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg less mandoc dunst libnotify zsh zsh-syntax-highlighting rsync-runit ufw-runit backlight-runit fzf udisks2 udiskie dragon-drop bat odt2txt poppler mediainfo atool tar unzip 7zip zstd
+paru -Sq --needed --noconfirm dash dashbinsh iptables-runit base-devel elogind-runit polkit dbus-runit brillo xorg-xhost xdg-utils wmname libinih linux-firmware pipewire pipewire-pulse pipewire-alsa pipewire-jack mate-polkit ffmpeg less mandoc dunst libnotify zsh zsh-syntax-highlighting rsync-runit ufw-runit backlight-runit fzf udisks2 udiskie dragon-drop bat odt2txt poppler mediainfo atool tar unzip 7zip zstd
 
 # copying my pre-configured grub
 doas cp $HOME/stuffs/git/dotfiles/artix/things/grub /etc/default/grub
@@ -81,10 +81,10 @@ doas ln -s /etc/runit/sv/dbus/ /run/runit/service
 paru -Rnsdd --noconfirm acpid acpid-runit && doas rm -rf /etc/runit/sv/acpid && doas rm -rf /run/runit/service/acpid
 
 # installing additional vulkan dependencies
-paru -S --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
+paru -Sq --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 
 # 32bit vulkan dependencies [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
+#paru -Sq --needed --noconfirm lib32-vulkan-icd-loader lib32-vulkan-swrast lib32-vulkan-mesa-layers
 
 # getting all of the git packages
 git clone --depth 1 https://github.com/pinitik1906/st.git $HOME/stuffs/git/st
@@ -95,52 +95,52 @@ git clone --depth 1 https://github.com/pinitik1906/slstatus.git $HOME/stuffs/git
 ###### DRIVERS ######
 
 # modern_intel [NEEDS ARCH REPO ENABLED]
-#paru -S --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl intel-media-driver xf86-video-intel && doas cp $HOME/stuffs/git/dotfiles/artix/things/20-intel.conf /etc/X11/xorg.conf.d/
+#paru -Sq --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl intel-media-driver xf86-video-intel && doas cp $HOME/stuffs/git/dotfiles/artix/things/20-intel.conf /etc/X11/xorg.conf.d/
 
 # 32-bit modern_intel [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libvdpau lib32-libvdpau-va-gl
+#paru -Sq --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libvdpau lib32-libvdpau-va-gl
 
 # old_intel [NEEDS ARCH REPO ENABLED]
-#paru -Rnsdd --noconfirm libva && paru -S --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl libva-intel-driver-git xf86-video-intel && doas cp $HOME/stuffs/git/dotfiles/artix/things/20-intel.conf /etc/X11/xorg.conf.d/
+#paru -Rnsdd --noconfirm libva && paru -Sq --needed --noconfirm mesa vulkan-intel libvdpau libvdpau-va-gl libva-intel-driver-git xf86-video-intel && doas cp $HOME/stuffs/git/dotfiles/artix/things/20-intel.conf /etc/X11/xorg.conf.d/
 
 # 32-bit old_intel [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libvdpau lib32-libvdpau-va-gl lib32-libva-intel-driver
+#paru -Sq --needed --noconfirm lib32-mesa lib32-vulkan-intel lib32-libvdpau lib32-libvdpau-va-gl lib32-libva-intel-driver
 
 # intel microcode [IMPORTANT]
-#paru -S --needed --noconfirm intel-ucode
+#paru -Sq --needed --noconfirm intel-ucode
 
 # modern_amd
-#paru -S --needed --noconfirm mesa vulkan-radeon xf86-video-amdgpu && doas cp $HOME/stuffs/git/dotfiles/artix/things/20-amdgpu.conf /etc/X11/xorg.conf.d/
+#paru -Sq --needed --noconfirm mesa vulkan-radeon xf86-video-amdgpu && doas cp $HOME/stuffs/git/dotfiles/artix/things/20-amdgpu.conf /etc/X11/xorg.conf.d/
 
 # 32-bit modern_amd [NEEDS MULTILIB  ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-vulkan-radeon
+#paru -Sq --needed --noconfirm lib32-mesa lib32-vulkan-radeon
 
 # old_amd
-#paru -S --needed --noconfirm mesa amdvlk xf86-video-ati && doas cp $HOME/stuffs/git/dotfiles/artix/things/20-radeon.conf /etc/X11/xorg.conf.d/
+#paru -Sq --needed --noconfirm mesa amdvlk xf86-video-ati && doas cp $HOME/stuffs/git/dotfiles/artix/things/20-radeon.conf /etc/X11/xorg.conf.d/
 
 # 32-bit old_amd [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-amdvlk
+#paru -Sq --needed --noconfirm lib32-mesa lib32-amdvlk
 
 # amd microcode [IMPORTANT]
-#paru -S --needed --noconfirm amd-ucode
+#paru -Sq --needed --noconfirm amd-ucode
 
 # modern_nvidia open-source [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm mesa nvidia-open nvidia-open-dkms nvidia-utils libva-nvidia-driver
+#paru -Sq --needed --noconfirm mesa nvidia-open nvidia-open-dkms nvidia-utils libva-nvidia-driver
 
 # 32-bit modern_nvidia open-source [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-nvidia-utils
+#paru -Sq --needed --noconfirm lib32-mesa lib32-nvidia-utils
 
 # modern_nvidia proprietary [NEEDS ARCH REPO ENABLED]
-#paru -S --needed --noconfirm mesa nvidia nvidia-dkms nvidia-utils libva-nvidia-driver
+#paru -Sq --needed --noconfirm mesa nvidia nvidia-dkms nvidia-utils libva-nvidia-driver
 
 # 32-bit modern_nvidia proprietary [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-lib32-nvidia-utils
+#paru -Sq --needed --noconfirm lib32-mesa lib32-lib32-nvidia-utils
 
 # old_nvidia nouveau
-#paru -S --needed --noconfirm mesa vulkan-nouveau xf86-video-nouveau
+#paru -Sq --needed --noconfirm mesa vulkan-nouveau xf86-video-nouveau
 
 # 32-bit old_nvidia nouveau [NEEDS MULTILIB REPO ENABLED]
-#paru -S --needed --noconfirm lib32-mesa lib32-vulkan-nouveau
+#paru -Sq --needed --noconfirm lib32-mesa lib32-vulkan-nouveau
 
 ###### DRIVERS ######
 
@@ -148,37 +148,37 @@ git clone --depth 1 https://github.com/pinitik1906/slstatus.git $HOME/stuffs/git
 ###### OPTIONAL ######
 
 # librewolf (recommended)
-paru -S --needed --noconfirm librewolf
+paru -Sq --needed --noconfirm librewolf
 
 # flatpak and enable flathub both on system and user
-#paru -S --needed --noconfirm flatpak && flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+#paru -Sq --needed --noconfirm flatpak && flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 # virtualbox [VIRTUAL MACHINE]
-#paru -S --needed --noconfirm virtualbox virtualbox-guest-utils
+#paru -Sq --needed --noconfirm virtualbox virtualbox-guest-utils
 
 # qemu/virt-manager (recommended) [VIRTUAL MACHINE]
-#paru -S --needed --noconfirm qemu-full virt-manager virt-viewer dnsmasq-runit vde2 bridge-utils openbsd-netcat libvirt-runit libguestfs && doas ln -s /etc/runit/sv/libvirtd/ /run/runit/service && doas ln -s /etc/runit/sv/virtlockd/ /run/runit/service && doas ln -s /etc/runit/sv/virtlogd/ /run/runit/service
+#paru -Sq --needed --noconfirm qemu-full virt-manager virt-viewer dnsmasq-runit vde2 bridge-utils openbsd-netcat libvirt-runit libguestfs && doas ln -s /etc/runit/sv/libvirtd/ /run/runit/service && doas ln -s /etc/runit/sv/virtlockd/ /run/runit/service && doas ln -s /etc/runit/sv/virtlogd/ /run/runit/service
 
 # ttf-ms-fonts [LEGACY]
-#paru -S --needed --noconfirm ttf-ms-fonts
+#paru -Sq --needed --noconfirm ttf-ms-fonts
 
 # ueberzugpp (will break if not installed)
-paru -S --needed --noconfirm ueberzugpp ffmpegthumbnailer
+paru -Sq --needed --noconfirm ueberzugpp ffmpegthumbnailer
 
 # thinkfan [THINKPADS ONLY]
-#doas cp -r $HOME/stuffs/git/dotfiles/artix/services/thinkfan/ /etc/runit/sv/ && paru -S --needed --noconfirm thinkfan && doas cp $HOME/stuffs/git/dotfiles/artix/things/thinkfan.yaml /etc/ && doas ln -s /etc/runit/sv/thinkfan/ /run/runit/service
+#doas cp -r $HOME/stuffs/git/dotfiles/artix/services/thinkfan/ /etc/runit/sv/ && paru -Sq --needed --noconfirm thinkfan && doas cp $HOME/stuffs/git/dotfiles/artix/things/thinkfan.yaml /etc/ && doas ln -s /etc/runit/sv/thinkfan/ /run/runit/service
 
 # tlp
-#paru -S --needed --noconfirm tlp-runit && doas ln -s /etc/runit/sv/tlp/ /run/runit/service
+#paru -Sq --needed --noconfirm tlp-runit && doas ln -s /etc/runit/sv/tlp/ /run/runit/service
 
 # thermald [INTEL ONLY]
-#paru -S --needed --noconfirm thermald-runit && doas ln -s /etc/runit/sv/thermald/ /run/runit/service
+#paru -Sq --needed --noconfirm thermald-runit && doas ln -s /etc/runit/sv/thermald/ /run/runit/service
 
 # intel-undervolt [INTEL ONLY]
-#paru -S --needed --noconfirm intel-undervolt-runit && doas cp $HOME/stuffs/git/dotfiles/artix/things/intel-undervolt.conf /etc/intel-undervolt.conf && doas ln -s /etc/runit/sv/intel-undervolt/ /run/runit/service
+#paru -Sq --needed --noconfirm intel-undervolt-runit && doas cp $HOME/stuffs/git/dotfiles/artix/things/intel-undervolt.conf /etc/intel-undervolt.conf && doas ln -s /etc/runit/sv/intel-undervolt/ /run/runit/service
 
 # bluetooth
-#paru -S --needed --noconfirm bluez-runit bluez-utils && doas ln -s /etc/runit/sv/bluetoothd/ /run/runit/service
+#paru -Sq --needed --noconfirm bluez-runit bluez-utils && doas ln -s /etc/runit/sv/bluetoothd/ /run/runit/service
 
 ###### OPTIONAL ######
 
@@ -186,16 +186,16 @@ paru -S --needed --noconfirm ueberzugpp ffmpegthumbnailer
 ###### WINDOW MANAGERS ######
 
 # dwm (X11)
-paru -S --needed --noconfirm rofi i3lock-color xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 pkgconf && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
+paru -Sq --needed --noconfirm rofi i3lock-color xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 pkgconf && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
 
 # dwl (Wayland)
-#paru -S --needed --noconfirm rofi tofi foot swaylock xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland tllist fcft pixman libx11 libxft libxinerama && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
+#paru -Sq --needed --noconfirm rofi tofi foot swaylock xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland tllist fcft pixman libx11 libxft libxinerama && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
 
 ###### WINDOW MANAGERS ######
 
 
 # install your programs here
-paru -S --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol imv-git gammastep yt-dlp mpd ncmpcpp calcurse newsboat
+paru -Sq --needed --noconfirm noto-fonts noto-fonts-emoji noto-fonts-cjk htop fastfetch neovim zathura zathura-pdf-poppler mpv lf pavucontrol imv-git gammastep yt-dlp mpd ncmpcpp calcurse newsboat
 
 # fixing mandoc (temporary)
 doas makewhatis -a
@@ -220,7 +220,7 @@ rm -rf $HOME/stuffs/git/dwl
 rm -rf $HOME/stuffs/git/dwm
 rm -rf $HOME/stuffs/git/slstatus
 
-paru -Qtd | paru -Rnsdd --noconfirm -
+paru -Qqtd | paru -Rnsdd --noconfirm -
 paru -Sc --noconfirm
 doas rm -rf $HOME/.cache
 
