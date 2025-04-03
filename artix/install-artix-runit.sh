@@ -210,6 +210,9 @@ doas ln -sfT dash /sbin/sh
 doas ln -sfT dash /usr/bin/sh
 doas ln -sfT dash /usr/sbin/sh
 
+# enabling tmpfs
+echo "tmpfs	/tmp	tmpfs	rw,noatime,nodev,nosuid		0 0" | doas tee -a /etc/fstab > /dev/null
+
 # removing any orphaned git and packages
 rm -rf $HOME/.bash_logout
 rm -rf $HOME/.bash_history
