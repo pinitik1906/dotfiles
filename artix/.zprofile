@@ -26,6 +26,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 # spring $HOME cleaning!
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 export W3M_DIR="$XDG_DATA_HOME/w3m"
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/notmuch-config"
 export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
@@ -57,7 +58,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT='MToolkit wmname LG3D'
 
 # force adwaita dark theme
-export GTK_THEME=Adwaita:dark
+export GTK_THEME='Adwaita:dark'
 
 # wayland fixes
 export GDK_BACKEND='wayland,x11'
