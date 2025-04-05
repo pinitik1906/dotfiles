@@ -2,4 +2,5 @@
 
 dunst &
 gammastep -Pxr -O 2300 &
+swayidle -w before-sleep 'wlock' &
 /usr/libexec/polkit-mate-authentication-agent-1
