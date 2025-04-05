@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# get user selection via tofi from emoji file
-chosen=$(cut -d ';' -f1 ~/.local/share/emoji | tofi | sed "s/ .*//")
+# get user selection via rofi from emoji file
+chosen=$(cut -d ';' -f1 ~/.local/share/emoji | dmenu -l 15 | sed "s/ .*//")
 
 # exit if none chosen
 [ -z "$chosen" ] && exit
@@ -9,8 +9,8 @@ chosen=$(cut -d ';' -f1 ~/.local/share/emoji | tofi | sed "s/ .*//")
 # if you run this command with an argument, it will automatically insert the
 # character. otherwise, show a message that the emoji has been copied
 if [ -n "$1" ]; then
-	wtype "$chosen"
+	xdotool type "$chosen"
 else
-	printf "%s" "$chosen" | wl-copy
+	printf "%s" "$chosen" | xclip -selection clipboard
 	notify-send -t 2000 "$chosen copied to clipboard" &
 fi

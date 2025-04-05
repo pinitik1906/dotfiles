@@ -7,7 +7,7 @@
 # nor is it made in association with anyone else, regardless of
 # their claims
 
-# dependencies: bash mpv yt-dlp fzf dmenu grep (GNU grep)
+# dependencies: bash mpv yt-dlp fzf mew grep (GNU grep)
 # NOTE: if you do not have GNU grep you can replace grep with ripgrep
 
 # explain usage
@@ -18,7 +18,7 @@ function usage () {
   echo "    -h          help"
   echo "    -c          channels/subscriptions"
   echo "    -s [query]  search"
-  echo "    -g          gui mode (rofi)"
+  echo "    -g          gui mode (mew)"
   echo "    -m          music mode (audio only)"
   echo
   echo "add channel names to the file $sublistpath to show them"
@@ -50,7 +50,7 @@ optstring=":s:cgrhm"
 
 defcmd="fzf"
 defaction="s"
-guicmd="dmenu -l 15"
+guicmd="mew -l 15"
 
 # defaults
 promptcmd="$defcmd"

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # DISCLAIMER: this script has been started solely by sayan01
 # and has had contributions from others like Nicholas-Baron,
@@ -7,7 +7,7 @@
 # nor is it made in association with anyone else, regardless of
 # their claims
 
-# dependencies: bash mpv yt-dlp fzf rofi grep (GNU grep)
+# dependencies: bash mpv yt-dlp fzf dmenu grep (GNU grep)
 # NOTE: if you do not have GNU grep you can replace grep with ripgrep
 
 # explain usage
@@ -50,7 +50,7 @@ optstring=":s:cgrhm"
 
 defcmd="fzf"
 defaction="s"
-guicmd="rofi -dmenu"
+guicmd="dmenu -l 15"
 
 # defaults
 promptcmd="$defcmd"
