@@ -90,7 +90,9 @@ paru -Sq --needed --noconfirm vulkan-icd-loader vulkan-swrast vulkan-mesa-layers
 git clone --depth 1 https://github.com/pinitik1906/st.git $HOME/stuffs/git/st
 git clone --depth 1 https://github.com/pinitik1906/dwl.git $HOME/stuffs/git/dwl
 git clone --depth 1 https://github.com/pinitik1906/dwm.git $HOME/stuffs/git/dwm
+git clone --depth 1 https://github.com/pinitik1906/slstatus.git $HOME/stuffs/git/slock
 git clone --depth 1 https://github.com/pinitik1906/slstatus.git $HOME/stuffs/git/slstatus
+git clone --depth 1 https://github.com/pinitik1906/slstatus.git $HOME/stuffs/git/wlock
 
 ###### DRIVERS ######
 
@@ -186,10 +188,10 @@ paru -Sq --needed --noconfirm ueberzugpp ffmpegthumbnailer
 ###### WINDOW MANAGERS ######
 
 # dwm (X11)
-paru -Sq --needed --noconfirm rofi i3lock-color xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 pkgconf && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
+paru -Sq --needed --noconfirm rofi xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 pkgconf && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/slock && doas make clean install
 
 # dwl (Wayland)
-#paru -Sq --needed --noconfirm rofi tofi foot swaylock xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland tllist fcft pixman libx11 libxft libxinerama && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install
+#paru -Sq --needed --noconfirm rofi tofi foot xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland tllist fcft pixman libx11 libxft && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/wlock && doas make clean install
 
 ###### WINDOW MANAGERS ######
 
@@ -214,14 +216,16 @@ doas ln -sfT dash /usr/sbin/sh
 echo "tmpfs	/tmp	tmpfs	rw,noatime,nodev,nosuid		0 0" | doas tee -a /etc/fstab > /dev/null
 
 # removing any orphaned git and packages
-rm -rf $HOME/.bash_logout
 rm -rf $HOME/.bash_history
+rm -rf $HOME/.bash_logout
 rm -rf $HOME/.inputrc
 rm -rf $HOME/stuffs/git/paru-bin
 rm -rf $HOME/stuffs/git/st
 rm -rf $HOME/stuffs/git/dwl
 rm -rf $HOME/stuffs/git/dwm
+rm -rf $HOME/stuffs/git/slock
 rm -rf $HOME/stuffs/git/slstatus
+rm -rf $HOME/stuffs/git/wlock
 
 paru -Qqtd | paru -Rnsdd --noconfirm -
 paru -Sc --noconfirm

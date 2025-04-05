@@ -15,6 +15,7 @@
 - [`dwm`](https://github.com/pinitik1906/dwm) / [`dwl`](https://github.com/pinitik1906/dwl)
 - [`st`](https://github.com/pinitik1906/st) / `foot`
 - `rofi` / `tofi`
+- [`slock`](https://github.com/pinitik1906/slock) / [`wlock`](https://github.com/pinitik1906/wlock)
 - [`slstatus`](https://github.com/pinitik1906/slstatus)
 - `zsh`
 - `dunst`

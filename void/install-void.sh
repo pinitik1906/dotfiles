@@ -109,8 +109,10 @@ doas xbps-install -vy vulkan-loader mesa-vulkan-lavapipe
 git clone --depth 1 https://github.com/pinitik1906/st.git $HOME/stuffs/git/st
 git clone --depth 1 https://github.com/pinitik1906/dwl.git $HOME/stuffs/git/dwl
 git clone --depth 1 https://github.com/pinitik1906/dwm.git $HOME/stuffs/git/dwm
+git clone --depth 1 https://github.com/pinitik1906/slstatus.git $HOME/stuffs/git/slock
 git clone --depth 1 https://github.com/pinitik1906/slstatus.git $HOME/stuffs/git/slstatus
 git clone --depth 1 https://github.com/jgmdev/wl-color-picker.git $HOME/stuffs/git/wl-color-picker
+git clone --depth 1 https://github.com/pinitik1906/slstatus.git $HOME/stuffs/git/wlock
 
 ###### DRIVERS ######
 
@@ -211,10 +213,10 @@ cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg cli11 && doas xbps-install -vy
 ###### WINDOW MANAGERS ######
 
 # dwm (X11)
-doas xbps-install -vy rofi i3lock-color xorg-server xf86-input-libinput libinput xauth xinit xss-lock xset xsel xclip xdotool xrandr scrot xcolor libX11 libXft libXinerama fontconfig freetype pkg-config && doas xbps-install -vy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && doas xbps-remove -RFfvy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel
+doas xbps-install -vy rofi xorg-server xf86-input-libinput libinput xauth xinit xss-lock xset xsel xclip xdotool xrandr scrot xcolor libX11 libXft libXinerama fontconfig freetype pkg-config && doas xbps-install -vy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/slock && doas make clean install && doas xbps-remove -RFfvy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel
 
 # dwl (Wayland)
-#doas xbps-install -vy rofi tofi foot swaylock xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland zenity ImageMagick xf86-input-libinput libinput wayland wayland-protocols wlroots0.18 libxkbcommon pkg-config libxcb xorg-server-xwayland tllist fcft pixman && doas xbps-install -vy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel pixman-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/wl-color-picker && doas make install && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && doas xbps-remove -RFfvy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel libX11-devel libXft-devel libXinerama-devel
+#doas xbps-install -vy rofi tofi foot xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland zenity ImageMagick xf86-input-libinput libinput wayland wayland-protocols wlroots0.18 libxkbcommon pkg-config libxcb xorg-server-xwayland tllist fcft pixman && doas xbps-install -vy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel pixman-devel libX11-devel libXft-devel && cd $HOME/stuffs/git/wl-color-picker && doas make install && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/wlock && doas make clean install && doas xbps-remove -RFfvy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel libX11-devel libXft-devel
 
 ###### WINDOW MANAGERS ######
 
@@ -242,14 +244,16 @@ doas ln -sfT dash /usr/bin/sh
 doas ln -sfT dash /usr/sbin/sh
 
 # removing any orphaned git and packages
-rm -rf $HOME/.bash_logout
 rm -rf $HOME/.bash_history
+rm -rf $HOME/.bash_logout
 rm -rf $HOME/.inputrc
 rm -rf $HOME/stuffs/git/st
 rm -rf $HOME/stuffs/git/dwl
 rm -rf $HOME/stuffs/git/dwm
+rm -rf $HOME/stuffs/git/slock
 rm -rf $HOME/stuffs/git/slstatus
 rm -rf $HOME/stuffs/git/wl-color-picker
+rm -rf $HOME/stuffs/git/wlock
 
 doas xbps-remove -ROoFfvy
 doas rm -rf $HOME/.cache
