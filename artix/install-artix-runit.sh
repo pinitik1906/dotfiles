@@ -190,10 +190,10 @@ paru -Sq --needed --noconfirm ueberzugpp ffmpegthumbnailer
 ###### WINDOW MANAGERS ######
 
 # dwm (X11)
-paru -Sq --needed --noconfirm rofi xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 pkgconf && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/slock && doas make clean install
+paru -Sq --needed --noconfirm xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 pkgconf && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/slock && doas make clean install
 
 # dwl (Wayland)
-#paru -Sq --needed --noconfirm rofi tofi foot xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland tllist fcft pixman libx11 libxft && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/wlock && doas make clean install && cd $HOME/stuffs/git/mew && doas make clean install
+#paru -Sq --needed --noconfirm foot xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland tllist fcft pixman libx11 libxft && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/wlock && doas make clean install && cd $HOME/stuffs/git/mew && doas make clean install
 
 ###### WINDOW MANAGERS ######
 
