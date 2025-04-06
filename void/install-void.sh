@@ -46,6 +46,7 @@ mkdir -p $HOME/.local/bin
 
 cp -r $HOME/stuffs/git/dotfiles/void/.config/* $HOME/.config/
 cp -r $HOME/stuffs/git/dotfiles/void/.local/share/applications/* $HOME/.local/share/applications/
+cp -r $HOME/stuffs/git/dotfiles/void/.local/share/bg/* $HOME/.local/share/bg/
 cp -r $HOME/stuffs/git/dotfiles/void/.local/bin/* $HOME/.local/bin/
 cp $HOME/stuffs/git/dotfiles/void/.local/share/emoji $HOME/.local/share/
 cp $HOME/stuffs/git/dotfiles/void/.zprofile $HOME/.zprofile
@@ -215,10 +216,10 @@ cd $HOME/stuffs/git/xbps-src && ./xbps-src -f pkg cli11 && doas xbps-install -vy
 ###### WINDOW MANAGERS ######
 
 # dwm (X11)
-doas xbps-install -vy xorg-server xf86-input-libinput libinput xauth xinit xss-lock xset xsel xclip xdotool xrandr scrot xcolor libX11 libXft libXinerama fontconfig freetype pkg-config && doas xbps-install -vy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/slock && doas make clean install && cd $HOME/stuffs/git/dmenu && doas make clean install && doas xbps-remove -RFfvy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel
+doas xbps-install -vy hsetroot xorg-server xf86-input-libinput libinput xauth xinit xss-lock xset xsel xclip xdotool xrandr scrot xcolor libX11 libXft libXinerama fontconfig freetype pkg-config && doas xbps-install -vy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/slock && doas make clean install && cd $HOME/stuffs/git/dmenu && doas make clean install && doas xbps-remove -RFfvy fontconfig-devel freetype-devel libX11-devel libXft-devel libXinerama-devel
 
 # dwl (Wayland)
-#doas xbps-install -vy foot xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland zenity ImageMagick xf86-input-libinput libinput wayland wayland-protocols wlroots0.18 libxkbcommon pkg-config libxcb xorg-server-xwayland tllist fcft pixman && doas xbps-install -vy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel pixman-devel libX11-devel libXft-devel && cd $HOME/stuffs/git/wl-color-picker && doas make install && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/wlock && doas make clean install && cd $HOME/stuffs/git/mew && doas make clean install && doas xbps-remove -RFfvy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel libX11-devel libXft-devel
+#doas xbps-install -vy swaybg foot xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland zenity ImageMagick xf86-input-libinput libinput wayland wayland-protocols wlroots0.18 libxkbcommon pkg-config libxcb xorg-server-xwayland tllist fcft pixman && doas xbps-install -vy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel pixman-devel libX11-devel libXft-devel && cd $HOME/stuffs/git/wl-color-picker && doas make install && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/wlock && doas make clean install && cd $HOME/stuffs/git/mew && doas make clean install && doas xbps-remove -RFfvy libinput-devel wayland-devel wlroots0.18-devel libxkbcommon-devel libxcb-devel fcft-devel libX11-devel libXft-devel
 
 ###### WINDOW MANAGERS ######
 
@@ -260,7 +261,6 @@ rm -rf $HOME/stuffs/git/slstatus
 rm -rf $HOME/stuffs/git/wl-color-picker
 
 doas xbps-remove -ROoFfvy
-doas rm -rf $HOME/.cache
 doas vkpurge rm all
 
 # some packages might not configured properly, consider fix this with xbps-reconfigure and xcheckrestart to all packages

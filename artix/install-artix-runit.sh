@@ -33,8 +33,10 @@ mkdir -p $HOME/.local/share/gnupg
 mkdir -p $HOME/.config
 mkdir -p $HOME/.local/share/applications
 mkdir -p $HOME/.local/bin
+
 cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/
 cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/applications/* $HOME/.local/share/applications/
+cp -r $HOME/stuffs/git/dotfiles/artix/.local/share/bg/* $HOME/.local/share/bg/
 cp -r $HOME/stuffs/git/dotfiles/artix/.local/bin/* $HOME/.local/bin/
 cp $HOME/stuffs/git/dotfiles/artix/.local/share/emoji $HOME/.local/share/
 cp $HOME/stuffs/git/dotfiles/artix/.zprofile $HOME/.zprofile
@@ -48,11 +50,13 @@ mkdir -p $HOME/stuffs/vid
 
 # copying all xorg conf to /etc/X11/xorg.conf.d/
 doas mkdir -p /etc/X11/xorg.conf.d
+
 doas cp $HOME/stuffs/git/dotfiles/artix/things/40-libinput.conf /etc/X11/xorg.conf.d/
 doas cp $HOME/stuffs/git/dotfiles/artix/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
 # copying preconfigured pacman.conf and paru.conf
 doas pacman -Sq --needed --noconfirm artix-archlinux-support
+
 doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/pacman.conf /etc/pacman.conf
 doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/paru.conf /etc/paru.conf
 
@@ -190,10 +194,10 @@ paru -Sq --needed --noconfirm ueberzugpp ffmpegthumbnailer
 ###### WINDOW MANAGERS ######
 
 # dwm (X11)
-paru -Sq --needed --noconfirm xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 pkgconf && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/slock && doas make clean install
+paru -Sq --needed --noconfirm hsetroot xorg-server xf86-input-libinput xorg-xauth xorg-xinit xss-lock xorg-xset xsel xclip xdotool xorg-xrandr scrot xcolor libx11 libxft libxinerama fontconfig freetype2 pkgconf && cd $HOME/stuffs/git/st && doas make clean install && cd $HOME/stuffs/git/dwm && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/slock && doas make clean install
 
 # dwl (Wayland)
-#paru -Sq --needed --noconfirm foot xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland tllist fcft pixman libx11 libxft && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/wlock && doas make clean install && cd $HOME/stuffs/git/mew && doas make clean install
+#paru -Sq --needed --noconfirm swaybg foot xdg-desktop-portal-wlr xdg-desktop-portal-gtk wl-clipboard wtype wlr-randr grim slurp qt5-wayland qt6-wayland wl-color-picker xf86-input-libinput libinput wayland wayland-protocols wlroots libxkbcommon pkgconf libxcb xorg-xwayland tllist fcft pixman libx11 libxft && cd $HOME/stuffs/git/dwl && doas make clean install && cd $HOME/stuffs/git/slstatus && doas make clean install && cd $HOME/stuffs/git/wlock && doas make clean install && cd $HOME/stuffs/git/mew && doas make clean install
 
 ###### WINDOW MANAGERS ######
 
@@ -233,7 +237,6 @@ rm -rf $HOME/stuffs/git/slstatus
 
 paru -Qqtd | paru -Rnsdd --noconfirm -
 paru -Sc --noconfirm
-doas rm -rf $HOME/.cache
 
 # trimming SSD if available
 doas fstrim -av

@@ -16,8 +16,10 @@
 - [`st`](https://github.com/pinitik1906/st) / `foot`
 - [`dmenu`](https://github.com/pinitik1906/dmenu) / [`mew`](https://github.com/pinitik1906/mew)
 - [`slock`](https://github.com/pinitik1906/slock) / [`wlock`](https://github.com/pinitik1906/wlock)
+- `hsetroot` / `swaybg`
 - [`slstatus`](https://github.com/pinitik1906/slstatus)
 - `zsh`
+- `opendoas`
 - `dunst`
 - `fastfetch`
 - `htop`
