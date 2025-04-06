@@ -156,7 +156,7 @@ git clone --depth 1 https://github.com/pinitik1906/slstatus.git $HOME/stuffs/git
 ###### OPTIONAL ######
 
 # librewolf (recommended)
-paru -Sq --needed --noconfirm librewolf
+paru -Sq --needed --noconfirm librewolf-bin
 
 # flatpak and enable flathub both on system and user
 #paru -Sq --needed --noconfirm flatpak && flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
