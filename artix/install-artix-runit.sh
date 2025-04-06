@@ -32,6 +32,7 @@ mkdir -p $HOME/.local/share/gnupg
 # copying all conf to home folder
 mkdir -p $HOME/.config
 mkdir -p $HOME/.local/share/applications
+mkdir -p $HOME/.local/share/bg
 mkdir -p $HOME/.local/bin
 
 cp -r $HOME/stuffs/git/dotfiles/artix/.config/* $HOME/.config/
