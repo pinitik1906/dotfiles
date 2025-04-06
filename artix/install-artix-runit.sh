@@ -54,11 +54,10 @@ doas mkdir -p /etc/X11/xorg.conf.d
 doas cp $HOME/stuffs/git/dotfiles/artix/things/40-libinput.conf /etc/X11/xorg.conf.d/
 doas cp $HOME/stuffs/git/dotfiles/artix/things/90-touchpad.conf /etc/X11/xorg.conf.d/
 
-# copying preconfigured pacman.conf and paru.conf
+# copying preconfigured pacman.conf
 doas pacman -Sq --needed --noconfirm artix-archlinux-support
 
 doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/pacman.conf /etc/pacman.conf
-doas cp -r $HOME/stuffs/git/dotfiles/artix/things/repo/paru.conf /etc/paru.conf
 
 # installing paru as a default AUR HELPER
 doas pacman -Rnsdd --noconfirm sudo && doas pacman -Sq --needed --noconfirm base-devel git && git clone --depth 1 https://aur.archlinux.org/paru-bin.git $HOME/stuffs/git/paru-bin && cd $HOME/stuffs/git/paru-bin && makepkg -Csic --needed --noconfirm && paru -Syuq --needed --noconfirm
