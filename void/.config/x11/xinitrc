@@ -1,7 +1,7 @@
 dunst &
 gammastep -Pxr -O 2300 &
 /usr/libexec/polkit-mate-authentication-agent-1 &
-xss-lock --quiet -l -- slock
+xss-lock --quiet -l -- slock &
 xset -dpms r rate 300 50 s off &
 slstatus &
 dwm
